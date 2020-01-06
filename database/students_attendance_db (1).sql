@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 27, 2019 at 08:10 AM
+-- Generation Time: Jan 06, 2020 at 04:09 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.3
 
@@ -21,18 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `students_attendance_db`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `admins`
---
-
-CREATE TABLE `admins` (
-  `adminid` int(6) NOT NULL,
-  `adminusername` varchar(60) DEFAULT NULL,
-  `adminpassword` varchar(60) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -69,8 +57,8 @@ CREATE TABLE `computers` (
 CREATE TABLE `contactphonenumbers` (
   `contactphonenumberid` int(6) NOT NULL,
   `studentid` int(6) DEFAULT NULL,
-  `contactphonenumber` varchar(60) DEFAULT NULL,
-  `relationid` int(6) DEFAULT NULL
+  `relationid` int(6) DEFAULT NULL,
+  `contactphonenumber` varchar(60) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -83,6 +71,22 @@ CREATE TABLE `courses` (
   `courseid` int(6) NOT NULL,
   `coursecode` varchar(60) DEFAULT NULL,
   `coursedescription` varchar(60) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `employees`
+--
+
+CREATE TABLE `employees` (
+  `employeeid` int(6) NOT NULL,
+  `employeefirstname` varchar(60) DEFAULT NULL,
+  `employeemiddlename` varchar(60) DEFAULT NULL,
+  `employeelastname` varchar(60) DEFAULT NULL,
+  `username` varchar(60) DEFAULT NULL,
+  `password` varchar(60) DEFAULT NULL,
+  `accountlevel` varchar(60) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -194,44 +198,22 @@ CREATE TABLE `subjects` (
 CREATE TABLE `subjectsschedules` (
   `subjectscheduleid` int(6) NOT NULL,
   `subjectid` int(6) DEFAULT NULL,
-  `teacherid` int(6) DEFAULT NULL,
+  `employeeid` int(6) DEFAULT NULL,
   `roomid` int(6) DEFAULT NULL,
   `start` datetime DEFAULT NULL,
   `end` datetime DEFAULT NULL,
-  `Monday` tinyint(1) DEFAULT NULL,
-  `Tuesday` tinyint(1) DEFAULT NULL,
-  `Wednesday` tinyint(1) DEFAULT NULL,
-  `Thursday` tinyint(1) DEFAULT NULL,
-  `Friday` tinyint(1) DEFAULT NULL,
-  `Saturday` tinyint(1) DEFAULT NULL,
-  `Sunday` tinyint(1) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `teachers`
---
-
-CREATE TABLE `teachers` (
-  `teacherid` int(6) NOT NULL,
-  `teacherfirstname` varchar(60) DEFAULT NULL,
-  `teachermiddlename` varchar(60) DEFAULT NULL,
-  `teacherlastname` varchar(60) DEFAULT NULL,
-  `teacherusername` varchar(60) DEFAULT NULL,
-  `teacherpassword` varchar(60) DEFAULT NULL
+  `monday` tinyint(1) DEFAULT NULL,
+  `tuesday` tinyint(1) DEFAULT NULL,
+  `wednesday` tinyint(1) DEFAULT NULL,
+  `thursday` tinyint(1) DEFAULT NULL,
+  `friday` tinyint(1) DEFAULT NULL,
+  `saturday` tinyint(1) DEFAULT NULL,
+  `sunday` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `admins`
---
-ALTER TABLE `admins`
-  ADD PRIMARY KEY (`adminid`),
-  ADD KEY `FK_admins` (`adminusername`);
 
 --
 -- Indexes for table `attendances`
@@ -252,14 +234,20 @@ ALTER TABLE `computers`
 --
 ALTER TABLE `contactphonenumbers`
   ADD PRIMARY KEY (`contactphonenumberid`),
-  ADD KEY `FK_contactphonenumbers` (`relationid`),
-  ADD KEY `FK_contactphonenumbers1` (`studentid`);
+  ADD KEY `FK_contactphonenumbers1` (`studentid`),
+  ADD KEY `FK_contactphonenumbers` (`relationid`);
 
 --
 -- Indexes for table `courses`
 --
 ALTER TABLE `courses`
   ADD PRIMARY KEY (`courseid`);
+
+--
+-- Indexes for table `employees`
+--
+ALTER TABLE `employees`
+  ADD PRIMARY KEY (`employeeid`);
 
 --
 -- Indexes for table `relations`
@@ -321,25 +309,13 @@ ALTER TABLE `subjects`
 --
 ALTER TABLE `subjectsschedules`
   ADD PRIMARY KEY (`subjectscheduleid`),
-  ADD KEY `FK_subjects` (`teacherid`),
   ADD KEY `FK_subjectsschedules1` (`subjectid`),
-  ADD KEY `FK_subjectsschedules3` (`roomid`);
-
---
--- Indexes for table `teachers`
---
-ALTER TABLE `teachers`
-  ADD PRIMARY KEY (`teacherid`);
+  ADD KEY `FK_subjectsschedules3` (`roomid`),
+  ADD KEY `FK_subjectsschedules` (`employeeid`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
-
---
--- AUTO_INCREMENT for table `admins`
---
-ALTER TABLE `admins`
-  MODIFY `adminid` int(6) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `attendances`
@@ -364,6 +340,12 @@ ALTER TABLE `contactphonenumbers`
 --
 ALTER TABLE `courses`
   MODIFY `courseid` int(6) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `employees`
+--
+ALTER TABLE `employees`
+  MODIFY `employeeid` int(6) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `relations`
@@ -420,12 +402,6 @@ ALTER TABLE `subjectsschedules`
   MODIFY `subjectscheduleid` int(6) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `teachers`
---
-ALTER TABLE `teachers`
-  MODIFY `teacherid` int(6) NOT NULL AUTO_INCREMENT;
-
---
 -- Constraints for dumped tables
 --
 
@@ -479,7 +455,7 @@ ALTER TABLE `studentsubjectsenrolled`
 -- Constraints for table `subjectsschedules`
 --
 ALTER TABLE `subjectsschedules`
-  ADD CONSTRAINT `FK_subjects` FOREIGN KEY (`teacherid`) REFERENCES `teachers` (`teacherid`),
+  ADD CONSTRAINT `FK_subjectsschedules` FOREIGN KEY (`employeeid`) REFERENCES `employees` (`employeeid`),
   ADD CONSTRAINT `FK_subjectsschedules1` FOREIGN KEY (`subjectid`) REFERENCES `subjects` (`subjectid`),
   ADD CONSTRAINT `FK_subjectsschedules3` FOREIGN KEY (`roomid`) REFERENCES `rooms` (`roomid`);
 COMMIT;

@@ -25,9 +25,9 @@
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
 </table>
 <table name="computers" view="colnames">
-<left>358</left>
-<top>650</top>
-<width>143</width>
+<left>354</left>
+<top>627</top>
+<width>147</width>
 <height>112</height>
 <sql_create_table>CREATE TABLE `computers` (
   `computerid` int(6) NOT NULL AUTO_INCREMENT,
@@ -43,11 +43,11 @@
 <sql_create_table>CREATE TABLE `contactphonenumbers` (
   `contactphonenumberid` int(6) NOT NULL AUTO_INCREMENT,
   `studentid` int(6) DEFAULT NULL,
-  `contactphonenumber` varchar(60) DEFAULT NULL,
   `relationid` int(6) DEFAULT NULL,
+  `contactphonenumber` varchar(60) DEFAULT NULL,
   PRIMARY KEY (`contactphonenumberid`),
-  KEY `FK_contactphonenumbers` (`relationid`),
   KEY `FK_contactphonenumbers1` (`studentid`),
+  KEY `FK_contactphonenumbers` (`relationid`),
   CONSTRAINT `FK_contactphonenumbers` FOREIGN KEY (`relationid`) REFERENCES `relations` (`relationid`),
   CONSTRAINT `FK_contactphonenumbers1` FOREIGN KEY (`studentid`) REFERENCES `students` (`studentid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
@@ -106,7 +106,7 @@
 </table>
 <table name="smsdeliverieshistory" view="colnames">
 <left>290</left>
-<top>2</top>
+<top>8</top>
 <width>164</width>
 <height>146</height>
 <sql_create_table>CREATE TABLE `smsdeliverieshistory` (
@@ -174,52 +174,24 @@
 <sql_create_table>CREATE TABLE `subjectsschedules` (
   `subjectscheduleid` int(6) NOT NULL AUTO_INCREMENT,
   `subjectid` int(6) DEFAULT NULL,
-  `teacherid` int(6) DEFAULT NULL,
+  `employeeid` int(6) DEFAULT NULL,
   `roomid` int(6) DEFAULT NULL,
   `start` datetime DEFAULT NULL,
   `end` datetime DEFAULT NULL,
-  `Monday` tinyint(1) DEFAULT NULL,
-  `Tuesday` tinyint(1) DEFAULT NULL,
-  `Wednesday` tinyint(1) DEFAULT NULL,
-  `Thursday` tinyint(1) DEFAULT NULL,
-  `Friday` tinyint(1) DEFAULT NULL,
-  `Saturday` tinyint(1) DEFAULT NULL,
-  `Sunday` tinyint(1) DEFAULT NULL,
+  `monday` tinyint(1) DEFAULT NULL,
+  `tuesday` tinyint(1) DEFAULT NULL,
+  `wednesday` tinyint(1) DEFAULT NULL,
+  `thursday` tinyint(1) DEFAULT NULL,
+  `friday` tinyint(1) DEFAULT NULL,
+  `saturday` tinyint(1) DEFAULT NULL,
+  `sunday` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`subjectscheduleid`),
-  KEY `FK_subjects` (`teacherid`),
   KEY `FK_subjectsschedules1` (`subjectid`),
   KEY `FK_subjectsschedules3` (`roomid`),
-  CONSTRAINT `FK_subjects` FOREIGN KEY (`teacherid`) REFERENCES `teachers` (`teacherid`),
+  KEY `FK_subjectsschedules` (`employeeid`),
+  CONSTRAINT `FK_subjectsschedules` FOREIGN KEY (`employeeid`) REFERENCES `employees` (`employeeid`),
   CONSTRAINT `FK_subjectsschedules1` FOREIGN KEY (`subjectid`) REFERENCES `subjects` (`subjectid`),
   CONSTRAINT `FK_subjectsschedules3` FOREIGN KEY (`roomid`) REFERENCES `rooms` (`roomid`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
-</table>
-<table name="teachers" view="colnames">
-<left>570</left>
-<top>6</top>
-<width>164</width>
-<height>200</height>
-<sql_create_table>CREATE TABLE `teachers` (
-  `teacherid` int(6) NOT NULL AUTO_INCREMENT,
-  `teacherfirstname` varchar(60) DEFAULT NULL,
-  `teachermiddlename` varchar(60) DEFAULT NULL,
-  `teacherlastname` varchar(60) DEFAULT NULL,
-  `teacherusername` varchar(60) DEFAULT NULL,
-  `teacherpassword` varchar(60) DEFAULT NULL,
-  PRIMARY KEY (`teacherid`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
-</table>
-<table name="admins" view="colnames">
-<left>876</left>
-<top>5</top>
-<width>149</width>
-<height>140</height>
-<sql_create_table>CREATE TABLE `admins` (
-  `adminid` int(6) NOT NULL AUTO_INCREMENT,
-  `adminusername` varchar(60) DEFAULT NULL,
-  `adminpassword` varchar(60) DEFAULT NULL,
-  PRIMARY KEY (`adminid`),
-  KEY `FK_admins` (`adminusername`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
 </table>
 <table name="courses" view="colnames">
@@ -232,6 +204,22 @@
   `coursecode` varchar(60) DEFAULT NULL,
   `coursedescription` varchar(60) DEFAULT NULL,
   PRIMARY KEY (`courseid`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="employees" view="colnames">
+<left>583</left>
+<top>6</top>
+<width>172</width>
+<height>197</height>
+<sql_create_table>CREATE TABLE `employees` (
+  `employeeid` int(6) NOT NULL AUTO_INCREMENT,
+  `employeefirstname` varchar(60) DEFAULT NULL,
+  `employeemiddlename` varchar(60) DEFAULT NULL,
+  `employeelastname` varchar(60) DEFAULT NULL,
+  `username` varchar(60) DEFAULT NULL,
+  `password` varchar(60) DEFAULT NULL,
+  `accountlevel` varchar(60) DEFAULT NULL,
+  PRIMARY KEY (`employeeid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
 </table>
 </tables>
