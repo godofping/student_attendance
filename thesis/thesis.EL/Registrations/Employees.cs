@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace thesis.EL.Registrations
 {
-    public class employees
+    public class Employees
     {
         int employeeid;
         string employeefirstname;
