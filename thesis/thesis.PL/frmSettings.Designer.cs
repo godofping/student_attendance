@@ -28,127 +28,128 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnEmployees = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
+            this.btnComputers = new System.Windows.Forms.Button();
+            this.btnCourses = new System.Windows.Forms.Button();
+            this.btnRooms = new System.Windows.Forms.Button();
+            this.btnRelations = new System.Windows.Forms.Button();
+            this.btnSeats = new System.Windows.Forms.Button();
+            this.btnStudentsSubjectsEnrolled = new System.Windows.Forms.Button();
+            this.btnSubjects = new System.Windows.Forms.Button();
+            this.btnSubjectsSchedules = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // btnEmployees
+            // btnComputers
             // 
-            this.btnEmployees.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
-            this.btnEmployees.FlatAppearance.BorderSize = 0;
-            this.btnEmployees.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEmployees.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEmployees.ForeColor = System.Drawing.Color.White;
-            this.btnEmployees.Location = new System.Drawing.Point(12, 47);
-            this.btnEmployees.Name = "btnEmployees";
-            this.btnEmployees.Size = new System.Drawing.Size(236, 57);
-            this.btnEmployees.TabIndex = 1;
-            this.btnEmployees.Text = "Computers";
-            this.btnEmployees.UseVisualStyleBackColor = false;
+            this.btnComputers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
+            this.btnComputers.FlatAppearance.BorderSize = 0;
+            this.btnComputers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnComputers.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnComputers.ForeColor = System.Drawing.Color.White;
+            this.btnComputers.Location = new System.Drawing.Point(12, 47);
+            this.btnComputers.Name = "btnComputers";
+            this.btnComputers.Size = new System.Drawing.Size(236, 57);
+            this.btnComputers.TabIndex = 1;
+            this.btnComputers.Text = "Computers";
+            this.btnComputers.UseVisualStyleBackColor = false;
+            this.btnComputers.Click += new System.EventHandler(this.btnComputers_Click);
             // 
-            // button1
+            // btnCourses
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(12, 110);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(236, 57);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Courses";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnCourses.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
+            this.btnCourses.FlatAppearance.BorderSize = 0;
+            this.btnCourses.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCourses.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCourses.ForeColor = System.Drawing.Color.White;
+            this.btnCourses.Location = new System.Drawing.Point(12, 110);
+            this.btnCourses.Name = "btnCourses";
+            this.btnCourses.Size = new System.Drawing.Size(236, 57);
+            this.btnCourses.TabIndex = 2;
+            this.btnCourses.Text = "Courses";
+            this.btnCourses.UseVisualStyleBackColor = false;
             // 
-            // button3
+            // btnRooms
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(12, 236);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(236, 57);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "Rooms";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnRooms.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
+            this.btnRooms.FlatAppearance.BorderSize = 0;
+            this.btnRooms.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRooms.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRooms.ForeColor = System.Drawing.Color.White;
+            this.btnRooms.Location = new System.Drawing.Point(12, 236);
+            this.btnRooms.Name = "btnRooms";
+            this.btnRooms.Size = new System.Drawing.Size(236, 57);
+            this.btnRooms.TabIndex = 4;
+            this.btnRooms.Text = "Rooms";
+            this.btnRooms.UseVisualStyleBackColor = false;
             // 
-            // button4
+            // btnRelations
             // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(12, 173);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(236, 57);
-            this.button4.TabIndex = 5;
-            this.button4.Text = "Relations";
-            this.button4.UseVisualStyleBackColor = false;
+            this.btnRelations.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
+            this.btnRelations.FlatAppearance.BorderSize = 0;
+            this.btnRelations.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRelations.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRelations.ForeColor = System.Drawing.Color.White;
+            this.btnRelations.Location = new System.Drawing.Point(12, 173);
+            this.btnRelations.Name = "btnRelations";
+            this.btnRelations.Size = new System.Drawing.Size(236, 57);
+            this.btnRelations.TabIndex = 5;
+            this.btnRelations.Text = "Relations";
+            this.btnRelations.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // btnSeats
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(12, 299);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(236, 57);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Seats";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnSeats.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
+            this.btnSeats.FlatAppearance.BorderSize = 0;
+            this.btnSeats.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSeats.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSeats.ForeColor = System.Drawing.Color.White;
+            this.btnSeats.Location = new System.Drawing.Point(12, 299);
+            this.btnSeats.Name = "btnSeats";
+            this.btnSeats.Size = new System.Drawing.Size(236, 57);
+            this.btnSeats.TabIndex = 6;
+            this.btnSeats.Text = "Seats";
+            this.btnSeats.UseVisualStyleBackColor = false;
             // 
-            // button5
+            // btnStudentsSubjectsEnrolled
             // 
-            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(12, 362);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(236, 57);
-            this.button5.TabIndex = 7;
-            this.button5.Text = "Students Subjects Enrolled";
-            this.button5.UseVisualStyleBackColor = false;
+            this.btnStudentsSubjectsEnrolled.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
+            this.btnStudentsSubjectsEnrolled.FlatAppearance.BorderSize = 0;
+            this.btnStudentsSubjectsEnrolled.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnStudentsSubjectsEnrolled.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStudentsSubjectsEnrolled.ForeColor = System.Drawing.Color.White;
+            this.btnStudentsSubjectsEnrolled.Location = new System.Drawing.Point(12, 362);
+            this.btnStudentsSubjectsEnrolled.Name = "btnStudentsSubjectsEnrolled";
+            this.btnStudentsSubjectsEnrolled.Size = new System.Drawing.Size(236, 57);
+            this.btnStudentsSubjectsEnrolled.TabIndex = 7;
+            this.btnStudentsSubjectsEnrolled.Text = "Students Subjects Enrolled";
+            this.btnStudentsSubjectsEnrolled.UseVisualStyleBackColor = false;
             // 
-            // button6
+            // btnSubjects
             // 
-            this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.ForeColor = System.Drawing.Color.White;
-            this.button6.Location = new System.Drawing.Point(12, 425);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(236, 57);
-            this.button6.TabIndex = 8;
-            this.button6.Text = "Subjects";
-            this.button6.UseVisualStyleBackColor = false;
+            this.btnSubjects.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
+            this.btnSubjects.FlatAppearance.BorderSize = 0;
+            this.btnSubjects.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSubjects.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSubjects.ForeColor = System.Drawing.Color.White;
+            this.btnSubjects.Location = new System.Drawing.Point(12, 425);
+            this.btnSubjects.Name = "btnSubjects";
+            this.btnSubjects.Size = new System.Drawing.Size(236, 57);
+            this.btnSubjects.TabIndex = 8;
+            this.btnSubjects.Text = "Subjects";
+            this.btnSubjects.UseVisualStyleBackColor = false;
             // 
-            // button7
+            // btnSubjectsSchedules
             // 
-            this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
-            this.button7.FlatAppearance.BorderSize = 0;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.ForeColor = System.Drawing.Color.White;
-            this.button7.Location = new System.Drawing.Point(12, 488);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(236, 57);
-            this.button7.TabIndex = 9;
-            this.button7.Text = " Subjects Schedules";
-            this.button7.UseVisualStyleBackColor = false;
+            this.btnSubjectsSchedules.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
+            this.btnSubjectsSchedules.FlatAppearance.BorderSize = 0;
+            this.btnSubjectsSchedules.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSubjectsSchedules.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSubjectsSchedules.ForeColor = System.Drawing.Color.White;
+            this.btnSubjectsSchedules.Location = new System.Drawing.Point(12, 488);
+            this.btnSubjectsSchedules.Name = "btnSubjectsSchedules";
+            this.btnSubjectsSchedules.Size = new System.Drawing.Size(236, 57);
+            this.btnSubjectsSchedules.TabIndex = 9;
+            this.btnSubjectsSchedules.Text = " Subjects Schedules";
+            this.btnSubjectsSchedules.UseVisualStyleBackColor = false;
             // 
             // frmSettings
             // 
@@ -156,14 +157,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1038, 720);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.btnEmployees);
+            this.Controls.Add(this.btnSubjectsSchedules);
+            this.Controls.Add(this.btnSubjects);
+            this.Controls.Add(this.btnStudentsSubjectsEnrolled);
+            this.Controls.Add(this.btnSeats);
+            this.Controls.Add(this.btnRelations);
+            this.Controls.Add(this.btnRooms);
+            this.Controls.Add(this.btnCourses);
+            this.Controls.Add(this.btnComputers);
             this.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -176,13 +177,13 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnEmployees;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button btnComputers;
+        private System.Windows.Forms.Button btnCourses;
+        private System.Windows.Forms.Button btnRooms;
+        private System.Windows.Forms.Button btnRelations;
+        private System.Windows.Forms.Button btnSeats;
+        private System.Windows.Forms.Button btnStudentsSubjectsEnrolled;
+        private System.Windows.Forms.Button btnSubjects;
+        private System.Windows.Forms.Button btnSubjectsSchedules;
     }
 }

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.pnlMenu = new System.Windows.Forms.Panel();
+            this.btnDashboard = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnReports = new System.Windows.Forms.Button();
             this.btnSettings = new System.Windows.Forms.Button();
@@ -36,7 +37,6 @@
             this.btnStudents = new System.Windows.Forms.Button();
             this.btnEmployees = new System.Windows.Forms.Button();
             this.pnlMain = new System.Windows.Forms.Panel();
-            this.btnDashboard = new System.Windows.Forms.Button();
             this.pnlMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,6 +56,21 @@
             this.pnlMenu.Size = new System.Drawing.Size(242, 720);
             this.pnlMenu.TabIndex = 1;
             // 
+            // btnDashboard
+            // 
+            this.btnDashboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
+            this.btnDashboard.FlatAppearance.BorderSize = 0;
+            this.btnDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDashboard.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDashboard.ForeColor = System.Drawing.Color.White;
+            this.btnDashboard.Location = new System.Drawing.Point(3, 129);
+            this.btnDashboard.Name = "btnDashboard";
+            this.btnDashboard.Size = new System.Drawing.Size(236, 57);
+            this.btnDashboard.TabIndex = 8;
+            this.btnDashboard.Text = "Dashboard";
+            this.btnDashboard.UseVisualStyleBackColor = false;
+            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
+            // 
             // btnExit
             // 
             this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
@@ -69,7 +84,6 @@
             this.btnExit.TabIndex = 7;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = false;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click_1);
             // 
             // btnReports
             // 
@@ -84,6 +98,7 @@
             this.btnReports.TabIndex = 6;
             this.btnReports.Text = "Reports";
             this.btnReports.UseVisualStyleBackColor = false;
+            this.btnReports.Click += new System.EventHandler(this.btnReports_Click);
             // 
             // btnSettings
             // 
@@ -113,6 +128,7 @@
             this.btnAttendances.TabIndex = 3;
             this.btnAttendances.Text = "Attendances";
             this.btnAttendances.UseVisualStyleBackColor = false;
+            this.btnAttendances.Click += new System.EventHandler(this.btnAttendances_Click);
             // 
             // btnStudents
             // 
@@ -127,6 +143,7 @@
             this.btnStudents.TabIndex = 2;
             this.btnStudents.Text = "Students";
             this.btnStudents.UseVisualStyleBackColor = false;
+            this.btnStudents.Click += new System.EventHandler(this.btnStudents_Click);
             // 
             // btnEmployees
             // 
@@ -141,6 +158,7 @@
             this.btnEmployees.TabIndex = 0;
             this.btnEmployees.Text = "Employees";
             this.btnEmployees.UseVisualStyleBackColor = false;
+            this.btnEmployees.Click += new System.EventHandler(this.btnEmployees_Click);
             // 
             // pnlMain
             // 
@@ -149,20 +167,6 @@
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(1038, 720);
             this.pnlMain.TabIndex = 2;
-            // 
-            // btnDashboard
-            // 
-            this.btnDashboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
-            this.btnDashboard.FlatAppearance.BorderSize = 0;
-            this.btnDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDashboard.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDashboard.ForeColor = System.Drawing.Color.White;
-            this.btnDashboard.Location = new System.Drawing.Point(3, 129);
-            this.btnDashboard.Name = "btnDashboard";
-            this.btnDashboard.Size = new System.Drawing.Size(236, 57);
-            this.btnDashboard.TabIndex = 8;
-            this.btnDashboard.Text = "Dashboard";
-            this.btnDashboard.UseVisualStyleBackColor = false;
             // 
             // frmMain
             // 
@@ -180,6 +184,7 @@
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmMain";
+            this.Load += new System.EventHandler(this.frmMain_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmMain_KeyDown);
             this.pnlMenu.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -192,9 +197,9 @@
         private System.Windows.Forms.Button btnStudents;
         private System.Windows.Forms.Button btnAttendances;
         private System.Windows.Forms.Button btnSettings;
-        private System.Windows.Forms.Panel pnlMain;
         private System.Windows.Forms.Button btnReports;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnDashboard;
+        public System.Windows.Forms.Panel pnlMain;
     }
 }

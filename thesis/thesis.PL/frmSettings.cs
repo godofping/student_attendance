@@ -12,9 +12,17 @@ namespace thesis.PL
 {
     public partial class frmSettings : Form
     {
-        public frmSettings()
+        frmMain frmMain;
+        public frmSettings(frmMain _frmMain)
         {
             InitializeComponent();
+            frmMain = _frmMain;
+        }
+
+        private void btnComputers_Click(object sender, EventArgs e)
+        {
+            var frm = new Registrations.frmComputers();
+            methods.ChangePanelDisplay(frm, frmMain.pnlMain);
         }
     }
 }

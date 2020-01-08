@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 06, 2020 at 04:09 PM
+-- Generation Time: Jan 08, 2020 at 05:37 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.3
 
@@ -30,8 +30,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `attendances` (
   `attendanceid` int(6) NOT NULL,
-  `subjectsscheduleid` int(6) DEFAULT NULL,
-  `seatassignmentid` int(6) DEFAULT NULL,
+  `studentsubjectenrolledid` int(6) DEFAULT NULL,
   `attendancedatetime` datetime DEFAULT NULL,
   `inorout` varchar(20) DEFAULT NULL,
   `status` varchar(60) DEFAULT NULL
@@ -86,7 +85,7 @@ CREATE TABLE `employees` (
   `employeelastname` varchar(60) DEFAULT NULL,
   `username` varchar(60) DEFAULT NULL,
   `password` varchar(60) DEFAULT NULL,
-  `accountlevel` varchar(60) DEFAULT NULL
+  `accounttype` varchar(60) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -99,6 +98,19 @@ CREATE TABLE `relations` (
   `relationid` int(6) NOT NULL,
   `relation` varchar(60) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `relations`
+--
+
+INSERT INTO `relations` (`relationid`, `relation`) VALUES
+(1, 'FATHER'),
+(2, 'MOTHER'),
+(3, 'RELATIVES'),
+(4, 'GUARDIAN'),
+(5, 'HUSBAND'),
+(6, 'SPOUSE'),
+(7, 'OTHERS');
 
 -- --------------------------------------------------------
 
@@ -115,23 +127,12 @@ CREATE TABLE `rooms` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `seatassignments`
---
-
-CREATE TABLE `seatassignments` (
-  `seatassignmentid` int(6) NOT NULL,
-  `studentsubjectenrolledid` int(6) DEFAULT NULL,
-  `seatid` int(6) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `seats`
 --
 
 CREATE TABLE `seats` (
   `seatid` int(6) NOT NULL,
+  `roomid` int(6) DEFAULT NULL,
   `seat` varchar(60) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -174,7 +175,8 @@ CREATE TABLE `students` (
 CREATE TABLE `studentsubjectsenrolled` (
   `studentsubjectenrolledid` int(6) NOT NULL,
   `studentid` int(6) DEFAULT NULL,
-  `subjectscheduleid` int(6) DEFAULT NULL
+  `subjectscheduleid` int(6) DEFAULT NULL,
+  `seatid` int(6) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -220,8 +222,7 @@ CREATE TABLE `subjectsschedules` (
 --
 ALTER TABLE `attendances`
   ADD PRIMARY KEY (`attendanceid`),
-  ADD KEY `FK_attendances` (`subjectsscheduleid`),
-  ADD KEY `FK_attendances1` (`seatassignmentid`);
+  ADD KEY `FK_attendances1` (`studentsubjectenrolledid`);
 
 --
 -- Indexes for table `computers`
@@ -263,18 +264,11 @@ ALTER TABLE `rooms`
   ADD KEY `FK_rooms` (`computerid`);
 
 --
--- Indexes for table `seatassignments`
---
-ALTER TABLE `seatassignments`
-  ADD PRIMARY KEY (`seatassignmentid`),
-  ADD KEY `FK_seatassignments` (`studentsubjectenrolledid`),
-  ADD KEY `FK_seatassig1nments` (`seatid`);
-
---
 -- Indexes for table `seats`
 --
 ALTER TABLE `seats`
-  ADD PRIMARY KEY (`seatid`);
+  ADD PRIMARY KEY (`seatid`),
+  ADD KEY `FK_seats` (`roomid`);
 
 --
 -- Indexes for table `smsdeliverieshistory`
@@ -296,7 +290,8 @@ ALTER TABLE `students`
 ALTER TABLE `studentsubjectsenrolled`
   ADD PRIMARY KEY (`studentsubjectenrolledid`),
   ADD KEY `FK_studentsubjectsenrolled` (`subjectscheduleid`),
-  ADD KEY `FK_studentsubjectsenrolle1d` (`studentid`);
+  ADD KEY `FK_studentsubjectsenrolle1d` (`studentid`),
+  ADD KEY `FK_studentsubjectsenrolled3` (`seatid`);
 
 --
 -- Indexes for table `subjects`
@@ -351,19 +346,13 @@ ALTER TABLE `employees`
 -- AUTO_INCREMENT for table `relations`
 --
 ALTER TABLE `relations`
-  MODIFY `relationid` int(6) NOT NULL AUTO_INCREMENT;
+  MODIFY `relationid` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `rooms`
 --
 ALTER TABLE `rooms`
   MODIFY `roomid` int(6) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `seatassignments`
---
-ALTER TABLE `seatassignments`
-  MODIFY `seatassignmentid` int(6) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `seats`
@@ -409,8 +398,7 @@ ALTER TABLE `subjectsschedules`
 -- Constraints for table `attendances`
 --
 ALTER TABLE `attendances`
-  ADD CONSTRAINT `FK_attendances` FOREIGN KEY (`subjectsscheduleid`) REFERENCES `subjectsschedules` (`subjectscheduleid`),
-  ADD CONSTRAINT `FK_attendances1` FOREIGN KEY (`seatassignmentid`) REFERENCES `seatassignments` (`seatassignmentid`);
+  ADD CONSTRAINT `FK_attendances1` FOREIGN KEY (`studentsubjectenrolledid`) REFERENCES `studentsubjectsenrolled` (`studentsubjectenrolledid`);
 
 --
 -- Constraints for table `contactphonenumbers`
@@ -426,11 +414,10 @@ ALTER TABLE `rooms`
   ADD CONSTRAINT `FK_rooms` FOREIGN KEY (`computerid`) REFERENCES `computers` (`computerid`);
 
 --
--- Constraints for table `seatassignments`
+-- Constraints for table `seats`
 --
-ALTER TABLE `seatassignments`
-  ADD CONSTRAINT `FK_seatassig1nments` FOREIGN KEY (`seatid`) REFERENCES `seats` (`seatid`),
-  ADD CONSTRAINT `FK_seatassignments` FOREIGN KEY (`studentsubjectenrolledid`) REFERENCES `studentsubjectsenrolled` (`studentsubjectenrolledid`);
+ALTER TABLE `seats`
+  ADD CONSTRAINT `FK_seats` FOREIGN KEY (`roomid`) REFERENCES `rooms` (`roomid`);
 
 --
 -- Constraints for table `smsdeliverieshistory`
@@ -449,7 +436,8 @@ ALTER TABLE `students`
 --
 ALTER TABLE `studentsubjectsenrolled`
   ADD CONSTRAINT `FK_studentsubjectsenrolle1d` FOREIGN KEY (`studentid`) REFERENCES `students` (`studentid`),
-  ADD CONSTRAINT `FK_studentsubjectsenrolled` FOREIGN KEY (`subjectscheduleid`) REFERENCES `subjectsschedules` (`subjectscheduleid`);
+  ADD CONSTRAINT `FK_studentsubjectsenrolled` FOREIGN KEY (`subjectscheduleid`) REFERENCES `subjectsschedules` (`subjectscheduleid`),
+  ADD CONSTRAINT `FK_studentsubjectsenrolled3` FOREIGN KEY (`seatid`) REFERENCES `seats` (`seatid`);
 
 --
 -- Constraints for table `subjectsschedules`
