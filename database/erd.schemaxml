@@ -8,25 +8,22 @@
 <table name="attendances" view="colnames">
 <left>49</left>
 <top>52</top>
-<width>159</width>
+<width>210</width>
 <height>180</height>
 <sql_create_table>CREATE TABLE `attendances` (
   `attendanceid` int(6) NOT NULL AUTO_INCREMENT,
-  `subjectsscheduleid` int(6) DEFAULT NULL,
-  `seatassignmentid` int(6) DEFAULT NULL,
+  `studentsubjectenrolledid` int(6) DEFAULT NULL,
   `attendancedatetime` datetime DEFAULT NULL,
   `inorout` varchar(20) DEFAULT NULL,
   `status` varchar(60) DEFAULT NULL,
   PRIMARY KEY (`attendanceid`),
-  KEY `FK_attendances` (`subjectsscheduleid`),
-  KEY `FK_attendances1` (`seatassignmentid`),
-  CONSTRAINT `FK_attendances` FOREIGN KEY (`subjectsscheduleid`) REFERENCES `subjectsschedules` (`subjectscheduleid`),
-  CONSTRAINT `FK_attendances1` FOREIGN KEY (`seatassignmentid`) REFERENCES `seatassignments` (`seatassignmentid`)
+  KEY `FK_attendances1` (`studentsubjectenrolledid`),
+  CONSTRAINT `FK_attendances1` FOREIGN KEY (`studentsubjectenrolledid`) REFERENCES `studentsubjectsenrolled` (`studentsubjectenrolledid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
 </table>
 <table name="computers" view="colnames">
-<left>354</left>
-<top>627</top>
+<left>355</left>
+<top>628</top>
 <width>147</width>
 <height>112</height>
 <sql_create_table>CREATE TABLE `computers` (
@@ -61,11 +58,11 @@
   `relationid` int(6) NOT NULL AUTO_INCREMENT,
   `relation` varchar(60) DEFAULT NULL,
   PRIMARY KEY (`relationid`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1</sql_create_table>
 </table>
 <table name="rooms" view="colnames">
-<left>539</left>
-<top>535</top>
+<left>633</left>
+<top>432</top>
 <width>111</width>
 <height>121</height>
 <sql_create_table>CREATE TABLE `rooms` (
@@ -77,31 +74,18 @@
   CONSTRAINT `FK_rooms` FOREIGN KEY (`computerid`) REFERENCES `computers` (`computerid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
 </table>
-<table name="seatassignments" view="colnames">
-<left>854</left>
-<top>449</top>
-<width>223</width>
-<height>189</height>
-<sql_create_table>CREATE TABLE `seatassignments` (
-  `seatassignmentid` int(6) NOT NULL AUTO_INCREMENT,
-  `studentsubjectenrolledid` int(6) DEFAULT NULL,
-  `seatid` int(6) DEFAULT NULL,
-  PRIMARY KEY (`seatassignmentid`),
-  KEY `FK_seatassignments` (`studentsubjectenrolledid`),
-  KEY `FK_seatassig1nments` (`seatid`),
-  CONSTRAINT `FK_seatassig1nments` FOREIGN KEY (`seatid`) REFERENCES `seats` (`seatid`),
-  CONSTRAINT `FK_seatassignments` FOREIGN KEY (`studentsubjectenrolledid`) REFERENCES `studentsubjectsenrolled` (`studentsubjectenrolledid`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
-</table>
 <table name="seats" view="colnames">
-<left>1151</left>
-<top>454</top>
+<left>900</left>
+<top>385</top>
 <width>108</width>
 <height>112</height>
 <sql_create_table>CREATE TABLE `seats` (
   `seatid` int(6) NOT NULL AUTO_INCREMENT,
+  `roomid` int(6) DEFAULT NULL,
   `seat` varchar(60) DEFAULT NULL,
-  PRIMARY KEY (`seatid`)
+  PRIMARY KEY (`seatid`),
+  KEY `FK_seats` (`roomid`),
+  CONSTRAINT `FK_seats` FOREIGN KEY (`roomid`) REFERENCES `rooms` (`roomid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
 </table>
 <table name="smsdeliverieshistory" view="colnames">
@@ -139,7 +123,7 @@
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
 </table>
 <table name="studentsubjectsenrolled" view="colnames">
-<left>665</left>
+<left>631</left>
 <top>267</top>
 <width>185</width>
 <height>129</height>
@@ -147,11 +131,14 @@
   `studentsubjectenrolledid` int(6) NOT NULL AUTO_INCREMENT,
   `studentid` int(6) DEFAULT NULL,
   `subjectscheduleid` int(6) DEFAULT NULL,
+  `seatid` int(6) DEFAULT NULL,
   PRIMARY KEY (`studentsubjectenrolledid`),
   KEY `FK_studentsubjectsenrolled` (`subjectscheduleid`),
   KEY `FK_studentsubjectsenrolle1d` (`studentid`),
+  KEY `FK_studentsubjectsenrolled3` (`seatid`),
   CONSTRAINT `FK_studentsubjectsenrolle1d` FOREIGN KEY (`studentid`) REFERENCES `students` (`studentid`),
-  CONSTRAINT `FK_studentsubjectsenrolled` FOREIGN KEY (`subjectscheduleid`) REFERENCES `subjectsschedules` (`subjectscheduleid`)
+  CONSTRAINT `FK_studentsubjectsenrolled` FOREIGN KEY (`subjectscheduleid`) REFERENCES `subjectsschedules` (`subjectscheduleid`),
+  CONSTRAINT `FK_studentsubjectsenrolled3` FOREIGN KEY (`seatid`) REFERENCES `seats` (`seatid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
 </table>
 <table name="subjects" view="colnames">
@@ -218,7 +205,7 @@
   `employeelastname` varchar(60) DEFAULT NULL,
   `username` varchar(60) DEFAULT NULL,
   `password` varchar(60) DEFAULT NULL,
-  `accountlevel` varchar(60) DEFAULT NULL,
+  `accounttype` varchar(60) DEFAULT NULL,
   PRIMARY KEY (`employeeid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
 </table>

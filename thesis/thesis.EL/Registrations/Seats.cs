@@ -9,9 +9,11 @@ namespace thesis.EL.Registrations
     public class Seats
     {
         int seatid;
-        int seat;
+        int roomid;
+        string seat;
 
         public int Seatid { get => seatid; set => seatid = value; }
-        public int Seat { get => seat; set => seat = value; }
+        public int Roomid { get => roomid; set => roomid = value; }
+        public string Seat { get => seat; set => seat = value; }
     }
 }

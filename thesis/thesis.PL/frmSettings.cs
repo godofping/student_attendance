@@ -10,20 +10,11 @@ using System.Windows.Forms;
 
 namespace thesis.PL
 {
-    public partial class frmLogin : Form
+    public partial class frmSettings : Form
     {
-        frmMain frmMain;
-        public frmLogin(frmMain _frmMain)
+        public frmSettings()
         {
             InitializeComponent();
-            frmMain = _frmMain;
-        }
-
- 
-        private void btnTest_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            frmMain.Show();
         }
     }
 }

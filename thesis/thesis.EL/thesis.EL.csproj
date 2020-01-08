@@ -52,7 +52,6 @@
     <Compile Include="Registrations\Employees.cs" />
     <Compile Include="Registrations\Relations.cs" />
     <Compile Include="Registrations\Rooms.cs" />
-    <Compile Include="Registrations\Seatassignments.cs" />
     <Compile Include="Registrations\Seats.cs" />
     <Compile Include="Registrations\Students.cs" />
     <Compile Include="Transactions\Smsdeliverieshistory.cs" />
