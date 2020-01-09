@@ -19,10 +19,40 @@ namespace thesis.PL
             frmMain = _frmMain;
         }
 
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;
+                return cp;
+            }
+        }
+
+        public class BufferedPanel : Panel
+        {
+            public BufferedPanel()
+            {
+                DoubleBuffered = true;
+            }
+        }
+
         private void btnComputers_Click(object sender, EventArgs e)
         {
-            var frm = new Registrations.frmComputers();
+            var pleaseWait = new frmLoading();
+            pleaseWait.Show();
+            Application.DoEvents();
+            methods.Wait(300);
+
+            var frm = new Registrations.frmComputers(frmMain);
             methods.ChangePanelDisplay(frm, frmMain.pnlMain);
+
+            pleaseWait.Close();
+        }
+
+        private void btnCourses_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

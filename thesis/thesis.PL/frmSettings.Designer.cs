@@ -66,6 +66,7 @@
             this.btnCourses.TabIndex = 2;
             this.btnCourses.Text = "Courses";
             this.btnCourses.UseVisualStyleBackColor = false;
+            this.btnCourses.Click += new System.EventHandler(this.btnCourses_Click);
             // 
             // btnRooms
             // 
@@ -165,6 +166,7 @@
             this.Controls.Add(this.btnRooms);
             this.Controls.Add(this.btnCourses);
             this.Controls.Add(this.btnComputers);
+            this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);

@@ -176,6 +176,7 @@
             this.ClientSize = new System.Drawing.Size(1280, 720);
             this.Controls.Add(this.pnlMain);
             this.Controls.Add(this.pnlMenu);
+            this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

@@ -52,6 +52,12 @@
     <Compile Include="frmDashboard.Designer.cs">
       <DependentUpon>frmDashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmLoading.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLoading.Designer.cs">
+      <DependentUpon>frmLoading.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +91,12 @@
     <Compile Include="Registrations\frmComputers.Designer.cs">
       <DependentUpon>frmComputers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Registrations\frmCourses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registrations\frmCourses.Designer.cs">
+      <DependentUpon>frmCourses.cs</DependentUpon>
+    </Compile>
     <Compile Include="Registrations\frmEmployees.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,6 +117,9 @@
     </Compile>
     <EmbeddedResource Include="frmDashboard.resx">
       <DependentUpon>frmDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLoading.resx">
+      <DependentUpon>frmLoading.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
@@ -130,6 +145,9 @@
     <EmbeddedResource Include="Registrations\frmComputers.resx">
       <DependentUpon>frmComputers.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Registrations\frmCourses.resx">
+      <DependentUpon>frmCourses.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Registrations\frmEmployees.resx">
       <DependentUpon>frmEmployees.cs</DependentUpon>
     </EmbeddedResource>
@@ -152,6 +170,15 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\thesis.BL\thesis.BL.csproj">
+      <Project>{1275294c-d598-41e6-ae04-795bf628bb6c}</Project>
+      <Name>thesis.BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\thesis.EL\thesis.EL.csproj">
+      <Project>{b03f4597-5dbd-455d-97de-cc46eeb1e3d6}</Project>
+      <Name>thesis.EL</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

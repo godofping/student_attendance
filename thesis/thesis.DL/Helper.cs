@@ -7,7 +7,12 @@ namespace thesis.DL
     public class Helper
     {
         public static string ConnectionString { get { return "Server=localhost;port=3306;UID=root;PWD=;database=students_attendance_db;Convert Zero Datetime=True"; } }
-       
+
+        public static string EscapeString(String str)
+        { 
+        return MySql.Data.MySqlClient.MySqlHelper.EscapeString(str);
+
+        }
 
         public static long executeNonQueryLong(string _Query)
         {

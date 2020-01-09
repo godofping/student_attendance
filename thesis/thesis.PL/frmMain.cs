@@ -16,6 +16,23 @@ namespace thesis.PL
         {
             InitializeComponent();
         }
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;
+                return cp;
+            }
+        }
+
+        public class BufferedPanel : Panel
+        {
+            public BufferedPanel()
+            {
+                DoubleBuffered = true;
+            }
+        }
 
         public void ActiveButton(Form frm, Button btn)
         {
@@ -36,6 +53,8 @@ namespace thesis.PL
                 }
             }
 
+            methods.Wait(300);
+
         }
 
  
@@ -50,43 +69,85 @@ namespace thesis.PL
 
         private void frmMain_Load(object sender, EventArgs e)
         {
+            var pleaseWait = new frmLoading();
+            pleaseWait.Show();
+            Application.DoEvents();
+
             var frm = new frmDashboard();
             ActiveButton(frm, btnDashboard);
+
+            pleaseWait.Close();
         }
 
         private void btnDashboard_Click(object sender, EventArgs e)
         {
+            var pleaseWait = new frmLoading();
+            pleaseWait.Show();
+            Application.DoEvents();
+
             var frm = new frmDashboard();
             ActiveButton(frm, btnDashboard);
+
+            pleaseWait.Close();
         }
         private void btnAttendances_Click(object sender, EventArgs e)
         {
+            var pleaseWait = new frmLoading();
+            pleaseWait.Show();
+            Application.DoEvents();
+
             var frm = new Transactions.frmAttendances();
             ActiveButton(frm, btnAttendances);
+
+            pleaseWait.Close();
         }
 
         private void btnEmployees_Click(object sender, EventArgs e)
         {
+            var pleaseWait = new frmLoading();
+            pleaseWait.Show();
+            Application.DoEvents();
+
             var frm = new Registrations.frmEmployees();
             ActiveButton(frm, btnEmployees);
+
+            pleaseWait.Close();
         }
 
         private void btnSettings_Click(object sender, EventArgs e)
         {
+            var pleaseWait = new frmLoading();
+            pleaseWait.Show();
+            Application.DoEvents();
+
             var frm = new frmSettings(this);
             ActiveButton(frm, btnSettings);
+
+            pleaseWait.Close();
         }
 
         private void btnStudents_Click(object sender, EventArgs e)
         {
+            var pleaseWait = new frmLoading();
+            pleaseWait.Show();
+            Application.DoEvents();
+
             var frm = new Registrations.frmStudents();
             ActiveButton(frm, btnStudents);
+
+            pleaseWait.Close();
         }
 
         private void btnReports_Click(object sender, EventArgs e)
         {
+            var pleaseWait = new frmLoading();
+            pleaseWait.Show();
+            Application.DoEvents();
+
             var frm = new frmReports();
             ActiveButton(frm, btnReports);
+
+            pleaseWait.Close();
         }
     }
 }

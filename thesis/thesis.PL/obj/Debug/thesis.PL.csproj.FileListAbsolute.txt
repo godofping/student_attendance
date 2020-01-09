@@ -15,3 +15,13 @@ C:\xampp\htdocs\student_attendance\thesis\thesis.PL\obj\Debug\thesis.PL.Transact
 C:\xampp\htdocs\student_attendance\thesis\thesis.PL\obj\Debug\thesis.PL.Registrations.frmEmployees.resources
 C:\xampp\htdocs\student_attendance\thesis\thesis.PL\obj\Debug\thesis.PL.frmReports.resources
 C:\xampp\htdocs\student_attendance\thesis\thesis.PL\obj\Debug\thesis.PL.Registrations.frmStudents.resources
+C:\xampp\htdocs\student_attendance\thesis\thesis.PL\bin\Debug\thesis.BL.dll
+C:\xampp\htdocs\student_attendance\thesis\thesis.PL\bin\Debug\thesis.EL.dll
+C:\xampp\htdocs\student_attendance\thesis\thesis.PL\bin\Debug\thesis.DL.dll
+C:\xampp\htdocs\student_attendance\thesis\thesis.PL\bin\Debug\MySql.Data.dll
+C:\xampp\htdocs\student_attendance\thesis\thesis.PL\bin\Debug\thesis.BL.pdb
+C:\xampp\htdocs\student_attendance\thesis\thesis.PL\bin\Debug\thesis.EL.pdb
+C:\xampp\htdocs\student_attendance\thesis\thesis.PL\bin\Debug\thesis.DL.pdb
+C:\xampp\htdocs\student_attendance\thesis\thesis.PL\obj\Debug\thesis.PL.csproj.CopyComplete
+C:\xampp\htdocs\student_attendance\thesis\thesis.PL\obj\Debug\thesis.PL.frmLoading.resources
+C:\xampp\htdocs\student_attendance\thesis\thesis.PL\obj\Debug\thesis.PL.Registrations.frmCourses.resources

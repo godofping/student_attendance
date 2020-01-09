@@ -108,7 +108,7 @@ namespace thesis.PL
             btn1.UseColumnTextForButtonValue = true;
         }
 
-        public static void DGVBUTTONAddEdit(DataGridView dgv)
+        public static void DGVBUTTONEditDelete(DataGridView dgv)
         {
             DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
             dgv.Columns.Add(btn);
@@ -335,12 +335,12 @@ namespace thesis.PL
         public static void DGVTheme(DataGridView dgv)
         {
 
-            dgv.DefaultCellStyle.SelectionBackColor = ColorTranslator.FromHtml("#fd66a6");
+            dgv.DefaultCellStyle.SelectionBackColor = ColorTranslator.FromHtml("#8fa6b1");
             dgv.DefaultCellStyle.SelectionForeColor = ColorTranslator.FromHtml("#fff");
 
 
-            dgv.ColumnHeadersDefaultCellStyle.Font = new Font("Century Gothic", 13, FontStyle.Underline);
-            dgv.ColumnHeadersDefaultCellStyle.BackColor = ColorTranslator.FromHtml("#fd66a6");
+            dgv.ColumnHeadersDefaultCellStyle.Font = new Font("Century Gothic", 13, FontStyle.Underline | FontStyle.Italic | FontStyle.Bold);
+            dgv.ColumnHeadersDefaultCellStyle.BackColor = ColorTranslator.FromHtml("#8fa6b1");
 
 
             dgv.DefaultCellStyle.Font = new Font("Century Gothic", 11, FontStyle.Regular);
@@ -360,8 +360,8 @@ namespace thesis.PL
             dgv.RowHeadersVisible = false;
 
 
-            dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgv.AlternatingRowsDefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(228, 235, 250);
+            dgv.SelectionMode = DataGridViewSelectionMode.RowHeaderSelect;
+            dgv.AlternatingRowsDefaultCellStyle.BackColor = ColorTranslator.FromHtml("#e1e7ea");
             dgv.MultiSelect = false;
             dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgv.AllowUserToAddRows = false;
@@ -595,9 +595,24 @@ namespace thesis.PL
                 d.Visible = bol;
         }
 
+        public static void Wait(int milliseconds)
+        {
+            System.Windows.Forms.Timer timer1 = new System.Windows.Forms.Timer();
+            if (milliseconds == 0 || milliseconds < 0) return;
+ 
+            timer1.Interval = milliseconds;
+            timer1.Enabled = true;
+            timer1.Start();
+            timer1.Tick += (s, e) =>
+            {
+                timer1.Enabled = false;
+                timer1.Stop();
 
-
-
-
+            };
+            while (timer1.Enabled)
+            {
+                Application.DoEvents();
+            }
+        }
     }
 }

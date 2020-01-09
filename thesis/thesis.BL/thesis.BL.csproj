@@ -42,10 +42,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Registrations\Computers.cs" />
     <Compile Include="Registrations\Employees.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Transactions\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\thesis.DL\thesis.DL.csproj">
+      <Project>{0f3753cd-effe-4b40-9607-e8d33302685a}</Project>
+      <Name>thesis.DL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\thesis.EL\thesis.EL.csproj">
+      <Project>{b03f4597-5dbd-455d-97de-cc46eeb1e3d6}</Project>
+      <Name>thesis.EL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
