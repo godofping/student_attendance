@@ -15,6 +15,11 @@ namespace thesis.DL.Registrations
             return Helper.executeQuery("select * from computers where computer like '" + keyword + "%'");
         }
 
+        public DataTable List(EL.Registrations.Computers computerEL)
+        {
+            return Helper.executeQuery("select * from computers where computerid <> '" + computerEL.Computerid + "' and computer = '" + computerEL.Computer + "'");
+        }
+
         public EL.Registrations.Computers Select(EL.Registrations.Computers computerEL)
         {
             DataTable dt = Helper.executeQuery("select * from computers where computerid = '" + computerEL.Computerid + "'");

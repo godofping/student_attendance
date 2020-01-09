@@ -150,7 +150,7 @@
             this.btnSave.Location = new System.Drawing.Point(739, 633);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(130, 57);
-            this.btnSave.TabIndex = 11;
+            this.btnSave.TabIndex = 2;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -165,7 +165,7 @@
             this.btnCancel.Location = new System.Drawing.Point(875, 633);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(130, 57);
-            this.btnCancel.TabIndex = 10;
+            this.btnCancel.TabIndex = 3;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -176,7 +176,7 @@
             this.txtComputer.Location = new System.Drawing.Point(23, 90);
             this.txtComputer.Name = "txtComputer";
             this.txtComputer.Size = new System.Drawing.Size(324, 27);
-            this.txtComputer.TabIndex = 8;
+            this.txtComputer.TabIndex = 1;
             // 
             // label2
             // 

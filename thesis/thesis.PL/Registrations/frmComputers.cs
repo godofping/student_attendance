@@ -125,20 +125,35 @@ namespace thesis.PL.Registrations
             gb.Text = "Create Computer";
         }
 
-    
 
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (methods.CheckRequiredTXT(txtComputer))
             {
                 computerEL.Computer = txtComputer.Text;
+
                 if (s.Equals("ADD"))
                 {
-                    ShowResult(computerBL.Insert(computerEL) > 0);
+                    computerEL.Computerid = 0;
+                    if (computerBL.List(computerEL).Rows.Count == 0)
+                    {
+                        ShowResult(computerBL.Insert(computerEL) > 0);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Item already existing.");
+                    }
                 }
                 else if(s.Equals("EDIT"))
                 {
-                    ShowResult(computerBL.Update(computerEL));
+                    if (computerBL.List(computerEL).Rows.Count == 0)
+                    {
+                        ShowResult(computerBL.Update(computerEL));
+                    }
+                    else
+                    {
+                        MessageBox.Show("Item already existing.");
+                    }
                 }
             }
             else
