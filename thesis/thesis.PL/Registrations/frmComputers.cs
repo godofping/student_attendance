@@ -88,7 +88,7 @@ namespace thesis.PL.Registrations
 
         private void ResetForm()
         {
-            txtComputer.ResetText();
+            methods.ClearTXT(txtComputer);
         }
 
         private void ShowForm(bool bol)

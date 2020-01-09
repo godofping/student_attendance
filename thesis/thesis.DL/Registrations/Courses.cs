@@ -12,7 +12,7 @@ namespace thesis.DL.Registrations
         public DataTable List(String keyword)
         {
             keyword = Helper.EscapeString(keyword);
-            return Helper.executeQuery("select * from courses where coursecode like '" + keyword + "%' or coursedescription like '" + keyword + "%'");
+            return Helper.executeQuery("select * from courses where coursecode like '" + keyword + "%' or coursedescription like '" + keyword + "%' order by coursecode asc");
         }
 
         public DataTable List(EL.Registrations.Courses courseEL)

@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Data;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -11,19 +11,18 @@ using System.Windows.Forms;
 
 namespace thesis.PL.Registrations
 {
-    public partial class frmCourses : Form
+    public partial class frmRelations : Form
     {
         string s = "";
         Thread delayedCalculationThreadDGV;
         int delay = 0;
 
-        EL.Registrations.Courses courseEL = new EL.Registrations.Courses();
+        EL.Registrations.Relations relationEL = new EL.Registrations.Relations();
 
-        BL.Registrations.Courses courseBL = new BL.Registrations.Courses();
+        BL.Registrations.Relations relationBL = new BL.Registrations.Relations();
 
         frmMain frmMain;
-
-        public frmCourses(frmMain _frmMain)
+        public frmRelations(frmMain _frmMain)
         {
             InitializeComponent();
             frmMain = _frmMain;
@@ -77,19 +76,19 @@ namespace thesis.PL.Registrations
         {
             PopulateDGV();
             methods.DGVTheme(dgv);
-            methods.DGVRenameColumns(dgv, "courseid", "Course Code", "Course Description");
-            methods.DGVHiddenColumns(dgv, "courseid");
+            methods.DGVRenameColumns(dgv, "relationid", "Relation");
+            methods.DGVHiddenColumns(dgv, "relationid");
             methods.DGVBUTTONEditDelete(dgv);
         }
 
         private void PopulateDGV()
         {
-            methods.LoadDGV(dgv, courseBL.List(txtSearch.Text));
+            methods.LoadDGV(dgv, relationBL.List(txtSearch.Text));
         }
 
         private void ResetForm()
         {
-            methods.ClearTXT(txtCourseCode, txtCourseDescription);
+            methods.ClearTXT(txtRelation);
         }
 
         private void ShowForm(bool bol)
@@ -113,7 +112,7 @@ namespace thesis.PL.Registrations
             }
         }
 
-        private void frmCourses_Load(object sender, EventArgs e)
+        private void frmRelations_Load(object sender, EventArgs e)
         {
             ShowForm(false);
             ManageDGV();
@@ -123,22 +122,21 @@ namespace thesis.PL.Registrations
         {
             s = "ADD";
             ShowForm(true);
-            gb.Text = "Create Course";
+            gb.Text = "Create Relation";
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (methods.CheckRequiredTXT(txtCourseCode, txtCourseDescription))
+            if (methods.CheckRequiredTXT(txtRelation))
             {
-                courseEL.Coursecode = txtCourseCode.Text;
-                courseEL.Coursedescription = txtCourseDescription.Text;
+                relationEL.Relation = txtRelation.Text;
 
                 if (s.Equals("ADD"))
                 {
-                    courseEL.Courseid = 0;
-                    if (courseBL.List(courseEL).Rows.Count == 0)
+                    relationEL.Relationid = 0;
+                    if (relationBL.List(relationEL).Rows.Count == 0)
                     {
-                        ShowResult(courseBL.Insert(courseEL) > 0);
+                        ShowResult(relationBL.Insert(relationEL) > 0);
                     }
                     else
                     {
@@ -147,9 +145,9 @@ namespace thesis.PL.Registrations
                 }
                 else if (s.Equals("EDIT"))
                 {
-                    if (courseBL.List(courseEL).Rows.Count == 0)
+                    if (relationBL.List(relationEL).Rows.Count == 0)
                     {
-                        ShowResult(courseBL.Update(courseEL));
+                        ShowResult(relationBL.Update(relationEL));
                     }
                     else
                     {
@@ -175,23 +173,22 @@ namespace thesis.PL.Registrations
 
         private void dgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            courseEL.Courseid = Convert.ToInt32(dgv.Rows[e.RowIndex].Cells["courseid"].Value);
+            relationEL.Relationid = Convert.ToInt32(dgv.Rows[e.RowIndex].Cells["relationid"].Value);
             if (e.ColumnIndex == 0)
             {
                 s = "EDIT";
                 ShowForm(true);
-                gb.Text = "Update Course";
+                gb.Text = "Update Relation";
 
-                courseEL = courseBL.Select(courseEL);
-                txtCourseCode.Text = courseEL.Coursecode;
-                txtCourseDescription.Text = courseEL.Coursedescription;
+                relationEL = relationBL.Select(relationEL);
+                txtRelation.Text = relationEL.Relation;
             }
             else if (e.ColumnIndex == 1)
             {
                 DialogResult dialogResult = MessageBox.Show("Are you sure to delete this selected item?", "Deleting", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    ShowResult(courseBL.Delete(courseEL));
+                    ShowResult(relationBL.Delete(relationEL));
                 }
             }
         }
@@ -203,8 +200,5 @@ namespace thesis.PL.Registrations
             methods.ChangePanelDisplay(frm, frmMain.pnlMain);
         }
 
- 
-
-        
     }
 }

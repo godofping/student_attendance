@@ -526,6 +526,20 @@ namespace thesis.PL
             return dialogResult;
         }
 
+        public static bool IsContainsCB(params ComboBox[] cb)
+        {
+            bool bol = true;
+
+            foreach (ComboBox d in cb)
+            {
+                if (d.FindStringExact(d.Text) <= -1)
+                {
+                    bol = false;
+                }
+            }
+            return bol;
+        }
+
 
         public static void LoadCB(ComboBox cb, DataTable dt, string dm, string vm)
         {

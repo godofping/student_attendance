@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Data;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -11,19 +11,20 @@ using System.Windows.Forms;
 
 namespace thesis.PL.Registrations
 {
-    public partial class frmCourses : Form
+    public partial class frmRooms : Form
     {
         string s = "";
         Thread delayedCalculationThreadDGV;
         int delay = 0;
 
-        EL.Registrations.Courses courseEL = new EL.Registrations.Courses();
+        EL.Registrations.Computers computerEL = new EL.Registrations.Computers();
+        EL.Registrations.Rooms roomEL = new EL.Registrations.Rooms();
 
-        BL.Registrations.Courses courseBL = new BL.Registrations.Courses();
+        BL.Registrations.Computers computerBL = new BL.Registrations.Computers();
+        BL.Registrations.Rooms roomBL = new BL.Registrations.Rooms();
 
         frmMain frmMain;
-
-        public frmCourses(frmMain _frmMain)
+        public frmRooms(frmMain _frmMain)
         {
             InitializeComponent();
             frmMain = _frmMain;
@@ -77,19 +78,26 @@ namespace thesis.PL.Registrations
         {
             PopulateDGV();
             methods.DGVTheme(dgv);
-            methods.DGVRenameColumns(dgv, "courseid", "Course Code", "Course Description");
-            methods.DGVHiddenColumns(dgv, "courseid");
+            methods.DGVRenameColumns(dgv, "roomid", "computerid","Room","Computer");
+            methods.DGVHiddenColumns(dgv, "roomid", "computerid");
             methods.DGVBUTTONEditDelete(dgv);
+        }
+
+        private void PopulateCB()
+        {
+            methods.LoadCB(cbComputer, computerBL.List(""), "computer", "computerid");
         }
 
         private void PopulateDGV()
         {
-            methods.LoadDGV(dgv, courseBL.List(txtSearch.Text));
+            methods.LoadDGV(dgv, roomBL.List(txtSearch.Text));
         }
+
 
         private void ResetForm()
         {
-            methods.ClearTXT(txtCourseCode, txtCourseDescription);
+            methods.ClearTXT(txtRoom);
+            methods.ClearCB(cbComputer);
         }
 
         private void ShowForm(bool bol)
@@ -113,8 +121,9 @@ namespace thesis.PL.Registrations
             }
         }
 
-        private void frmCourses_Load(object sender, EventArgs e)
+        private void frmRooms_Load(object sender, EventArgs e)
         {
+            PopulateCB();
             ShowForm(false);
             ManageDGV();
         }
@@ -123,38 +132,45 @@ namespace thesis.PL.Registrations
         {
             s = "ADD";
             ShowForm(true);
-            gb.Text = "Create Course";
+            gb.Text = "Create Room";
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (methods.CheckRequiredTXT(txtCourseCode, txtCourseDescription))
+            if (methods.CheckRequiredTXT(txtRoom) & methods.CheckRequiredCB(cbComputer))
             {
-                courseEL.Coursecode = txtCourseCode.Text;
-                courseEL.Coursedescription = txtCourseDescription.Text;
-
-                if (s.Equals("ADD"))
+                if (methods.IsContainsCB(cbComputer))
                 {
-                    courseEL.Courseid = 0;
-                    if (courseBL.List(courseEL).Rows.Count == 0)
+                    roomEL.Computerid = Convert.ToInt32(cbComputer.SelectedValue);
+                    roomEL.Room = txtRoom.Text;
+
+                    if (s.Equals("ADD"))
                     {
-                        ShowResult(courseBL.Insert(courseEL) > 0);
+                        roomEL.Roomid = 0;
+                        if (roomBL.List(roomEL).Rows.Count == 0)
+                        {
+                            ShowResult(roomBL.Insert(roomEL) > 0);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Item already existing.");
+                        }
                     }
-                    else
+                    else if (s.Equals("EDIT"))
                     {
-                        MessageBox.Show("Item already existing.");
+                        if (computerBL.List(computerEL).Rows.Count == 0)
+                        {
+                            ShowResult(roomBL.Update(roomEL));
+                        }
+                        else
+                        {
+                            MessageBox.Show("Item already existing.");
+                        }
                     }
                 }
-                else if (s.Equals("EDIT"))
+                else
                 {
-                    if (courseBL.List(courseEL).Rows.Count == 0)
-                    {
-                        ShowResult(courseBL.Update(courseEL));
-                    }
-                    else
-                    {
-                        MessageBox.Show("Item already existing.");
-                    }
+                    MessageBox.Show("Combo box invalid value.");
                 }
             }
             else
@@ -175,23 +191,23 @@ namespace thesis.PL.Registrations
 
         private void dgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            courseEL.Courseid = Convert.ToInt32(dgv.Rows[e.RowIndex].Cells["courseid"].Value);
+            roomEL.Roomid = Convert.ToInt32(dgv.Rows[e.RowIndex].Cells["roomid"].Value);
             if (e.ColumnIndex == 0)
             {
                 s = "EDIT";
                 ShowForm(true);
-                gb.Text = "Update Course";
+                gb.Text = "Update Computer";
 
-                courseEL = courseBL.Select(courseEL);
-                txtCourseCode.Text = courseEL.Coursecode;
-                txtCourseDescription.Text = courseEL.Coursedescription;
+                roomEL = roomBL.Select(roomEL);
+                cbComputer.SelectedValue = roomEL.Computerid;
+                txtRoom.Text = roomEL.Room;
             }
             else if (e.ColumnIndex == 1)
             {
                 DialogResult dialogResult = MessageBox.Show("Are you sure to delete this selected item?", "Deleting", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    ShowResult(courseBL.Delete(courseEL));
+                    ShowResult(roomBL.Delete(roomEL));
                 }
             }
         }
@@ -202,8 +218,6 @@ namespace thesis.PL.Registrations
             var frm = new frmSettings(frmMain);
             methods.ChangePanelDisplay(frm, frmMain.pnlMain);
         }
-
- 
 
         
     }

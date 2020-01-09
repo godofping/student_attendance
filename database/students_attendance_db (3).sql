@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 08, 2020 at 05:37 AM
+-- Generation Time: Jan 09, 2020 at 09:50 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.3
 
@@ -47,6 +47,17 @@ CREATE TABLE `computers` (
   `computer` varchar(60) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `computers`
+--
+
+INSERT INTO `computers` (`computerid`, `computer`) VALUES
+(1, 'COMPUTER 1'),
+(2, 'COMPUTER 2'),
+(3, 'COMPUTER 3'),
+(13, 'tae1111'),
+(14, 'a');
+
 -- --------------------------------------------------------
 
 --
@@ -71,6 +82,14 @@ CREATE TABLE `courses` (
   `coursecode` varchar(60) DEFAULT NULL,
   `coursedescription` varchar(60) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `courses`
+--
+
+INSERT INTO `courses` (`courseid`, `coursecode`, `coursedescription`) VALUES
+(1, 'bscs', 'comscie'),
+(4, 'aa', 'asdasd');
 
 -- --------------------------------------------------------
 
@@ -104,13 +123,13 @@ CREATE TABLE `relations` (
 --
 
 INSERT INTO `relations` (`relationid`, `relation`) VALUES
-(1, 'FATHER'),
-(2, 'MOTHER'),
-(3, 'RELATIVES'),
-(4, 'GUARDIAN'),
-(5, 'HUSBAND'),
-(6, 'SPOUSE'),
-(7, 'OTHERS');
+(1, 'Father'),
+(2, 'Mother'),
+(3, 'Relatives'),
+(4, 'Guardian'),
+(6, 'Spouse'),
+(7, 'Others'),
+(9, 'aa');
 
 -- --------------------------------------------------------
 
@@ -123,6 +142,28 @@ CREATE TABLE `rooms` (
   `computerid` int(6) DEFAULT NULL,
   `room` varchar(60) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `rooms`
+--
+
+INSERT INTO `rooms` (`roomid`, `computerid`, `room`) VALUES
+(1, 2, 'tae1'),
+(2, 14, 'aa'),
+(3, 1, 'asd');
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `rooms_view`
+-- (See below for the actual view)
+--
+CREATE TABLE `rooms_view` (
+`roomid` int(6)
+,`computerid` int(6)
+,`room` varchar(60)
+,`computer` varchar(60)
+);
 
 -- --------------------------------------------------------
 
@@ -212,6 +253,15 @@ CREATE TABLE `subjectsschedules` (
   `saturday` tinyint(1) DEFAULT NULL,
   `sunday` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `rooms_view`
+--
+DROP TABLE IF EXISTS `rooms_view`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `rooms_view`  AS  select `rooms`.`roomid` AS `roomid`,`rooms`.`computerid` AS `computerid`,`rooms`.`room` AS `room`,`computers`.`computer` AS `computer` from (`rooms` join `computers` on((`rooms`.`computerid` = `computers`.`computerid`))) ;
 
 --
 -- Indexes for dumped tables
@@ -322,7 +372,7 @@ ALTER TABLE `attendances`
 -- AUTO_INCREMENT for table `computers`
 --
 ALTER TABLE `computers`
-  MODIFY `computerid` int(6) NOT NULL AUTO_INCREMENT;
+  MODIFY `computerid` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `contactphonenumbers`
@@ -334,7 +384,7 @@ ALTER TABLE `contactphonenumbers`
 -- AUTO_INCREMENT for table `courses`
 --
 ALTER TABLE `courses`
-  MODIFY `courseid` int(6) NOT NULL AUTO_INCREMENT;
+  MODIFY `courseid` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `employees`
@@ -346,13 +396,13 @@ ALTER TABLE `employees`
 -- AUTO_INCREMENT for table `relations`
 --
 ALTER TABLE `relations`
-  MODIFY `relationid` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `relationid` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `rooms`
 --
 ALTER TABLE `rooms`
-  MODIFY `roomid` int(6) NOT NULL AUTO_INCREMENT;
+  MODIFY `roomid` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `seats`

@@ -12,7 +12,7 @@ namespace thesis.DL.Registrations
         public DataTable List(String keyword)
         {
             keyword = Helper.EscapeString(keyword);
-            return Helper.executeQuery("select * from computers where computer like '" + keyword + "%'");
+            return Helper.executeQuery("select * from computers where computer like '" + keyword + "%' order by computer asc");
         }
 
         public DataTable List(EL.Registrations.Computers computerEL)

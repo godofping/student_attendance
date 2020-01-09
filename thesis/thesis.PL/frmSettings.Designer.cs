@@ -81,6 +81,7 @@
             this.btnRooms.TabIndex = 4;
             this.btnRooms.Text = "Rooms";
             this.btnRooms.UseVisualStyleBackColor = false;
+            this.btnRooms.Click += new System.EventHandler(this.btnRooms_Click);
             // 
             // btnRelations
             // 
@@ -95,6 +96,7 @@
             this.btnRelations.TabIndex = 5;
             this.btnRelations.Text = "Relations";
             this.btnRelations.UseVisualStyleBackColor = false;
+            this.btnRelations.Click += new System.EventHandler(this.btnRelations_Click);
             // 
             // btnSeats
             // 
