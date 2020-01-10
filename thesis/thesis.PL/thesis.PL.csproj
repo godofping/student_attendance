@@ -115,6 +115,12 @@
     <Compile Include="Registrations\frmRooms.Designer.cs">
       <DependentUpon>frmRooms.cs</DependentUpon>
     </Compile>
+    <Compile Include="Registrations\frmSeats.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registrations\frmSeats.Designer.cs">
+      <DependentUpon>frmSeats.cs</DependentUpon>
+    </Compile>
     <Compile Include="Registrations\frmStudents.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -168,6 +174,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Registrations\frmRooms.resx">
       <DependentUpon>frmRooms.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registrations\frmSeats.resx">
+      <DependentUpon>frmSeats.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Registrations\frmStudents.resx">
       <DependentUpon>frmStudents.cs</DependentUpon>

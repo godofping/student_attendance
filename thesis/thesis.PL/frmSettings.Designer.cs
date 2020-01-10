@@ -111,6 +111,7 @@
             this.btnSeats.TabIndex = 6;
             this.btnSeats.Text = "Seats";
             this.btnSeats.UseVisualStyleBackColor = false;
+            this.btnSeats.Click += new System.EventHandler(this.btnSeats_Click);
             // 
             // btnStudentsSubjectsEnrolled
             // 

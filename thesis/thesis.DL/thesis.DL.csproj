@@ -52,6 +52,7 @@
     <Compile Include="Registrations\Employees.cs" />
     <Compile Include="Registrations\Relations.cs" />
     <Compile Include="Registrations\Rooms.cs" />
+    <Compile Include="Registrations\Seats.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Transactions\" />

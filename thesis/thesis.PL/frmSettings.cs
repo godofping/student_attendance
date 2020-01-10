@@ -88,5 +88,18 @@ namespace thesis.PL
 
             pleaseWait.Close();
         }
+
+        private void btnSeats_Click(object sender, EventArgs e)
+        {
+            var pleaseWait = new frmLoading();
+            pleaseWait.Show();
+            Application.DoEvents();
+            methods.Wait(300);
+
+            var frm = new Registrations.frmSeats(frmMain);
+            methods.ChangePanelDisplay(frm, frmMain.pnlMain);
+
+            pleaseWait.Close();
+        }
     }
 }

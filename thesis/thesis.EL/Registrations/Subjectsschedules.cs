@@ -12,6 +12,7 @@ namespace thesis.EL.Registrations
         int subjectid;
         int employeeid;
         int roomid;
+        string subjecttype;
         string start;
         string end;
         int monday;
@@ -26,6 +27,7 @@ namespace thesis.EL.Registrations
         public int Subjectid { get => subjectid; set => subjectid = value; }
         public int Employeeid { get => employeeid; set => employeeid = value; }
         public int Roomid { get => roomid; set => roomid = value; }
+        public string Subjecttype { get => subjecttype; set => subjecttype = value; }
         public string Start { get => start; set => start = value; }
         public string End { get => end; set => end = value; }
         public int Monday { get => monday; set => monday = value; }
@@ -35,5 +37,6 @@ namespace thesis.EL.Registrations
         public int Friday { get => friday; set => friday = value; }
         public int Saturday { get => saturday; set => saturday = value; }
         public int Sunday { get => sunday; set => sunday = value; }
+        
     }
 }

@@ -30,7 +30,7 @@
   `computerid` int(6) NOT NULL AUTO_INCREMENT,
   `computer` varchar(60) DEFAULT NULL,
   PRIMARY KEY (`computerid`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1</sql_create_table>
 </table>
 <table name="contactphonenumbers" view="colnames">
 <left>25</left>
@@ -50,15 +50,15 @@
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
 </table>
 <table name="relations" view="colnames">
-<left>180</left>
-<top>451</top>
+<left>181</left>
+<top>432</top>
 <width>153</width>
 <height>112</height>
 <sql_create_table>CREATE TABLE `relations` (
   `relationid` int(6) NOT NULL AUTO_INCREMENT,
   `relation` varchar(60) DEFAULT NULL,
   PRIMARY KEY (`relationid`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1</sql_create_table>
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1</sql_create_table>
 </table>
 <table name="rooms" view="colnames">
 <left>633</left>
@@ -72,7 +72,7 @@
   PRIMARY KEY (`roomid`),
   KEY `FK_rooms` (`computerid`),
   CONSTRAINT `FK_rooms` FOREIGN KEY (`computerid`) REFERENCES `computers` (`computerid`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1</sql_create_table>
 </table>
 <table name="seats" view="colnames">
 <left>900</left>
@@ -86,7 +86,7 @@
   PRIMARY KEY (`seatid`),
   KEY `FK_seats` (`roomid`),
   CONSTRAINT `FK_seats` FOREIGN KEY (`roomid`) REFERENCES `rooms` (`roomid`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1</sql_create_table>
 </table>
 <table name="smsdeliverieshistory" view="colnames">
 <left>290</left>
@@ -163,6 +163,7 @@
   `subjectid` int(6) DEFAULT NULL,
   `employeeid` int(6) DEFAULT NULL,
   `roomid` int(6) DEFAULT NULL,
+  `subjecttype` varchar(10) DEFAULT NULL,
   `start` datetime DEFAULT NULL,
   `end` datetime DEFAULT NULL,
   `monday` tinyint(1) DEFAULT NULL,
@@ -191,7 +192,7 @@
   `coursecode` varchar(60) DEFAULT NULL,
   `coursedescription` varchar(60) DEFAULT NULL,
   PRIMARY KEY (`courseid`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1</sql_create_table>
 </table>
 <table name="employees" view="colnames">
 <left>583</left>

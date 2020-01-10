@@ -10,7 +10,7 @@ namespace thesis.DL
 
         public static string EscapeString(String str)
         { 
-        return MySql.Data.MySqlClient.MySqlHelper.EscapeString(str);
+        return MySql.Data.MySqlClient.MySqlHelper.EscapeString(str.Trim());
 
         }
 
