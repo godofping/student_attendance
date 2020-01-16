@@ -28,3 +28,8 @@ C:\xampp\htdocs\student_attendance\thesis\thesis.PL\obj\Debug\thesis.PL.Registra
 C:\xampp\htdocs\student_attendance\thesis\thesis.PL\obj\Debug\thesis.PL.Registrations.frmRelations.resources
 C:\xampp\htdocs\student_attendance\thesis\thesis.PL\obj\Debug\thesis.PL.Registrations.frmRooms.resources
 C:\xampp\htdocs\student_attendance\thesis\thesis.PL\obj\Debug\thesis.PL.Registrations.frmSeats.resources
+C:\xampp\htdocs\student_attendance\thesis\thesis.PL\bin\Debug\AForge.dll
+C:\xampp\htdocs\student_attendance\thesis\thesis.PL\bin\Debug\AForge.Video.DirectShow.dll
+C:\xampp\htdocs\student_attendance\thesis\thesis.PL\bin\Debug\AForge.Video.dll
+C:\xampp\htdocs\student_attendance\thesis\thesis.PL\bin\Debug\DarrenLee.Media.dll
+C:\xampp\htdocs\student_attendance\thesis\thesis.PL\obj\Debug\thesis.PL.frmCapture.resources

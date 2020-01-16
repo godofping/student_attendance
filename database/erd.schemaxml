@@ -64,14 +64,17 @@
 <left>633</left>
 <top>432</top>
 <width>111</width>
-<height>121</height>
+<height>156</height>
 <sql_create_table>CREATE TABLE `rooms` (
   `roomid` int(6) NOT NULL AUTO_INCREMENT,
+  `buildingid` int(6) DEFAULT NULL,
   `computerid` int(6) DEFAULT NULL,
   `room` varchar(60) DEFAULT NULL,
   PRIMARY KEY (`roomid`),
   KEY `FK_rooms` (`computerid`),
-  CONSTRAINT `FK_rooms` FOREIGN KEY (`computerid`) REFERENCES `computers` (`computerid`)
+  KEY `FK_rooms1` (`buildingid`),
+  CONSTRAINT `FK_rooms` FOREIGN KEY (`computerid`) REFERENCES `computers` (`computerid`),
+  CONSTRAINT `FK_rooms1` FOREIGN KEY (`buildingid`) REFERENCES `buildings` (`buildingid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1</sql_create_table>
 </table>
 <table name="seats" view="colnames">
@@ -86,7 +89,7 @@
   PRIMARY KEY (`seatid`),
   KEY `FK_seats` (`roomid`),
   CONSTRAINT `FK_seats` FOREIGN KEY (`roomid`) REFERENCES `rooms` (`roomid`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1</sql_create_table>
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
 </table>
 <table name="smsdeliverieshistory" view="colnames">
 <left>290</left>
@@ -142,8 +145,8 @@
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
 </table>
 <table name="subjects" view="colnames">
-<left>183</left>
-<top>570</top>
+<left>182</left>
+<top>558</top>
 <width>149</width>
 <height>129</height>
 <sql_create_table>CREATE TABLE `subjects` (
@@ -208,6 +211,17 @@
   `password` varchar(60) DEFAULT NULL,
   `accounttype` varchar(60) DEFAULT NULL,
   PRIMARY KEY (`employeeid`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+</table>
+<table name="buildings" view="colnames">
+<left>918</left>
+<top>580</top>
+<width>100</width>
+<height>112</height>
+<sql_create_table>CREATE TABLE `buildings` (
+  `buildingid` int(6) NOT NULL AUTO_INCREMENT,
+  `building` varchar(60) DEFAULT NULL,
+  PRIMARY KEY (`buildingid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
 </table>
 </tables>

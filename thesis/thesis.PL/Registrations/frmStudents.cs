@@ -16,5 +16,21 @@ namespace thesis.PL.Registrations
         {
             InitializeComponent();
         }
+
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            var frmCapture = new frmCapture(this);
+            frmCapture.ShowDialog();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            pbCapture.Image = null;
+        }
     }
 }

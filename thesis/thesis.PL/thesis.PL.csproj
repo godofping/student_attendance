@@ -33,6 +33,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AForge">
+      <HintPath>..\..\database\Camera Application DLL\AForge.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video">
+      <HintPath>..\..\database\Camera Application DLL\AForge.Video.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video.DirectShow">
+      <HintPath>..\..\database\Camera Application DLL\AForge.Video.DirectShow.dll</HintPath>
+    </Reference>
+    <Reference Include="DarrenLee.Media">
+      <HintPath>..\..\database\Camera Application DLL\DarrenLee.Media.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,6 +58,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmCapture.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCapture.Designer.cs">
+      <DependentUpon>frmCapture.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,6 +151,9 @@
     <Compile Include="Transactions\frmAttendances.Designer.cs">
       <DependentUpon>frmAttendances.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="frmCapture.resx">
+      <DependentUpon>frmCapture.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmDashboard.resx">
       <DependentUpon>frmDashboard.cs</DependentUpon>
     </EmbeddedResource>
