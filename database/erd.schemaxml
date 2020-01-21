@@ -33,9 +33,9 @@
 ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1</sql_create_table>
 </table>
 <table name="contactphonenumbers" view="colnames">
-<left>25</left>
-<top>255</top>
-<width>176</width>
+<left>2</left>
+<top>241</top>
+<width>174</width>
 <height>146</height>
 <sql_create_table>CREATE TABLE `contactphonenumbers` (
   `contactphonenumberid` int(6) NOT NULL AUTO_INCREMENT,
@@ -50,8 +50,8 @@
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
 </table>
 <table name="relations" view="colnames">
-<left>181</left>
-<top>432</top>
+<left>173</left>
+<top>369</top>
 <width>153</width>
 <height>112</height>
 <sql_create_table>CREATE TABLE `relations` (
@@ -107,8 +107,8 @@
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
 </table>
 <table name="students" view="colnames">
-<left>1043</left>
-<top>134</top>
+<left>1018</left>
+<top>89</top>
 <width>159</width>
 <height>206</height>
 <sql_create_table>CREATE TABLE `students` (
@@ -118,8 +118,8 @@
   `studentfirstname` varchar(60) DEFAULT NULL,
   `studentmiddlename` varchar(60) DEFAULT NULL,
   `studentlastname` varchar(60) DEFAULT NULL,
-  `rfid` varchar(200) DEFAULT NULL,
-  `imagelocation` text,
+  `studentrfid` text,
+  `studentimage` blob,
   PRIMARY KEY (`studentid`),
   KEY `FK_students` (`courseid`),
   CONSTRAINT `FK_students` FOREIGN KEY (`courseid`) REFERENCES `courses` (`courseid`)
@@ -145,8 +145,8 @@
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
 </table>
 <table name="subjects" view="colnames">
-<left>182</left>
-<top>558</top>
+<left>163</left>
+<top>551</top>
 <width>149</width>
 <height>129</height>
 <sql_create_table>CREATE TABLE `subjects` (
@@ -186,8 +186,8 @@
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
 </table>
 <table name="courses" view="colnames">
-<left>1266</left>
-<top>158</top>
+<left>1226</left>
+<top>86</top>
 <width>146</width>
 <height>142</height>
 <sql_create_table>CREATE TABLE `courses` (
@@ -198,7 +198,7 @@
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1</sql_create_table>
 </table>
 <table name="employees" view="colnames">
-<left>583</left>
+<left>518</left>
 <top>6</top>
 <width>172</width>
 <height>197</height>

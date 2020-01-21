@@ -41,16 +41,16 @@
             // pbCamera
             // 
             this.pbCamera.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
-            this.pbCamera.Location = new System.Drawing.Point(12, 12);
+            this.pbCamera.Location = new System.Drawing.Point(35, 17);
             this.pbCamera.Name = "pbCamera";
-            this.pbCamera.Size = new System.Drawing.Size(423, 330);
+            this.pbCamera.Size = new System.Drawing.Size(352, 302);
             this.pbCamera.TabIndex = 0;
             this.pbCamera.TabStop = false;
             // 
             // cbCamera
             // 
             this.cbCamera.FormattingEnabled = true;
-            this.cbCamera.Location = new System.Drawing.Point(12, 377);
+            this.cbCamera.Location = new System.Drawing.Point(12, 360);
             this.cbCamera.Name = "cbCamera";
             this.cbCamera.Size = new System.Drawing.Size(249, 24);
             this.cbCamera.TabIndex = 1;
@@ -59,7 +59,7 @@
             // cbResolution
             // 
             this.cbResolution.FormattingEnabled = true;
-            this.cbResolution.Location = new System.Drawing.Point(12, 428);
+            this.cbResolution.Location = new System.Drawing.Point(12, 411);
             this.cbResolution.Name = "cbResolution";
             this.cbResolution.Size = new System.Drawing.Size(249, 24);
             this.cbResolution.TabIndex = 2;
@@ -68,7 +68,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 358);
+            this.label1.Location = new System.Drawing.Point(12, 341);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 16);
             this.label1.TabIndex = 3;
@@ -77,7 +77,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 409);
+            this.label2.Location = new System.Drawing.Point(9, 392);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(62, 16);
             this.label2.TabIndex = 4;
@@ -90,7 +90,7 @@
             this.btnCapture.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCapture.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCapture.ForeColor = System.Drawing.Color.White;
-            this.btnCapture.Location = new System.Drawing.Point(305, 348);
+            this.btnCapture.Location = new System.Drawing.Point(279, 338);
             this.btnCapture.Name = "btnCapture";
             this.btnCapture.Size = new System.Drawing.Size(130, 57);
             this.btnCapture.TabIndex = 5;
@@ -105,7 +105,7 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Location = new System.Drawing.Point(305, 411);
+            this.btnClose.Location = new System.Drawing.Point(280, 401);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(130, 57);
             this.btnClose.TabIndex = 6;
@@ -118,7 +118,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(449, 481);
+            this.ClientSize = new System.Drawing.Size(422, 481);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnCapture);
             this.Controls.Add(this.label2);

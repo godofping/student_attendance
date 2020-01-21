@@ -50,18 +50,6 @@ namespace thesis.PL
             pleaseWait.Close();
         }
 
-        private void btnCourses_Click(object sender, EventArgs e)
-        {
-            var pleaseWait = new frmLoading();
-            pleaseWait.Show();
-            Application.DoEvents();
-            methods.Wait(300);
-
-            var frm = new Registrations.frmCourses(frmMain);
-            methods.ChangePanelDisplay(frm, frmMain.pnlMain);
-
-            pleaseWait.Close();
-        }
 
         private void btnRelations_Click(object sender, EventArgs e)
         {

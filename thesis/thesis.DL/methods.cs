@@ -4,7 +4,7 @@ using System.Data;
 
 namespace thesis.DL
 {
-    public class Helper
+    public class methods
     {
         public static string ConnectionString { get { return "Server=localhost;port=3306;UID=root;PWD=;database=students_attendance_db;Convert Zero Datetime=True"; } }
 
@@ -28,6 +28,46 @@ namespace thesis.DL
                     con.Open();
                     cmd.CommandType = CommandType.Text;
                     cmd.CommandText = _Query;
+                    cmd.Connection = con;
+
+                    trans = con.BeginTransaction();
+                    try
+                    {
+                        if (cmd.ExecuteNonQuery() >= 1)
+                        {
+                            rslt = cmd.LastInsertedId;
+                        }
+                        trans.Commit();
+
+                    }
+                    catch (Exception)
+                    {
+                        rslt = 0;
+                        trans.Rollback();
+
+                    }
+                    return rslt;
+                }
+                finally
+                {
+                    trans = null;
+                }
+            }
+        }
+
+        public static long test(MySqlCommand _cmd)
+        {
+
+            using (MySqlConnection con = new MySqlConnection(ConnectionString))
+            {
+                long rslt = 0;
+                MySqlCommand cmd = _cmd;
+                MySqlTransaction trans = null;
+                try
+                {
+                    cmd.CommandTimeout = 0;
+                    con.Open();
+                    cmd.CommandType = CommandType.Text;
                     cmd.Connection = con;
 
                     trans = con.BeginTransaction();

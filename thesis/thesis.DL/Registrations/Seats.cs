@@ -11,18 +11,18 @@ namespace thesis.DL.Registrations
     {
         public DataTable List(String keyword)
         {
-            keyword = Helper.EscapeString(keyword);
-            return Helper.executeQuery("select * from seats_view where seat like '" + keyword + "%' or room like '" + keyword + "%' order by seat,room asc");
+            keyword = methods.EscapeString(keyword);
+            return methods.executeQuery("select * from seats_view where seat like '" + keyword + "%' or room like '" + keyword + "%' order by seat,room asc");
         }
 
         public DataTable List(EL.Registrations.Seats seatEL)
         {
-            return Helper.executeQuery("select * from seats where seatid <> '" + seatEL.Seatid + "' and seat = '" + seatEL.Seat + "' and roomid = '" + seatEL.Roomid + "'");
+            return methods.executeQuery("select * from seats where seatid <> '" + seatEL.Seatid + "' and seat = '" + seatEL.Seat + "' and roomid = '" + seatEL.Roomid + "'");
         }
 
         public EL.Registrations.Seats Select(EL.Registrations.Seats seatEL)
         {
-            DataTable dt = Helper.executeQuery("select * from seats where seatid = '" + seatEL.Seatid + "'");
+            DataTable dt = methods.executeQuery("select * from seats where seatid = '" + seatEL.Seatid + "'");
 
             if (dt.Rows.Count > 0)
             {
@@ -40,19 +40,19 @@ namespace thesis.DL.Registrations
 
         public long Insert(EL.Registrations.Seats seatEL)
         {
-            seatEL.Seat = Helper.EscapeString(seatEL.Seat);
-            return Helper.executeNonQueryLong("insert into seats (roomid, seat) values ('" + seatEL.Roomid + "','" + seatEL.Seat + "')");
+            seatEL.Seat = methods.EscapeString(seatEL.Seat);
+            return methods.executeNonQueryLong("insert into seats (roomid, seat) values ('" + seatEL.Roomid + "','" + seatEL.Seat + "')");
         }
 
         public Boolean Update(EL.Registrations.Seats seatEL)
         {
-            seatEL.Seat = Helper.EscapeString(seatEL.Seat);
-            return Helper.executeNonQueryBool("update seats set roomid = '" + seatEL.Roomid + "',seat = '" + seatEL.Seat + "' where seatid = '" + seatEL.Seatid + "'");
+            seatEL.Seat = methods.EscapeString(seatEL.Seat);
+            return methods.executeNonQueryBool("update seats set roomid = '" + seatEL.Roomid + "',seat = '" + seatEL.Seat + "' where seatid = '" + seatEL.Seatid + "'");
         }
 
         public Boolean Delete(EL.Registrations.Seats seatEL)
         {
-            return Helper.executeNonQueryBool("delete from seats where seatid = '" + seatEL.Seatid + "'");
+            return methods.executeNonQueryBool("delete from seats where seatid = '" + seatEL.Seatid + "'");
         }
     }
 }

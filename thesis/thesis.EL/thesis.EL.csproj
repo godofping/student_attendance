@@ -48,7 +48,6 @@
     <Compile Include="Transactions\Attendances.cs" />
     <Compile Include="Registrations\Computers.cs" />
     <Compile Include="Registrations\Contactphonenumbers.cs" />
-    <Compile Include="Registrations\Courses.cs" />
     <Compile Include="Registrations\Employees.cs" />
     <Compile Include="Registrations\Relations.cs" />
     <Compile Include="Registrations\Rooms.cs" />

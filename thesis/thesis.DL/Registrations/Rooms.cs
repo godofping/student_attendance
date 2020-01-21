@@ -11,18 +11,18 @@ namespace thesis.DL.Registrations
     {
         public DataTable List(String keyword)
         {
-            keyword = Helper.EscapeString(keyword);
-            return Helper.executeQuery("select * from rooms_view where room like '" + keyword + "%' or computer like '" + keyword + "%' order by room asc");
+            keyword = methods.EscapeString(keyword);
+            return methods.executeQuery("select * from rooms_view where room like '" + keyword + "%' or computer like '" + keyword + "%' order by room asc");
         }
 
         public DataTable List(EL.Registrations.Rooms roomEL)
         {
-            return Helper.executeQuery("select * from rooms where roomid <> '" + roomEL.Roomid + "' and room = '" + roomEL.Room + "' and computerid = '" + roomEL.Computerid + "'");
+            return methods.executeQuery("select * from rooms where roomid <> '" + roomEL.Roomid + "' and room = '" + roomEL.Room + "' and computerid = '" + roomEL.Computerid + "'");
         }
 
         public EL.Registrations.Rooms Select(EL.Registrations.Rooms roomEL)
         {
-            DataTable dt = Helper.executeQuery("select * from rooms where roomid = '" + roomEL.Roomid + "'");
+            DataTable dt = methods.executeQuery("select * from rooms where roomid = '" + roomEL.Roomid + "'");
 
             if (dt.Rows.Count > 0)
             {
@@ -40,19 +40,19 @@ namespace thesis.DL.Registrations
 
         public long Insert(EL.Registrations.Rooms roomEL)
         {
-            roomEL.Room = Helper.EscapeString(roomEL.Room);
-            return Helper.executeNonQueryLong("insert into rooms (computerid, room) values ('" + roomEL.Computerid + "','" + roomEL.Room + "')");
+            roomEL.Room = methods.EscapeString(roomEL.Room);
+            return methods.executeNonQueryLong("insert into rooms (computerid, room) values ('" + roomEL.Computerid + "','" + roomEL.Room + "')");
         }
 
         public Boolean Update(EL.Registrations.Rooms roomEL)
         {
-            roomEL.Room = Helper.EscapeString(roomEL.Room);
-            return Helper.executeNonQueryBool("update rooms set computerid = '" + roomEL.Computerid + "',room = '" + roomEL.Room + "' where roomid = '" + roomEL.Roomid + "'");
+            roomEL.Room = methods.EscapeString(roomEL.Room);
+            return methods.executeNonQueryBool("update rooms set computerid = '" + roomEL.Computerid + "',room = '" + roomEL.Room + "' where roomid = '" + roomEL.Roomid + "'");
         }
 
         public Boolean Delete(EL.Registrations.Rooms roomEL)
         {
-            return Helper.executeNonQueryBool("delete from rooms where roomid = '" + roomEL.Roomid + "'");
+            return methods.executeNonQueryBool("delete from rooms where roomid = '" + roomEL.Roomid + "'");
         }
     }
 }

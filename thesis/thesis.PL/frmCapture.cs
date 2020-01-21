@@ -67,16 +67,16 @@ namespace thesis.PL
         }
 
 
-
-
         private void btnClose_Click_1(object sender, EventArgs e)
         {
             this.Close();
+            frmStudents.pnlForm.Enabled = true;
         }
 
         private void btnCapture_Click_1(object sender, EventArgs e)
         {
             frmStudents.pbCapture.Image = pbCamera.Image;
+            frmStudents.pnlForm.Enabled = true;
             this.Close();
         }
     }
