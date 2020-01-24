@@ -179,7 +179,8 @@ namespace thesis.PL.Registrations
 
         private void dgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            subjectEL.Subjectid = Convert.ToInt32(dgv.Rows[e.RowIndex].Cells["subjectid"].Value);
+            if (e.ColumnIndex == 0 | e.ColumnIndex == 1)
+                subjectEL.Subjectid = Convert.ToInt32(dgv.Rows[e.RowIndex].Cells["subjectid"].Value);
             if (e.ColumnIndex == 0)
             {
                 s = "EDIT";

@@ -21,6 +21,11 @@ namespace thesis.BL.Registrations
             return computerDL.List(computerEL);
         }
 
+        public DataTable Availables(EL.Registrations.Computers computerEL)
+        {
+            return computerDL.Availables(computerEL);
+        }
+
         public EL.Registrations.Computers Select(EL.Registrations.Computers computerEL)
         {
             return computerDL.Select(computerEL);

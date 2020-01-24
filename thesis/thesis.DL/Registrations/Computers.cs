@@ -33,6 +33,17 @@ namespace thesis.DL.Registrations
             }
         }
 
+        public DataTable Availables(EL.Registrations.Computers computerEL)
+        {
+            using (var cmd = new MySqlCommand())
+            {
+                cmd.CommandText = "SELECT * FROM computers WHERE computerid NOT IN (SELECT computerid FROM rooms) OR computerid = @computerid";
+                
+                cmd.Parameters.AddWithValue("@computerid", computerEL.Computerid);
+                return methods.executeQuery(cmd);
+            }
+        }
+
         public EL.Registrations.Computers Select(EL.Registrations.Computers computerEL)
         {
             DataTable dt = null;

@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.gb = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cbBuilding = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.cbComputer = new System.Windows.Forms.ComboBox();
             this.btnSave = new System.Windows.Forms.Button();
@@ -42,8 +44,6 @@
             this.dgv = new System.Windows.Forms.DataGridView();
             this.btnBack = new System.Windows.Forms.Button();
             this.pnlForm = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.cbBuilding = new System.Windows.Forms.ComboBox();
             this.gb.SuspendLayout();
             this.pnlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
@@ -68,6 +68,28 @@
             this.gb.TabStop = false;
             this.gb.Text = "<>";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(19, 157);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(80, 21);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "Building *";
+            // 
+            // cbBuilding
+            // 
+            this.cbBuilding.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbBuilding.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbBuilding.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.cbBuilding.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.cbBuilding.FormattingEnabled = true;
+            this.cbBuilding.Location = new System.Drawing.Point(23, 189);
+            this.cbBuilding.Name = "cbBuilding";
+            this.cbBuilding.Size = new System.Drawing.Size(324, 29);
+            this.cbBuilding.TabIndex = 2;
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -80,6 +102,8 @@
             // 
             // cbComputer
             // 
+            this.cbComputer.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbComputer.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbComputer.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.cbComputer.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.cbComputer.FormattingEnabled = true;
@@ -216,34 +240,14 @@
             this.pnlForm.TabIndex = 10;
             this.pnlForm.Visible = false;
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(19, 157);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(80, 21);
-            this.label4.TabIndex = 13;
-            this.label4.Text = "Building *";
-            // 
-            // cbBuilding
-            // 
-            this.cbBuilding.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.cbBuilding.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.cbBuilding.FormattingEnabled = true;
-            this.cbBuilding.Location = new System.Drawing.Point(23, 189);
-            this.cbBuilding.Name = "cbBuilding";
-            this.cbBuilding.Size = new System.Drawing.Size(324, 29);
-            this.cbBuilding.TabIndex = 2;
-            // 
             // frmRooms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1038, 720);
-            this.Controls.Add(this.pnlForm);
             this.Controls.Add(this.pnlMain);
+            this.Controls.Add(this.pnlForm);
             this.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

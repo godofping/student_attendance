@@ -14,7 +14,7 @@ namespace thesis.DL.Registrations
         {
             using (var cmd = new MySqlCommand())
             {
-                cmd.CommandText = "select * from students_view where studentidnumber like @keyword or studentfirstname like @keyword or studentmiddlename like @keyword or studentlastname like @keyword or yearlevel like @keyword order by studentlastname asc";
+                cmd.CommandText = "select * from students_view where studentidnumber like @keyword or studentfirstname like @keyword or studentmiddlename like @keyword or studentlastname like @keyword or yearlevel like @keyword order by studentlastname, studentfirstname, studentmiddlename asc";
 
                 cmd.Parameters.AddWithValue("@keyword", keyword + "%");
                 return methods.executeQuery(cmd);

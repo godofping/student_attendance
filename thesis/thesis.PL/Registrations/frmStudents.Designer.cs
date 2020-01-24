@@ -37,6 +37,10 @@
             this.dgv = new System.Windows.Forms.DataGridView();
             this.pnlForm = new System.Windows.Forms.Panel();
             this.gb = new System.Windows.Forms.GroupBox();
+            this.txtContactPersonPhoneNumber = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtContactPerson = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.txtFirstName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -54,10 +58,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.txtContactPersonPhoneNumber = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.txtContactPerson = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.pnlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.pnlForm.SuspendLayout();
@@ -180,13 +180,49 @@
             this.gb.TabStop = false;
             this.gb.Text = "<>";
             // 
+            // txtContactPersonPhoneNumber
+            // 
+            this.txtContactPersonPhoneNumber.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtContactPersonPhoneNumber.Location = new System.Drawing.Point(449, 149);
+            this.txtContactPersonPhoneNumber.Name = "txtContactPersonPhoneNumber";
+            this.txtContactPersonPhoneNumber.Size = new System.Drawing.Size(324, 27);
+            this.txtContactPersonPhoneNumber.TabIndex = 9;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(445, 118);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(262, 21);
+            this.label11.TabIndex = 44;
+            this.label11.Text = "Contact Person Phone Number *";
+            // 
+            // txtContactPerson
+            // 
+            this.txtContactPerson.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtContactPerson.Location = new System.Drawing.Point(449, 75);
+            this.txtContactPerson.Name = "txtContactPerson";
+            this.txtContactPerson.Size = new System.Drawing.Size(324, 27);
+            this.txtContactPerson.TabIndex = 8;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(445, 44);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(142, 21);
+            this.label10.TabIndex = 42;
+            this.label10.Text = "Contact Person *";
+            // 
             // txtFirstName
             // 
             this.txtFirstName.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFirstName.Location = new System.Drawing.Point(23, 221);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(324, 27);
-            this.txtFirstName.TabIndex = 26;
+            this.txtFirstName.TabIndex = 3;
             // 
             // label3
             // 
@@ -222,7 +258,7 @@
             this.cbYearLevel.Location = new System.Drawing.Point(23, 375);
             this.cbYearLevel.Name = "cbYearLevel";
             this.cbYearLevel.Size = new System.Drawing.Size(324, 29);
-            this.cbYearLevel.TabIndex = 24;
+            this.cbYearLevel.TabIndex = 5;
             // 
             // label7
             // 
@@ -244,7 +280,7 @@
             this.btnNew.Location = new System.Drawing.Point(205, 518);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(92, 37);
-            this.btnNew.TabIndex = 22;
+            this.btnNew.TabIndex = 6;
             this.btnNew.Text = "New";
             this.btnNew.UseVisualStyleBackColor = false;
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
@@ -283,7 +319,7 @@
             this.button1.Location = new System.Drawing.Point(303, 643);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(92, 37);
-            this.button1.TabIndex = 19;
+            this.button1.TabIndex = 7;
             this.button1.Text = "Scan RFID";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -314,7 +350,7 @@
             this.txtLastName.Location = new System.Drawing.Point(23, 149);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(324, 27);
-            this.txtLastName.TabIndex = 14;
+            this.txtLastName.TabIndex = 2;
             // 
             // label5
             // 
@@ -332,7 +368,7 @@
             this.txtMiddleName.Location = new System.Drawing.Point(23, 301);
             this.txtMiddleName.Name = "txtMiddleName";
             this.txtMiddleName.Size = new System.Drawing.Size(324, 27);
-            this.txtMiddleName.TabIndex = 12;
+            this.txtMiddleName.TabIndex = 4;
             // 
             // label4
             // 
@@ -373,42 +409,6 @@
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // txtContactPersonPhoneNumber
-            // 
-            this.txtContactPersonPhoneNumber.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContactPersonPhoneNumber.Location = new System.Drawing.Point(449, 149);
-            this.txtContactPersonPhoneNumber.Name = "txtContactPersonPhoneNumber";
-            this.txtContactPersonPhoneNumber.Size = new System.Drawing.Size(324, 27);
-            this.txtContactPersonPhoneNumber.TabIndex = 43;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(445, 118);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(262, 21);
-            this.label11.TabIndex = 44;
-            this.label11.Text = "Contact Person Phone Number *";
-            // 
-            // txtContactPerson
-            // 
-            this.txtContactPerson.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContactPerson.Location = new System.Drawing.Point(449, 75);
-            this.txtContactPerson.Name = "txtContactPerson";
-            this.txtContactPerson.Size = new System.Drawing.Size(324, 27);
-            this.txtContactPerson.TabIndex = 41;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(445, 44);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(142, 21);
-            this.label10.TabIndex = 42;
-            this.label10.Text = "Contact Person *";
             // 
             // frmStudents
             // 

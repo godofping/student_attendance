@@ -88,7 +88,14 @@ namespace thesis.PL.Registrations
         private void PopulateCB()
         {
             methods.LoadCB(cbBuilding, buildingBL.List(""), "building", "buildingid");
-            methods.LoadCB(cbComputer, computerBL.List(""), "computer", "computerid");
+            if (s.Equals("ADD"))
+            {
+                computerEL.Computerid = 0;
+            }
+
+
+            methods.LoadCB(cbComputer, computerBL.Availables(computerEL), "computer", "computerid");
+
         }
 
         private void PopulateDGV()
@@ -108,6 +115,7 @@ namespace thesis.PL.Registrations
             pnlForm.Visible = bol;
             pnlMain.Visible = !bol;
             ResetForm();
+            PopulateCB();
         }
 
         private void ShowResult(bool bol)
@@ -195,14 +203,17 @@ namespace thesis.PL.Registrations
 
         private void dgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            roomEL.Roomid = Convert.ToInt32(dgv.Rows[e.RowIndex].Cells["roomid"].Value);
+            if (e.ColumnIndex == 0 | e.ColumnIndex == 1)
+                roomEL.Roomid = Convert.ToInt32(dgv.Rows[e.RowIndex].Cells["roomid"].Value);
             if (e.ColumnIndex == 0)
             {
+                roomEL = roomBL.Select(roomEL);
+                computerEL.Computerid = roomEL.Computerid;
                 s = "EDIT";
                 ShowForm(true);
                 gb.Text = "Update Computer";
 
-                roomEL = roomBL.Select(roomEL);
+                
                 cbBuilding.SelectedValue = roomEL.Buildingid;
                 cbComputer.SelectedValue = roomEL.Computerid;
                 txtRoom.Text = roomEL.Room;
