@@ -11,23 +11,23 @@ using System.Windows.Forms;
 
 namespace thesis.PL.Registrations
 {
-    public partial class frmRelations : Form
+    public partial class frmBuildings : Form
     {
         string s = "";
         Thread delayedCalculationThreadDGV;
         int delay = 0;
 
-        EL.Registrations.Relations relationEL = new EL.Registrations.Relations();
+        EL.Registrations.Buildings buildingEL = new EL.Registrations.Buildings();
 
-        BL.Registrations.Relations relationBL = new BL.Registrations.Relations();
+        BL.Registrations.Buildings buildingBL = new BL.Registrations.Buildings();
 
         frmMain frmMain;
-        public frmRelations(frmMain _frmMain)
+
+        public frmBuildings(frmMain _frmMain)
         {
             InitializeComponent();
             frmMain = _frmMain;
         }
-
         protected override CreateParams CreateParams
         {
             get
@@ -76,19 +76,19 @@ namespace thesis.PL.Registrations
         {
             PopulateDGV();
             methods.DGVTheme(dgv);
-            methods.DGVRenameColumns(dgv, "relationid", "Relation");
-            methods.DGVHiddenColumns(dgv, "relationid");
+            methods.DGVRenameColumns(dgv, "buildingid", "Building");
+            methods.DGVHiddenColumns(dgv, "buildingid");
             methods.DGVBUTTONEditDelete(dgv);
         }
 
         private void PopulateDGV()
         {
-            methods.LoadDGV(dgv, relationBL.List(txtSearch.Text));
+            methods.LoadDGV(dgv, buildingBL.List(txtSearch.Text));
         }
 
         private void ResetForm()
         {
-            methods.ClearTXT(txtRelation);
+            methods.ClearTXT(txtBuilding);
         }
 
         private void ShowForm(bool bol)
@@ -112,7 +112,7 @@ namespace thesis.PL.Registrations
             }
         }
 
-        private void frmRelations_Load(object sender, EventArgs e)
+        private void frmBuildings_Load(object sender, EventArgs e)
         {
             ShowForm(false);
             ManageDGV();
@@ -122,21 +122,21 @@ namespace thesis.PL.Registrations
         {
             s = "ADD";
             ShowForm(true);
-            gb.Text = "Create Relation";
+            gb.Text = "Create Building";
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (methods.CheckRequiredTXT(txtRelation))
+            if (methods.CheckRequiredTXT(txtBuilding))
             {
-                relationEL.Relation = txtRelation.Text;
+                buildingEL.Building = txtBuilding.Text;
 
                 if (s.Equals("ADD"))
                 {
-                    relationEL.Relationid = 0;
-                    if (relationBL.List(relationEL).Rows.Count == 0)
+                    buildingEL.Buildingid = 0;
+                    if (buildingBL.List(buildingEL).Rows.Count == 0)
                     {
-                        ShowResult(relationBL.Insert(relationEL) > 0);
+                        ShowResult(buildingBL.Insert(buildingEL) > 0);
                     }
                     else
                     {
@@ -145,9 +145,9 @@ namespace thesis.PL.Registrations
                 }
                 else if (s.Equals("EDIT"))
                 {
-                    if (relationBL.List(relationEL).Rows.Count == 0)
+                    if (buildingBL.List(buildingEL).Rows.Count == 0)
                     {
-                        ShowResult(relationBL.Update(relationEL));
+                        ShowResult(buildingBL.Update(buildingEL));
                     }
                     else
                     {
@@ -173,22 +173,22 @@ namespace thesis.PL.Registrations
 
         private void dgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            relationEL.Relationid = Convert.ToInt32(dgv.Rows[e.RowIndex].Cells["relationid"].Value);
+            buildingEL.Buildingid = Convert.ToInt32(dgv.Rows[e.RowIndex].Cells["buildingid"].Value);
             if (e.ColumnIndex == 0)
             {
                 s = "EDIT";
                 ShowForm(true);
-                gb.Text = "Update Relation";
+                gb.Text = "Update Building";
 
-                relationEL = relationBL.Select(relationEL);
-                txtRelation.Text = relationEL.Relation;
+                buildingEL = buildingBL.Select(buildingEL);
+                txtBuilding.Text = buildingEL.Building;
             }
             else if (e.ColumnIndex == 1)
             {
                 DialogResult dialogResult = MessageBox.Show("Are you sure to delete this selected item?", "Deleting", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    ShowResult(relationBL.Delete(relationEL));
+                    ShowResult(buildingBL.Delete(buildingEL));
                 }
             }
         }

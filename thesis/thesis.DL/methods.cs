@@ -14,48 +14,8 @@ namespace thesis.DL
 
         }
 
-        public static long executeNonQueryLong(string _Query)
-        {
-
-            using (MySqlConnection con = new MySqlConnection(ConnectionString))
-            {
-                long rslt = 0;
-                MySqlCommand cmd = new MySqlCommand();
-                MySqlTransaction trans = null;
-                try
-                {
-                    cmd.CommandTimeout = 0;
-                    con.Open();
-                    cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = _Query;
-                    cmd.Connection = con;
-
-                    trans = con.BeginTransaction();
-                    try
-                    {
-                        if (cmd.ExecuteNonQuery() >= 1)
-                        {
-                            rslt = cmd.LastInsertedId;
-                        }
-                        trans.Commit();
-
-                    }
-                    catch (Exception)
-                    {
-                        rslt = 0;
-                        trans.Rollback();
-
-                    }
-                    return rslt;
-                }
-                finally
-                {
-                    trans = null;
-                }
-            }
-        }
-
-        public static long test(MySqlCommand _cmd)
+       
+        public static long executeNonQueryLong(MySqlCommand _cmd)
         {
 
             using (MySqlConnection con = new MySqlConnection(ConnectionString))
@@ -95,19 +55,18 @@ namespace thesis.DL
             }
         }
 
-        public static bool executeNonQueryBool(String _Query)
+        public static bool executeNonQueryBool(MySqlCommand _cmd)
         {
             using (MySqlConnection con = new MySqlConnection(ConnectionString))
             {
                 bool rslt = false;
-                MySqlCommand cmd = new MySqlCommand();
+                MySqlCommand cmd = _cmd;
                 MySqlTransaction trans = null;
                 try
                 {
                     cmd.CommandTimeout = 0;
                     con.Open();
                     cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = _Query;
                     cmd.Connection = con;
 
                     trans = con.BeginTransaction();
@@ -134,7 +93,7 @@ namespace thesis.DL
                 }
             }
         }
-        public static System.Data.DataTable executeQuery(String _Query)
+        public static System.Data.DataTable executeQuery(MySqlCommand _cmd)
         {
             using (MySqlConnection con = new MySqlConnection(ConnectionString))
             {
@@ -142,10 +101,10 @@ namespace thesis.DL
                 try
                 {
                     con.Open();
-                    MySqlCommand cmd = new MySqlCommand();
+                    MySqlCommand cmd = _cmd;
                     cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = _Query;
                     cmd.Connection = con;
+
                     dt.Load(cmd.ExecuteReader());
                     return dt;
                 }

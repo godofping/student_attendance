@@ -51,18 +51,7 @@ namespace thesis.PL
         }
 
 
-        private void btnRelations_Click(object sender, EventArgs e)
-        {
-            var pleaseWait = new frmLoading();
-            pleaseWait.Show();
-            Application.DoEvents();
-            methods.Wait(300);
 
-            var frm = new Registrations.frmRelations(frmMain);
-            methods.ChangePanelDisplay(frm, frmMain.pnlMain);
-
-            pleaseWait.Close();
-        }
 
         private void btnRooms_Click(object sender, EventArgs e)
         {
@@ -85,6 +74,32 @@ namespace thesis.PL
             methods.Wait(300);
 
             var frm = new Registrations.frmSeats(frmMain);
+            methods.ChangePanelDisplay(frm, frmMain.pnlMain);
+
+            pleaseWait.Close();
+        }
+
+        private void btnBuildings_Click(object sender, EventArgs e)
+        {
+            var pleaseWait = new frmLoading();
+            pleaseWait.Show();
+            Application.DoEvents();
+            methods.Wait(300);
+
+            var frm = new Registrations.frmBuildings(frmMain);
+            methods.ChangePanelDisplay(frm, frmMain.pnlMain);
+
+            pleaseWait.Close();
+        }
+
+        private void btnSubjects_Click(object sender, EventArgs e)
+        {
+            var pleaseWait = new frmLoading();
+            pleaseWait.Show();
+            Application.DoEvents();
+            methods.Wait(300);
+
+            var frm = new Registrations.frmSubjects(frmMain);
             methods.ChangePanelDisplay(frm, frmMain.pnlMain);
 
             pleaseWait.Close();

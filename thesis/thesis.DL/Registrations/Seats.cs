@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -11,18 +12,44 @@ namespace thesis.DL.Registrations
     {
         public DataTable List(String keyword)
         {
-            keyword = methods.EscapeString(keyword);
-            return methods.executeQuery("select * from seats_view where seat like '" + keyword + "%' or room like '" + keyword + "%' order by seat,room asc");
+           
+            using (var cmd = new MySqlCommand())
+            {
+                cmd.CommandText = "select * from seats_view where seat like @keyword or room like @keyword order by seat,room asc";
+
+                cmd.Parameters.AddWithValue("@keyword", keyword + "%");
+                return methods.executeQuery(cmd);
+            }
+
         }
 
         public DataTable List(EL.Registrations.Seats seatEL)
         {
-            return methods.executeQuery("select * from seats where seatid <> '" + seatEL.Seatid + "' and seat = '" + seatEL.Seat + "' and roomid = '" + seatEL.Roomid + "'");
+
+            using (var cmd = new MySqlCommand())
+            {
+                cmd.CommandText = "select * from seats where seatid <> @seatid and seat = @seat and roomid = @roomid";
+
+                cmd.Parameters.AddWithValue("@seatid", seatEL.Seatid);
+                cmd.Parameters.AddWithValue("@seat", seatEL.Seat);
+                cmd.Parameters.AddWithValue("@roomid", seatEL.Roomid);
+                return methods.executeQuery(cmd);
+            }
         }
 
         public EL.Registrations.Seats Select(EL.Registrations.Seats seatEL)
         {
-            DataTable dt = methods.executeQuery("select * from seats where seatid = '" + seatEL.Seatid + "'");
+
+            DataTable dt = null;
+
+            using (var cmd = new MySqlCommand())
+            {
+                cmd.CommandText = "select * from seats where seatid = @seatid";
+
+                cmd.Parameters.AddWithValue("@seatid", seatEL.Seatid);
+
+                dt =  methods.executeQuery(cmd);
+            }
 
             if (dt.Rows.Count > 0)
             {
@@ -40,19 +67,38 @@ namespace thesis.DL.Registrations
 
         public long Insert(EL.Registrations.Seats seatEL)
         {
-            seatEL.Seat = methods.EscapeString(seatEL.Seat);
-            return methods.executeNonQueryLong("insert into seats (roomid, seat) values ('" + seatEL.Roomid + "','" + seatEL.Seat + "')");
+            using (var cmd = new MySqlCommand())
+            {
+                cmd.CommandText = "insert into  seats set roomid = @roomid, seat = @seat";
+
+                cmd.Parameters.AddWithValue("@roomid", seatEL.Roomid);
+                cmd.Parameters.AddWithValue("@seat", seatEL.Seat);
+                return methods.executeNonQueryLong(cmd);
+            }
         }
 
         public Boolean Update(EL.Registrations.Seats seatEL)
         {
-            seatEL.Seat = methods.EscapeString(seatEL.Seat);
-            return methods.executeNonQueryBool("update seats set roomid = '" + seatEL.Roomid + "',seat = '" + seatEL.Seat + "' where seatid = '" + seatEL.Seatid + "'");
+            using (var cmd = new MySqlCommand())
+            {
+                cmd.CommandText = "update seats set roomid = @roomid, seat = @seat where seatid = @seatid";
+
+                cmd.Parameters.AddWithValue("@seatid", seatEL.Seatid);
+                cmd.Parameters.AddWithValue("@roomid", seatEL.Roomid);
+                cmd.Parameters.AddWithValue("@seat", seatEL.Seat);
+                return methods.executeNonQueryBool(cmd);
+            }
         }
 
         public Boolean Delete(EL.Registrations.Seats seatEL)
         {
-            return methods.executeNonQueryBool("delete from seats where seatid = '" + seatEL.Seatid + "'");
+            using (var cmd = new MySqlCommand())
+            {
+                cmd.CommandText = "delete from seats where seatid = @seatid";
+
+                cmd.Parameters.AddWithValue("@seatid", seatEL.Seatid);
+                return methods.executeNonQueryBool(cmd);
+            }
         }
     }
 }

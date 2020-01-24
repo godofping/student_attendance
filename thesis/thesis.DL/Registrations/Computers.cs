@@ -12,18 +12,38 @@ namespace thesis.DL.Registrations
     {
         public DataTable List(String keyword)
         {
-            keyword = methods.EscapeString(keyword);
-            return methods.executeQuery("select * from computers where computer like '" + keyword + "%' order by computer asc");
+            using (var cmd = new MySqlCommand())
+            {
+                cmd.CommandText = "select * from computers where computer like @keyword order by computer asc";
+
+                cmd.Parameters.AddWithValue("@keyword", keyword + "%");
+                return methods.executeQuery(cmd);
+            }
         }
 
         public DataTable List(EL.Registrations.Computers computerEL)
         {
-            return methods.executeQuery("select * from computers where computerid <> '" + computerEL.Computerid + "' and computer = '" + computerEL.Computer + "'");
+            using (var cmd = new MySqlCommand())
+            {
+                cmd.CommandText = "select * from computers where computerid <> @computerid and computer = @computer";
+
+                cmd.Parameters.AddWithValue("@computerid", computerEL.Computerid);
+                cmd.Parameters.AddWithValue("@computer", computerEL.Computer);
+                return methods.executeQuery(cmd);
+            }
         }
 
         public EL.Registrations.Computers Select(EL.Registrations.Computers computerEL)
         {
-            DataTable dt = methods.executeQuery("select * from computers where computerid = '" + computerEL.Computerid + "'");
+            DataTable dt = null;
+
+            using (var cmd = new MySqlCommand())
+            {
+                cmd.CommandText = "select * from computers where computerid = @computerid";
+
+                cmd.Parameters.AddWithValue("@computerid", computerEL.Computerid);
+                dt =  methods.executeQuery(cmd);
+            }
 
             if (dt.Rows.Count > 0)
             {
@@ -40,24 +60,47 @@ namespace thesis.DL.Registrations
 
         public long Insert(EL.Registrations.Computers computerEL)
         {
-            var cmd = new MySqlCommand();
+            using (var cmd = new MySqlCommand())
+            {
+                cmd.CommandText = "insert into computers set computer = @computer";
 
-            cmd.CommandText = "insert into computers set computer = @computer";
-            
-            cmd.Parameters.AddWithValue("@computer", computerEL.Computer);
-            return methods.test(cmd);
-            
+                cmd.Parameters.AddWithValue("@computer", computerEL.Computer);
+                return methods.executeNonQueryLong(cmd);
+            } 
         }
 
         public Boolean Update(EL.Registrations.Computers computerEL)
         {
-            computerEL.Computer = methods.EscapeString(computerEL.Computer);
-            return methods.executeNonQueryBool("update computers set computer = '" + computerEL.Computer + "' where computerid = '" + computerEL.Computerid + "'");
+            using (var cmd = new MySqlCommand())
+            {
+                cmd.CommandText = "update computers set computer = @computer where computerid = @computerid";
+
+                cmd.Parameters.AddWithValue("@computerid", computerEL.Computerid);
+                cmd.Parameters.AddWithValue("@computer", computerEL.Computer);
+                return methods.executeNonQueryBool(cmd);
+            }
         }
 
         public Boolean Delete(EL.Registrations.Computers computerEL)
         {
-            return methods.executeNonQueryBool("delete from computers where computerid = '" + computerEL.Computerid + "'");
+            using (var cmd = new MySqlCommand())
+            {
+                cmd.CommandText = "delete from computers where computerid = @computerid";
+
+                cmd.Parameters.AddWithValue("@computerid", computerEL.Computerid);
+                return methods.executeNonQueryBool(cmd);
+            }
+        }
+
+        public Boolean Set(EL.Registrations.Computers computerEL)
+        {
+            using (var cmd = new MySqlCommand())
+            {
+                cmd.CommandText = "update computers set issmsserver = 1 where computerid = @computerid; update computers set issmsserver = 0 where computerid <> @computerid ";
+
+                cmd.Parameters.AddWithValue("@computerid", computerEL.Computerid);
+                return methods.executeNonQueryBool(cmd);
+            }
         }
     }
 }

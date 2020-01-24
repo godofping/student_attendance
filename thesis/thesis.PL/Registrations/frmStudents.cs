@@ -90,10 +90,12 @@ namespace thesis.PL.Registrations
 
         private void ResetForm()
         {
-            methods.ClearTXT(txtStudentID, txtFirstName, txtMiddleName, txtLastName, txtRFID);
+            methods.ClearTXT(txtStudentID, txtFirstName, txtMiddleName, txtLastName, txtRFID, txtContactPerson, txtContactPersonPhoneNumber);
             methods.ClearCB(cbYearLevel);
             pbCapture.Image = null;
         }
+
+
 
         private void ShowForm(bool bol)
         {
@@ -101,6 +103,7 @@ namespace thesis.PL.Registrations
             pnlMain.Visible = !bol;
             ResetForm();
         }
+
 
         private void ShowResult(bool bol)
         {
@@ -139,17 +142,17 @@ namespace thesis.PL.Registrations
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (methods.CheckRequiredTXT(txtStudentID, txtFirstName, txtMiddleName, txtLastName, txtRFID) & methods.CheckRequiredCB(cbYearLevel) & pbCapture.Image != null)
+            if (methods.CheckRequiredTXT(txtStudentID, txtFirstName, txtMiddleName, txtLastName, txtRFID, txtContactPerson, txtContactPersonPhoneNumber) & methods.CheckRequiredCB(cbYearLevel) & pbCapture.Image != null)
             {
                 studentEL.Studentidnumber = txtStudentID.Text;
                 studentEL.Studentfirstname = txtFirstName.Text;
                 studentEL.Studentmiddlename = txtMiddleName.Text;
                 studentEL.Studentlastname = txtLastName.Text;
+                studentEL.Yearlevel = cbYearLevel.Text;
                 studentEL.Studentrfid = txtRFID.Text;
-
                 studentEL.Studentimage = methods.ConvertImageToByteArray(pbCapture.Image);
-
-
+                studentEL.Studentcontactperson = txtContactPerson.Text;
+                studentEL.Studentcontactpersonphonenumber = txtContactPersonPhoneNumber.Text;
 
 
                 if (s.Equals("ADD"))
@@ -211,6 +214,8 @@ namespace thesis.PL.Registrations
                 txtRFID.Text = studentEL.Studentrfid;
                 cbYearLevel.Text = studentEL.Yearlevel;
                 pbCapture.Image = methods.ConverteByteArrayToImage(studentEL.Studentimage);
+                txtContactPerson.Text = studentEL.Studentcontactperson;
+                txtContactPersonPhoneNumber.Text = studentEL.Studentcontactpersonphonenumber;
             }
             else if (e.ColumnIndex == 1)
             {
@@ -231,7 +236,9 @@ namespace thesis.PL.Registrations
 
         private void button1_Click(object sender, EventArgs e)
         {
-            txtRFID.Text = "tae";
+            txtRFID.Text = "10a100a1a0aa10100";
         }
+
+  
     }
 }

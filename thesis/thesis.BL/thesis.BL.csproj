@@ -44,12 +44,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Registrations\Buildings.cs" />
     <Compile Include="Registrations\Computers.cs" />
     <Compile Include="Registrations\Employees.cs" />
-    <Compile Include="Registrations\Relations.cs" />
     <Compile Include="Registrations\Rooms.cs" />
     <Compile Include="Registrations\Seats.cs" />
     <Compile Include="Registrations\Students.cs" />
+    <Compile Include="Registrations\Subjects.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Transactions\" />

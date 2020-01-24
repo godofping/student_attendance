@@ -13,7 +13,7 @@ namespace thesis.PL
 {
     public partial class frmCapture : Form
     {
-        int count = 0;
+
         Camera mycamera = new Camera();
         Registrations.frmStudents frmStudents;
         public frmCapture(Registrations.frmStudents _frmStudents)
@@ -75,7 +75,8 @@ namespace thesis.PL
 
         private void btnCapture_Click_1(object sender, EventArgs e)
         {
-            frmStudents.pbCapture.Image = pbCamera.Image;
+           
+            frmStudents.pbCapture.Image = (Image)(new Bitmap(pbCamera.Image, new Size(176, 144)));
             frmStudents.pnlForm.Enabled = true;
             this.Close();
         }

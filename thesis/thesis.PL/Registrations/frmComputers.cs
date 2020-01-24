@@ -76,9 +76,10 @@ namespace thesis.PL.Registrations
         {
             PopulateDGV();
             methods.DGVTheme(dgv);
-            methods.DGVRenameColumns(dgv, "computerid", "Computer");
+            methods.DGVRenameColumns(dgv, "computerid", "Computer", "Is SMS Server?");
             methods.DGVHiddenColumns(dgv,"computerid");
             methods.DGVBUTTONEditDelete(dgv);
+            methods.DGVBUTTONSet(dgv);
         }
 
         private void PopulateDGV()
@@ -175,7 +176,9 @@ namespace thesis.PL.Registrations
 
         private void dgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            computerEL.Computerid = Convert.ToInt32(dgv.Rows[e.RowIndex].Cells["computerid"].Value);
+            if (e.ColumnIndex == 0 | e.ColumnIndex == 1 | e.ColumnIndex == 2)
+                computerEL.Computerid = Convert.ToInt32(dgv.Rows[e.RowIndex].Cells["computerid"].Value);
+
             if (e.ColumnIndex == 0)
             {
                 s = "EDIT";
@@ -191,6 +194,14 @@ namespace thesis.PL.Registrations
                 if (dialogResult == DialogResult.Yes)
                 {
                     ShowResult(computerBL.Delete(computerEL));
+                }
+            }
+            else if (e.ColumnIndex == 2)
+            {
+                DialogResult dialogResult = MessageBox.Show("Are you sure to set this selected item as the server for sms?", "Setting", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    ShowResult(computerBL.Set(computerEL));
                 }
             }
         }

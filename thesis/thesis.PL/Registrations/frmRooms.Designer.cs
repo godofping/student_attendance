@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.gb = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cbComputer = new System.Windows.Forms.ComboBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.txtRoom = new System.Windows.Forms.TextBox();
@@ -40,8 +42,8 @@
             this.dgv = new System.Windows.Forms.DataGridView();
             this.btnBack = new System.Windows.Forms.Button();
             this.pnlForm = new System.Windows.Forms.Panel();
-            this.cbComputer = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cbBuilding = new System.Windows.Forms.ComboBox();
             this.gb.SuspendLayout();
             this.pnlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
@@ -50,6 +52,8 @@
             // 
             // gb
             // 
+            this.gb.Controls.Add(this.label4);
+            this.gb.Controls.Add(this.cbBuilding);
             this.gb.Controls.Add(this.label3);
             this.gb.Controls.Add(this.cbComputer);
             this.gb.Controls.Add(this.btnSave);
@@ -63,6 +67,26 @@
             this.gb.TabIndex = 12;
             this.gb.TabStop = false;
             this.gb.Text = "<>";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(19, 255);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(101, 21);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Computer *";
+            // 
+            // cbComputer
+            // 
+            this.cbComputer.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.cbComputer.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.cbComputer.FormattingEnabled = true;
+            this.cbComputer.Location = new System.Drawing.Point(23, 287);
+            this.cbComputer.Name = "cbComputer";
+            this.cbComputer.Size = new System.Drawing.Size(324, 29);
+            this.cbComputer.TabIndex = 3;
             // 
             // btnSave
             // 
@@ -97,7 +121,7 @@
             // txtRoom
             // 
             this.txtRoom.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRoom.Location = new System.Drawing.Point(23, 90);
+            this.txtRoom.Location = new System.Drawing.Point(23, 91);
             this.txtRoom.Name = "txtRoom";
             this.txtRoom.Size = new System.Drawing.Size(324, 27);
             this.txtRoom.TabIndex = 1;
@@ -106,7 +130,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(19, 59);
+            this.label2.Location = new System.Drawing.Point(19, 60);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 21);
             this.label2.TabIndex = 9;
@@ -192,25 +216,25 @@
             this.pnlForm.TabIndex = 10;
             this.pnlForm.Visible = false;
             // 
-            // cbComputer
+            // label4
             // 
-            this.cbComputer.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.cbComputer.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.cbComputer.FormattingEnabled = true;
-            this.cbComputer.Location = new System.Drawing.Point(23, 190);
-            this.cbComputer.Name = "cbComputer";
-            this.cbComputer.Size = new System.Drawing.Size(324, 29);
-            this.cbComputer.TabIndex = 2;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(19, 157);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(80, 21);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "Building *";
             // 
-            // label3
+            // cbBuilding
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(19, 158);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(101, 21);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "Computer *";
+            this.cbBuilding.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.cbBuilding.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.cbBuilding.FormattingEnabled = true;
+            this.cbBuilding.Location = new System.Drawing.Point(23, 189);
+            this.cbBuilding.Name = "cbBuilding";
+            this.cbBuilding.Size = new System.Drawing.Size(324, 29);
+            this.cbBuilding.TabIndex = 2;
             // 
             // frmRooms
             // 
@@ -218,8 +242,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1038, 720);
-            this.Controls.Add(this.pnlMain);
             this.Controls.Add(this.pnlForm);
+            this.Controls.Add(this.pnlMain);
             this.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -254,5 +278,7 @@
         private System.Windows.Forms.Panel pnlForm;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cbComputer;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox cbBuilding;
     }
 }

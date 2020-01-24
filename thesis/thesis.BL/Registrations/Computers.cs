@@ -40,5 +40,10 @@ namespace thesis.BL.Registrations
         {
             return computerDL.Delete(computerEL);    
         }
+
+        public Boolean Set(EL.Registrations.Computers computerEL)
+        {
+            return computerDL.Set(computerEL);
+        }
     }
 }

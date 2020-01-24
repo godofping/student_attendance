@@ -12,18 +12,50 @@ namespace thesis.DL.Registrations
     {
         public DataTable List(String keyword)
         {
-            keyword = methods.EscapeString(keyword);
-            return methods.executeQuery("select * from students_view where studentidnumber like '" + keyword + "%' or studentfirstname like '" + keyword + "%' or studentmiddlename like '" + keyword + "%' or studentlastname like '" + keyword + "%' or yearlevel like '" + keyword + "%' order by studentlastname asc");
+            using (var cmd = new MySqlCommand())
+            {
+                cmd.CommandText = "select * from students_view where studentidnumber like @keyword or studentfirstname like @keyword or studentmiddlename like @keyword or studentlastname like @keyword or yearlevel like @keyword order by studentlastname asc";
+
+                cmd.Parameters.AddWithValue("@keyword", keyword + "%");
+                return methods.executeQuery(cmd);
+            }
         }
 
         public DataTable List(EL.Registrations.Students studentEL)
         {
-            return methods.executeQuery("select * from students where studentid <> '" + studentEL.Studentid + "'  and studentidnumber = '" + studentEL.Studentidnumber + "' and studentfirstname = '" + studentEL.Studentfirstname + "' and studentmiddlename = '" + studentEL.Studentmiddlename + "' and studentlastname = '" + studentEL.Studentlastname + "' and yearlevel = '" + studentEL.Yearlevel + "' and studentrfid = '" + studentEL.Studentid + "' ");
+
+            using (var cmd = new MySqlCommand())
+            {
+                cmd.CommandText = "select * from students where studentid <> @studentid  and studentidnumber = @studentidnumber and studentfirstname = @studentfirstname and studentmiddlename = @studentmiddlename and studentlastname = @studentlastname and yearlevel = @yearlevel and studentrfid = @studentrfid and studentcontactperson = @studentcontactperson and studentcontactpersonphonenumber = @studentcontactpersonphonenumber";
+
+                cmd.Parameters.AddWithValue("@studentid", studentEL.Studentid);
+                cmd.Parameters.AddWithValue("@studentidnumber", studentEL.Studentidnumber);
+                cmd.Parameters.AddWithValue("@studentfirstname", studentEL.Studentfirstname);
+                cmd.Parameters.AddWithValue("@studentmiddlename", studentEL.Studentmiddlename);
+                cmd.Parameters.AddWithValue("@studentlastname", studentEL.Studentlastname);
+                cmd.Parameters.AddWithValue("@yearlevel", studentEL.Yearlevel);
+                cmd.Parameters.AddWithValue("@studentrfid", studentEL.Studentrfid);
+                cmd.Parameters.AddWithValue("@studentimage", studentEL.Studentimage);
+                cmd.Parameters.AddWithValue("@studentcontactperson", studentEL.Studentcontactperson);
+                cmd.Parameters.AddWithValue("@studentcontactpersonphonenumber", studentEL.Studentcontactpersonphonenumber);
+                return methods.executeQuery(cmd);
+            }
         }
 
         public EL.Registrations.Students Select(EL.Registrations.Students studentEL)
         {
-            DataTable dt = methods.executeQuery("select * from students where studentid = '" + studentEL.Studentid + "'");
+            DataTable dt = null;
+
+            using (var cmd = new MySqlCommand())
+            {
+                cmd.CommandText = "select* from students where studentid = @studentid";
+
+                cmd.Parameters.AddWithValue("@studentid", studentEL.Studentid);
+                dt =  methods.executeQuery(cmd);
+            }
+
+
+
 
             if (dt.Rows.Count > 0)
             {
@@ -35,6 +67,8 @@ namespace thesis.DL.Registrations
                 studentEL.Yearlevel = dt.Rows[0]["yearlevel"].ToString();
                 studentEL.Studentrfid = dt.Rows[0]["studentrfid"].ToString();
                 studentEL.Studentimage = (byte[])dt.Rows[0]["studentimage"];
+                studentEL.Studentcontactperson = dt.Rows[0]["studentcontactperson"].ToString();
+                studentEL.Studentcontactpersonphonenumber = dt.Rows[0]["studentcontactpersonphonenumber"].ToString();
 
                 return studentEL;
             }
@@ -49,31 +83,52 @@ namespace thesis.DL.Registrations
 
             using (var cmd = new MySqlCommand())
             {
-                cmd.CommandText = "insert into students set studentidnumber = @studentidnumber, studentfirstname = @studentfirstname, studentmiddlename = @studentmiddlename, studentlastname = @studentlastname, yearlevel = @yearlevel, studentrfid = @studentrfid, studentimage = @studentimage";
+                cmd.CommandText = "insert into students set studentidnumber = @studentidnumber, studentfirstname = @studentfirstname, studentmiddlename = @studentmiddlename, studentlastname = @studentlastname, yearlevel = @yearlevel, studentrfid = @studentrfid, studentimage = @studentimage, studentcontactperson = @studentcontactperson, studentcontactpersonphonenumber = @studentcontactpersonphonenumber";
 
-                cmd.Parameters.Add("@studentidnumber", studentEL.Studentidnumber);
-                cmd.Parameters.Add("@studentfirstname", studentEL.Studentfirstname);
-                cmd.Parameters.Add("@studentmiddlename", studentEL.Studentmiddlename);
-                cmd.Parameters.Add("@studentlastname", studentEL.Studentlastname);
-                cmd.Parameters.Add("@yearlevel", studentEL.Yearlevel);
-                cmd.Parameters.Add("@studentrfid", studentEL.Studentrfid);
-                cmd.Parameters.Add("@studentimage", studentEL.Studentimage);
-                return methods.test(cmd);
+                cmd.Parameters.AddWithValue("@studentidnumber", studentEL.Studentidnumber);
+                cmd.Parameters.AddWithValue("@studentfirstname", studentEL.Studentfirstname);
+                cmd.Parameters.AddWithValue("@studentmiddlename", studentEL.Studentmiddlename);
+                cmd.Parameters.AddWithValue("@studentlastname", studentEL.Studentlastname);
+                cmd.Parameters.AddWithValue("@yearlevel", studentEL.Yearlevel);
+                cmd.Parameters.AddWithValue("@studentrfid", studentEL.Studentrfid);
+                cmd.Parameters.AddWithValue("@studentimage", studentEL.Studentimage);
+                cmd.Parameters.AddWithValue("@studentcontactperson", studentEL.Studentcontactperson);
+                cmd.Parameters.AddWithValue("@studentcontactpersonphonenumber", studentEL.Studentcontactpersonphonenumber);
+                return methods.executeNonQueryLong(cmd);
             } 
         }
 
         public Boolean Update(EL.Registrations.Students studentEL)
         {
-            studentEL.Studentidnumber = methods.EscapeString(studentEL.Studentidnumber);
-            studentEL.Studentfirstname = methods.EscapeString(studentEL.Studentfirstname);
-            studentEL.Studentmiddlename = methods.EscapeString(studentEL.Studentmiddlename);
-            studentEL.Studentlastname = methods.EscapeString(studentEL.Studentlastname);
-            return methods.executeNonQueryBool("update students set studentidnumber = '" + studentEL.Studentidnumber + "', studentfirstname = '" + studentEL.Studentfirstname + "', studentmiddlename = '" + studentEL.Studentmiddlename + "', studentlastname = '" + studentEL.Studentlastname + "', yearlevel = '" + studentEL.Yearlevel + "', studentrfid = '" + studentEL.Studentrfid + "', studentimage = '" + studentEL.Studentimage + "'  where studentid = '" + studentEL.Studentid + "'");
+            using (var cmd = new MySqlCommand())
+            {
+                cmd.CommandText = "update students set studentidnumber = @studentidnumber, studentfirstname = @studentfirstname, studentmiddlename = @studentmiddlename, studentlastname = @studentlastname, yearlevel = @yearlevel, studentrfid = @studentrfid, studentimage = @studentimage, studentcontactperson = @studentcontactperson, studentcontactpersonphonenumber = @studentcontactpersonphonenumber where studentid = @studentid";
+
+                cmd.Parameters.AddWithValue("@studentid", studentEL.Studentid);
+                cmd.Parameters.AddWithValue("@studentidnumber", studentEL.Studentidnumber);
+                cmd.Parameters.AddWithValue("@studentfirstname", studentEL.Studentfirstname);
+                cmd.Parameters.AddWithValue("@studentmiddlename", studentEL.Studentmiddlename);
+                cmd.Parameters.AddWithValue("@studentlastname", studentEL.Studentlastname);
+                cmd.Parameters.AddWithValue("@yearlevel", studentEL.Yearlevel);
+                cmd.Parameters.AddWithValue("@studentrfid", studentEL.Studentrfid);
+                cmd.Parameters.AddWithValue("@studentimage", studentEL.Studentimage);
+                cmd.Parameters.AddWithValue("@studentcontactperson", studentEL.Studentcontactperson);
+                cmd.Parameters.AddWithValue("@studentcontactpersonphonenumber", studentEL.Studentcontactpersonphonenumber);
+                return methods.executeNonQueryBool(cmd);
+            }
         }
 
         public Boolean Delete(EL.Registrations.Students studentEL)
         {
-            return methods.executeNonQueryBool("delete from students where studentid = '" + studentEL.Studentid + "'");
+
+            using (var cmd = new MySqlCommand())
+            {
+                cmd.CommandText = "delete from students where studentid = @studentid";
+
+                cmd.Parameters.AddWithValue("@studentid", studentEL.Studentid);
+                return methods.executeNonQueryBool(cmd);
+            }
+
         }
     }
 }

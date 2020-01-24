@@ -14,7 +14,7 @@ namespace thesis.EL.Registrations
         string employeelastname;
         string username;
         string password;
-        string accountlevel;
+        string accounttype;
 
         public int Employeeid { get => employeeid; set => employeeid = value; }
         public string Employeefirstname { get => employeefirstname; set => employeefirstname = value; }
@@ -22,6 +22,6 @@ namespace thesis.EL.Registrations
         public string Employeelastname { get => employeelastname; set => employeelastname = value; }
         public string Username { get => username; set => username = value; }
         public string Password { get => password; set => password = value; }
-        public string Accountlevel { get => accountlevel; set => accountlevel = value; }
+        public string Accounttype { get => accounttype; set => accounttype = value; }
     }
 }

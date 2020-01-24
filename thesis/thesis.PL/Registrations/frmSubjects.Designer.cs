@@ -1,6 +1,6 @@
 ﻿namespace thesis.PL.Registrations
 {
-    partial class frmRelations
+    partial class frmSubjects
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnCancel = new System.Windows.Forms.Button();
+            this.txtSubjectCode = new System.Windows.Forms.TextBox();
             this.pnlMain = new System.Windows.Forms.Panel();
             this.btnAdd = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -38,28 +38,23 @@
             this.pnlForm = new System.Windows.Forms.Panel();
             this.gb = new System.Windows.Forms.GroupBox();
             this.btnSave = new System.Windows.Forms.Button();
-            this.txtRelation = new System.Windows.Forms.TextBox();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.txtSubjectDescription = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.pnlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.pnlForm.SuspendLayout();
             this.gb.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btnCancel
+            // txtSubjectCode
             // 
-            this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
-            this.btnCancel.FlatAppearance.BorderSize = 0;
-            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(875, 633);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(130, 57);
-            this.btnCancel.TabIndex = 3;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = false;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            this.txtSubjectCode.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSubjectCode.Location = new System.Drawing.Point(23, 90);
+            this.txtSubjectCode.Name = "txtSubjectCode";
+            this.txtSubjectCode.Size = new System.Drawing.Size(324, 27);
+            this.txtSubjectCode.TabIndex = 1;
             // 
             // pnlMain
             // 
@@ -71,7 +66,7 @@
             this.pnlMain.Location = new System.Drawing.Point(0, 0);
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(1038, 720);
-            this.pnlMain.TabIndex = 9;
+            this.pnlMain.TabIndex = 11;
             // 
             // btnAdd
             // 
@@ -138,14 +133,16 @@
             this.pnlForm.Location = new System.Drawing.Point(0, 0);
             this.pnlForm.Name = "pnlForm";
             this.pnlForm.Size = new System.Drawing.Size(1038, 720);
-            this.pnlForm.TabIndex = 10;
+            this.pnlForm.TabIndex = 12;
             this.pnlForm.Visible = false;
             // 
             // gb
             // 
+            this.gb.Controls.Add(this.txtSubjectDescription);
+            this.gb.Controls.Add(this.label3);
             this.gb.Controls.Add(this.btnSave);
             this.gb.Controls.Add(this.btnCancel);
-            this.gb.Controls.Add(this.txtRelation);
+            this.gb.Controls.Add(this.txtSubjectCode);
             this.gb.Controls.Add(this.label2);
             this.gb.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gb.Location = new System.Drawing.Point(15, 12);
@@ -170,13 +167,20 @@
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // txtRelation
+            // btnCancel
             // 
-            this.txtRelation.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRelation.Location = new System.Drawing.Point(23, 90);
-            this.txtRelation.Name = "txtRelation";
-            this.txtRelation.Size = new System.Drawing.Size(324, 27);
-            this.txtRelation.TabIndex = 1;
+            this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
+            this.btnCancel.FlatAppearance.BorderSize = 0;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.ForeColor = System.Drawing.Color.White;
+            this.btnCancel.Location = new System.Drawing.Point(875, 633);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(130, 57);
+            this.btnCancel.TabIndex = 3;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // label2
             // 
@@ -184,11 +188,30 @@
             this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(19, 59);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(84, 21);
+            this.label2.Size = new System.Drawing.Size(127, 21);
             this.label2.TabIndex = 9;
-            this.label2.Text = "Relation *";
+            this.label2.Text = "Subject Code *";
             // 
-            // frmRelations
+            // txtSubjectDescription
+            // 
+            this.txtSubjectDescription.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSubjectDescription.Location = new System.Drawing.Point(23, 181);
+            this.txtSubjectDescription.Multiline = true;
+            this.txtSubjectDescription.Name = "txtSubjectDescription";
+            this.txtSubjectDescription.Size = new System.Drawing.Size(324, 129);
+            this.txtSubjectDescription.TabIndex = 10;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(19, 150);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(170, 21);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Subject Description *";
+            // 
+            // frmSubjects
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -200,10 +223,10 @@
             this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "frmRelations";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "frmRelations";
-            this.Load += new System.EventHandler(this.frmRelations_Load);
+            this.Name = "frmSubjects";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "frmSubjects";
+            this.Load += new System.EventHandler(this.frmSubjects_Load);
             this.pnlMain.ResumeLayout(false);
             this.pnlMain.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
@@ -216,7 +239,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.TextBox txtSubjectCode;
         private System.Windows.Forms.Panel pnlMain;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Label label1;
@@ -226,7 +249,9 @@
         private System.Windows.Forms.Panel pnlForm;
         private System.Windows.Forms.GroupBox gb;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.TextBox txtRelation;
+        private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtSubjectDescription;
+        private System.Windows.Forms.Label label3;
     }
 }
