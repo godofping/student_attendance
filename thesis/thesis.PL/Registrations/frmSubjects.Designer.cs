@@ -37,15 +37,18 @@
             this.btnBack = new System.Windows.Forms.Button();
             this.pnlForm = new System.Windows.Forms.Panel();
             this.gb = new System.Windows.Forms.GroupBox();
+            this.txtSubjectDescription = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtSubjectDescription = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
             this.pnlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.pnlForm.SuspendLayout();
             this.gb.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtSubjectCode
@@ -58,6 +61,7 @@
             // 
             // pnlMain
             // 
+            this.pnlMain.Controls.Add(this.panel1);
             this.pnlMain.Controls.Add(this.btnAdd);
             this.pnlMain.Controls.Add(this.label1);
             this.pnlMain.Controls.Add(this.txtSearch);
@@ -152,6 +156,25 @@
             this.gb.TabStop = false;
             this.gb.Text = "<>";
             // 
+            // txtSubjectDescription
+            // 
+            this.txtSubjectDescription.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSubjectDescription.Location = new System.Drawing.Point(23, 181);
+            this.txtSubjectDescription.Multiline = true;
+            this.txtSubjectDescription.Name = "txtSubjectDescription";
+            this.txtSubjectDescription.Size = new System.Drawing.Size(324, 129);
+            this.txtSubjectDescription.TabIndex = 10;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(19, 150);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(170, 21);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Subject Description *";
+            // 
             // btnSave
             // 
             this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
@@ -192,24 +215,26 @@
             this.label2.TabIndex = 9;
             this.label2.Text = "Subject Code *";
             // 
-            // txtSubjectDescription
+            // panel1
             // 
-            this.txtSubjectDescription.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSubjectDescription.Location = new System.Drawing.Point(23, 181);
-            this.txtSubjectDescription.Multiline = true;
-            this.txtSubjectDescription.Name = "txtSubjectDescription";
-            this.txtSubjectDescription.Size = new System.Drawing.Size(324, 129);
-            this.txtSubjectDescription.TabIndex = 10;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(141)))), ((int)(((byte)(152)))));
+            this.panel1.Controls.Add(this.label9);
+            this.panel1.Location = new System.Drawing.Point(434, 9);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(216, 37);
+            this.panel1.TabIndex = 16;
             // 
-            // label3
+            // label9
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(19, 150);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(170, 21);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "Subject Description *";
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(40, 9);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(146, 21);
+            this.label9.TabIndex = 9;
+            this.label9.Text = "Manage Subjects";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // frmSubjects
             // 
@@ -233,6 +258,8 @@
             this.pnlForm.ResumeLayout(false);
             this.gb.ResumeLayout(false);
             this.gb.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -253,5 +280,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtSubjectDescription;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label9;
     }
 }

@@ -94,7 +94,7 @@ namespace thesis.DL.Registrations
         {
             using (var cmd = new MySqlCommand())
             {
-                cmd.CommandText = "delete from room where roomid = @roomid";
+                cmd.CommandText = "delete from rooms where roomid = @roomid";
 
                 cmd.Parameters.AddWithValue("@roomid", roomEL.Roomid);
                 return methods.executeNonQueryBool(cmd);

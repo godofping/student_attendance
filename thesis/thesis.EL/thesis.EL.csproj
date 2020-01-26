@@ -46,6 +46,7 @@
     <Compile Include="Registrations\Studentsubjectsenrolled.cs" />
     <Compile Include="Registrations\Subjects.cs" />
     <Compile Include="Registrations\Subjectsschedules.cs" />
+    <Compile Include="Registrations\Subjectteachers.cs" />
     <Compile Include="Transactions\Attendances.cs" />
     <Compile Include="Registrations\Computers.cs" />
     <Compile Include="Registrations\Employees.cs" />

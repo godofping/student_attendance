@@ -6,8 +6,8 @@
 <canvas zoom="100">
 <tables>
 <table name="attendances" view="colnames">
-<left>22</left>
-<top>128</top>
+<left>45</left>
+<top>13</top>
 <width>210</width>
 <height>180</height>
 <sql_create_table>CREATE TABLE `attendances` (
@@ -22,10 +22,10 @@
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
 </table>
 <table name="computers" view="colnames">
-<left>579</left>
-<top>674</top>
+<left>550</left>
+<top>633</top>
 <width>147</width>
-<height>112</height>
+<height>139</height>
 <sql_create_table>CREATE TABLE `computers` (
   `computerid` int(6) NOT NULL AUTO_INCREMENT,
   `computer` varchar(60) DEFAULT NULL,
@@ -34,8 +34,8 @@
 ) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1</sql_create_table>
 </table>
 <table name="rooms" view="colnames">
-<left>723</left>
-<top>438</top>
+<left>712</left>
+<top>435</top>
 <width>111</width>
 <height>156</height>
 <sql_create_table>CREATE TABLE `rooms` (
@@ -51,8 +51,8 @@
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1</sql_create_table>
 </table>
 <table name="seats" view="colnames">
-<left>900</left>
-<top>385</top>
+<left>903</left>
+<top>369</top>
 <width>108</width>
 <height>112</height>
 <sql_create_table>CREATE TABLE `seats` (
@@ -62,25 +62,7 @@
   PRIMARY KEY (`seatid`),
   KEY `FK_seats` (`roomid`),
   CONSTRAINT `FK_seats` FOREIGN KEY (`roomid`) REFERENCES `rooms` (`roomid`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1</sql_create_table>
-</table>
-<table name="smsdeliverieshistory" view="colnames">
-<left>297</left>
-<top>6</top>
-<width>261</width>
-<height>203</height>
-<sql_create_table>CREATE TABLE `smsdeliverieshistory` (
-  `smsdeliveryhistoryid` int(6) NOT NULL AUTO_INCREMENT,
-  `attendanceid` int(6) DEFAULT NULL,
-  `smsmessage` varchar(60) DEFAULT NULL,
-  `studentcontactperson` varchar(60) DEFAULT NULL,
-  `studentcontactpersonphonenumber` varchar(60) DEFAULT NULL,
-  `deliverydatetime` datetime DEFAULT NULL,
-  `deliverystatus` varchar(60) DEFAULT NULL,
-  PRIMARY KEY (`smsdeliveryhistoryid`),
-  KEY `FK_smsdeliverieshistory` (`attendanceid`),
-  CONSTRAINT `FK_smsdeliverieshistory` FOREIGN KEY (`attendanceid`) REFERENCES `attendances` (`attendanceid`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1</sql_create_table>
 </table>
 <table name="students" view="colnames">
 <left>875</left>
@@ -96,14 +78,15 @@
   `yearlevel` varchar(60) DEFAULT NULL,
   `studentrfid` text,
   `studentimage` longblob,
+  `studentphonenumber` varchar(60) DEFAULT NULL,
   `studentcontactperson` varchar(60) DEFAULT NULL,
   `studentcontactpersonphonenumber` varchar(60) DEFAULT NULL,
   PRIMARY KEY (`studentid`)
-) ENGINE=InnoDB AUTO_INCREMENT=1137 DEFAULT CHARSET=latin1</sql_create_table>
+) ENGINE=InnoDB AUTO_INCREMENT=1138 DEFAULT CHARSET=latin1</sql_create_table>
 </table>
 <table name="studentsubjectsenrolled" view="colnames">
-<left>318</left>
-<top>226</top>
+<left>370</left>
+<top>117</top>
 <width>185</width>
 <height>129</height>
 <sql_create_table>CREATE TABLE `studentsubjectsenrolled` (
@@ -133,8 +116,8 @@
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1</sql_create_table>
 </table>
 <table name="subjectsschedules" view="colnames">
-<left>417</left>
-<top>416</top>
+<left>393</left>
+<top>371</top>
 <width>147</width>
 <height>331</height>
 <sql_create_table>CREATE TABLE `subjectsschedules` (

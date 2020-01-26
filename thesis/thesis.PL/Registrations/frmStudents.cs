@@ -90,7 +90,7 @@ namespace thesis.PL.Registrations
 
         private void ResetForm()
         {
-            methods.ClearTXT(txtStudentID, txtFirstName, txtMiddleName, txtLastName, txtRFID, txtContactPerson, txtContactPersonPhoneNumber);
+            methods.ClearTXT(txtStudentID, txtFirstName, txtMiddleName, txtLastName, txtRFID, txtContactPerson, txtContactPersonPhoneNumber, txtPhoneNumber);
             methods.ClearCB(cbYearLevel);
             pbCapture.Image = null;
         }
@@ -142,13 +142,14 @@ namespace thesis.PL.Registrations
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (methods.CheckRequiredTXT(txtStudentID, txtFirstName, txtMiddleName, txtLastName, txtRFID, txtContactPerson, txtContactPersonPhoneNumber) & methods.CheckRequiredCB(cbYearLevel) & pbCapture.Image != null)
+            if (methods.CheckRequiredTXT(txtStudentID, txtFirstName, txtMiddleName, txtLastName, txtRFID, txtContactPerson, txtContactPersonPhoneNumber, txtPhoneNumber) & methods.CheckRequiredCB(cbYearLevel) & pbCapture.Image != null)
             {
                 studentEL.Studentidnumber = txtStudentID.Text;
                 studentEL.Studentfirstname = txtFirstName.Text;
                 studentEL.Studentmiddlename = txtMiddleName.Text;
                 studentEL.Studentlastname = txtLastName.Text;
                 studentEL.Yearlevel = cbYearLevel.Text;
+                studentEL.Studentphonenumber = txtPhoneNumber.Text;
                 studentEL.Studentrfid = txtRFID.Text;
                 studentEL.Studentimage = methods.ConvertImageToByteArray(pbCapture.Image);
                 studentEL.Studentcontactperson = txtContactPerson.Text;
@@ -213,6 +214,7 @@ namespace thesis.PL.Registrations
                 txtLastName.Text = studentEL.Studentlastname;
                 txtRFID.Text = studentEL.Studentrfid;
                 cbYearLevel.Text = studentEL.Yearlevel;
+                txtPhoneNumber.Text = studentEL.Studentphonenumber;
                 pbCapture.Image = methods.ConverteByteArrayToImage(studentEL.Studentimage);
                 txtContactPerson.Text = studentEL.Studentcontactperson;
                 txtContactPersonPhoneNumber.Text = studentEL.Studentcontactpersonphonenumber;

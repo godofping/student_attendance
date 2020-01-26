@@ -14,6 +14,7 @@ namespace thesis.EL.Registrations
         string studentmiddlename;
         string studentlastname;
         string yearlevel;
+        string studentphonenumber;
         string studentrfid;
         byte[] studentimage;
         string studentcontactperson;
@@ -25,6 +26,7 @@ namespace thesis.EL.Registrations
         public string Studentmiddlename { get => studentmiddlename; set => studentmiddlename = value; }
         public string Studentlastname { get => studentlastname; set => studentlastname = value; }
         public string Yearlevel { get => yearlevel; set => yearlevel = value; }
+        public string Studentphonenumber { get => studentphonenumber; set => studentphonenumber = value; }
         public string Studentrfid { get => studentrfid; set => studentrfid = value; }
         public byte[] Studentimage { get => studentimage; set => studentimage = value; }
         public string Studentcontactperson { get => studentcontactperson; set => studentcontactperson = value; }
