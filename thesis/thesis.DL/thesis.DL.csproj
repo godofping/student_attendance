@@ -53,7 +53,7 @@
     <Compile Include="Registrations\Seats.cs" />
     <Compile Include="Registrations\Students.cs" />
     <Compile Include="Registrations\Subjects.cs" />
-    <Compile Include="Registrations\Subjectteachers.cs" />
+    <Compile Include="Registrations\Subjectsscheduling.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Transactions\" />

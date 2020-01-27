@@ -6,13 +6,12 @@ using System.Threading.Tasks;
 
 namespace thesis.EL.Registrations
 {
-    public class Subjectsschedules
+    public class Subjectsscheduling
     {
         int subjectscheduleid;
         int subjectid;
-        int employeeid;
         int roomid;
-        string subjecttype;
+        int employeeid;
         string start;
         string end;
         int monday;
@@ -25,9 +24,8 @@ namespace thesis.EL.Registrations
 
         public int Subjectscheduleid { get => subjectscheduleid; set => subjectscheduleid = value; }
         public int Subjectid { get => subjectid; set => subjectid = value; }
-        public int Employeeid { get => employeeid; set => employeeid = value; }
         public int Roomid { get => roomid; set => roomid = value; }
-        public string Subjecttype { get => subjecttype; set => subjecttype = value; }
+        public int Employeeid { get => employeeid; set => employeeid = value; }
         public string Start { get => start; set => start = value; }
         public string End { get => end; set => end = value; }
         public int Monday { get => monday; set => monday = value; }
@@ -37,6 +35,5 @@ namespace thesis.EL.Registrations
         public int Friday { get => friday; set => friday = value; }
         public int Saturday { get => saturday; set => saturday = value; }
         public int Sunday { get => sunday; set => sunday = value; }
-        
     }
 }

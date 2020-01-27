@@ -40,10 +40,11 @@ namespace thesis.DL
                         trans.Commit();
 
                     }
-                    catch (Exception)
+                    catch (Exception ex)
                     {
                         rslt = 0;
                         trans.Rollback();
+                        throw ex;
 
                     }
                     return rslt;
@@ -79,10 +80,11 @@ namespace thesis.DL
                         trans.Commit();
 
                     }
-                    catch (Exception)
+                    catch (Exception ex)
                     {
                         rslt = false;
                         trans.Rollback();
+                        throw ex;
                        
                     }
                     return rslt;

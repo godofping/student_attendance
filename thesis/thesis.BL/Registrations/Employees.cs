@@ -20,6 +20,11 @@ namespace thesis.BL.Registrations
             return employeeDL.List(employeeEL);
         }
 
+        public DataTable List()
+        {
+            return employeeDL.List();
+        }
+
         public EL.Registrations.Employees Select(EL.Registrations.Employees employeeEL)
         {
             return employeeDL.Select(employeeEL);

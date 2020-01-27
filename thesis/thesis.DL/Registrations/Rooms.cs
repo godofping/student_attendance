@@ -36,6 +36,16 @@ namespace thesis.DL.Registrations
 
         }
 
+        public DataTable List()
+        {
+            using (var cmd = new MySqlCommand())
+            {
+                cmd.CommandText = "SELECT roomid, CONCAT(room, ' - ' , building) AS roombuilding FROM rooms_view ORDER BY roombuilding asc";
+
+                return methods.executeQuery(cmd);
+            }
+        }
+
         public EL.Registrations.Rooms Select(EL.Registrations.Rooms roomEL)
         {
             DataTable dt = null;

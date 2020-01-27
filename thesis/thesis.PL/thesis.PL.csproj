@@ -145,6 +145,12 @@
     <Compile Include="Registrations\frmSubjects.Designer.cs">
       <DependentUpon>frmSubjects.cs</DependentUpon>
     </Compile>
+    <Compile Include="Registrations\frmSubjectScheduling.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registrations\frmSubjectScheduling.Designer.cs">
+      <DependentUpon>frmSubjectScheduling.cs</DependentUpon>
+    </Compile>
     <Compile Include="Transactions\frmAttendances.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -201,6 +207,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Registrations\frmSubjects.resx">
       <DependentUpon>frmSubjects.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registrations\frmSubjectScheduling.resx">
+      <DependentUpon>frmSubjectScheduling.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Transactions\frmAttendances.resx">
       <DependentUpon>frmAttendances.cs</DependentUpon>

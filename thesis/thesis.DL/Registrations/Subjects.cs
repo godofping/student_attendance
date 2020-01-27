@@ -34,6 +34,17 @@ namespace thesis.DL.Registrations
             }
         }
 
+        public DataTable List()
+        {
+            using (var cmd = new MySqlCommand())
+            {
+                cmd.CommandText = "SELECT *, CONCAT(subjectcode, ' - ', subjectdescription) AS SUBJECT FROM subjects ORDER BY subject";
+
+
+                return methods.executeQuery(cmd);
+            }
+        }
+
         public EL.Registrations.Subjects Select(EL.Registrations.Subjects subjectEL)
         {
             DataTable dt = null;

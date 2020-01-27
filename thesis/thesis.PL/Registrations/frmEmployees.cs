@@ -21,7 +21,6 @@ namespace thesis.PL.Registrations
 
         BL.Registrations.Employees employeeBL = new BL.Registrations.Employees();
 
-        frmMain frmMain;
 
         public frmEmployees()
         {

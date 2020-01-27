@@ -20,6 +20,11 @@ namespace thesis.BL.Registrations
             return roomDL.List(roomEL);
         }
 
+        public DataTable List()
+        {
+            return roomDL.List();
+        }
+
         public EL.Registrations.Rooms Select(EL.Registrations.Rooms roomEL)
         {
             return roomDL.Select(roomEL);

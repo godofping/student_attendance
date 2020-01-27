@@ -38,6 +38,15 @@ namespace thesis.DL.Registrations
             }
         }
 
+        public DataTable List()
+        {
+            using (var cmd = new MySqlCommand())
+            {
+                cmd.CommandText = "SELECT employeeid, CONCAT(employeelastname, ', ', employeefirstname, ' ', employeemiddlename	) AS employee FROM employees order by employee asc";
+                return methods.executeQuery(cmd);
+            }
+        }
+
         public EL.Registrations.Employees Select(EL.Registrations.Employees employeeEL)
         {
             DataTable dt = null;

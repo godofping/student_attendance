@@ -66,12 +66,27 @@ namespace thesis.PL
                 d.ResetText();
         }
 
+        public static void ClearDTPTimeOnly(params DateTimePicker[] i)
+        {
+            foreach (DateTimePicker d in i)
+                d.Text = "12:00 AM";
+        }
+
         public static void ClearCB(params ComboBox[] i)
         {
             foreach (ComboBox d in i)
             {
                 d.ResetText();
                 d.SelectedIndex = -1;
+            }
+
+        }
+
+        public static void ClearCHX(params CheckBox[] i)
+        {
+            foreach (CheckBox d in i)
+            {
+                d.Checked = false;
             }
 
         }
@@ -316,7 +331,7 @@ namespace thesis.PL
             btn2.UseColumnTextForButtonValue = true;
         }
 
-        public static void DGVFillWeights(DataGridView dgv, int[] x, int[] y)
+        public static void DGVFillWeights(DataGridView dgv, object[] x, int[] y)
         {
             int m = 0;
             foreach (int x1 in x)
@@ -456,6 +471,7 @@ namespace thesis.PL
                 i += 1;
             }
         }
+
 
 
         public static void EnabledCB(bool bol, params ComboBox[] i)

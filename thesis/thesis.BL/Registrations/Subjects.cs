@@ -20,6 +20,11 @@ namespace thesis.BL.Registrations
             return subjectDL.List(subjectEL);
         }
 
+        public DataTable List()
+        {
+            return subjectDL.List();
+        }
+
         public EL.Registrations.Subjects Select(EL.Registrations.Subjects subjectEL)
         {
             return subjectDL.Select(subjectEL);

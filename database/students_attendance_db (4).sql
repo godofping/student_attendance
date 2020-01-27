@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 26, 2020 at 08:29 AM
+-- Generation Time: Jan 27, 2020 at 08:35 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.3
 
@@ -31,8 +31,8 @@ SET time_zone = "+00:00";
 CREATE TABLE `attendances` (
   `attendanceid` int(6) NOT NULL,
   `studentsubjectenrolledid` int(6) DEFAULT NULL,
-  `attendancedatetime` datetime DEFAULT NULL,
-  `inorout` varchar(20) DEFAULT NULL,
+  `attendanceintime` datetime DEFAULT NULL,
+  `attendanceouttime` datetime DEFAULT NULL,
   `status` varchar(60) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -253,20 +253,25 @@ CREATE TABLE `subjects` (
 --
 
 INSERT INTO `subjects` (`subjectid`, `subjectcode`, `subjectdescription`) VALUES
-(1, 'DS 101', 'Data Structure');
+(1, 'CpE 522', 'System Analysis and Design'),
+(3, 'CpE 523', 'Seminars and Field Trips'),
+(4, 'CpE 524', 'Elective 3'),
+(5, 'CpE 525', 'Elective 4'),
+(6, 'ES 521', 'Entrepreneurship');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `subjectsschedules`
+-- Table structure for table `subjectsscheduling`
 --
 
-CREATE TABLE `subjectsschedules` (
+CREATE TABLE `subjectsscheduling` (
   `subjectscheduleid` int(6) NOT NULL,
   `subjectid` int(6) DEFAULT NULL,
   `roomid` int(6) DEFAULT NULL,
-  `start` datetime DEFAULT NULL,
-  `end` datetime DEFAULT NULL,
+  `employeeid` int(6) DEFAULT NULL,
+  `start` varchar(20) DEFAULT NULL,
+  `end` varchar(20) DEFAULT NULL,
   `monday` tinyint(1) DEFAULT NULL,
   `tuesday` tinyint(1) DEFAULT NULL,
   `wednesday` tinyint(1) DEFAULT NULL,
@@ -276,30 +281,34 @@ CREATE TABLE `subjectsschedules` (
   `sunday` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `subjectsscheduling`
+--
+
+INSERT INTO `subjectsscheduling` (`subjectscheduleid`, `subjectid`, `roomid`, `employeeid`, `start`, `end`, `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`) VALUES
+(3, 3, 5, 2, '01:30 PM', '03:30 PM', 1, 1, 1, 1, 1, 1, 1),
+(4, 3, 6, 2, '03:07 AM', '03:07 AM', 1, 1, 1, 0, 0, 0, 0),
+(6, 1, 4, 1, '07:00 AM', '12:00 PM', 1, 0, 1, 0, 1, 0, 0);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `subjectteachers`
---
-
-CREATE TABLE `subjectteachers` (
-  `subjectteacherid` int(6) NOT NULL,
-  `employeeid` int(6) DEFAULT NULL,
-  `subjectid` int(6) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Stand-in structure for view `subjectteachers_view`
+-- Stand-in structure for view `subjectsscheduling_view`
 -- (See below for the actual view)
 --
-CREATE TABLE `subjectteachers_view` (
-`subjectteacherid` int(6)
-,`subjectcode` varchar(20)
-,`subjectdescription` varchar(200)
+CREATE TABLE `subjectsscheduling_view` (
+`subjectscheduleid` int(6)
+,`subject` varchar(223)
 ,`employeefullname` varchar(183)
-,`accounttype` varchar(60)
+,`roombuilding` varchar(123)
+,`time` varchar(43)
+,`monday` tinyint(1)
+,`tuesday` tinyint(1)
+,`wednesday` tinyint(1)
+,`thursday` tinyint(1)
+,`friday` tinyint(1)
+,`saturday` tinyint(1)
+,`sunday` tinyint(1)
 );
 
 -- --------------------------------------------------------
@@ -332,11 +341,11 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
--- Structure for view `subjectteachers_view`
+-- Structure for view `subjectsscheduling_view`
 --
-DROP TABLE IF EXISTS `subjectteachers_view`;
+DROP TABLE IF EXISTS `subjectsscheduling_view`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `subjectteachers_view`  AS  select `subjectteachers`.`subjectteacherid` AS `subjectteacherid`,`subjects`.`subjectcode` AS `subjectcode`,`subjects`.`subjectdescription` AS `subjectdescription`,concat(`employees`.`employeelastname`,', ',`employees`.`employeefirstname`,' ',`employees`.`employeemiddlename`) AS `employeefullname`,`employees`.`accounttype` AS `accounttype` from ((`subjectteachers` join `subjects` on((`subjectteachers`.`subjectid` = `subjects`.`subjectid`))) join `employees` on((`subjectteachers`.`employeeid` = `employees`.`employeeid`))) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `subjectsscheduling_view`  AS  select `subjectsscheduling`.`subjectscheduleid` AS `subjectscheduleid`,concat(`subjects`.`subjectcode`,' - ',`subjects`.`subjectdescription`) AS `subject`,concat(`employees`.`employeelastname`,', ',`employees`.`employeefirstname`,' ',`employees`.`employeemiddlename`) AS `employeefullname`,concat(`rooms`.`room`,' - ',`buildings`.`building`) AS `roombuilding`,concat(`subjectsscheduling`.`start`,' - ',`subjectsscheduling`.`end`) AS `time`,`subjectsscheduling`.`monday` AS `monday`,`subjectsscheduling`.`tuesday` AS `tuesday`,`subjectsscheduling`.`wednesday` AS `wednesday`,`subjectsscheduling`.`thursday` AS `thursday`,`subjectsscheduling`.`friday` AS `friday`,`subjectsscheduling`.`saturday` AS `saturday`,`subjectsscheduling`.`sunday` AS `sunday` from ((((`subjectsscheduling` join `subjects` on((`subjectsscheduling`.`subjectid` = `subjects`.`subjectid`))) join `rooms` on((`subjectsscheduling`.`roomid` = `rooms`.`roomid`))) join `buildings` on((`rooms`.`buildingid` = `buildings`.`buildingid`))) join `employees` on((`subjectsscheduling`.`employeeid` = `employees`.`employeeid`))) ;
 
 --
 -- Indexes for dumped tables
@@ -404,20 +413,13 @@ ALTER TABLE `subjects`
   ADD PRIMARY KEY (`subjectid`);
 
 --
--- Indexes for table `subjectsschedules`
+-- Indexes for table `subjectsscheduling`
 --
-ALTER TABLE `subjectsschedules`
+ALTER TABLE `subjectsscheduling`
   ADD PRIMARY KEY (`subjectscheduleid`),
   ADD KEY `FK_subjectsschedules1` (`subjectid`),
-  ADD KEY `FK_subjectsschedules3` (`roomid`);
-
---
--- Indexes for table `subjectteachers`
---
-ALTER TABLE `subjectteachers`
-  ADD PRIMARY KEY (`subjectteacherid`),
-  ADD KEY `FK_subjectteachers` (`subjectid`),
-  ADD KEY `FK_subjectteachers1` (`employeeid`);
+  ADD KEY `FK_subjectsschedules3` (`roomid`),
+  ADD KEY `FK_subjectsscheduling` (`employeeid`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -475,19 +477,13 @@ ALTER TABLE `studentsubjectsenrolled`
 -- AUTO_INCREMENT for table `subjects`
 --
 ALTER TABLE `subjects`
-  MODIFY `subjectid` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `subjectid` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `subjectsschedules`
+-- AUTO_INCREMENT for table `subjectsscheduling`
 --
-ALTER TABLE `subjectsschedules`
-  MODIFY `subjectscheduleid` int(6) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `subjectteachers`
---
-ALTER TABLE `subjectteachers`
-  MODIFY `subjectteacherid` int(6) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `subjectsscheduling`
+  MODIFY `subjectscheduleid` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables
@@ -521,18 +517,12 @@ ALTER TABLE `studentsubjectsenrolled`
   ADD CONSTRAINT `FK_studentsubjectsenrolled3` FOREIGN KEY (`seatid`) REFERENCES `seats` (`seatid`);
 
 --
--- Constraints for table `subjectsschedules`
+-- Constraints for table `subjectsscheduling`
 --
-ALTER TABLE `subjectsschedules`
+ALTER TABLE `subjectsscheduling`
   ADD CONSTRAINT `FK_subjectsschedules1` FOREIGN KEY (`subjectid`) REFERENCES `subjects` (`subjectid`),
-  ADD CONSTRAINT `FK_subjectsschedules3` FOREIGN KEY (`roomid`) REFERENCES `rooms` (`roomid`);
-
---
--- Constraints for table `subjectteachers`
---
-ALTER TABLE `subjectteachers`
-  ADD CONSTRAINT `FK_subjectteachers` FOREIGN KEY (`subjectid`) REFERENCES `subjects` (`subjectid`),
-  ADD CONSTRAINT `FK_subjectteachers1` FOREIGN KEY (`employeeid`) REFERENCES `employees` (`employeeid`);
+  ADD CONSTRAINT `FK_subjectsschedules3` FOREIGN KEY (`roomid`) REFERENCES `rooms` (`roomid`),
+  ADD CONSTRAINT `FK_subjectsscheduling` FOREIGN KEY (`employeeid`) REFERENCES `employees` (`employeeid`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
