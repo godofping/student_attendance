@@ -20,6 +20,11 @@ namespace thesis.BL.Registrations
             return subjectschedulingDL.List(subjectschedulingEL);
         }
 
+        public DataTable List()
+        {
+            return subjectschedulingDL.List();
+        }
+
         public EL.Registrations.Subjectsscheduling Select(EL.Registrations.Subjectsscheduling subjectschedulingEL)
         {
             return subjectschedulingDL.Select(subjectschedulingEL);

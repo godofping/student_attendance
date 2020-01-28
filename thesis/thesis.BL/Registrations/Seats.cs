@@ -20,6 +20,11 @@ namespace thesis.BL.Registrations
             return seatDL.List(seatEL);
         }
 
+        public DataTable List(int id)
+        {
+            return seatDL.List(id);
+        }
+
         public EL.Registrations.Seats Select(EL.Registrations.Seats seatEL)
         {
             return seatDL.Select(seatEL);

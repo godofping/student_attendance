@@ -43,7 +43,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registrations\Buildings.cs" />
-    <Compile Include="Registrations\Studentsubjectsenrolled.cs" />
+    <Compile Include="Registrations\Studentssubjectenrollment.cs" />
     <Compile Include="Registrations\Subjects.cs" />
     <Compile Include="Registrations\Subjectsscheduling.cs" />
     <Compile Include="Transactions\Attendances.cs" />

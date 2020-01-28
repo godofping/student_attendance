@@ -14,7 +14,7 @@ namespace thesis.DL.Registrations
         {
             using (var cmd = new MySqlCommand())
             {
-                cmd.CommandText = "select * from students_view where studentidnumber like @keyword or studentfirstname like @keyword or studentmiddlename like @keyword or studentlastname like @keyword or yearlevel like @keyword order by studentlastname, studentfirstname, studentmiddlename asc";
+                cmd.CommandText = "select * from students_view where studentidnumber like @keyword or studentfullname like @keyword or yearlevel like @keyword order by studentfullname asc";
 
                 cmd.Parameters.AddWithValue("@keyword", keyword + "%");
                 return methods.executeQuery(cmd);
@@ -39,6 +39,16 @@ namespace thesis.DL.Registrations
                 cmd.Parameters.AddWithValue("@studentimage", studentEL.Studentimage);
                 cmd.Parameters.AddWithValue("@studentcontactperson", studentEL.Studentcontactperson);
                 cmd.Parameters.AddWithValue("@studentcontactpersonphonenumber", studentEL.Studentcontactpersonphonenumber);
+                return methods.executeQuery(cmd);
+            }
+        }
+
+        public DataTable List(int id)
+        {
+            using (var cmd = new MySqlCommand())
+            {
+                cmd.CommandText = "select * from students_view where studentid not in (select studentid from studentssubjectenrollment where subjectscheduleid = @id)";
+                cmd.Parameters.AddWithValue("@id", id);
                 return methods.executeQuery(cmd);
             }
         }

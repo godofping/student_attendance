@@ -37,6 +37,16 @@ namespace thesis.DL.Registrations
             }
         }
 
+        public DataTable List(int id)
+        {
+            using (var cmd = new MySqlCommand())
+            {
+                cmd.CommandText = "SELECT * FROM seats_view WHERE seatid NOT IN (SELECT seatid FROM studentssubjectenrollment WHERE subjectscheduleid = @id)";
+                cmd.Parameters.AddWithValue("@id", id);
+                return methods.executeQuery(cmd);
+            }
+        }
+
         public EL.Registrations.Seats Select(EL.Registrations.Seats seatEL)
         {
 

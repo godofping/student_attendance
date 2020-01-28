@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 27, 2020 at 08:35 AM
+-- Generation Time: Jan 29, 2020 at 12:59 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.3
 
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `attendances` (
   `attendanceid` int(6) NOT NULL,
-  `studentsubjectenrolledid` int(6) DEFAULT NULL,
+  `studentsubjectenrollmentid` int(6) DEFAULT NULL,
   `attendanceintime` datetime DEFAULT NULL,
   `attendanceouttime` datetime DEFAULT NULL,
   `status` varchar(60) DEFAULT NULL
@@ -210,16 +210,44 @@ INSERT INTO `students` (`studentid`, `studentidnumber`, `studentlastname`, `stud
 -- --------------------------------------------------------
 
 --
--- Table structure for table `studentsubjectsenrolled`
+-- Table structure for table `studentssubjectenrollment`
 --
 
-CREATE TABLE `studentsubjectsenrolled` (
-  `studentsubjectenrolledid` int(6) NOT NULL,
+CREATE TABLE `studentssubjectenrollment` (
+  `studentsubjectenrollmentid` int(6) NOT NULL,
   `studentid` int(6) DEFAULT NULL,
-  `subjectid` int(6) DEFAULT NULL,
+  `subjectscheduleid` int(6) DEFAULT NULL,
   `seatid` int(6) DEFAULT NULL,
   `isdrop` tinyint(1) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `studentssubjectenrollment`
+--
+
+INSERT INTO `studentssubjectenrollment` (`studentsubjectenrollmentid`, `studentid`, `subjectscheduleid`, `seatid`, `isdrop`) VALUES
+(5, 1134, 6, 5, 0),
+(14, 1135, 3, 3, 0),
+(15, 1133, 6, 3, 0),
+(16, 1133, 3, 5, 0),
+(17, 1136, 3, 6, 0),
+(18, 1137, 3, 4, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `studentssubjectenrollment_view`
+-- (See below for the actual view)
+--
+CREATE TABLE `studentssubjectenrollment_view` (
+`studentsubjectenrollmentid` int(6)
+,`subjectscheduleid` int(6)
+,`studentfullname` varchar(183)
+,`seat` varchar(60)
+,`isdrop` tinyint(1)
+,`studentid` int(6)
+,`seatid` int(6)
+);
 
 -- --------------------------------------------------------
 
@@ -230,9 +258,7 @@ CREATE TABLE `studentsubjectsenrolled` (
 CREATE TABLE `students_view` (
 `studentid` int(6)
 ,`studentidnumber` varchar(20)
-,`studentlastname` varchar(60)
-,`studentfirstname` varchar(60)
-,`studentmiddlename` varchar(60)
+,`studentfullname` varchar(183)
 ,`yearlevel` varchar(60)
 );
 
@@ -287,7 +313,6 @@ CREATE TABLE `subjectsscheduling` (
 
 INSERT INTO `subjectsscheduling` (`subjectscheduleid`, `subjectid`, `roomid`, `employeeid`, `start`, `end`, `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`) VALUES
 (3, 3, 5, 2, '01:30 PM', '03:30 PM', 1, 1, 1, 1, 1, 1, 1),
-(4, 3, 6, 2, '03:07 AM', '03:07 AM', 1, 1, 1, 0, 0, 0, 0),
 (6, 1, 4, 1, '07:00 AM', '12:00 PM', 1, 0, 1, 0, 1, 0, 0);
 
 -- --------------------------------------------------------
@@ -332,11 +357,20 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
+-- Structure for view `studentssubjectenrollment_view`
+--
+DROP TABLE IF EXISTS `studentssubjectenrollment_view`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `studentssubjectenrollment_view`  AS  select `studentssubjectenrollment`.`studentsubjectenrollmentid` AS `studentsubjectenrollmentid`,`studentssubjectenrollment`.`subjectscheduleid` AS `subjectscheduleid`,concat(`students`.`studentlastname`,', ',`students`.`studentfirstname`,' ',`students`.`studentmiddlename`) AS `studentfullname`,`seats`.`seat` AS `seat`,`studentssubjectenrollment`.`isdrop` AS `isdrop`,`students`.`studentid` AS `studentid`,`seats`.`seatid` AS `seatid` from ((`studentssubjectenrollment` join `students` on((`studentssubjectenrollment`.`studentid` = `students`.`studentid`))) join `seats` on((`studentssubjectenrollment`.`seatid` = `seats`.`seatid`))) ;
+
+-- --------------------------------------------------------
+
+--
 -- Structure for view `students_view`
 --
 DROP TABLE IF EXISTS `students_view`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `students_view`  AS  select `students`.`studentid` AS `studentid`,`students`.`studentidnumber` AS `studentidnumber`,`students`.`studentlastname` AS `studentlastname`,`students`.`studentfirstname` AS `studentfirstname`,`students`.`studentmiddlename` AS `studentmiddlename`,`students`.`yearlevel` AS `yearlevel` from `students` ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `students_view`  AS  select `students`.`studentid` AS `studentid`,`students`.`studentidnumber` AS `studentidnumber`,concat(`students`.`studentlastname`,', ',`students`.`studentfirstname`,' ',`students`.`studentmiddlename`) AS `studentfullname`,`students`.`yearlevel` AS `yearlevel` from `students` ;
 
 -- --------------------------------------------------------
 
@@ -356,7 +390,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 ALTER TABLE `attendances`
   ADD PRIMARY KEY (`attendanceid`),
-  ADD KEY `FK_attendances1` (`studentsubjectenrolledid`);
+  ADD KEY `FK_attendances1` (`studentsubjectenrollmentid`);
 
 --
 -- Indexes for table `buildings`
@@ -398,11 +432,11 @@ ALTER TABLE `students`
   ADD PRIMARY KEY (`studentid`);
 
 --
--- Indexes for table `studentsubjectsenrolled`
+-- Indexes for table `studentssubjectenrollment`
 --
-ALTER TABLE `studentsubjectsenrolled`
-  ADD PRIMARY KEY (`studentsubjectenrolledid`),
-  ADD KEY `FK_studentsubjectsenrolled` (`subjectid`),
+ALTER TABLE `studentssubjectenrollment`
+  ADD PRIMARY KEY (`studentsubjectenrollmentid`),
+  ADD KEY `FK_studentsubjectsenrolled` (`subjectscheduleid`),
   ADD KEY `FK_studentsubjectsenrolle1d` (`studentid`),
   ADD KEY `FK_studentsubjectsenrolled3` (`seatid`);
 
@@ -468,10 +502,10 @@ ALTER TABLE `students`
   MODIFY `studentid` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1138;
 
 --
--- AUTO_INCREMENT for table `studentsubjectsenrolled`
+-- AUTO_INCREMENT for table `studentssubjectenrollment`
 --
-ALTER TABLE `studentsubjectsenrolled`
-  MODIFY `studentsubjectenrolledid` int(6) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `studentssubjectenrollment`
+  MODIFY `studentsubjectenrollmentid` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `subjects`
@@ -493,7 +527,7 @@ ALTER TABLE `subjectsscheduling`
 -- Constraints for table `attendances`
 --
 ALTER TABLE `attendances`
-  ADD CONSTRAINT `FK_attendances1` FOREIGN KEY (`studentsubjectenrolledid`) REFERENCES `studentsubjectsenrolled` (`studentsubjectenrolledid`);
+  ADD CONSTRAINT `FK_attendances1` FOREIGN KEY (`studentsubjectenrollmentid`) REFERENCES `studentssubjectenrollment` (`studentsubjectenrollmentid`);
 
 --
 -- Constraints for table `rooms`
@@ -509,11 +543,11 @@ ALTER TABLE `seats`
   ADD CONSTRAINT `FK_seats` FOREIGN KEY (`roomid`) REFERENCES `rooms` (`roomid`);
 
 --
--- Constraints for table `studentsubjectsenrolled`
+-- Constraints for table `studentssubjectenrollment`
 --
-ALTER TABLE `studentsubjectsenrolled`
+ALTER TABLE `studentssubjectenrollment`
   ADD CONSTRAINT `FK_studentsubjectsenrolle1d` FOREIGN KEY (`studentid`) REFERENCES `students` (`studentid`),
-  ADD CONSTRAINT `FK_studentsubjectsenrolled` FOREIGN KEY (`subjectid`) REFERENCES `subjects` (`subjectid`),
+  ADD CONSTRAINT `FK_studentsubjectsenrolled` FOREIGN KEY (`subjectscheduleid`) REFERENCES `subjectsscheduling` (`subjectscheduleid`),
   ADD CONSTRAINT `FK_studentsubjectsenrolled3` FOREIGN KEY (`seatid`) REFERENCES `seats` (`seatid`);
 
 --

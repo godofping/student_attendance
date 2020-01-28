@@ -95,6 +95,7 @@
             this.btnStudentsSubjectsEnrolled.TabIndex = 7;
             this.btnStudentsSubjectsEnrolled.Text = "Students Subjects Enrolled";
             this.btnStudentsSubjectsEnrolled.UseVisualStyleBackColor = false;
+            this.btnStudentsSubjectsEnrolled.Click += new System.EventHandler(this.btnStudentsSubjectsEnrolled_Click);
             // 
             // btnSubjects
             // 

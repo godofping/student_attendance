@@ -6,16 +6,18 @@ using System.Threading.Tasks;
 
 namespace thesis.EL.Registrations
 {
-    public class Studentsubjectsenrolled
+    public class Studentssubjectenrollment
     {
-        int studentsubjectenrolledid;
+        int studentsubjectenrollmentid;
         int studentid;
         int subjectscheduleid;
         int seatid;
+        int isdrop;
 
-        public int Studentsubjectenrolledid { get => studentsubjectenrolledid; set => studentsubjectenrolledid = value; }
+        public int Studentsubjectenrollmentid { get => studentsubjectenrollmentid; set => studentsubjectenrollmentid = value; }
         public int Studentid { get => studentid; set => studentid = value; }
         public int Subjectscheduleid { get => subjectscheduleid; set => subjectscheduleid = value; }
         public int Seatid { get => seatid; set => seatid = value; }
+        public int Isdrop { get => isdrop; set => isdrop = value; }
     }
 }

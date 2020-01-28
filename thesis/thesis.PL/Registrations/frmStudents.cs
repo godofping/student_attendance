@@ -77,7 +77,7 @@ namespace thesis.PL.Registrations
         {
             PopulateDGV();
             methods.DGVTheme(dgv);
-            methods.DGVRenameColumns(dgv, "studentid", "Student ID", "Last Name", "First Name", "Middle Name", "Year Level");
+            methods.DGVRenameColumns(dgv, "studentid", "Student ID", "Student Name", "Year Level");
             methods.DGVHiddenColumns(dgv, "studentid");
             methods.DGVBUTTONEditDelete(dgv);
         }

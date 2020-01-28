@@ -139,6 +139,12 @@
     <Compile Include="Registrations\frmStudents.Designer.cs">
       <DependentUpon>frmStudents.cs</DependentUpon>
     </Compile>
+    <Compile Include="Registrations\frmStudentsSubjectEnrollment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registrations\frmStudentsSubjectEnrollment.Designer.cs">
+      <DependentUpon>frmStudentsSubjectEnrollment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Registrations\frmSubjects.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -204,6 +210,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Registrations\frmStudents.resx">
       <DependentUpon>frmStudents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registrations\frmStudentsSubjectEnrollment.resx">
+      <DependentUpon>frmStudentsSubjectEnrollment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Registrations\frmSubjects.resx">
       <DependentUpon>frmSubjects.cs</DependentUpon>

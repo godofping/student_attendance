@@ -172,6 +172,26 @@ namespace thesis.PL
             btn1.UseColumnTextForButtonValue = true;
         }
 
+        public static void DGVBUTTONManage(DataGridView dgv)
+        {
+
+            DataGridViewButtonColumn btn1 = new DataGridViewButtonColumn();
+            dgv.Columns.Add(btn1);
+            btn1.HeaderText = "";
+            btn1.Text = "Manage";
+            btn1.Name = "btnManage";
+            btn1.FillWeight = 20;
+            btn1.ReadOnly = false;
+            btn1.DividerWidth = 0;
+            btn1.FillWeight = 10;
+            btn1.Frozen = false;
+            btn1.MinimumWidth = 5;
+            btn1.Width = 100;
+            btn1.FlatStyle = FlatStyle.Popup;
+            btn1.UseColumnTextForButtonValue = true;
+        }
+
+
         public static void DGVBUTTONRemove(DataGridView dgv)
         {
 

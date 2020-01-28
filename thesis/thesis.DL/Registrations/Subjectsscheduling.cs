@@ -43,6 +43,18 @@ namespace thesis.DL.Registrations
             }
         }
 
+        public DataTable List()
+        {
+
+            using (var cmd = new MySqlCommand())
+            {
+                cmd.CommandText = "SELECT * FROM subjects WHERE subjectid IN (SELECT subjectid FROM subjectsscheduling)";
+
+                return methods.executeQuery(cmd);
+            }
+
+        }
+
         public EL.Registrations.Subjectsscheduling Select(EL.Registrations.Subjectsscheduling subjectschedulingEL)
         {
 
