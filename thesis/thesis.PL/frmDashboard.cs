@@ -16,5 +16,15 @@ namespace thesis.PL
         {
             InitializeComponent();
         }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frmDashboard_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
