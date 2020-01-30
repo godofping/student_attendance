@@ -23,8 +23,8 @@ namespace thesis.PL.Registrations
         BL.Registrations.Seats seatBL = new BL.Registrations.Seats();
         BL.Registrations.Rooms roomBL = new BL.Registrations.Rooms();
 
-        frmMain frmMain;
-        public frmSeats(frmMain _frmMain)
+        frmMainAdministrator frmMain;
+        public frmSeats(frmMainAdministrator _frmMain)
         {
             InitializeComponent();
             frmMain = _frmMain;

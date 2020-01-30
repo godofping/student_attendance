@@ -12,8 +12,8 @@ namespace thesis.PL
 {
     public partial class frmSettings : Form
     {
-        frmMain frmMain;
-        public frmSettings(frmMain _frmMain)
+        frmMainAdministrator frmMain;
+        public frmSettings(frmMainAdministrator _frmMain)
         {
             InitializeComponent();
             frmMain = _frmMain;

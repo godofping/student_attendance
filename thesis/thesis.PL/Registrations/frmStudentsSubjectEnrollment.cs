@@ -31,9 +31,9 @@ namespace thesis.PL.Registrations
         BL.Registrations.Rooms roomBL = new BL.Registrations.Rooms();
         BL.Registrations.Buildings buildingBL = new BL.Registrations.Buildings();
 
-        frmMain frmMain;
+        frmMainAdministrator frmMain;
 
-        public frmStudentsSubjectEnrollment(frmMain _frmMain)
+        public frmStudentsSubjectEnrollment(frmMainAdministrator _frmMain)
         {
             InitializeComponent();
             frmMain =  _frmMain;

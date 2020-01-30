@@ -27,9 +27,9 @@ namespace thesis.PL.Registrations
         BL.Registrations.Rooms roomBL = new BL.Registrations.Rooms();
         BL.Registrations.Employees employeeBL = new BL.Registrations.Employees();
 
-        frmMain frmMain;
+        frmMainAdministrator frmMain;
 
-        public frmSubjectScheduling(frmMain _frmMain)
+        public frmSubjectScheduling(frmMainAdministrator _frmMain)
         {
             InitializeComponent();
             frmMain = _frmMain;

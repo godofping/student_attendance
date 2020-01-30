@@ -10,16 +10,18 @@ using System.Windows.Forms;
 
 namespace thesis.PL
 {
-    public partial class frmMain : Form
+    public partial class frmMainAdministrator : Form
     {
         EL.Registrations.Employees employeeEL;
 
         frmLogin frmLogin;
-        public frmMain(EL.Registrations.Employees _employeeEL, frmLogin _frmLogin)
+        public frmMainAdministrator(EL.Registrations.Employees _employeeEL, frmLogin _frmLogin)
         {
             InitializeComponent();
             employeeEL = _employeeEL;
             frmLogin = _frmLogin;
+
+            lblWelcome.Text = "Welcome, " + employeeEL.Employeelastname + ", " + employeeEL.Employeefirstname + " " + employeeEL.Employeemiddlename;
         }
 
         protected override CreateParams CreateParams

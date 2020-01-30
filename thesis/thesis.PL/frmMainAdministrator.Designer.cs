@@ -1,6 +1,6 @@
 ﻿namespace thesis.PL
 {
-    partial class frmMain
+    partial class frmMainAdministrator
     {
         /// <summary>
         /// Required designer variable.
@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.pnlMenu = new System.Windows.Forms.Panel();
+            this.lblWelcome = new System.Windows.Forms.Label();
             this.btnDashboard = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
             this.btnReports = new System.Windows.Forms.Button();
@@ -43,6 +44,7 @@
             // pnlMenu
             // 
             this.pnlMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
+            this.pnlMenu.Controls.Add(this.lblWelcome);
             this.pnlMenu.Controls.Add(this.btnDashboard);
             this.pnlMenu.Controls.Add(this.btnLogout);
             this.pnlMenu.Controls.Add(this.btnReports);
@@ -55,6 +57,17 @@
             this.pnlMenu.Name = "pnlMenu";
             this.pnlMenu.Size = new System.Drawing.Size(242, 720);
             this.pnlMenu.TabIndex = 1;
+            // 
+            // lblWelcome
+            // 
+            this.lblWelcome.Font = new System.Drawing.Font("Century Gothic", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWelcome.ForeColor = System.Drawing.Color.White;
+            this.lblWelcome.Location = new System.Drawing.Point(3, 9);
+            this.lblWelcome.Name = "lblWelcome";
+            this.lblWelcome.Size = new System.Drawing.Size(233, 117);
+            this.lblWelcome.TabIndex = 9;
+            this.lblWelcome.Text = "Welcome.";
+            this.lblWelcome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnDashboard
             // 
@@ -169,7 +182,7 @@
             this.pnlMain.Size = new System.Drawing.Size(1038, 720);
             this.pnlMain.TabIndex = 2;
             // 
-            // frmMain
+            // frmMainAdministrator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -183,9 +196,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "frmMain";
+            this.Name = "frmMainAdministrator";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmMain";
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.pnlMenu.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -202,5 +214,6 @@
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Button btnDashboard;
         public System.Windows.Forms.Panel pnlMain;
+        private System.Windows.Forms.Label lblWelcome;
     }
 }

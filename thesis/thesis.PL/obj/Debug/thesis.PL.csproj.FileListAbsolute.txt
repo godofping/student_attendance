@@ -7,7 +7,6 @@ C:\xampp\htdocs\student_attendance\thesis\thesis.PL\obj\Debug\thesis.PL.csproj.G
 C:\xampp\htdocs\student_attendance\thesis\thesis.PL\obj\Debug\thesis.PL.exe
 C:\xampp\htdocs\student_attendance\thesis\thesis.PL\obj\Debug\thesis.PL.pdb
 C:\xampp\htdocs\student_attendance\thesis\thesis.PL\obj\Debug\thesis.PL.frmLogin.resources
-C:\xampp\htdocs\student_attendance\thesis\thesis.PL\obj\Debug\thesis.PL.frmMain.resources
 C:\xampp\htdocs\student_attendance\thesis\thesis.PL\obj\Debug\thesis.PL.frmSettings.resources
 C:\xampp\htdocs\student_attendance\thesis\thesis.PL\obj\Debug\thesis.PL.Registrations.frmComputers.resources
 C:\xampp\htdocs\student_attendance\thesis\thesis.PL\obj\Debug\thesis.PL.frmDashboard.resources
@@ -36,3 +35,5 @@ C:\xampp\htdocs\student_attendance\thesis\thesis.PL\obj\Debug\thesis.PL.Registra
 C:\xampp\htdocs\student_attendance\thesis\thesis.PL\obj\Debug\thesis.PL.Registrations.frmSubjectScheduling.resources
 C:\xampp\htdocs\student_attendance\thesis\thesis.PL\obj\Debug\thesis.PL.Registrations.frmStudentsSubjectEnrollment.resources
 C:\xampp\htdocs\student_attendance\thesis\thesis.PL\obj\Debug\thesis.PL.Transactions.frmAttendancesMain.resources
+C:\xampp\htdocs\student_attendance\thesis\thesis.PL\obj\Debug\thesis.PL.frmMainAdministrator.resources
+C:\xampp\htdocs\student_attendance\thesis\thesis.PL\obj\Debug\thesis.PL.frmMainTeachers.resources

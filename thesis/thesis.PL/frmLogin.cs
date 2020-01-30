@@ -66,8 +66,17 @@ namespace thesis.PL
                     employeeEL.Employeeid = Convert.ToInt32(dt.Rows[0]["employeeid"]);
                     employeeEL = employeeBL.Select(employeeEL);
 
-                    var frm = new frmMain(employeeEL,this);
-                    frm.Show();
+                    if (employeeEL.Accounttype.Equals("ADMINISTRATOR"))
+                    {
+                        var frm = new frmMainAdministrator(employeeEL, this);
+                        frm.Show();
+                    }
+                    else
+                    {
+                        var frm = new frmMainTeachers(employeeEL, this);
+                        frm.Show();
+                    }
+
                     this.Hide();
                 }
                 else

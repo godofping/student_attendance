@@ -82,11 +82,17 @@
     <Compile Include="frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmMain.cs">
+    <Compile Include="frmMainAdministrator.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmMain.Designer.cs">
-      <DependentUpon>frmMain.cs</DependentUpon>
+    <Compile Include="frmMainAdministrator.Designer.cs">
+      <DependentUpon>frmMainAdministrator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMainTeachers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMainTeachers.Designer.cs">
+      <DependentUpon>frmMainTeachers.cs</DependentUpon>
     </Compile>
     <Compile Include="frmReports.cs">
       <SubType>Form</SubType>
@@ -181,8 +187,11 @@
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmMain.resx">
-      <DependentUpon>frmMain.cs</DependentUpon>
+    <EmbeddedResource Include="frmMainAdministrator.resx">
+      <DependentUpon>frmMainAdministrator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMainTeachers.resx">
+      <DependentUpon>frmMainTeachers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmReports.resx">
       <DependentUpon>frmReports.cs</DependentUpon>

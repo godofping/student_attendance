@@ -21,9 +21,9 @@ namespace thesis.PL.Registrations
 
         BL.Registrations.Buildings buildingBL = new BL.Registrations.Buildings();
 
-        frmMain frmMain;
+        frmMainAdministrator frmMain;
 
-        public frmBuildings(frmMain _frmMain)
+        public frmBuildings(frmMainAdministrator _frmMain)
         {
             InitializeComponent();
             frmMain = _frmMain;

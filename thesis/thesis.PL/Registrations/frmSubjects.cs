@@ -22,9 +22,9 @@ namespace thesis.PL.Registrations
         BL.Registrations.Subjects subjectBL = new BL.Registrations.Subjects();
 
 
-        frmMain frmMain;
+        frmMainAdministrator frmMain;
 
-        public frmSubjects(frmMain _frmMain)
+        public frmSubjects(frmMainAdministrator _frmMain)
         {
             InitializeComponent();
             frmMain = _frmMain;

@@ -25,8 +25,8 @@ namespace thesis.PL.Registrations
         BL.Registrations.Computers computerBL = new BL.Registrations.Computers();
         BL.Registrations.Rooms roomBL = new BL.Registrations.Rooms();
 
-        frmMain frmMain;
-        public frmRooms(frmMain _frmMain)
+        frmMainAdministrator frmMain;
+        public frmRooms(frmMainAdministrator _frmMain)
         {
             InitializeComponent();
             frmMain = _frmMain;
