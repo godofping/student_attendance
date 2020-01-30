@@ -12,10 +12,16 @@ namespace thesis.PL
 {
     public partial class frmMain : Form
     {
-        public frmMain()
+        EL.Registrations.Employees employeeEL;
+
+        frmLogin frmLogin;
+        public frmMain(EL.Registrations.Employees _employeeEL, frmLogin _frmLogin)
         {
             InitializeComponent();
+            employeeEL = _employeeEL;
+            frmLogin = _frmLogin;
         }
+
         protected override CreateParams CreateParams
         {
             get
@@ -58,14 +64,7 @@ namespace thesis.PL
         }
 
  
-        private void frmMain_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Control && e.Shift && e.KeyCode == Keys.F8)
-            {
-                frmLogin frm = new frmLogin(this);
-                frm.Show();
-            }
-        }
+
 
         private void frmMain_Load(object sender, EventArgs e)
         {
@@ -150,9 +149,10 @@ namespace thesis.PL
             pleaseWait.Close();
         }
 
-        private void btnExit_Click(object sender, EventArgs e)
+        private void btnLogout_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            frmLogin.Show();
+            this.Close();
         }
     }
 }

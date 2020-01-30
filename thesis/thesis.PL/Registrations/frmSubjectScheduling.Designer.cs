@@ -212,7 +212,7 @@
             this.cbEmployee.FormattingEnabled = true;
             this.cbEmployee.Location = new System.Drawing.Point(30, 265);
             this.cbEmployee.Name = "cbEmployee";
-            this.cbEmployee.Size = new System.Drawing.Size(324, 29);
+            this.cbEmployee.Size = new System.Drawing.Size(953, 29);
             this.cbEmployee.TabIndex = 29;
             // 
             // label6
@@ -234,14 +234,14 @@
             this.cbRoomBuilding.FormattingEnabled = true;
             this.cbRoomBuilding.Location = new System.Drawing.Point(30, 173);
             this.cbRoomBuilding.Name = "cbRoomBuilding";
-            this.cbRoomBuilding.Size = new System.Drawing.Size(324, 29);
+            this.cbRoomBuilding.Size = new System.Drawing.Size(953, 29);
             this.cbRoomBuilding.TabIndex = 25;
             // 
             // chkSunday
             // 
             this.chkSunday.AutoSize = true;
             this.chkSunday.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkSunday.Location = new System.Drawing.Point(530, 296);
+            this.chkSunday.Location = new System.Drawing.Point(800, 435);
             this.chkSunday.Name = "chkSunday";
             this.chkSunday.Size = new System.Drawing.Size(87, 25);
             this.chkSunday.TabIndex = 24;
@@ -252,7 +252,7 @@
             // 
             this.chkSaturday.AutoSize = true;
             this.chkSaturday.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkSaturday.Location = new System.Drawing.Point(823, 232);
+            this.chkSaturday.Location = new System.Drawing.Point(670, 435);
             this.chkSaturday.Name = "chkSaturday";
             this.chkSaturday.Size = new System.Drawing.Size(100, 25);
             this.chkSaturday.TabIndex = 23;
@@ -263,7 +263,7 @@
             // 
             this.chkFriday.AutoSize = true;
             this.chkFriday.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkFriday.Location = new System.Drawing.Point(668, 232);
+            this.chkFriday.Location = new System.Drawing.Point(567, 435);
             this.chkFriday.Name = "chkFriday";
             this.chkFriday.Size = new System.Drawing.Size(75, 25);
             this.chkFriday.TabIndex = 22;
@@ -274,7 +274,7 @@
             // 
             this.chkThursday.AutoSize = true;
             this.chkThursday.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkThursday.Location = new System.Drawing.Point(530, 232);
+            this.chkThursday.Location = new System.Drawing.Point(435, 435);
             this.chkThursday.Name = "chkThursday";
             this.chkThursday.Size = new System.Drawing.Size(98, 25);
             this.chkThursday.TabIndex = 21;
@@ -285,7 +285,7 @@
             // 
             this.chkWedndesday.AutoSize = true;
             this.chkWedndesday.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkWedndesday.Location = new System.Drawing.Point(823, 166);
+            this.chkWedndesday.Location = new System.Drawing.Point(278, 435);
             this.chkWedndesday.Name = "chkWedndesday";
             this.chkWedndesday.Size = new System.Drawing.Size(121, 25);
             this.chkWedndesday.TabIndex = 20;
@@ -296,7 +296,7 @@
             // 
             this.chkTuesday.AutoSize = true;
             this.chkTuesday.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkTuesday.Location = new System.Drawing.Point(668, 166);
+            this.chkTuesday.Location = new System.Drawing.Point(150, 435);
             this.chkTuesday.Name = "chkTuesday";
             this.chkTuesday.Size = new System.Drawing.Size(93, 25);
             this.chkTuesday.TabIndex = 19;
@@ -307,7 +307,7 @@
             // 
             this.chkMonday.AutoSize = true;
             this.chkMonday.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkMonday.Location = new System.Drawing.Point(530, 166);
+            this.chkMonday.Location = new System.Drawing.Point(30, 435);
             this.chkMonday.Name = "chkMonday";
             this.chkMonday.Size = new System.Drawing.Size(94, 25);
             this.chkMonday.TabIndex = 18;
@@ -319,7 +319,7 @@
             this.dtpEnd.CustomFormat = "hh:mm tt";
             this.dtpEnd.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.dtpEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpEnd.Location = new System.Drawing.Point(743, 90);
+            this.dtpEnd.Location = new System.Drawing.Point(243, 359);
             this.dtpEnd.Name = "dtpEnd";
             this.dtpEnd.ShowUpDown = true;
             this.dtpEnd.Size = new System.Drawing.Size(174, 27);
@@ -329,7 +329,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(526, 60);
+            this.label4.Location = new System.Drawing.Point(26, 329);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(261, 21);
             this.label4.TabIndex = 15;
@@ -340,7 +340,7 @@
             this.dtpStart.CustomFormat = "hh:mm tt";
             this.dtpStart.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.dtpStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpStart.Location = new System.Drawing.Point(530, 90);
+            this.dtpStart.Location = new System.Drawing.Point(30, 359);
             this.dtpStart.Name = "dtpStart";
             this.dtpStart.ShowUpDown = true;
             this.dtpStart.Size = new System.Drawing.Size(174, 27);
@@ -365,7 +365,7 @@
             this.cbSubject.FormattingEnabled = true;
             this.cbSubject.Location = new System.Drawing.Point(30, 84);
             this.cbSubject.Name = "cbSubject";
-            this.cbSubject.Size = new System.Drawing.Size(324, 29);
+            this.cbSubject.Size = new System.Drawing.Size(953, 29);
             this.cbSubject.TabIndex = 12;
             // 
             // btnSave
@@ -404,8 +404,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1038, 720);
-            this.Controls.Add(this.pnlMain);
             this.Controls.Add(this.pnlForm);
+            this.Controls.Add(this.pnlMain);
             this.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

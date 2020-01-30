@@ -10,6 +10,12 @@ namespace thesis.BL.Registrations
     public class Employees
     {
         DL.Registrations.Employees employeeDL = new DL.Registrations.Employees();
+
+        public DataTable Login(EL.Registrations.Employees employeeEL)
+        {
+            return employeeDL.Login(employeeEL);
+        }
+
         public DataTable List(String keyword)
         {
             return employeeDL.List(keyword);

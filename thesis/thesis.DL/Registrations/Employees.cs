@@ -10,6 +10,19 @@ namespace thesis.DL.Registrations
 {
     public class Employees
     {
+
+        public DataTable Login(EL.Registrations.Employees employeeEL)
+        {
+            using (var cmd = new MySqlCommand())
+            {
+                cmd.CommandText = "select * from employees where username = @username and password = @password";
+
+                cmd.Parameters.AddWithValue("@username", employeeEL.Username);
+                cmd.Parameters.AddWithValue("@password", employeeEL.Password);
+                return methods.executeQuery(cmd);
+            }
+        }
+
         public DataTable List(String keyword)
         {
             using (var cmd = new MySqlCommand())

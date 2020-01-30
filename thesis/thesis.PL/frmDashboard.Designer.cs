@@ -31,9 +31,9 @@
             this.components = new System.ComponentModel.Container();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.lblStudents = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lblSubjects = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -43,23 +43,23 @@
             this.label6 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lblEmployees = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
+            this.lblRooms = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
             this.panel11 = new System.Windows.Forms.Panel();
-            this.label11 = new System.Windows.Forms.Label();
+            this.lblBuildings = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
             this.panel13 = new System.Windows.Forms.Panel();
-            this.label13 = new System.Windows.Forms.Label();
+            this.lblSeats = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.panel14 = new System.Windows.Forms.Panel();
             this.panel15 = new System.Windows.Forms.Panel();
-            this.label15 = new System.Windows.Forms.Label();
+            this.lblComputers = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.panel16 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
@@ -87,14 +87,17 @@
             this.panel1.Size = new System.Drawing.Size(337, 121);
             this.panel1.TabIndex = 0;
             // 
-            // panel2
+            // lblStudents
             // 
-            this.panel2.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(337, 11);
-            this.panel2.TabIndex = 0;
+            this.lblStudents.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblStudents.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStudents.ForeColor = System.Drawing.Color.White;
+            this.lblStudents.Location = new System.Drawing.Point(0, 50);
+            this.lblStudents.Name = "lblStudents";
+            this.lblStudents.Size = new System.Drawing.Size(337, 71);
+            this.lblStudents.TabIndex = 2;
+            this.lblStudents.Text = "10000";
+            this.lblStudents.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label1
             // 
@@ -108,17 +111,14 @@
             this.label1.Text = "No. of Students";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // lblStudents
+            // panel2
             // 
-            this.lblStudents.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblStudents.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStudents.ForeColor = System.Drawing.Color.White;
-            this.lblStudents.Location = new System.Drawing.Point(0, 50);
-            this.lblStudents.Name = "lblStudents";
-            this.lblStudents.Size = new System.Drawing.Size(337, 71);
-            this.lblStudents.TabIndex = 2;
-            this.lblStudents.Text = "10000";
-            this.lblStudents.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.panel2.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(337, 11);
+            this.panel2.TabIndex = 0;
             // 
             // panel3
             // 
@@ -211,7 +211,7 @@
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.panel7.Controls.Add(this.label7);
+            this.panel7.Controls.Add(this.lblEmployees);
             this.panel7.Controls.Add(this.label8);
             this.panel7.Controls.Add(this.panel8);
             this.panel7.Location = new System.Drawing.Point(7, 203);
@@ -219,17 +219,17 @@
             this.panel7.Size = new System.Drawing.Size(337, 121);
             this.panel7.TabIndex = 4;
             // 
-            // label7
+            // lblEmployees
             // 
-            this.label7.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label7.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(0, 50);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(337, 71);
-            this.label7.TabIndex = 2;
-            this.label7.Text = "10000";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblEmployees.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblEmployees.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmployees.ForeColor = System.Drawing.Color.White;
+            this.lblEmployees.Location = new System.Drawing.Point(0, 50);
+            this.lblEmployees.Name = "lblEmployees";
+            this.lblEmployees.Size = new System.Drawing.Size(337, 71);
+            this.lblEmployees.TabIndex = 2;
+            this.lblEmployees.Text = "10000";
+            this.lblEmployees.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label8
             // 
@@ -255,7 +255,7 @@
             // panel9
             // 
             this.panel9.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.panel9.Controls.Add(this.label9);
+            this.panel9.Controls.Add(this.lblRooms);
             this.panel9.Controls.Add(this.label10);
             this.panel9.Controls.Add(this.panel10);
             this.panel9.Location = new System.Drawing.Point(350, 203);
@@ -263,17 +263,17 @@
             this.panel9.Size = new System.Drawing.Size(337, 121);
             this.panel9.TabIndex = 5;
             // 
-            // label9
+            // lblRooms
             // 
-            this.label9.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label9.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(0, 50);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(337, 71);
-            this.label9.TabIndex = 2;
-            this.label9.Text = "10000";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblRooms.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblRooms.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRooms.ForeColor = System.Drawing.Color.White;
+            this.lblRooms.Location = new System.Drawing.Point(0, 50);
+            this.lblRooms.Name = "lblRooms";
+            this.lblRooms.Size = new System.Drawing.Size(337, 71);
+            this.lblRooms.TabIndex = 2;
+            this.lblRooms.Text = "10000";
+            this.lblRooms.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label10
             // 
@@ -299,7 +299,7 @@
             // panel11
             // 
             this.panel11.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.panel11.Controls.Add(this.label11);
+            this.panel11.Controls.Add(this.lblBuildings);
             this.panel11.Controls.Add(this.label12);
             this.panel11.Controls.Add(this.panel12);
             this.panel11.Location = new System.Drawing.Point(693, 203);
@@ -307,17 +307,17 @@
             this.panel11.Size = new System.Drawing.Size(337, 121);
             this.panel11.TabIndex = 6;
             // 
-            // label11
+            // lblBuildings
             // 
-            this.label11.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label11.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(0, 50);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(337, 71);
-            this.label11.TabIndex = 2;
-            this.label11.Text = "10000";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblBuildings.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblBuildings.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBuildings.ForeColor = System.Drawing.Color.White;
+            this.lblBuildings.Location = new System.Drawing.Point(0, 50);
+            this.lblBuildings.Name = "lblBuildings";
+            this.lblBuildings.Size = new System.Drawing.Size(337, 71);
+            this.lblBuildings.TabIndex = 2;
+            this.lblBuildings.Text = "10000";
+            this.lblBuildings.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label12
             // 
@@ -343,7 +343,7 @@
             // panel13
             // 
             this.panel13.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.panel13.Controls.Add(this.label13);
+            this.panel13.Controls.Add(this.lblSeats);
             this.panel13.Controls.Add(this.label14);
             this.panel13.Controls.Add(this.panel14);
             this.panel13.Location = new System.Drawing.Point(7, 363);
@@ -351,17 +351,17 @@
             this.panel13.Size = new System.Drawing.Size(337, 121);
             this.panel13.TabIndex = 7;
             // 
-            // label13
+            // lblSeats
             // 
-            this.label13.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label13.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(0, 50);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(337, 71);
-            this.label13.TabIndex = 2;
-            this.label13.Text = "10000";
-            this.label13.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblSeats.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblSeats.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSeats.ForeColor = System.Drawing.Color.White;
+            this.lblSeats.Location = new System.Drawing.Point(0, 50);
+            this.lblSeats.Name = "lblSeats";
+            this.lblSeats.Size = new System.Drawing.Size(337, 71);
+            this.lblSeats.TabIndex = 2;
+            this.lblSeats.Text = "10000";
+            this.lblSeats.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label14
             // 
@@ -387,7 +387,7 @@
             // panel15
             // 
             this.panel15.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.panel15.Controls.Add(this.label15);
+            this.panel15.Controls.Add(this.lblComputers);
             this.panel15.Controls.Add(this.label16);
             this.panel15.Controls.Add(this.panel16);
             this.panel15.Location = new System.Drawing.Point(350, 363);
@@ -395,17 +395,17 @@
             this.panel15.Size = new System.Drawing.Size(337, 121);
             this.panel15.TabIndex = 8;
             // 
-            // label15
+            // lblComputers
             // 
-            this.label15.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label15.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(0, 50);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(337, 71);
-            this.label15.TabIndex = 2;
-            this.label15.Text = "10000";
-            this.label15.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblComputers.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblComputers.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblComputers.ForeColor = System.Drawing.Color.White;
+            this.lblComputers.Location = new System.Drawing.Point(0, 50);
+            this.lblComputers.Name = "lblComputers";
+            this.lblComputers.Size = new System.Drawing.Size(337, 71);
+            this.lblComputers.TabIndex = 2;
+            this.lblComputers.Text = "10000";
+            this.lblComputers.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label16
             // 
@@ -478,23 +478,23 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblEmployees;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lblRooms;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Panel panel11;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lblBuildings;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.Panel panel13;
-        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label lblSeats;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.Panel panel15;
-        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label lblComputers;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Panel panel16;
     }

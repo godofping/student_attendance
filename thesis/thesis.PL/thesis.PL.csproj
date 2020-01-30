@@ -163,6 +163,12 @@
     <Compile Include="Transactions\frmAttendances.Designer.cs">
       <DependentUpon>frmAttendances.cs</DependentUpon>
     </Compile>
+    <Compile Include="Transactions\frmAttendancesMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transactions\frmAttendancesMain.Designer.cs">
+      <DependentUpon>frmAttendancesMain.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="frmCapture.resx">
       <DependentUpon>frmCapture.cs</DependentUpon>
     </EmbeddedResource>
@@ -222,6 +228,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Transactions\frmAttendances.resx">
       <DependentUpon>frmAttendances.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transactions\frmAttendancesMain.resx">
+      <DependentUpon>frmAttendancesMain.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
