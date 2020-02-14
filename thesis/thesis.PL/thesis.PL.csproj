@@ -58,11 +58,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmCapture.cs">
+    <Compile Include="frmCaptureImage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmCapture.Designer.cs">
-      <DependentUpon>frmCapture.cs</DependentUpon>
+    <Compile Include="frmCaptureImage.Designer.cs">
+      <DependentUpon>frmCaptureImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCaptureRFID.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCaptureRFID.Designer.cs">
+      <DependentUpon>frmCaptureRFID.cs</DependentUpon>
     </Compile>
     <Compile Include="frmDashboard.cs">
       <SubType>Form</SubType>
@@ -175,8 +181,11 @@
     <Compile Include="Transactions\frmAttendancesMain.Designer.cs">
       <DependentUpon>frmAttendancesMain.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="frmCapture.resx">
-      <DependentUpon>frmCapture.cs</DependentUpon>
+    <EmbeddedResource Include="frmCaptureImage.resx">
+      <DependentUpon>frmCaptureImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCaptureRFID.resx">
+      <DependentUpon>frmCaptureRFID.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDashboard.resx">
       <DependentUpon>frmDashboard.cs</DependentUpon>

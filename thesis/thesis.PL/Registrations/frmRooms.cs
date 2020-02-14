@@ -211,7 +211,7 @@ namespace thesis.PL.Registrations
                 computerEL.Computerid = roomEL.Computerid;
                 s = "EDIT";
                 ShowForm(true);
-                gb.Text = "Update Computer";
+                gb.Text = "Update Room";
 
                 
                 cbBuilding.SelectedValue = roomEL.Buildingid;

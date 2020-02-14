@@ -11,12 +11,12 @@ using DarrenLee.Media;
 
 namespace thesis.PL
 {
-    public partial class frmCapture : Form
+    public partial class frmCaptureImage : Form
     {
 
         Camera mycamera = new Camera();
         Registrations.frmStudents frmStudents;
-        public frmCapture(Registrations.frmStudents _frmStudents)
+        public frmCaptureImage(Registrations.frmStudents _frmStudents)
         {
             InitializeComponent();
             getInfo();

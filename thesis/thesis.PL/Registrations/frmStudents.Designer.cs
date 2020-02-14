@@ -31,12 +31,16 @@
             this.txtStudentID = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.pnlMain = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.dgv = new System.Windows.Forms.DataGridView();
             this.pnlForm = new System.Windows.Forms.Panel();
             this.gb = new System.Windows.Forms.GroupBox();
+            this.txtPhoneNumber = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.txtContactPersonPhoneNumber = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.txtContactPerson = new System.Windows.Forms.TextBox();
@@ -49,7 +53,7 @@
             this.btnNew = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.pbCapture = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnScanRFID = new System.Windows.Forms.Button();
             this.txtRFID = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtLastName = new System.Windows.Forms.TextBox();
@@ -58,16 +62,12 @@
             this.label4 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
-            this.txtPhoneNumber = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.pnlMain.SuspendLayout();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.pnlForm.SuspendLayout();
             this.gb.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCapture)).BeginInit();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtStudentID
@@ -99,6 +99,27 @@
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(1038, 720);
             this.pnlMain.TabIndex = 9;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(141)))), ((int)(((byte)(152)))));
+            this.panel1.Controls.Add(this.label9);
+            this.panel1.Location = new System.Drawing.Point(434, 9);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(216, 37);
+            this.panel1.TabIndex = 15;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(40, 9);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(147, 21);
+            this.label9.TabIndex = 9;
+            this.label9.Text = "Manage Students";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnAdd
             // 
@@ -169,7 +190,7 @@
             this.gb.Controls.Add(this.btnNew);
             this.gb.Controls.Add(this.btnClear);
             this.gb.Controls.Add(this.pbCapture);
-            this.gb.Controls.Add(this.button1);
+            this.gb.Controls.Add(this.btnScanRFID);
             this.gb.Controls.Add(this.txtRFID);
             this.gb.Controls.Add(this.label6);
             this.gb.Controls.Add(this.txtLastName);
@@ -187,6 +208,24 @@
             this.gb.TabIndex = 12;
             this.gb.TabStop = false;
             this.gb.Text = "<>";
+            // 
+            // txtPhoneNumber
+            // 
+            this.txtPhoneNumber.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPhoneNumber.Location = new System.Drawing.Point(23, 522);
+            this.txtPhoneNumber.Name = "txtPhoneNumber";
+            this.txtPhoneNumber.Size = new System.Drawing.Size(324, 27);
+            this.txtPhoneNumber.TabIndex = 6;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(19, 491);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(126, 21);
+            this.label12.TabIndex = 46;
+            this.label12.Text = "Phone Number";
             // 
             // txtContactPersonPhoneNumber
             // 
@@ -317,29 +356,28 @@
             this.pbCapture.TabIndex = 20;
             this.pbCapture.TabStop = false;
             // 
-            // button1
+            // btnScanRFID
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(739, 477);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(92, 37);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Scan RFID";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnScanRFID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
+            this.btnScanRFID.FlatAppearance.BorderSize = 0;
+            this.btnScanRFID.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnScanRFID.Font = new System.Drawing.Font("Century Gothic", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnScanRFID.ForeColor = System.Drawing.Color.White;
+            this.btnScanRFID.Location = new System.Drawing.Point(739, 467);
+            this.btnScanRFID.Name = "btnScanRFID";
+            this.btnScanRFID.Size = new System.Drawing.Size(92, 37);
+            this.btnScanRFID.TabIndex = 10;
+            this.btnScanRFID.Text = "Scan RFID";
+            this.btnScanRFID.UseVisualStyleBackColor = false;
+            this.btnScanRFID.Click += new System.EventHandler(this.btnScanRFID_Click);
             // 
             // txtRFID
             // 
             this.txtRFID.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRFID.Location = new System.Drawing.Point(452, 477);
-            this.txtRFID.Multiline = true;
             this.txtRFID.Name = "txtRFID";
             this.txtRFID.ReadOnly = true;
-            this.txtRFID.Size = new System.Drawing.Size(274, 37);
+            this.txtRFID.Size = new System.Drawing.Size(274, 27);
             this.txtRFID.TabIndex = 17;
             // 
             // label6
@@ -418,45 +456,6 @@
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(141)))), ((int)(((byte)(152)))));
-            this.panel1.Controls.Add(this.label9);
-            this.panel1.Location = new System.Drawing.Point(434, 9);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(216, 37);
-            this.panel1.TabIndex = 15;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(40, 9);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(147, 21);
-            this.label9.TabIndex = 9;
-            this.label9.Text = "Manage Students";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // txtPhoneNumber
-            // 
-            this.txtPhoneNumber.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPhoneNumber.Location = new System.Drawing.Point(23, 522);
-            this.txtPhoneNumber.Name = "txtPhoneNumber";
-            this.txtPhoneNumber.Size = new System.Drawing.Size(324, 27);
-            this.txtPhoneNumber.TabIndex = 6;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(19, 491);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(126, 21);
-            this.label12.TabIndex = 46;
-            this.label12.Text = "Phone Number";
-            // 
             // frmStudents
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -475,13 +474,13 @@
             this.Load += new System.EventHandler(this.frmStudents_Load);
             this.pnlMain.ResumeLayout(false);
             this.pnlMain.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             this.pnlForm.ResumeLayout(false);
             this.gb.ResumeLayout(false);
             this.gb.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCapture)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -502,9 +501,8 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtMiddleName;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtRFID;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnScanRFID;
         private System.Windows.Forms.Button btnNew;
         private System.Windows.Forms.Button btnClear;
         public System.Windows.Forms.PictureBox pbCapture;
@@ -522,5 +520,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtPhoneNumber;
         private System.Windows.Forms.Label label12;
+        public System.Windows.Forms.TextBox txtRFID;
     }
 }

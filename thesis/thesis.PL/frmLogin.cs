@@ -63,6 +63,7 @@ namespace thesis.PL
 
                 if (dt.Rows.Count > 0)
                 {
+                    MessageBox.Show("Login success.");
                     employeeEL.Employeeid = Convert.ToInt32(dt.Rows[0]["employeeid"]);
                     employeeEL = employeeBL.Select(employeeEL);
 
@@ -77,7 +78,9 @@ namespace thesis.PL
                         frm.Show();
                     }
 
+                    txtUsername.Focus();
                     this.Hide();
+                    
                 }
                 else
                 {

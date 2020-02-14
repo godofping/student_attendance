@@ -128,7 +128,7 @@ namespace thesis.PL.Registrations
 
         private void btnNew_Click(object sender, EventArgs e)
         {
-            var frmCapture = new frmCapture(this);
+            var frmCapture = new frmCaptureImage(this);
             pnlForm.Enabled = false;
             frmCapture.ShowDialog();
         }
@@ -236,11 +236,10 @@ namespace thesis.PL.Registrations
             pbCapture.Image = null;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnScanRFID_Click(object sender, EventArgs e)
         {
-            txtRFID.Text = "10a100a1a0aa10100";
+            var frmCaptureRFID = new frmCaptureRFID(this);
+            frmCaptureRFID.ShowDialog();
         }
-
-  
     }
 }

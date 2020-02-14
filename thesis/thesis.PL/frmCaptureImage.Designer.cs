@@ -1,6 +1,6 @@
 ﻿namespace thesis.PL
 {
-    partial class frmCapture
+    partial class frmCaptureImage
     {
         /// <summary>
         /// Required designer variable.

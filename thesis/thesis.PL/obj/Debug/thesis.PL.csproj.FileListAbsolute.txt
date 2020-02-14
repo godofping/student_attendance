@@ -29,7 +29,6 @@ C:\xampp\htdocs\student_attendance\thesis\thesis.PL\bin\Debug\AForge.dll
 C:\xampp\htdocs\student_attendance\thesis\thesis.PL\bin\Debug\AForge.Video.DirectShow.dll
 C:\xampp\htdocs\student_attendance\thesis\thesis.PL\bin\Debug\AForge.Video.dll
 C:\xampp\htdocs\student_attendance\thesis\thesis.PL\bin\Debug\DarrenLee.Media.dll
-C:\xampp\htdocs\student_attendance\thesis\thesis.PL\obj\Debug\thesis.PL.frmCapture.resources
 C:\xampp\htdocs\student_attendance\thesis\thesis.PL\obj\Debug\thesis.PL.Registrations.frmBuildings.resources
 C:\xampp\htdocs\student_attendance\thesis\thesis.PL\obj\Debug\thesis.PL.Registrations.frmSubjects.resources
 C:\xampp\htdocs\student_attendance\thesis\thesis.PL\obj\Debug\thesis.PL.Registrations.frmSubjectScheduling.resources
@@ -37,3 +36,5 @@ C:\xampp\htdocs\student_attendance\thesis\thesis.PL\obj\Debug\thesis.PL.Registra
 C:\xampp\htdocs\student_attendance\thesis\thesis.PL\obj\Debug\thesis.PL.Transactions.frmAttendancesMain.resources
 C:\xampp\htdocs\student_attendance\thesis\thesis.PL\obj\Debug\thesis.PL.frmMainAdministrator.resources
 C:\xampp\htdocs\student_attendance\thesis\thesis.PL\obj\Debug\thesis.PL.frmMainTeachers.resources
+C:\xampp\htdocs\student_attendance\thesis\thesis.PL\obj\Debug\thesis.PL.frmCaptureImage.resources
+C:\xampp\htdocs\student_attendance\thesis\thesis.PL\obj\Debug\thesis.PL.frmCaptureRFID.resources
