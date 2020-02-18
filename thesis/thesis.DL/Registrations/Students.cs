@@ -90,6 +90,43 @@ namespace thesis.DL.Registrations
             }
         }
 
+        public EL.Registrations.Students SelectByRFID(int id)
+        {
+            var studentEL = new EL.Registrations.Students();
+
+            DataTable dt = null;
+
+            using (var cmd = new MySqlCommand())
+            {
+                cmd.CommandText = "select* from students where studentrfid = @id";
+
+                cmd.Parameters.AddWithValue("@id", id);
+                dt = methods.executeQuery(cmd);
+            }
+
+
+            if (dt.Rows.Count > 0)
+            {
+                studentEL.Studentid = Convert.ToInt32(dt.Rows[0]["studentid"]);
+                studentEL.Studentidnumber = dt.Rows[0]["studentidnumber"].ToString();
+                studentEL.Studentfirstname = dt.Rows[0]["studentfirstname"].ToString();
+                studentEL.Studentmiddlename = dt.Rows[0]["studentmiddlename"].ToString();
+                studentEL.Studentlastname = dt.Rows[0]["studentlastname"].ToString();
+                studentEL.Yearlevel = dt.Rows[0]["yearlevel"].ToString();
+                studentEL.Studentphonenumber = dt.Rows[0]["studentphonenumber"].ToString();
+                studentEL.Studentrfid = dt.Rows[0]["studentrfid"].ToString();
+                studentEL.Studentimage = (byte[])dt.Rows[0]["studentimage"];
+                studentEL.Studentcontactperson = dt.Rows[0]["studentcontactperson"].ToString();
+                studentEL.Studentcontactpersonphonenumber = dt.Rows[0]["studentcontactpersonphonenumber"].ToString();
+
+                return studentEL;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
         public long Insert(EL.Registrations.Students studentEL)
         {
 

@@ -20,10 +20,26 @@ namespace thesis.BL.Registrations
             return studentsubjectenrollmentDL.List(studentsubjectsenrolledEL);
         }
 
+        public DataTable ListOfStudents(EL.Registrations.Studentssubjectenrollment studentsubjectenrollmentEL)
+        {
+            return studentsubjectenrollmentDL.ListOfStudents(studentsubjectenrollmentEL);
+        }
+
         public EL.Registrations.Studentssubjectenrollment Select(EL.Registrations.Studentssubjectenrollment studentsubjectsenrolledEL)
         {
             return studentsubjectenrollmentDL.Select(studentsubjectsenrolledEL);
         }
+
+        public EL.Registrations.Studentssubjectenrollment ReturnDetails(int studentid, int subjectscheduleid)
+        {
+            return studentsubjectenrollmentDL.ReturnDetails(studentid, subjectscheduleid);
+        }
+
+        public bool IfStudentEnrolled(int id)
+        {
+            return studentsubjectenrollmentDL.IfStudentEnrolled(id);
+        }
+
 
         public long Insert(EL.Registrations.Studentssubjectenrollment studentsubjectsenrolledEL)
         {

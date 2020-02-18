@@ -53,10 +53,9 @@
     <Compile Include="Registrations\Studentssubjectenrollment.cs" />
     <Compile Include="Registrations\Subjects.cs" />
     <Compile Include="Registrations\Subjectsscheduling.cs" />
+    <Compile Include="Transactions\Attendances.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Transactions\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\thesis.DL\thesis.DL.csproj">
       <Project>{0f3753cd-effe-4b40-9607-e8d33302685a}</Project>

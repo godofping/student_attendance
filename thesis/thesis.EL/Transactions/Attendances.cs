@@ -9,15 +9,15 @@ namespace thesis.EL.Transactions
     public class Attendances
     {
         int attendanceid;
-        int studentsubjectenrolledid;
-        string attendancedatetime;
-        string inorout;
+        int studentsubjectenrollmentid;
+        string attendanceintime;
+        string attendanceouttime;
         string status;
 
         public int Attendanceid { get => attendanceid; set => attendanceid = value; }
-        public int Studentsubjectenrolledid { get => studentsubjectenrolledid; set => studentsubjectenrolledid = value; }
-        public string Attendancedatetime { get => attendancedatetime; set => attendancedatetime = value; }
-        public string Inorout { get => inorout; set => inorout = value; }
+        public int Studentsubjectenrollmentid { get => studentsubjectenrollmentid; set => studentsubjectenrollmentid = value; }
+        public string Attendanceintime { get => attendanceintime; set => attendanceintime = value; }
+        public string Attendanceouttime { get => attendanceouttime; set => attendanceouttime = value; }
         public string Status { get => status; set => status = value; }
     }
 }

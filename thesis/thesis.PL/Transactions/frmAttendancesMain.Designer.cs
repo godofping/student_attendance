@@ -34,8 +34,10 @@
             this.lblTime = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.label1 = new System.Windows.Forms.Label();
+            this.timerForAttendance = new System.Windows.Forms.Timer(this.components);
+            this.lblMessage = new System.Windows.Forms.Label();
+            this.timerForClearing = new System.Windows.Forms.Timer(this.components);
+            this.timerForGenerationOfAttendance = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pbStudentImage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,6 +47,7 @@
             this.pbStudentImage.Location = new System.Drawing.Point(22, 12);
             this.pbStudentImage.Name = "pbStudentImage";
             this.pbStudentImage.Size = new System.Drawing.Size(640, 480);
+            this.pbStudentImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbStudentImage.TabIndex = 1;
             this.pbStudentImage.TabStop = false;
             // 
@@ -55,22 +58,21 @@
             this.lblSubject.Name = "lblSubject";
             this.lblSubject.Size = new System.Drawing.Size(591, 302);
             this.lblSubject.TabIndex = 2;
-            this.lblSubject.Text = "Subject: Data Structure";
             // 
             // lblTime
             // 
-            this.lblTime.Font = new System.Drawing.Font("Century Gothic", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTime.Font = new System.Drawing.Font("Century Gothic", 80.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTime.Location = new System.Drawing.Point(684, 12);
             this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(584, 101);
+            this.lblTime.Size = new System.Drawing.Size(584, 125);
             this.lblTime.TabIndex = 3;
             this.lblTime.Text = "10:08 AM";
             this.lblTime.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // lblDate
             // 
-            this.lblDate.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDate.Location = new System.Drawing.Point(677, 113);
+            this.lblDate.Font = new System.Drawing.Font("Century Gothic", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDate.Location = new System.Drawing.Point(677, 137);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(591, 52);
             this.lblDate.TabIndex = 4;
@@ -79,27 +81,36 @@
             // 
             // label4
             // 
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(2, 601);
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(684, 537);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(1256, 101);
+            this.label4.Size = new System.Drawing.Size(574, 165);
             this.label4.TabIndex = 5;
-            this.label4.Text = "WELCOME STUDENT";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label4.Text = "Seating Arrangement Checker with Attendance Monitoring System";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // timer1
+            // timerForAttendance
             // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.timerForAttendance.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // label1
+            // lblMessage
             // 
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(15, 495);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(656, 106);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "TIME IN: 01:25:32 PM";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblMessage.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMessage.Location = new System.Drawing.Point(15, 510);
+            this.lblMessage.Name = "lblMessage";
+            this.lblMessage.Size = new System.Drawing.Size(656, 192);
+            this.lblMessage.TabIndex = 6;
+            this.lblMessage.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // timerForClearing
+            // 
+            this.timerForClearing.Interval = 1000;
+            this.timerForClearing.Tick += new System.EventHandler(this.timerFiveSeconds_Tick);
+            // 
+            // timerForGenerationOfAttendance
+            // 
+            this.timerForGenerationOfAttendance.Interval = 300;
+            this.timerForGenerationOfAttendance.Tick += new System.EventHandler(this.timerForGenerationOfAttendance_Tick);
             // 
             // frmAttendancesMain
             // 
@@ -107,7 +118,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1280, 720);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblMessage);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.lblDate);
             this.Controls.Add(this.lblTime);
@@ -137,7 +148,9 @@
         private System.Windows.Forms.Label lblTime;
         private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Timer timerForAttendance;
+        private System.Windows.Forms.Label lblMessage;
+        private System.Windows.Forms.Timer timerForClearing;
+        private System.Windows.Forms.Timer timerForGenerationOfAttendance;
     }
 }

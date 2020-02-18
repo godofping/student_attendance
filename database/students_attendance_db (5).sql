@@ -24,13 +24,16 @@ CREATE TABLE `attendances` (
   `studentsubjectenrollmentid` int(6) DEFAULT NULL,
   `attendanceintime` datetime DEFAULT NULL,
   `attendanceouttime` datetime DEFAULT NULL,
+  `createdat` datetime DEFAULT NULL,
   `status` varchar(60) DEFAULT NULL,
   PRIMARY KEY (`attendanceid`),
   KEY `FK_attendances1` (`studentsubjectenrollmentid`),
   CONSTRAINT `FK_attendances1` FOREIGN KEY (`studentsubjectenrollmentid`) REFERENCES `studentssubjectenrollment` (`studentsubjectenrollmentid`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 /*Data for the table `attendances` */
+
+insert  into `attendances`(`attendanceid`,`studentsubjectenrollmentid`,`attendanceintime`,`attendanceouttime`,`createdat`,`status`) values (2,23,'2020-02-18 11:58:02','0000-00-00 00:00:00',NULL,'ATTENDANCE IN NO TIME OUT'),(3,24,'2020-02-18 11:59:12','0000-00-00 00:00:00',NULL,'ATTENDANCE IN NO TIME OUT'),(4,29,'2020-02-18 12:45:45','0000-00-00 00:00:00',NULL,'ATTENDANCE IN ONLY'),(5,25,'2020-02-18 12:45:48','0000-00-00 00:00:00',NULL,'ATTENDANCE IN ONLY'),(6,26,'2020-02-18 12:45:50','0000-00-00 00:00:00',NULL,'ATTENDANCE IN ONLY'),(7,27,'2020-02-18 12:45:52','0000-00-00 00:00:00',NULL,'ATTENDANCE IN ONLY'),(8,28,'2020-02-18 12:45:53','0000-00-00 00:00:00',NULL,'ATTENDANCE IN ONLY');
 
 /*Table structure for table `buildings` */
 

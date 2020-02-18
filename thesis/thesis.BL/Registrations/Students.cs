@@ -30,6 +30,11 @@ namespace thesis.BL.Registrations
             return studentDL.Select(studentEL);
         }
 
+        public EL.Registrations.Students SelectByRFID(int id)
+        {
+            return studentDL.SelectByRFID(id);
+        }
+
         public long Insert(EL.Registrations.Students studentEL)
         {
             return studentDL.Insert(studentEL);
