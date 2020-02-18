@@ -76,9 +76,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmCaptureRFID";
             this.TopMost = true;
-            this.Load += new System.EventHandler(this.frmCaptureRFID_Load);
-            this.Enter += new System.EventHandler(this.frmCaptureRFID_Enter);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmCaptureRFID_KeyDown);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.frmCaptureRFID_KeyPress);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.frmCaptureRFID_KeyUp);
             this.ResumeLayout(false);

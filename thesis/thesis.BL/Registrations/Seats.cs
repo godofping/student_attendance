@@ -20,9 +20,9 @@ namespace thesis.BL.Registrations
             return seatDL.List(seatEL);
         }
 
-        public DataTable List(int id)
+        public DataTable List(int subjectscheduleid, int roomid)
         {
-            return seatDL.List(id);
+            return seatDL.List(subjectscheduleid, roomid);
         }
 
         public EL.Registrations.Seats Select(EL.Registrations.Seats seatEL)

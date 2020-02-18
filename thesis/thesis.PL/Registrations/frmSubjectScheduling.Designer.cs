@@ -213,7 +213,7 @@
             this.cbEmployee.Location = new System.Drawing.Point(30, 265);
             this.cbEmployee.Name = "cbEmployee";
             this.cbEmployee.Size = new System.Drawing.Size(953, 29);
-            this.cbEmployee.TabIndex = 29;
+            this.cbEmployee.TabIndex = 3;
             // 
             // label6
             // 
@@ -235,7 +235,7 @@
             this.cbRoomBuilding.Location = new System.Drawing.Point(30, 173);
             this.cbRoomBuilding.Name = "cbRoomBuilding";
             this.cbRoomBuilding.Size = new System.Drawing.Size(953, 29);
-            this.cbRoomBuilding.TabIndex = 25;
+            this.cbRoomBuilding.TabIndex = 2;
             // 
             // chkSunday
             // 
@@ -244,7 +244,7 @@
             this.chkSunday.Location = new System.Drawing.Point(800, 435);
             this.chkSunday.Name = "chkSunday";
             this.chkSunday.Size = new System.Drawing.Size(87, 25);
-            this.chkSunday.TabIndex = 24;
+            this.chkSunday.TabIndex = 12;
             this.chkSunday.Text = "Sunday";
             this.chkSunday.UseVisualStyleBackColor = true;
             // 
@@ -255,7 +255,7 @@
             this.chkSaturday.Location = new System.Drawing.Point(670, 435);
             this.chkSaturday.Name = "chkSaturday";
             this.chkSaturday.Size = new System.Drawing.Size(100, 25);
-            this.chkSaturday.TabIndex = 23;
+            this.chkSaturday.TabIndex = 11;
             this.chkSaturday.Text = "Saturday";
             this.chkSaturday.UseVisualStyleBackColor = true;
             // 
@@ -266,7 +266,7 @@
             this.chkFriday.Location = new System.Drawing.Point(567, 435);
             this.chkFriday.Name = "chkFriday";
             this.chkFriday.Size = new System.Drawing.Size(75, 25);
-            this.chkFriday.TabIndex = 22;
+            this.chkFriday.TabIndex = 10;
             this.chkFriday.Text = "Friday";
             this.chkFriday.UseVisualStyleBackColor = true;
             // 
@@ -277,7 +277,7 @@
             this.chkThursday.Location = new System.Drawing.Point(435, 435);
             this.chkThursday.Name = "chkThursday";
             this.chkThursday.Size = new System.Drawing.Size(98, 25);
-            this.chkThursday.TabIndex = 21;
+            this.chkThursday.TabIndex = 9;
             this.chkThursday.Text = "Thursday";
             this.chkThursday.UseVisualStyleBackColor = true;
             // 
@@ -288,7 +288,7 @@
             this.chkWedndesday.Location = new System.Drawing.Point(278, 435);
             this.chkWedndesday.Name = "chkWedndesday";
             this.chkWedndesday.Size = new System.Drawing.Size(121, 25);
-            this.chkWedndesday.TabIndex = 20;
+            this.chkWedndesday.TabIndex = 8;
             this.chkWedndesday.Text = "Wednesday";
             this.chkWedndesday.UseVisualStyleBackColor = true;
             // 
@@ -299,7 +299,7 @@
             this.chkTuesday.Location = new System.Drawing.Point(150, 435);
             this.chkTuesday.Name = "chkTuesday";
             this.chkTuesday.Size = new System.Drawing.Size(93, 25);
-            this.chkTuesday.TabIndex = 19;
+            this.chkTuesday.TabIndex = 7;
             this.chkTuesday.Text = "Tuesday";
             this.chkTuesday.UseVisualStyleBackColor = true;
             // 
@@ -310,7 +310,7 @@
             this.chkMonday.Location = new System.Drawing.Point(30, 435);
             this.chkMonday.Name = "chkMonday";
             this.chkMonday.Size = new System.Drawing.Size(94, 25);
-            this.chkMonday.TabIndex = 18;
+            this.chkMonday.TabIndex = 6;
             this.chkMonday.Text = "Monday";
             this.chkMonday.UseVisualStyleBackColor = true;
             // 
@@ -323,7 +323,7 @@
             this.dtpEnd.Name = "dtpEnd";
             this.dtpEnd.ShowUpDown = true;
             this.dtpEnd.Size = new System.Drawing.Size(174, 27);
-            this.dtpEnd.TabIndex = 16;
+            this.dtpEnd.TabIndex = 5;
             // 
             // label4
             // 
@@ -344,7 +344,7 @@
             this.dtpStart.Name = "dtpStart";
             this.dtpStart.ShowUpDown = true;
             this.dtpStart.Size = new System.Drawing.Size(174, 27);
-            this.dtpStart.TabIndex = 14;
+            this.dtpStart.TabIndex = 4;
             // 
             // label2
             // 
@@ -366,7 +366,7 @@
             this.cbSubject.Location = new System.Drawing.Point(30, 84);
             this.cbSubject.Name = "cbSubject";
             this.cbSubject.Size = new System.Drawing.Size(953, 29);
-            this.cbSubject.TabIndex = 12;
+            this.cbSubject.TabIndex = 1;
             // 
             // btnSave
             // 
@@ -378,7 +378,7 @@
             this.btnSave.Location = new System.Drawing.Point(739, 633);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(130, 57);
-            this.btnSave.TabIndex = 2;
+            this.btnSave.TabIndex = 13;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -393,7 +393,7 @@
             this.btnCancel.Location = new System.Drawing.Point(875, 633);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(130, 57);
-            this.btnCancel.TabIndex = 3;
+            this.btnCancel.TabIndex = 14;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);

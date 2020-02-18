@@ -70,6 +70,12 @@
     <Compile Include="frmCaptureRFID.Designer.cs">
       <DependentUpon>frmCaptureRFID.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmChangeComputer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmChangeComputer.Designer.cs">
+      <DependentUpon>frmChangeComputer.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -186,6 +192,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmCaptureRFID.resx">
       <DependentUpon>frmCaptureRFID.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmChangeComputer.resx">
+      <DependentUpon>frmChangeComputer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDashboard.resx">
       <DependentUpon>frmDashboard.cs</DependentUpon>

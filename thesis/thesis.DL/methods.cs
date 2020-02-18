@@ -84,7 +84,7 @@ namespace thesis.DL
                     {
                         rslt = false;
                         trans.Rollback();
-                        throw ex;
+                        //throw ex;
                        
                     }
                     return rslt;

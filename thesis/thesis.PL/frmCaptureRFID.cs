@@ -8,11 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace thesis.PL
 {
     public partial class frmCaptureRFID : Form
     {
-        int len = 0;
+ 
         string s = "";
         Registrations.frmStudents frmStudents;
         public frmCaptureRFID(Registrations.frmStudents _frmStudents)
@@ -39,20 +40,6 @@ namespace thesis.PL
 
         }
 
-        private void frmCaptureRFID_KeyDown(object sender, KeyEventArgs e)
-        {
-         
-        }
-
-        private void frmCaptureRFID_Load(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void frmCaptureRFID_Enter(object sender, EventArgs e)
-        {
-            
-        }
 
         private void frmCaptureRFID_KeyUp(object sender, KeyEventArgs e)
         {

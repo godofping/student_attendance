@@ -55,6 +55,23 @@ namespace thesis.DL.Registrations
 
         }
 
+        public DataTable CheckCurrentSchedule()
+        {
+            var day = DateTime.Now.ToString("dddd");
+            var time = DateTime.Now.ToString("HH:mm:ss");
+
+
+            using (var cmd = new MySqlCommand())
+            {
+                cmd.CommandText = "SELECT * FROM subjectsschedule_converted_view WHERE scheddays like @day and @time between startc AND endc";
+                cmd.Parameters.AddWithValue("@day", "%" + day + "%");
+                cmd.Parameters.AddWithValue("@time", time);
+
+                return methods.executeQuery(cmd);
+            }
+
+        }
+
         public EL.Registrations.Subjectsscheduling Select(EL.Registrations.Subjectsscheduling subjectschedulingEL)
         {
 

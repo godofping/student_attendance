@@ -60,6 +60,7 @@ namespace thesis.DL.Registrations
             {
                 computerEL.Computerid = Convert.ToInt32(dt.Rows[0]["computerid"]);
                 computerEL.Computer = dt.Rows[0]["computer"].ToString();
+                computerEL.Issmsserver = Convert.ToInt32(dt.Rows[0]["issmsserver"]);
 
                 return computerEL;
             }

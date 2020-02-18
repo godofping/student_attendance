@@ -104,7 +104,7 @@ namespace thesis.PL.Registrations
         private void PopulateCB()
         {
             methods.LoadCB(cbStudents, studentBL.List(studentsubjectenrollmentEL.Subjectscheduleid), "studentfullname", "studentid");
-            methods.LoadCB(cbSeat, seatBL.List(studentsubjectenrollmentEL.Subjectscheduleid), "seat", "seatid");
+            methods.LoadCB(cbSeat, seatBL.List(studentsubjectenrollmentEL.Subjectscheduleid, roomEL.Roomid), "seat", "seatid");
         }
 
         private void PopulateDGV()

@@ -37,12 +37,13 @@ namespace thesis.DL.Registrations
             }
         }
 
-        public DataTable List(int id)
+        public DataTable List(int subjectscheduleid, int roomid)
         {
             using (var cmd = new MySqlCommand())
             {
-                cmd.CommandText = "SELECT * FROM seats_view WHERE seatid NOT IN (SELECT seatid FROM studentssubjectenrollment WHERE subjectscheduleid = @id)";
-                cmd.Parameters.AddWithValue("@id", id);
+                cmd.CommandText = "SELECT * FROM seats_view WHERE roomid = @roomid and seatid NOT IN (SELECT seatid FROM studentssubjectenrollment WHERE subjectscheduleid = @subjectscheduleid)";
+                cmd.Parameters.AddWithValue("@subjectscheduleid", subjectscheduleid);
+                cmd.Parameters.AddWithValue("@roomid", roomid);
                 return methods.executeQuery(cmd);
             }
         }

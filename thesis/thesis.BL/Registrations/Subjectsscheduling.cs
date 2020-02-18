@@ -25,6 +25,12 @@ namespace thesis.BL.Registrations
             return subjectschedulingDL.List();
         }
 
+        public DataTable CheckCurrentSchedule()
+        {
+            return subjectschedulingDL.CheckCurrentSchedule();
+
+        }
+
         public EL.Registrations.Subjectsscheduling Select(EL.Registrations.Subjectsscheduling subjectschedulingEL)
         {
             return subjectschedulingDL.Select(subjectschedulingEL);
