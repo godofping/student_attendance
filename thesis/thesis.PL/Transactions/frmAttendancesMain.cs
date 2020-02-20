@@ -56,7 +56,7 @@ namespace thesis.PL.Transactions
 
         private void ShowDateTime()
         {
-            lblTime.Text = DateTime.Now.ToString("hh:mm:ss tt");
+            lblTime.Text = DateTime.Now.ToString("hh:mm tt");
             lblDate.Text = DateTime.Now.ToString("MMMM dd, yyyy");
         }
 
@@ -133,34 +133,89 @@ namespace thesis.PL.Transactions
 
         private void frmAttendancesMain_KeyUp(object sender, KeyEventArgs e)
         {
+            //captures the enter when there is a class. this is for rfid reading
             if (e.KeyCode == Keys.Enter &  !lblSubject.Text.Equals("No class right now."))
             {
+                //if there is an input from the rfid reader then
                 s = s.Trim();
                 if (s.Length == 10)
                 {
+                    //gets the information of the student based on its rfid value
                     studentEL = studentBL.SelectByRFID(Convert.ToInt32(s));
 
+                    //if there is a record found then
                     if (studentEL != null)
                     {
+                        // if this student is enrolled in this subject then
                         if (studentsubjectenrollmentBL.IfStudentEnrolled(studentEL.Studentid))
                         {
+                            //gets the seat information of this student and loads the image to the picturebox
                             studentsubjectenrollmentEL = studentsubjectenrollmentBL.ReturnDetails(studentEL.Studentid, subjectschedulingEL.Subjectscheduleid);
                             seatEL.Seatid = studentsubjectenrollmentEL.Seatid;
                             seatEL = seatBL.Select(seatEL);
 
                             pbStudentImage.Image = methods.ConverteByteArrayToImage(studentEL.Studentimage);
 
-                            var timeintime = DateTime.Now.ToString("hh:mm:ss tt");
-
+                            //get attendance information
                             attendanceEL = new EL.Transactions.Attendances();
                             attendanceEL.Studentsubjectenrollmentid = studentsubjectenrollmentEL.Studentsubjectenrollmentid;
-                            attendanceEL.Attendanceintime = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
-                            attendanceEL.Attendanceouttime = "";
-                            attendanceEL.Status = "ATTENDANCE IN ONLY";
-                            attendanceBL.Insert(attendanceEL);
+                            attendanceEL.Attendanceintime = DateTime.Parse(subjectschedulingEL.Start).ToString("yyyy-MM-dd HH:mm:ss");
+                            attendanceEL.Attendanceouttime = DateTime.Parse(subjectschedulingEL.End).ToString("yyyy-MM-dd HH:mm:ss");
+                            attendanceEL.Createdat = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
 
 
-                            lblMessage.Text = "Your time in is " + timeintime + ". Your seat is " + seatEL.Seat;
+                            attendanceEL = attendanceBL.Select(attendanceEL);
+
+
+
+                            //for time in
+                            if (attendanceEL.Attendanceintime.Equals("") & attendanceEL.Attendanceouttime.Equals(""))
+                            {
+                                //if more than fifteen minutes from the starting time of the subject then declare late
+
+                                attendanceEL.Attendanceintime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                                attendanceEL.Status = "TIME IN ONLY";
+
+                                if (attendanceBL.AttendanceIn(attendanceEL))
+                                {
+                                    lblMessage.Text = "Your time in is " + DateTime.Now.ToString("hh:mm:ss tt") + ". Your seat is " + seatEL.Seat;
+                                }
+
+
+                            }
+                            //for time out
+                            else if (!attendanceEL.Attendanceintime.Equals("") & attendanceEL.Attendanceouttime.Equals(""))
+                            {
+                                //+5mins of the time in
+                                DateTime dtime = Convert.ToDateTime(attendanceEL.Attendanceintime).AddMinutes(5);
+
+                                //you can time out after 5 mins of time in
+                                if (DateTime.Now > dtime)
+                                {
+                                    //update time out
+                                    attendanceEL.Attendanceouttime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                                    attendanceEL.Status = "HAS TIME IN AND TIME OUT";
+
+                                    if (attendanceBL.AttendanceOut(attendanceEL))
+                                    {
+                                        lblMessage.Text = "Your time out is " + DateTime.Now.ToString("hh:mm:ss tt");
+                                    }
+                                }
+                                else
+                                {
+
+                                    lblMessage.Text = "You can not time out yet. Wait after " + dtime.ToString("hh:mm:ss tt");
+                                }
+
+
+                            }
+                            else 
+                            {
+                                lblMessage.Text = "You have already time out last " + DateTime.Parse(attendanceEL.Attendanceouttime).ToString("hh:mm:ss tt");
+                            }
+                            
+
+   
                         }
                         else
                         {
@@ -198,28 +253,40 @@ namespace thesis.PL.Transactions
 
         private void timerForGenerationOfAttendance_Tick(object sender, EventArgs e)
         {
+      
+            //check if there is an active class
             if (!lblSubject.Text.Equals("No class right now."))
             {
+                //list all the students
                 studentsubjectenrollmentEL.Subjectscheduleid = subjectschedulingEL.Subjectscheduleid;
                 var dt = studentsubjectenrollmentBL.ListOfStudents(studentsubjectenrollmentEL);
 
-                foreach (DataRow row in dt.Rows)
-                {
-
-                    attendanceEL  = new EL.Transactions.Attendances();
-                    attendanceEL.Studentsubjectenrollmentid = Convert.ToInt32(row["studentsubjectenrollmentid"]);
-                    attendanceEL.Attendanceintime = DateTime.Parse(subjectschedulingEL.Start).ToString();
-                    attendanceEL.Attendanceouttime = DateTime.Parse(subjectschedulingEL.End).ToString();
-                    MessageBox.Show(attendanceEL.Attendanceouttime);
-
-
-                    if (attendanceBL.CheckIfHasAttendance(attendanceEL).Rows.Count > 0)
+                //if there is a student(s) then
+                if (dt.Rows.Count > 0)
                     {
-                        
-                    }
-                    else
+                    //one every student 
+                    foreach (DataRow row in dt.Rows)
                     {
-                        
+                        //check if there is already a generated attendance for this student on this subject
+                        attendanceEL = new EL.Transactions.Attendances();
+                        attendanceEL.Studentsubjectenrollmentid = Convert.ToInt32(row["studentsubjectenrollmentid"]);
+                        attendanceEL.Attendanceintime = DateTime.Parse(subjectschedulingEL.Start).ToString("yyyy-MM-dd HH:mm:ss");
+                        attendanceEL.Attendanceouttime = DateTime.Parse(subjectschedulingEL.End).ToString("yyyy-MM-dd HH:mm:ss");
+                        attendanceEL.Createdat = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+
+                        // if there is non then generate one
+                        if (attendanceBL.CheckIfHasAttendance(attendanceEL).Rows.Count == 0)
+                        {
+                            attendanceEL = new EL.Transactions.Attendances();
+                            attendanceEL.Studentsubjectenrollmentid = Convert.ToInt32(row["studentsubjectenrollmentid"]);
+                            attendanceEL.Attendanceintime = null;
+                            attendanceEL.Attendanceouttime = null;
+                            attendanceEL.Createdat = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                            attendanceEL.Status = "ABSENT";
+                            attendanceBL.Insert(attendanceEL);
+
+                        }
+
                     }
 
                 }
