@@ -73,6 +73,7 @@ namespace thesis.PL.Transactions
             else
             {
                 lblSubject.Text = "No class right now.";
+                subjectschedulingEL = new EL.Registrations.Subjectsscheduling();
             }
         }
 
@@ -134,7 +135,7 @@ namespace thesis.PL.Transactions
         private void frmAttendancesMain_KeyUp(object sender, KeyEventArgs e)
         {
             //captures the enter when there is a class. this is for rfid reading
-            if (e.KeyCode == Keys.Enter &  !lblSubject.Text.Equals("No class right now."))
+            if (e.KeyCode == Keys.Enter & subjectschedulingEL.Subjectscheduleid > 0)
             {
                 //if there is an input from the rfid reader then
                 s = s.Trim();
@@ -167,16 +168,34 @@ namespace thesis.PL.Transactions
                             attendanceEL = attendanceBL.Select(attendanceEL);
 
 
+                            DateTime goodtime = Convert.ToDateTime(subjectschedulingEL.Start).AddMinutes(15);
+                            DateTime absenttime = Convert.ToDateTime(subjectschedulingEL.Start).AddMinutes(45);
+                            DateTime timeouttime = Convert.ToDateTime(subjectschedulingEL.Start).AddMinutes(55);
 
                             //for time in
                             if (attendanceEL.Attendanceintime.Equals("") & attendanceEL.Attendanceouttime.Equals(""))
                             {
                                 //if more than fifteen minutes from the starting time of the subject then declare late
-
                                 attendanceEL.Attendanceintime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-                                attendanceEL.Status = "TIME IN ONLY";
 
-                                if (attendanceBL.AttendanceIn(attendanceEL))
+                                bool bol = true;
+
+                                if (DateTime.Now < goodtime)
+                                {
+                                    attendanceEL.Status = "ABSENT";
+                                }
+                                else if (DateTime.Now > goodtime & DateTime.Now < absenttime)
+                                {
+                                    attendanceEL.Status = "ABSENT";
+                                }
+                                else if (DateTime.Now > absenttime)
+                                {
+                                    attendanceEL.Status = "ABSENT";
+                                    bol = false;
+                                }
+                                
+
+                                if (bol & attendanceBL.AttendanceIn(attendanceEL))
                                 {
                                     lblMessage.Text = "Your time in is " + DateTime.Now.ToString("hh:mm:ss tt") + ". Your seat is " + seatEL.Seat;
                                 }
@@ -186,44 +205,46 @@ namespace thesis.PL.Transactions
                             //for time out
                             else if (!attendanceEL.Attendanceintime.Equals("") & attendanceEL.Attendanceouttime.Equals(""))
                             {
-                                //+5mins of the time in
-                                DateTime dtime = Convert.ToDateTime(attendanceEL.Attendanceintime).AddMinutes(5);
+                                //+5 mins of the time in
+                                DateTime intervaltime = Convert.ToDateTime(attendanceEL.Attendanceintime).AddMinutes(5);
 
-                                //you can time out after 5 mins of time in
-                                if (DateTime.Now > dtime)
+                                //you can time out after 5 mins of the time in
+                                if (DateTime.Now > intervaltime)
                                 {
                                     //update time out
                                     attendanceEL.Attendanceouttime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-                                    attendanceEL.Status = "HAS TIME IN AND TIME OUT";
+
+                                    attendanceEL.Status = "PRESENT";
 
                                     if (attendanceBL.AttendanceOut(attendanceEL))
                                     {
+                                        //time out user
                                         lblMessage.Text = "Your time out is " + DateTime.Now.ToString("hh:mm:ss tt");
                                     }
                                 }
                                 else
                                 {
-
-                                    lblMessage.Text = "You can not time out yet. Wait after " + dtime.ToString("hh:mm:ss tt");
+                                    //warns user that he cannot time out yet. he needs to wait after 5 mins since time in to log out
+                                    lblMessage.Text = "Your seat is " + seatEL.Seat + ".\nYou can not time out yet. Wait after " + intervaltime.ToString("hh:mm:ss tt") + " and try again.";
                                 }
 
-
                             }
-                            else 
+                            else
                             {
+                                //display this message if the user tries to log out again.
                                 lblMessage.Text = "You have already time out last " + DateTime.Parse(attendanceEL.Attendanceouttime).ToString("hh:mm:ss tt");
                             }
-                            
 
-   
                         }
                         else
                         {
+                            //display message that user is not enrolled in this subject.
                             lblMessage.Text = "You are not enrolled in this subject.";
                         }
                     }
-                    else 
+                    else
                     {
+                        //display message that user has an unregistered rfid
                         lblMessage.Text = "RFID is unregistered.";
                     }
 
@@ -236,6 +257,16 @@ namespace thesis.PL.Transactions
                 {
                     s = "";
                 }
+            }
+
+            //if there is no active class
+            if (e.KeyCode == Keys.Enter & subjectschedulingEL.Subjectscheduleid == 0)
+            {
+                //erase the message after 5 seconds if the user tries to read the rfid even though there is no active class
+                timer = 0;
+                timerForClearing.Start();
+                s = "";
+                lblMessage.Text = "Attendance system is disabled because there is no active class right now.";
             }
         }
 
@@ -255,7 +286,7 @@ namespace thesis.PL.Transactions
         {
       
             //check if there is an active class
-            if (!lblSubject.Text.Equals("No class right now."))
+            if (subjectschedulingEL.Subjectscheduleid > 0)
             {
                 //list all the students
                 studentsubjectenrollmentEL.Subjectscheduleid = subjectschedulingEL.Subjectscheduleid;

@@ -82,11 +82,11 @@ namespace thesis.DL.Transactions
         {
             using (var cmd = new MySqlCommand())
             {
-                cmd.CommandText = "update attendances set attendanceintime = @attendanceintime where attendanceid = @attendanceid";
+                cmd.CommandText = "update attendances set attendanceintime = @attendanceintime, status = @status where attendanceid = @attendanceid";
 
                 cmd.Parameters.AddWithValue("@attendanceid", attendanceEL.Attendanceid);
                 cmd.Parameters.AddWithValue("@attendanceintime", attendanceEL.Attendanceintime);
-
+                cmd.Parameters.AddWithValue("@status", attendanceEL.Status);
                 return methods.executeNonQueryBool(cmd);
             }
         }
@@ -95,11 +95,11 @@ namespace thesis.DL.Transactions
         {
             using (var cmd = new MySqlCommand())
             {
-                cmd.CommandText = "update attendances set attendanceouttime = @attendanceouttime where attendanceid = @attendanceid";
+                cmd.CommandText = "update attendances set attendanceouttime = @attendanceouttime, status = @status where attendanceid = @attendanceid";
 
                 cmd.Parameters.AddWithValue("@attendanceid", attendanceEL.Attendanceid);
                 cmd.Parameters.AddWithValue("@attendanceouttime", attendanceEL.Attendanceouttime);
-
+                cmd.Parameters.AddWithValue("@status", attendanceEL.Status);
                 return methods.executeNonQueryBool(cmd);
             }
         }

@@ -82,9 +82,9 @@
             // label4
             // 
             this.label4.Font = new System.Drawing.Font("Century Gothic", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(684, 537);
+            this.label4.Location = new System.Drawing.Point(694, 580);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(574, 165);
+            this.label4.Size = new System.Drawing.Size(574, 122);
             this.label4.TabIndex = 5;
             this.label4.Text = "Seating Arrangement Checker with Attendance Monitoring System";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
