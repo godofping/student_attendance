@@ -48,9 +48,11 @@ namespace thesis.PL
                 s = s.Trim();
                 if (s.Length == 10)
                 {
-                    frmStudents.txtRFID.Text = s;
-                    s = "";
+                    frmStudents.CheckDuplicateRFID(s);
                     this.Close();
+                    s = "";
+
+
                 }
                 else {
                     s = "";

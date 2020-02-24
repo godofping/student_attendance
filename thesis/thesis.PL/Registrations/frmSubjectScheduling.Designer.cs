@@ -35,7 +35,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.dgv = new System.Windows.Forms.DataGridView();
-            this.btnBack = new System.Windows.Forms.Button();
             this.pnlForm = new System.Windows.Forms.Panel();
             this.gb = new System.Windows.Forms.GroupBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -79,9 +78,9 @@
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(12, 9);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(238, 21);
+            this.label3.Size = new System.Drawing.Size(230, 21);
             this.label3.TabIndex = 9;
-            this.label3.Text = "Manage Subjects Scheduling";
+            this.label3.Text = "Manage Subjects Schedules";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pnlMain
@@ -91,7 +90,6 @@
             this.pnlMain.Controls.Add(this.label1);
             this.pnlMain.Controls.Add(this.txtSearch);
             this.pnlMain.Controls.Add(this.dgv);
-            this.pnlMain.Controls.Add(this.btnBack);
             this.pnlMain.Location = new System.Drawing.Point(0, 0);
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(1038, 720);
@@ -139,21 +137,6 @@
             this.dgv.Size = new System.Drawing.Size(1014, 605);
             this.dgv.TabIndex = 5;
             this.dgv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_CellContentClick);
-            // 
-            // btnBack
-            // 
-            this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
-            this.btnBack.FlatAppearance.BorderSize = 0;
-            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBack.Font = new System.Drawing.Font("Century Gothic", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack.ForeColor = System.Drawing.Color.White;
-            this.btnBack.Location = new System.Drawing.Point(12, 12);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(73, 37);
-            this.btnBack.TabIndex = 4;
-            this.btnBack.Text = "Back";
-            this.btnBack.UseVisualStyleBackColor = false;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // pnlForm
             // 
@@ -367,7 +350,6 @@
             this.cbSubject.Name = "cbSubject";
             this.cbSubject.Size = new System.Drawing.Size(953, 29);
             this.cbSubject.TabIndex = 1;
-
             // 
             // btnSave
             // 
@@ -405,8 +387,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1038, 720);
-            this.Controls.Add(this.pnlForm);
             this.Controls.Add(this.pnlMain);
+            this.Controls.Add(this.pnlForm);
             this.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -435,7 +417,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.DataGridView dgv;
-        private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Panel pnlForm;
         private System.Windows.Forms.GroupBox gb;
         private System.Windows.Forms.Button btnSave;

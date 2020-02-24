@@ -25,9 +25,24 @@ namespace thesis.BL.Registrations
             return studentDL.List(id);
         }
 
+        public DataTable List()
+        {
+            return studentDL.List();
+        }
+
         public EL.Registrations.Students Select(EL.Registrations.Students studentEL)
         {
             return studentDL.Select(studentEL);
+        }
+
+        public DataTable CheckRFIDAdd(EL.Registrations.Students studentEL)
+        {
+            return studentDL.CheckRFIDAdd(studentEL);
+        }
+
+        public DataTable CheckRFIDEdit(EL.Registrations.Students studentEL)
+        {
+            return studentDL.CheckRFIDEdit(studentEL);
         }
 
         public EL.Registrations.Students SelectByRFID(int id)

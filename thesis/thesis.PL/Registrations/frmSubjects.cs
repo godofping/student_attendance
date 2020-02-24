@@ -80,7 +80,10 @@ namespace thesis.PL.Registrations
             methods.DGVTheme(dgv);
             methods.DGVRenameColumns(dgv, "subjectid", "Subject Code", "Subject Description");
             methods.DGVHiddenColumns(dgv, "subjectid");
+           
             methods.DGVBUTTONEditDelete(dgv);
+
+
         }
 
   
@@ -199,6 +202,8 @@ namespace thesis.PL.Registrations
                     ShowResult(subjectBL.Delete(subjectEL));
                 }
             }
+
+     
         }
 
 

@@ -53,6 +53,16 @@ namespace thesis.DL.Registrations
             }
         }
 
+        public DataTable List()
+        {
+            using (var cmd = new MySqlCommand())
+            {
+                cmd.CommandText = "select * from students_complete_view order by studentfullname";
+
+                return methods.executeQuery(cmd);
+            }
+        }
+
         public EL.Registrations.Students Select(EL.Registrations.Students studentEL)
         {
             DataTable dt = null;
@@ -87,6 +97,27 @@ namespace thesis.DL.Registrations
             else
             {
                 return null;
+            }
+        }
+
+        public DataTable CheckRFIDAdd(EL.Registrations.Students studentEL)
+        {
+            using (var cmd = new MySqlCommand())
+            {
+                cmd.CommandText = "select studentrfid from students where studentrfid = @studentrfid";
+                cmd.Parameters.AddWithValue("@studentrfid", studentEL.Studentrfid);
+                return methods.executeQuery(cmd);
+            }
+        }
+
+        public DataTable CheckRFIDEdit(EL.Registrations.Students studentEL)
+        {
+            using (var cmd = new MySqlCommand())
+            {
+                cmd.CommandText = "select studentrfid from students where studentrfid = @studentrfid and studentid <> @studentid";
+                cmd.Parameters.AddWithValue("@studentid", studentEL.Studentid);
+                cmd.Parameters.AddWithValue("@studentrfid", studentEL.Studentrfid);
+                return methods.executeQuery(cmd);
             }
         }
 

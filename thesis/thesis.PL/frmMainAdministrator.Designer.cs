@@ -32,6 +32,8 @@
             this.lblWelcome = new System.Windows.Forms.Label();
             this.btnLogout = new System.Windows.Forms.Button();
             this.pnlMain = new System.Windows.Forms.Panel();
+            this.btnManageStudentsSubjectsEnrolled = new System.Windows.Forms.Button();
+            this.btnSubjectsSchedules = new System.Windows.Forms.Button();
             this.btnSubjects = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnReports = new System.Windows.Forms.Button();
@@ -47,6 +49,8 @@
             // pnlMenu
             // 
             this.pnlMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
+            this.pnlMenu.Controls.Add(this.btnManageStudentsSubjectsEnrolled);
+            this.pnlMenu.Controls.Add(this.btnSubjectsSchedules);
             this.pnlMenu.Controls.Add(this.btnSubjects);
             this.pnlMenu.Controls.Add(this.pictureBox1);
             this.pnlMenu.Controls.Add(this.btnReports);
@@ -97,6 +101,42 @@
             this.pnlMain.Size = new System.Drawing.Size(1038, 720);
             this.pnlMain.TabIndex = 2;
             // 
+            // btnManageStudentsSubjectsEnrolled
+            // 
+            this.btnManageStudentsSubjectsEnrolled.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
+            this.btnManageStudentsSubjectsEnrolled.FlatAppearance.BorderSize = 0;
+            this.btnManageStudentsSubjectsEnrolled.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnManageStudentsSubjectsEnrolled.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnManageStudentsSubjectsEnrolled.ForeColor = System.Drawing.Color.White;
+            this.btnManageStudentsSubjectsEnrolled.Image = global::thesis.PL.Properties.Resources.calendar__2_;
+            this.btnManageStudentsSubjectsEnrolled.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnManageStudentsSubjectsEnrolled.Location = new System.Drawing.Point(3, 419);
+            this.btnManageStudentsSubjectsEnrolled.Name = "btnManageStudentsSubjectsEnrolled";
+            this.btnManageStudentsSubjectsEnrolled.Size = new System.Drawing.Size(236, 55);
+            this.btnManageStudentsSubjectsEnrolled.TabIndex = 18;
+            this.btnManageStudentsSubjectsEnrolled.Text = "Manage Student Subjects Enrolled";
+            this.btnManageStudentsSubjectsEnrolled.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnManageStudentsSubjectsEnrolled.UseVisualStyleBackColor = false;
+            this.btnManageStudentsSubjectsEnrolled.Click += new System.EventHandler(this.btnManageStudentsSubjectsEnrolled_Click);
+            // 
+            // btnSubjectsSchedules
+            // 
+            this.btnSubjectsSchedules.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
+            this.btnSubjectsSchedules.FlatAppearance.BorderSize = 0;
+            this.btnSubjectsSchedules.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSubjectsSchedules.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSubjectsSchedules.ForeColor = System.Drawing.Color.White;
+            this.btnSubjectsSchedules.Image = global::thesis.PL.Properties.Resources.calendar;
+            this.btnSubjectsSchedules.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSubjectsSchedules.Location = new System.Drawing.Point(3, 526);
+            this.btnSubjectsSchedules.Name = "btnSubjectsSchedules";
+            this.btnSubjectsSchedules.Size = new System.Drawing.Size(236, 40);
+            this.btnSubjectsSchedules.TabIndex = 17;
+            this.btnSubjectsSchedules.Text = "Manage Subjects Schedules";
+            this.btnSubjectsSchedules.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSubjectsSchedules.UseVisualStyleBackColor = false;
+            this.btnSubjectsSchedules.Click += new System.EventHandler(this.btnSubjectsSchedules_Click);
+            // 
             // btnSubjects
             // 
             this.btnSubjects.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
@@ -106,7 +146,7 @@
             this.btnSubjects.ForeColor = System.Drawing.Color.White;
             this.btnSubjects.Image = global::thesis.PL.Properties.Resources.book;
             this.btnSubjects.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSubjects.Location = new System.Drawing.Point(6, 419);
+            this.btnSubjects.Location = new System.Drawing.Point(3, 480);
             this.btnSubjects.Name = "btnSubjects";
             this.btnSubjects.Size = new System.Drawing.Size(236, 40);
             this.btnSubjects.TabIndex = 16;
@@ -134,7 +174,7 @@
             this.btnReports.ForeColor = System.Drawing.Color.White;
             this.btnReports.Image = global::thesis.PL.Properties.Resources.report;
             this.btnReports.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReports.Location = new System.Drawing.Point(6, 465);
+            this.btnReports.Location = new System.Drawing.Point(3, 572);
             this.btnReports.Name = "btnReports";
             this.btnReports.Size = new System.Drawing.Size(236, 40);
             this.btnReports.TabIndex = 14;
@@ -152,7 +192,7 @@
             this.btnStudents.ForeColor = System.Drawing.Color.White;
             this.btnStudents.Image = global::thesis.PL.Properties.Resources.student;
             this.btnStudents.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnStudents.Location = new System.Drawing.Point(6, 373);
+            this.btnStudents.Location = new System.Drawing.Point(3, 373);
             this.btnStudents.Name = "btnStudents";
             this.btnStudents.Size = new System.Drawing.Size(236, 40);
             this.btnStudents.TabIndex = 13;
@@ -170,7 +210,7 @@
             this.btnSettings.ForeColor = System.Drawing.Color.White;
             this.btnSettings.Image = global::thesis.PL.Properties.Resources.repair;
             this.btnSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSettings.Location = new System.Drawing.Point(6, 327);
+            this.btnSettings.Location = new System.Drawing.Point(3, 327);
             this.btnSettings.Name = "btnSettings";
             this.btnSettings.Size = new System.Drawing.Size(236, 40);
             this.btnSettings.TabIndex = 12;
@@ -269,5 +309,7 @@
         private System.Windows.Forms.Button btnReports;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnSubjects;
+        private System.Windows.Forms.Button btnSubjectsSchedules;
+        private System.Windows.Forms.Button btnManageStudentsSubjectsEnrolled;
     }
 }

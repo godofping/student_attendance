@@ -45,6 +45,7 @@
             this.btnStudentProfileInformation.TabIndex = 17;
             this.btnStudentProfileInformation.Text = "Student Profile Information";
             this.btnStudentProfileInformation.UseVisualStyleBackColor = false;
+            this.btnStudentProfileInformation.Click += new System.EventHandler(this.btnStudentProfileInformation_Click);
             // 
             // btnSummarayOfStudentsAttendanceDaily
             // 
@@ -59,6 +60,7 @@
             this.btnSummarayOfStudentsAttendanceDaily.TabIndex = 11;
             this.btnSummarayOfStudentsAttendanceDaily.Text = "Summary of Students Attendance Daily";
             this.btnSummarayOfStudentsAttendanceDaily.UseVisualStyleBackColor = false;
+            this.btnSummarayOfStudentsAttendanceDaily.Click += new System.EventHandler(this.btnSummarayOfStudentsAttendanceDaily_Click);
             // 
             // frmReports
             // 

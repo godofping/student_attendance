@@ -349,7 +349,7 @@ namespace thesis.PL.Transactions
 
         private void timerForGenerationOfAttendance_Tick(object sender, EventArgs e)
         {
-      
+            GetCurrentSchedule();
             //check if there is an active class
             if (subjectschedulingEL.Subjectscheduleid > 0)
             {
@@ -413,11 +413,7 @@ namespace thesis.PL.Transactions
                 {
                     smsEL.Smsstatus = "SENT";
                     smsEL.Smsid = Convert.ToInt32(dt.Rows[0]["smsid"]);
-                    Console.WriteLine(smsBL.Update(smsEL));
                 }
-
-
-
             }
         }
 

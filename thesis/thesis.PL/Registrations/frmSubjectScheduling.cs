@@ -27,12 +27,11 @@ namespace thesis.PL.Registrations
         BL.Registrations.Rooms roomBL = new BL.Registrations.Rooms();
         BL.Registrations.Employees employeeBL = new BL.Registrations.Employees();
 
-        frmMainAdministrator frmMain;
 
-        public frmSubjectScheduling(frmMainAdministrator _frmMain)
+
+        public frmSubjectScheduling()
         {
             InitializeComponent();
-            frmMain = _frmMain;
         }
 
         protected override CreateParams CreateParams
@@ -369,12 +368,6 @@ namespace thesis.PL.Registrations
             }
         }
 
-        private void btnBack_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            var frm = new frmSettings(frmMain);
-            methods.ChangePanelDisplay(frm, frmMain.pnlMain);
-        }
-
+    
     }
 }

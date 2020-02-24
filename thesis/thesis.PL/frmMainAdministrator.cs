@@ -47,7 +47,7 @@ namespace thesis.PL
 
             methods.ChangePanelDisplay(frm, pnlMain);
 
-            var buttons = new Button[] { btnDashboard, btnAttendances, btnEmployees, btnSettings, btnStudents, btnSubjects, btnReports};
+            var buttons = new Button[] { btnDashboard, btnAttendances, btnEmployees, btnSettings, btnStudents, btnManageStudentsSubjectsEnrolled, btnSubjects, btnSubjectsSchedules, btnReports };
 
             foreach (Button button in buttons)
             {
@@ -162,6 +162,31 @@ namespace thesis.PL
 
             pleaseWait.Close();
         }
+
+        private void btnSubjectsSchedules_Click(object sender, EventArgs e)
+        {
+            var pleaseWait = new frmLoading();
+            pleaseWait.Show();
+            Application.DoEvents();
+
+            var frm = new Registrations.frmSubjectScheduling();
+            ActiveButton(frm, btnSubjectsSchedules);
+
+            pleaseWait.Close();
+        }
+
+        private void btnManageStudentsSubjectsEnrolled_Click(object sender, EventArgs e)
+        {
+            var pleaseWait = new frmLoading();
+            pleaseWait.Show();
+            Application.DoEvents();
+
+            var frm = new Registrations.frmStudentsSubjectEnrollment();
+            ActiveButton(frm, btnManageStudentsSubjectsEnrolled);
+
+            pleaseWait.Close();
+        }
+
 
         private void btnLogout_Click(object sender, EventArgs e)
         {

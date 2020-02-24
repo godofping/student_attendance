@@ -93,31 +93,5 @@ namespace thesis.PL
         }
 
    
-
-        private void btnSubjectScheduling_Click(object sender, EventArgs e)
-        {
-            var pleaseWait = new frmLoading();
-            pleaseWait.Show();
-            Application.DoEvents();
-            methods.Wait(300);
-
-            var frm = new Registrations.frmSubjectScheduling(frmMain);
-            methods.ChangePanelDisplay(frm, frmMain.pnlMain);
-
-            pleaseWait.Close();
-        }
-
-        private void btnStudentsSubjectsEnrolled_Click(object sender, EventArgs e)
-        {
-            var pleaseWait = new frmLoading();
-            pleaseWait.Show();
-            Application.DoEvents();
-            methods.Wait(300);
-
-            var frm = new Registrations.frmStudentsSubjectEnrollment(frmMain);
-            methods.ChangePanelDisplay(frm, frmMain.pnlMain);
-
-            pleaseWait.Close();
-        }
     }
 }

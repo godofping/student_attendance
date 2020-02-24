@@ -93,7 +93,7 @@
             // 
             // timerForAttendance
             // 
-            this.timerForAttendance.Interval = 500;
+            this.timerForAttendance.Interval = 1000;
             this.timerForAttendance.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // lblMessage

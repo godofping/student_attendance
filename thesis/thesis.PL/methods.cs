@@ -128,7 +128,6 @@ namespace thesis.PL
             btn1.HeaderText = "";
             btn1.Text = "ADD TO CART";
             btn1.Name = "btnAdd";
-            btn1.FillWeight = 20;
             btn1.ReadOnly = false;
             btn1.DividerWidth = 0;
             btn1.FillWeight = 20;
@@ -146,7 +145,6 @@ namespace thesis.PL
             btn.HeaderText = "";
             btn.Text = "EDIT";
             btn.Name = "btnEdit";
-            btn.FillWeight = 20;
             btn.ReadOnly = false;
             btn.DividerWidth = 0;
             btn.FillWeight = 10;
@@ -161,7 +159,6 @@ namespace thesis.PL
             btn1.HeaderText = "";
             btn1.Text = "DELETE";
             btn1.Name = "btnDelete";
-            btn1.FillWeight = 20;
             btn1.ReadOnly = false;
             btn1.DividerWidth = 0;
             btn1.FillWeight = 10;
@@ -180,7 +177,6 @@ namespace thesis.PL
             btn1.HeaderText = "";
             btn1.Text = "Manage";
             btn1.Name = "btnManage";
-            btn1.FillWeight = 20;
             btn1.ReadOnly = false;
             btn1.DividerWidth = 0;
             btn1.FillWeight = 10;
@@ -191,6 +187,23 @@ namespace thesis.PL
             btn1.UseColumnTextForButtonValue = true;
         }
 
+        public static void DGVBUTTONManageSchedule(DataGridView dgv)
+        {
+
+            DataGridViewButtonColumn btn1 = new DataGridViewButtonColumn();
+            dgv.Columns.Add(btn1);
+            btn1.HeaderText = "";
+            btn1.Text = "Manage Schedule";
+            btn1.Name = "btnManageSchedule";
+            btn1.FillWeight = 20;
+            btn1.ReadOnly = false;
+            btn1.DividerWidth = 0;
+            btn1.Frozen = false;
+            btn1.MinimumWidth = 5;
+            btn1.Width = 180;
+            btn1.FlatStyle = FlatStyle.Popup;
+            btn1.UseColumnTextForButtonValue = true;
+        }
 
         public static void DGVBUTTONRemove(DataGridView dgv)
         {
@@ -200,7 +213,6 @@ namespace thesis.PL
             btn1.HeaderText = "";
             btn1.Text = "Remove";
             btn1.Name = "btnRemove";
-            btn1.FillWeight = 20;
             btn1.ReadOnly = false;
             btn1.DividerWidth = 0;
             btn1.FillWeight = 10;
@@ -219,7 +231,6 @@ namespace thesis.PL
             btn1.HeaderText = "";
             btn1.Text = "Select";
             btn1.Name = "btnSelect";
-            btn1.FillWeight = 20;
             btn1.ReadOnly = false;
             btn1.DividerWidth = 0;
             btn1.FillWeight = 10;
@@ -238,7 +249,6 @@ namespace thesis.PL
             btn1.HeaderText = "";
             btn1.Text = "Set";
             btn1.Name = "btnSet";
-            btn1.FillWeight = 20;
             btn1.ReadOnly = false;
             btn1.DividerWidth = 0;
             btn1.FillWeight = 10;
@@ -257,7 +267,6 @@ namespace thesis.PL
             btn1.HeaderText = "";
             btn1.Text = "View";
             btn1.Name = "btnView";
-            btn1.FillWeight = 20;
             btn1.ReadOnly = false;
             btn1.DividerWidth = 0;
             btn1.FillWeight = 10;
@@ -276,7 +285,6 @@ namespace thesis.PL
             btn.HeaderText = "";
             btn.Text = "View";
             btn.Name = "btnView";
-            btn.FillWeight = 20;
             btn.ReadOnly = false;
             btn.DividerWidth = 0;
             btn.FillWeight = 10;
@@ -291,7 +299,6 @@ namespace thesis.PL
             btn1.HeaderText = "";
             btn1.Text = "Void";
             btn1.Name = "btnVoid";
-            btn1.FillWeight = 20;
             btn1.ReadOnly = false;
             btn1.DividerWidth = 0;
             btn1.FillWeight = 10;
@@ -310,7 +317,6 @@ namespace thesis.PL
             btn.HeaderText = "";
             btn.Text = "View";
             btn.Name = "btnViews";
-            btn.FillWeight = 20;
             btn.ReadOnly = false;
             btn.DividerWidth = 0;
             btn.FillWeight = 10;
@@ -325,7 +331,6 @@ namespace thesis.PL
             btn1.HeaderText = "";
             btn1.Text = "Edit";
             btn1.Name = "btnEdit";
-            btn1.FillWeight = 20;
             btn1.ReadOnly = false;
             btn1.DividerWidth = 0;
             btn1.FillWeight = 10;
@@ -340,7 +345,6 @@ namespace thesis.PL
             btn2.HeaderText = "";
             btn2.Text = "Delete";
             btn2.Name = "btnDelete";
-            btn2.FillWeight = 20;
             btn2.ReadOnly = false;
             btn2.DividerWidth = 0;
             btn2.FillWeight = 10;

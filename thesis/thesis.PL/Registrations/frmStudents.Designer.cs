@@ -379,6 +379,7 @@
             this.txtRFID.ReadOnly = true;
             this.txtRFID.Size = new System.Drawing.Size(274, 27);
             this.txtRFID.TabIndex = 17;
+         
             // 
             // label6
             // 

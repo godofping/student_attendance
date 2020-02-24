@@ -208,11 +208,17 @@
       <DependentUpon>crProfileInformation.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Reports\frmReportViewer.cs">
+    <Compile Include="Reports\frmReportViewAttendance.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Reports\frmReportViewer.Designer.cs">
-      <DependentUpon>frmReportViewer.cs</DependentUpon>
+    <Compile Include="Reports\frmReportViewAttendance.Designer.cs">
+      <DependentUpon>frmReportViewAttendance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\frmReportStudentProfileInformation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmReportStudentProfileInformation.Designer.cs">
+      <DependentUpon>frmReportStudentProfileInformation.cs</DependentUpon>
     </Compile>
     <Compile Include="SMS.cs" />
     <Compile Include="Transactions\frmAttendances.cs">
@@ -305,8 +311,11 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crProfileInformation.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\frmReportViewer.resx">
-      <DependentUpon>frmReportViewer.cs</DependentUpon>
+    <EmbeddedResource Include="Reports\frmReportViewAttendance.resx">
+      <DependentUpon>frmReportViewAttendance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmReportStudentProfileInformation.resx">
+      <DependentUpon>frmReportStudentProfileInformation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Transactions\frmAttendances.resx">
       <DependentUpon>frmAttendances.cs</DependentUpon>
@@ -374,6 +383,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\book.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calendar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calendar %282%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -32,6 +32,8 @@ namespace thesis.PL.Data {
         
         private students_viewDataTable tablestudents_view;
         
+        private students_complete_viewDataTable tablestudents_complete_view;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -71,6 +73,9 @@ namespace thesis.PL.Data {
                 }
                 if ((ds.Tables["students_view"] != null)) {
                     base.Tables.Add(new students_viewDataTable(ds.Tables["students_view"]));
+                }
+                if ((ds.Tables["students_complete_view"] != null)) {
+                    base.Tables.Add(new students_complete_viewDataTable(ds.Tables["students_complete_view"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -127,6 +132,16 @@ namespace thesis.PL.Data {
         public students_viewDataTable students_view {
             get {
                 return this.tablestudents_view;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public students_complete_viewDataTable students_complete_view {
+            get {
+                return this.tablestudents_complete_view;
             }
         }
         
@@ -209,6 +224,9 @@ namespace thesis.PL.Data {
                 if ((ds.Tables["students_view"] != null)) {
                     base.Tables.Add(new students_viewDataTable(ds.Tables["students_view"]));
                 }
+                if ((ds.Tables["students_complete_view"] != null)) {
+                    base.Tables.Add(new students_complete_viewDataTable(ds.Tables["students_complete_view"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -266,6 +284,12 @@ namespace thesis.PL.Data {
                     this.tablestudents_view.InitVars();
                 }
             }
+            this.tablestudents_complete_view = ((students_complete_viewDataTable)(base.Tables["students_complete_view"]));
+            if ((initTable == true)) {
+                if ((this.tablestudents_complete_view != null)) {
+                    this.tablestudents_complete_view.InitVars();
+                }
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -284,6 +308,8 @@ namespace thesis.PL.Data {
             base.Tables.Add(this.tablestudents_attendance_view);
             this.tablestudents_view = new students_viewDataTable();
             base.Tables.Add(this.tablestudents_view);
+            this.tablestudents_complete_view = new students_complete_viewDataTable();
+            base.Tables.Add(this.tablestudents_complete_view);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -307,6 +333,12 @@ namespace thesis.PL.Data {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private bool ShouldSerializestudents_view() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private bool ShouldSerializestudents_complete_view() {
             return false;
         }
         
@@ -376,6 +408,9 @@ namespace thesis.PL.Data {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public delegate void students_viewRowChangeEventHandler(object sender, students_viewRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public delegate void students_complete_viewRowChangeEventHandler(object sender, students_complete_viewRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -1834,6 +1869,365 @@ namespace thesis.PL.Data {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class students_complete_viewDataTable : global::System.Data.TypedTableBase<students_complete_viewRow> {
+            
+            private global::System.Data.DataColumn columnstudentid;
+            
+            private global::System.Data.DataColumn columnstudentidnumber;
+            
+            private global::System.Data.DataColumn columnstudentfullname;
+            
+            private global::System.Data.DataColumn columnyearlevel;
+            
+            private global::System.Data.DataColumn columnstudentrfid;
+            
+            private global::System.Data.DataColumn columnstudentimage;
+            
+            private global::System.Data.DataColumn columnstudentphonenumber;
+            
+            private global::System.Data.DataColumn columnstudentcontactperson;
+            
+            private global::System.Data.DataColumn columnstudentcontactpersonphonenumber;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public students_complete_viewDataTable() {
+                this.TableName = "students_complete_view";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal students_complete_viewDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected students_complete_viewDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn studentidColumn {
+                get {
+                    return this.columnstudentid;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn studentidnumberColumn {
+                get {
+                    return this.columnstudentidnumber;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn studentfullnameColumn {
+                get {
+                    return this.columnstudentfullname;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn yearlevelColumn {
+                get {
+                    return this.columnyearlevel;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn studentrfidColumn {
+                get {
+                    return this.columnstudentrfid;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn studentimageColumn {
+                get {
+                    return this.columnstudentimage;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn studentphonenumberColumn {
+                get {
+                    return this.columnstudentphonenumber;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn studentcontactpersonColumn {
+                get {
+                    return this.columnstudentcontactperson;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn studentcontactpersonphonenumberColumn {
+                get {
+                    return this.columnstudentcontactpersonphonenumber;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public students_complete_viewRow this[int index] {
+                get {
+                    return ((students_complete_viewRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event students_complete_viewRowChangeEventHandler students_complete_viewRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event students_complete_viewRowChangeEventHandler students_complete_viewRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event students_complete_viewRowChangeEventHandler students_complete_viewRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event students_complete_viewRowChangeEventHandler students_complete_viewRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Addstudents_complete_viewRow(students_complete_viewRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public students_complete_viewRow Addstudents_complete_viewRow(int studentid, string studentidnumber, string studentfullname, string yearlevel, string studentrfid, byte[] studentimage, string studentphonenumber, string studentcontactperson, string studentcontactpersonphonenumber) {
+                students_complete_viewRow rowstudents_complete_viewRow = ((students_complete_viewRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        studentid,
+                        studentidnumber,
+                        studentfullname,
+                        yearlevel,
+                        studentrfid,
+                        studentimage,
+                        studentphonenumber,
+                        studentcontactperson,
+                        studentcontactpersonphonenumber};
+                rowstudents_complete_viewRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowstudents_complete_viewRow);
+                return rowstudents_complete_viewRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                students_complete_viewDataTable cln = ((students_complete_viewDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new students_complete_viewDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal void InitVars() {
+                this.columnstudentid = base.Columns["studentid"];
+                this.columnstudentidnumber = base.Columns["studentidnumber"];
+                this.columnstudentfullname = base.Columns["studentfullname"];
+                this.columnyearlevel = base.Columns["yearlevel"];
+                this.columnstudentrfid = base.Columns["studentrfid"];
+                this.columnstudentimage = base.Columns["studentimage"];
+                this.columnstudentphonenumber = base.Columns["studentphonenumber"];
+                this.columnstudentcontactperson = base.Columns["studentcontactperson"];
+                this.columnstudentcontactpersonphonenumber = base.Columns["studentcontactpersonphonenumber"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            private void InitClass() {
+                this.columnstudentid = new global::System.Data.DataColumn("studentid", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnstudentid);
+                this.columnstudentidnumber = new global::System.Data.DataColumn("studentidnumber", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnstudentidnumber);
+                this.columnstudentfullname = new global::System.Data.DataColumn("studentfullname", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnstudentfullname);
+                this.columnyearlevel = new global::System.Data.DataColumn("yearlevel", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnyearlevel);
+                this.columnstudentrfid = new global::System.Data.DataColumn("studentrfid", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnstudentrfid);
+                this.columnstudentimage = new global::System.Data.DataColumn("studentimage", typeof(byte[]), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnstudentimage);
+                this.columnstudentphonenumber = new global::System.Data.DataColumn("studentphonenumber", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnstudentphonenumber);
+                this.columnstudentcontactperson = new global::System.Data.DataColumn("studentcontactperson", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnstudentcontactperson);
+                this.columnstudentcontactpersonphonenumber = new global::System.Data.DataColumn("studentcontactpersonphonenumber", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnstudentcontactpersonphonenumber);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public students_complete_viewRow Newstudents_complete_viewRow() {
+                return ((students_complete_viewRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new students_complete_viewRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(students_complete_viewRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.students_complete_viewRowChanged != null)) {
+                    this.students_complete_viewRowChanged(this, new students_complete_viewRowChangeEvent(((students_complete_viewRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.students_complete_viewRowChanging != null)) {
+                    this.students_complete_viewRowChanging(this, new students_complete_viewRowChangeEvent(((students_complete_viewRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.students_complete_viewRowDeleted != null)) {
+                    this.students_complete_viewRowDeleted(this, new students_complete_viewRowChangeEvent(((students_complete_viewRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.students_complete_viewRowDeleting != null)) {
+                    this.students_complete_viewRowDeleting(this, new students_complete_viewRowChangeEvent(((students_complete_viewRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Removestudents_complete_viewRow(students_complete_viewRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                systemDataset ds = new systemDataset();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "students_complete_viewDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class attendances_viewRow : global::System.Data.DataRow {
@@ -2928,6 +3322,278 @@ namespace thesis.PL.Data {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class students_complete_viewRow : global::System.Data.DataRow {
+            
+            private students_complete_viewDataTable tablestudents_complete_view;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal students_complete_viewRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tablestudents_complete_view = ((students_complete_viewDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int studentid {
+                get {
+                    try {
+                        return ((int)(this[this.tablestudents_complete_view.studentidColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'studentid\' in table \'students_complete_view\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablestudents_complete_view.studentidColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string studentidnumber {
+                get {
+                    try {
+                        return ((string)(this[this.tablestudents_complete_view.studentidnumberColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'studentidnumber\' in table \'students_complete_view\' is DBNul" +
+                                "l.", e);
+                    }
+                }
+                set {
+                    this[this.tablestudents_complete_view.studentidnumberColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string studentfullname {
+                get {
+                    try {
+                        return ((string)(this[this.tablestudents_complete_view.studentfullnameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'studentfullname\' in table \'students_complete_view\' is DBNul" +
+                                "l.", e);
+                    }
+                }
+                set {
+                    this[this.tablestudents_complete_view.studentfullnameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string yearlevel {
+                get {
+                    try {
+                        return ((string)(this[this.tablestudents_complete_view.yearlevelColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'yearlevel\' in table \'students_complete_view\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablestudents_complete_view.yearlevelColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string studentrfid {
+                get {
+                    try {
+                        return ((string)(this[this.tablestudents_complete_view.studentrfidColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'studentrfid\' in table \'students_complete_view\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablestudents_complete_view.studentrfidColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public byte[] studentimage {
+                get {
+                    try {
+                        return ((byte[])(this[this.tablestudents_complete_view.studentimageColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'studentimage\' in table \'students_complete_view\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablestudents_complete_view.studentimageColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string studentphonenumber {
+                get {
+                    try {
+                        return ((string)(this[this.tablestudents_complete_view.studentphonenumberColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'studentphonenumber\' in table \'students_complete_view\' is DB" +
+                                "Null.", e);
+                    }
+                }
+                set {
+                    this[this.tablestudents_complete_view.studentphonenumberColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string studentcontactperson {
+                get {
+                    try {
+                        return ((string)(this[this.tablestudents_complete_view.studentcontactpersonColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'studentcontactperson\' in table \'students_complete_view\' is " +
+                                "DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablestudents_complete_view.studentcontactpersonColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string studentcontactpersonphonenumber {
+                get {
+                    try {
+                        return ((string)(this[this.tablestudents_complete_view.studentcontactpersonphonenumberColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'studentcontactpersonphonenumber\' in table \'students_complet" +
+                                "e_view\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablestudents_complete_view.studentcontactpersonphonenumberColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsstudentidNull() {
+                return this.IsNull(this.tablestudents_complete_view.studentidColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetstudentidNull() {
+                this[this.tablestudents_complete_view.studentidColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsstudentidnumberNull() {
+                return this.IsNull(this.tablestudents_complete_view.studentidnumberColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetstudentidnumberNull() {
+                this[this.tablestudents_complete_view.studentidnumberColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsstudentfullnameNull() {
+                return this.IsNull(this.tablestudents_complete_view.studentfullnameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetstudentfullnameNull() {
+                this[this.tablestudents_complete_view.studentfullnameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsyearlevelNull() {
+                return this.IsNull(this.tablestudents_complete_view.yearlevelColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetyearlevelNull() {
+                this[this.tablestudents_complete_view.yearlevelColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsstudentrfidNull() {
+                return this.IsNull(this.tablestudents_complete_view.studentrfidColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetstudentrfidNull() {
+                this[this.tablestudents_complete_view.studentrfidColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsstudentimageNull() {
+                return this.IsNull(this.tablestudents_complete_view.studentimageColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetstudentimageNull() {
+                this[this.tablestudents_complete_view.studentimageColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsstudentphonenumberNull() {
+                return this.IsNull(this.tablestudents_complete_view.studentphonenumberColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetstudentphonenumberNull() {
+                this[this.tablestudents_complete_view.studentphonenumberColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsstudentcontactpersonNull() {
+                return this.IsNull(this.tablestudents_complete_view.studentcontactpersonColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetstudentcontactpersonNull() {
+                this[this.tablestudents_complete_view.studentcontactpersonColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsstudentcontactpersonphonenumberNull() {
+                return this.IsNull(this.tablestudents_complete_view.studentcontactpersonphonenumberColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetstudentcontactpersonphonenumberNull() {
+                this[this.tablestudents_complete_view.studentcontactpersonphonenumberColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -3049,6 +3715,40 @@ namespace thesis.PL.Data {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public students_viewRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public class students_complete_viewRowChangeEvent : global::System.EventArgs {
+            
+            private students_complete_viewRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public students_complete_viewRowChangeEvent(students_complete_viewRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public students_complete_viewRow Row {
                 get {
                     return this.eventRow;
                 }

@@ -73,6 +73,38 @@ namespace thesis.PL.Registrations
         }
 
 
+        public void CheckDuplicateRFID(string s)
+        {
+
+            studentEL.Studentrfid = s;
+
+            if (s.Equals("ADD"))
+            {
+
+                if (studentBL.CheckRFIDAdd(studentEL).Rows.Count > 0)
+                {
+                    MessageBox.Show("RFID is already taken.");
+                }
+                else
+                {
+                    txtRFID.Text = s;
+                }
+
+            }
+            else 
+            {
+                if (studentBL.CheckRFIDEdit(studentEL).Rows.Count > 0)
+                {
+                    MessageBox.Show("RFID is already taken.");
+                }
+                else
+                {
+                    txtRFID.Text = s;
+                }
+            }
+        }
+
+
         private void ManageDGV()
         {
             PopulateDGV();
@@ -161,6 +193,7 @@ namespace thesis.PL.Registrations
                     studentEL.Studentid = 0;
                     if (studentBL.List(studentEL).Rows.Count == 0)
                     {
+
                         ShowResult(studentBL.Insert(studentEL) > 0);
                     }
                     else
@@ -241,5 +274,7 @@ namespace thesis.PL.Registrations
             var frmCaptureRFID = new frmCaptureRFID(this);
             frmCaptureRFID.ShowDialog();
         }
+
+       
     }
 }

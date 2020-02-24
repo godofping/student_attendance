@@ -31,8 +31,6 @@
             this.btnComputers = new System.Windows.Forms.Button();
             this.btnRooms = new System.Windows.Forms.Button();
             this.btnSeats = new System.Windows.Forms.Button();
-            this.btnStudentsSubjectsEnrolled = new System.Windows.Forms.Button();
-            this.btnSubjectScheduling = new System.Windows.Forms.Button();
             this.btnBuildings = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -81,36 +79,6 @@
             this.btnSeats.UseVisualStyleBackColor = false;
             this.btnSeats.Click += new System.EventHandler(this.btnSeats_Click);
             // 
-            // btnStudentsSubjectsEnrolled
-            // 
-            this.btnStudentsSubjectsEnrolled.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
-            this.btnStudentsSubjectsEnrolled.FlatAppearance.BorderSize = 0;
-            this.btnStudentsSubjectsEnrolled.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnStudentsSubjectsEnrolled.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStudentsSubjectsEnrolled.ForeColor = System.Drawing.Color.White;
-            this.btnStudentsSubjectsEnrolled.Location = new System.Drawing.Point(354, 183);
-            this.btnStudentsSubjectsEnrolled.Name = "btnStudentsSubjectsEnrolled";
-            this.btnStudentsSubjectsEnrolled.Size = new System.Drawing.Size(236, 57);
-            this.btnStudentsSubjectsEnrolled.TabIndex = 7;
-            this.btnStudentsSubjectsEnrolled.Text = "Students Subjects Enrolled";
-            this.btnStudentsSubjectsEnrolled.UseVisualStyleBackColor = false;
-            this.btnStudentsSubjectsEnrolled.Click += new System.EventHandler(this.btnStudentsSubjectsEnrolled_Click);
-            // 
-            // btnSubjectScheduling
-            // 
-            this.btnSubjectScheduling.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
-            this.btnSubjectScheduling.FlatAppearance.BorderSize = 0;
-            this.btnSubjectScheduling.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSubjectScheduling.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSubjectScheduling.ForeColor = System.Drawing.Color.White;
-            this.btnSubjectScheduling.Location = new System.Drawing.Point(22, 282);
-            this.btnSubjectScheduling.Name = "btnSubjectScheduling";
-            this.btnSubjectScheduling.Size = new System.Drawing.Size(236, 57);
-            this.btnSubjectScheduling.TabIndex = 9;
-            this.btnSubjectScheduling.Text = " Subjects Scheduling";
-            this.btnSubjectScheduling.UseVisualStyleBackColor = false;
-            this.btnSubjectScheduling.Click += new System.EventHandler(this.btnSubjectScheduling_Click);
-            // 
             // btnBuildings
             // 
             this.btnBuildings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
@@ -133,8 +101,6 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1038, 720);
             this.Controls.Add(this.btnBuildings);
-            this.Controls.Add(this.btnSubjectScheduling);
-            this.Controls.Add(this.btnStudentsSubjectsEnrolled);
             this.Controls.Add(this.btnSeats);
             this.Controls.Add(this.btnRooms);
             this.Controls.Add(this.btnComputers);
@@ -154,8 +120,6 @@
         private System.Windows.Forms.Button btnComputers;
         private System.Windows.Forms.Button btnRooms;
         private System.Windows.Forms.Button btnSeats;
-        private System.Windows.Forms.Button btnStudentsSubjectsEnrolled;
-        private System.Windows.Forms.Button btnSubjectScheduling;
         private System.Windows.Forms.Button btnBuildings;
     }
 }

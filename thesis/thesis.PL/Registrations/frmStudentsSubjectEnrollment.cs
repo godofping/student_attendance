@@ -31,12 +31,11 @@ namespace thesis.PL.Registrations
         BL.Registrations.Rooms roomBL = new BL.Registrations.Rooms();
         BL.Registrations.Buildings buildingBL = new BL.Registrations.Buildings();
 
-        frmMainAdministrator frmMain;
 
-        public frmStudentsSubjectEnrollment(frmMainAdministrator _frmMain)
+        public frmStudentsSubjectEnrollment()
         {
             InitializeComponent();
-            frmMain =  _frmMain;
+    
         }
 
         protected override CreateParams CreateParams
@@ -264,11 +263,6 @@ namespace thesis.PL.Registrations
             }
         }
 
-        private void btnBack_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            var frm = new frmSettings(frmMain);
-            methods.ChangePanelDisplay(frm, frmMain.pnlMain);
-        }
+   
     }
 }

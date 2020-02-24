@@ -55,15 +55,7 @@ namespace thesis.PL.Transactions
         private void btnGenerate_Click(object sender, EventArgs e)
         {
 
-            if (methods.CheckRequiredCB(cbTeacher, cbSubjectSchedule) & methods.CheckRequiredDTP(dtpDate))
-            {
-                var frm = new Reports.frmReportViewer(Convert.ToInt32(cbSubjectSchedule.SelectedValue), dtpDate.Text);
-                frm.ShowDialog();
-            }
-            else
-            {
-                MessageBox.Show("Please complete all the fields with asterisk.");
-            }
+           
         }
 
         private void frmAttendances_Load(object sender, EventArgs e)

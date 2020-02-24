@@ -54,10 +54,11 @@ C:\xampp\htdocs\student_attendance\thesis\thesis.PL\obj\Debug\thesis.PL.Registra
 C:\xampp\htdocs\student_attendance\thesis\thesis.PL\obj\Debug\thesis.PL.Registrations.frmStudentsSubjectEnrollment.resources
 C:\xampp\htdocs\student_attendance\thesis\thesis.PL\obj\Debug\thesis.PL.Registrations.frmSubjects.resources
 C:\xampp\htdocs\student_attendance\thesis\thesis.PL\obj\Debug\thesis.PL.Registrations.frmSubjectScheduling.resources
-C:\xampp\htdocs\student_attendance\thesis\thesis.PL\obj\Debug\thesis.PL.Reports.frmReportViewer.resources
 C:\xampp\htdocs\student_attendance\thesis\thesis.PL\obj\Debug\thesis.PL.Transactions.frmAttendances.resources
 C:\xampp\htdocs\student_attendance\thesis\thesis.PL\obj\Debug\thesis.PL.Transactions.frmAttendancesMain.resources
 C:\xampp\htdocs\student_attendance\thesis\thesis.PL\obj\Debug\thesis.PL.csproj.GenerateResource.cache
 C:\xampp\htdocs\student_attendance\thesis\thesis.PL\obj\Debug\thesis.PL.csproj.CopyComplete
 C:\xampp\htdocs\student_attendance\thesis\thesis.PL\obj\Debug\thesis.PL.exe
 C:\xampp\htdocs\student_attendance\thesis\thesis.PL\obj\Debug\thesis.PL.pdb
+C:\xampp\htdocs\student_attendance\thesis\thesis.PL\obj\Debug\thesis.PL.Reports.frmReportViewAttendance.resources
+C:\xampp\htdocs\student_attendance\thesis\thesis.PL\obj\Debug\thesis.PL.Reports.frmReportStudentProfileInformation.resources

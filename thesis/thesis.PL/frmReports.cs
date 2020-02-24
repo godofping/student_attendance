@@ -16,5 +16,17 @@ namespace thesis.PL
         {
             InitializeComponent();
         }
+
+        private void btnStudentProfileInformation_Click(object sender, EventArgs e)
+        {
+            Reports.frmReportStudentProfileInformation frm = new Reports.frmReportStudentProfileInformation();
+            frm.ShowDialog();
+        }
+
+        private void btnSummarayOfStudentsAttendanceDaily_Click(object sender, EventArgs e)
+        {
+            Reports.frmReportViewAttendance frm = new Reports.frmReportViewAttendance();
+            frm.ShowDialog();
+        }
     }
 }
