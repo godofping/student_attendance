@@ -7,3 +7,4 @@ C:\xampp\htdocs\student_attendance\thesis\thesis.DL\obj\Debug\thesis.DL.csprojAs
 C:\xampp\htdocs\student_attendance\thesis\thesis.DL\obj\Debug\thesis.DL.csproj.CopyComplete
 C:\xampp\htdocs\student_attendance\thesis\thesis.DL\obj\Debug\thesis.DL.dll
 C:\xampp\htdocs\student_attendance\thesis\thesis.DL\obj\Debug\thesis.DL.pdb
+C:\xampp\htdocs\student_attendance\thesis\thesis.DL\bin\Debug\mysql.data.xml

@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Globalization;
+using System.IO.Ports;
+using System.Threading;
 
 namespace thesis.PL.Transactions
 {
@@ -19,17 +21,22 @@ namespace thesis.PL.Transactions
         EL.Registrations.Students studentEL = new EL.Registrations.Students();
         EL.Registrations.Studentssubjectenrollment studentsubjectenrollmentEL = new EL.Registrations.Studentssubjectenrollment();
         EL.Registrations.Seats seatEL = new EL.Registrations.Seats();
+        EL.Registrations.Subjects subjectEL = new EL.Registrations.Subjects();
         EL.Transactions.Attendances attendanceEL = new EL.Transactions.Attendances();
+  
 
         BL.Registrations.Computers computerBL = new BL.Registrations.Computers();
         BL.Registrations.Subjectsscheduling subjectschedulingBL = new BL.Registrations.Subjectsscheduling();
         BL.Registrations.Students studentBL = new BL.Registrations.Students();
         BL.Registrations.Studentssubjectenrollment studentsubjectenrollmentBL = new BL.Registrations.Studentssubjectenrollment();
         BL.Registrations.Seats seatBL = new BL.Registrations.Seats();
+        BL.Registrations.Subjects subjectBL = new BL.Registrations.Subjects();
         BL.Transactions.Attendances attendanceBL = new BL.Transactions.Attendances();
 
         string s = "";
         int timer = 0;
+
+        
         public frmAttendancesMain()
         {
             InitializeComponent();
@@ -56,7 +63,7 @@ namespace thesis.PL.Transactions
 
         private void ShowDateTime()
         {
-            lblTime.Text = DateTime.Now.ToString("hh:mm tt");
+            lblTime.Text = DateTime.Now.ToString("hh:mm:ss tt");
             lblDate.Text = DateTime.Now.ToString("MMMM dd, yyyy");
         }
 
@@ -69,12 +76,32 @@ namespace thesis.PL.Transactions
                 subjectschedulingEL.Subjectscheduleid = Convert.ToInt32(dt.Rows[0]["subjectscheduleid"]);
                 subjectschedulingEL = subjectschedulingBL.Select(subjectschedulingEL);
                 lblSubject.Text = "Subject: " + dt.Rows[0]["subject"].ToString() + "\nTeacher: " + dt.Rows[0]["employeeFullname"].ToString() + "\nSchedule: " + dt.Rows[0]["time"].ToString() + " " + dt.Rows[0]["scheddays"].ToString();
+                
+                subjectEL.Subjectid = subjectschedulingEL.Subjectid;
+                subjectEL = subjectBL.Select(subjectEL);
+            
             }
             else
             {
                 lblSubject.Text = "No class right now.";
                 subjectschedulingEL = new EL.Registrations.Subjectsscheduling();
             }
+        }
+
+
+        private void RunSMS()
+        {
+            
+           
+
+        }
+
+
+        
+
+        public static void ExitApp()
+        {
+            Application.Exit();
         }
 
         private void frmAttendancesMain_Load(object sender, EventArgs e)
@@ -92,10 +119,7 @@ namespace thesis.PL.Transactions
         }
 
 
-        public static void ExitApp()
-        {
-            Application.Exit();
-        }
+       
 
         private void frmAttendancesMain_KeyDown(object sender, KeyEventArgs e)
         {
@@ -134,6 +158,7 @@ namespace thesis.PL.Transactions
 
         private void frmAttendancesMain_KeyUp(object sender, KeyEventArgs e)
         {
+            
             //captures the enter when there is a class. this is for rfid reading
             if (e.KeyCode == Keys.Enter & subjectschedulingEL.Subjectscheduleid > 0)
             {
@@ -197,7 +222,11 @@ namespace thesis.PL.Transactions
 
                                 if (bol & attendanceBL.AttendanceIn(attendanceEL))
                                 {
-                                    lblMessage.Text = "Your time in is " + DateTime.Now.ToString("hh:mm:ss tt") + ". Your seat is " + seatEL.Seat;
+                                    string timein = DateTime.Now.ToString("hh:mm:ss tt");
+                                    lblMessage.Text = "Your time in is " + timein  + ". Your seat is " + seatEL.Seat;
+                                    var sms = new SMS();
+                                    sms.SendSMS(studentEL.Studentfirstname + " attendance time in is " + timein + " in the subject " + subjectEL.Subjectcode, studentEL.Studentcontactpersonphonenumber);
+                                    
                                 }
 
 
@@ -219,7 +248,11 @@ namespace thesis.PL.Transactions
                                     if (attendanceBL.AttendanceOut(attendanceEL))
                                     {
                                         //time out user
-                                        lblMessage.Text = "Your time out is " + DateTime.Now.ToString("hh:mm:ss tt");
+                                        string timeout = DateTime.Now.ToString("hh:mm:ss tt");
+                                        lblMessage.Text = "Your time out is " + timeout;
+                                        var sms = new SMS();
+                                        sms.SendSMS(studentEL.Studentfirstname + " attendance time out is " + timeout + " in the subject " + subjectEL.Subjectcode, studentEL.Studentcontactpersonphonenumber);
+
                                     }
                                 }
                                 else
@@ -267,6 +300,9 @@ namespace thesis.PL.Transactions
                 timerForClearing.Start();
                 s = "";
                 lblMessage.Text = "Attendance system is disabled because there is no active class right now.";
+
+
+                
             }
         }
 
@@ -323,5 +359,7 @@ namespace thesis.PL.Transactions
                 }
             }
         }
+
+        
     }
 }

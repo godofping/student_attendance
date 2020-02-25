@@ -39,3 +39,4 @@ C:\xampp\htdocs\student_attendance\thesis\thesis.PL\obj\Debug\thesis.PL.Transact
 C:\xampp\htdocs\student_attendance\thesis\thesis.PL\obj\Debug\thesis.PL.csproj.GenerateResource.cache
 C:\xampp\htdocs\student_attendance\thesis\thesis.PL\obj\Debug\thesis.PL.csproj.CopyComplete
 C:\xampp\htdocs\student_attendance\thesis\thesis.PL\obj\Debug\thesis.PL.pdb
+C:\xampp\htdocs\student_attendance\thesis\thesis.PL\bin\Debug\MySql.Data.xml

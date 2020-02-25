@@ -175,6 +175,7 @@
     <Compile Include="Registrations\frmSubjectScheduling.Designer.cs">
       <DependentUpon>frmSubjectScheduling.cs</DependentUpon>
     </Compile>
+    <Compile Include="SMS.cs" />
     <Compile Include="Transactions\frmAttendances.cs">
       <SubType>Form</SubType>
     </Compile>
