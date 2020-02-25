@@ -62,6 +62,31 @@ namespace thesis.DL.Transactions
         }
 
 
+        public DataTable ListAttendanceAdmin(EL.Transactions.Attendances attendanceEL)
+        {
+
+            using (var cmd = new MySqlCommand())
+            {
+                cmd.CommandText = "select attendanceid, studentsubjectenrollmentid, createdat, subjectscheduleid, studentfullname, attendanceintime, attendanceouttime,status from students_attendance_view where subjectscheduleid = @subjectscheduleid and createdat between @attendanceintime and @attendanceouttime and (studentfullname like @status or status like @status) order by studentfullname";
+
+                cmd.Parameters.AddWithValue("@subjectscheduleid", attendanceEL.Studentsubjectenrollmentid);
+                cmd.Parameters.AddWithValue("@attendanceintime", attendanceEL.Attendanceintime);
+                cmd.Parameters.AddWithValue("@attendanceouttime", attendanceEL.Attendanceouttime);
+                cmd.Parameters.AddWithValue("@status", attendanceEL.Status + "%");
+                return methods.executeQuery(cmd);
+            }
+        }
+
+
+        public DataTable List()
+        {
+            using (var cmd = new MySqlCommand())
+            {
+                cmd.CommandText = "select * from students_attendance_view";
+                return methods.executeQuery(cmd);
+            }
+        }
+
         public DataTable ListAttendanceByDate(EL.Transactions.Attendances attendanceEL)
         {
 

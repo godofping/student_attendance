@@ -20,7 +20,7 @@
   PRIMARY KEY (`attendanceid`),
   KEY `FK_attendances1` (`studentsubjectenrollmentid`),
   CONSTRAINT `FK_attendances1` FOREIGN KEY (`studentsubjectenrollmentid`) REFERENCES `studentssubjectenrollment` (`studentsubjectenrollmentid`)
-) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=latin1</sql_create_table>
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1</sql_create_table>
 </table>
 <table name="computers" view="colnames">
 <left>424</left>
@@ -83,7 +83,7 @@
   `studentcontactperson` varchar(60) DEFAULT NULL,
   `studentcontactpersonphonenumber` varchar(60) DEFAULT NULL,
   PRIMARY KEY (`studentid`)
-) ENGINE=InnoDB AUTO_INCREMENT=1138 DEFAULT CHARSET=latin1</sql_create_table>
+) ENGINE=InnoDB AUTO_INCREMENT=1139 DEFAULT CHARSET=latin1</sql_create_table>
 </table>
 <table name="subjects" view="colnames">
 <left>54</left>
@@ -153,8 +153,8 @@
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1</sql_create_table>
 </table>
 <table name="studentssubjectenrollment" view="colnames">
-<left>522</left>
-<top>9</top>
+<left>542</left>
+<top>20</top>
 <width>200</width>
 <height>175</height>
 <sql_create_table>CREATE TABLE `studentssubjectenrollment` (
@@ -170,7 +170,7 @@
   CONSTRAINT `FK_studentsubjectsenrolle1d` FOREIGN KEY (`studentid`) REFERENCES `students` (`studentid`),
   CONSTRAINT `FK_studentsubjectsenrolled` FOREIGN KEY (`subjectscheduleid`) REFERENCES `subjectsscheduling` (`subjectscheduleid`),
   CONSTRAINT `FK_studentsubjectsenrolled3` FOREIGN KEY (`seatid`) REFERENCES `seats` (`seatid`)
-) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=latin1</sql_create_table>
+) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=latin1</sql_create_table>
 </table>
 <table name="sms" view="colnames">
 <left>18</left>
@@ -186,7 +186,7 @@
   `smsstatus` varchar(60) DEFAULT NULL,
   PRIMARY KEY (`smsid`),
   KEY `FK_sms` (`attendanceid`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1</sql_create_table>
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1</sql_create_table>
 </table>
 </tables>
 </canvas>

@@ -12,10 +12,11 @@ namespace thesis.PL.Transactions
 {
     public partial class frmAttendances : Form
     {
-
+        EL.Transactions.Attendances attendanceEL = new EL.Transactions.Attendances();
         EL.Registrations.Employees employeeEL = new EL.Registrations.Employees();
         EL.Registrations.Subjectsscheduling subjectschedulingEL = new EL.Registrations.Subjectsscheduling();
 
+        BL.Transactions.Attendances attendanceBL = new BL.Transactions.Attendances();
         BL.Registrations.Employees employeeBL = new BL.Registrations.Employees();
         BL.Registrations.Subjectsscheduling subjectschedulingBL = new BL.Registrations.Subjectsscheduling();
 
@@ -24,6 +25,47 @@ namespace thesis.PL.Transactions
             InitializeComponent();
         }
 
+        private void ManageDGV()
+        {
+            PopulateDGV();
+            methods.DGVTheme(dgv);
+        }
+
+        private void PopulateDGV()
+        {
+
+            if (methods.CheckRequiredCB(cbTeacher, cbSubjectSchedule))
+            {
+                attendanceEL = new EL.Transactions.Attendances();
+
+                attendanceEL.Attendanceintime = DateTime.Parse(dtpDateFrom.Text).ToString("yyyy-MM-dd HH:mm:ss");
+                attendanceEL.Attendanceouttime = DateTime.Parse(dtpDateTo.Text).ToString("yyyy-MM-dd 23:59:59");
+
+
+                if (cbSubjectSchedule.SelectedValue is Int32)
+                {
+                    attendanceEL.Studentsubjectenrollmentid = Convert.ToInt32(cbSubjectSchedule.SelectedValue);
+                }
+                else
+                {
+                    attendanceEL.Studentsubjectenrollmentid = 0;
+                }
+
+
+                attendanceEL.Status = txtSearch.Text;
+
+                methods.LoadDGV(dgv, attendanceBL.ListAttendanceAdmin(attendanceEL));
+                methods.DGVRenameColumns(dgv, "attendanceid", "studentsubjectenrollmentid", "createdat", "subjectscheduleid", "Name", "Time In", "Time Out", "Status");
+                methods.DGVHiddenColumns(dgv, "attendanceid", "studentsubjectenrollmentid", "createdat", "subjectscheduleid");
+                
+
+            }
+      
+
+      
+
+                
+        }
 
         private void PopulateCBTeachers()
         {
@@ -52,17 +94,14 @@ namespace thesis.PL.Transactions
 
         }
 
-        private void btnGenerate_Click(object sender, EventArgs e)
-        {
-
-           
-        }
+    
 
         private void frmAttendances_Load(object sender, EventArgs e)
         {
-            
+            ManageDGV();
             PopulateCBTeachers();
             cbTeacher.SelectedIndex = -1;
+            
         }
 
         private void cbTeacher_SelectedIndexChanged(object sender, EventArgs e)
@@ -70,6 +109,29 @@ namespace thesis.PL.Transactions
             PopulateCBSubjectSchedule();
         }
 
-   
+        private void dgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            PopulateDGV();
+        }
+
+        private void cbSubjectSchedule_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            PopulateDGV();
+        }
+
+        private void dtpDateFrom_ValueChanged(object sender, EventArgs e)
+        {
+            PopulateDGV();
+        }
+
+        private void dtpDateTo_ValueChanged(object sender, EventArgs e)
+        {
+            PopulateDGV();
+        }
     }
 }

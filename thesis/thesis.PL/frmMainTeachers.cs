@@ -47,7 +47,7 @@ namespace thesis.PL
 
             methods.ChangePanelDisplay(frm, pnlMain);
 
-            var buttons = new Button[] { btnDashboard, btnAttendances, btnReports, btnSettings};
+            var buttons = new Button[] { btnDashboard, btnAttendances, btnReports};
 
             foreach (Button button in buttons)
             {

@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.pnlMain = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
@@ -40,13 +42,11 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.txtComputer = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.pnlMain.SuspendLayout();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.pnlForm.SuspendLayout();
             this.gb.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlMain
@@ -61,6 +61,27 @@
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(1038, 720);
             this.pnlMain.TabIndex = 0;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(141)))), ((int)(((byte)(152)))));
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Location = new System.Drawing.Point(427, 12);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(216, 37);
+            this.panel1.TabIndex = 10;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(25, 9);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(166, 21);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Manage Computers";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnAdd
             // 
@@ -192,27 +213,6 @@
             this.label2.TabIndex = 9;
             this.label2.Text = "Computer *";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(25, 9);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(166, 21);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "Manage Computers";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(141)))), ((int)(((byte)(152)))));
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Location = new System.Drawing.Point(434, 9);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(216, 37);
-            this.panel1.TabIndex = 10;
-            // 
             // frmComputers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -231,12 +231,12 @@
             this.Load += new System.EventHandler(this.frmComputers_Load);
             this.pnlMain.ResumeLayout(false);
             this.pnlMain.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             this.pnlForm.ResumeLayout(false);
             this.gb.ResumeLayout(false);
             this.gb.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }

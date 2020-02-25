@@ -20,6 +20,8 @@ namespace thesis.PL
         BL.Registrations.Buildings buildingBL = new BL.Registrations.Buildings();
         BL.Registrations.Seats seatBL = new BL.Registrations.Seats();
         BL.Registrations.Computers computerBL = new BL.Registrations.Computers();
+        BL.Transactions.Attendances attendanceBL = new BL.Transactions.Attendances();
+        BL.Registrations.Subjectsscheduling subjectschedulingBL = new BL.Registrations.Subjectsscheduling();
 
         public frmDashboard()
         {
@@ -48,6 +50,13 @@ namespace thesis.PL
 
             dt = computerBL.List("");
             lblComputers.Text = dt.Rows.Count.ToString();
+
+            dt = attendanceBL.List();
+            lblAttendances.Text = dt.Rows.Count.ToString();
+
+            dt = subjectschedulingBL.List("");
+            lblSchedules.Text = dt.Rows.Count.ToString();
+
         }
 
         private void timer1_Tick(object sender, EventArgs e)

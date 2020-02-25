@@ -113,7 +113,7 @@
             this.cbTeacher.ItemHeight = 16;
             this.cbTeacher.Location = new System.Drawing.Point(15, 84);
             this.cbTeacher.Name = "cbTeacher";
-            this.cbTeacher.Size = new System.Drawing.Size(278, 24);
+            this.cbTeacher.Size = new System.Drawing.Size(311, 24);
             this.cbTeacher.TabIndex = 27;
             this.cbTeacher.SelectedIndexChanged += new System.EventHandler(this.cbTeacher_SelectedIndexChanged);
             // 
@@ -121,7 +121,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(782, 68);
+            this.label2.Location = new System.Drawing.Point(828, 68);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 16);
             this.label2.TabIndex = 31;
@@ -132,16 +132,16 @@
             this.dtpDate.CustomFormat = "yyyy-MM-dd";
             this.dtpDate.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDate.Location = new System.Drawing.Point(785, 87);
+            this.dtpDate.Location = new System.Drawing.Point(831, 87);
             this.dtpDate.Name = "dtpDate";
-            this.dtpDate.Size = new System.Drawing.Size(142, 21);
+            this.dtpDate.Size = new System.Drawing.Size(96, 21);
             this.dtpDate.TabIndex = 30;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(302, 65);
+            this.label1.Location = new System.Drawing.Point(329, 65);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(112, 16);
             this.label1.TabIndex = 28;
@@ -155,9 +155,9 @@
             this.cbSubjectSchedule.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbSubjectSchedule.FormattingEnabled = true;
             this.cbSubjectSchedule.ItemHeight = 16;
-            this.cbSubjectSchedule.Location = new System.Drawing.Point(299, 84);
+            this.cbSubjectSchedule.Location = new System.Drawing.Point(332, 84);
             this.cbSubjectSchedule.Name = "cbSubjectSchedule";
-            this.cbSubjectSchedule.Size = new System.Drawing.Size(477, 24);
+            this.cbSubjectSchedule.Size = new System.Drawing.Size(493, 24);
             this.cbSubjectSchedule.TabIndex = 29;
             // 
             // btnGenerate

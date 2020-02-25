@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 25, 2020 at 12:35 AM
+-- Generation Time: Feb 25, 2020 at 07:33 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -61,7 +61,12 @@ INSERT INTO `attendances` (`attendanceid`, `studentsubjectenrollmentid`, `attend
 (17, 41, NULL, NULL, '2020-02-25 15:09:30', 'ABSENT'),
 (18, 42, NULL, NULL, '2020-02-25 15:09:30', 'ABSENT'),
 (19, 43, NULL, NULL, '2020-02-25 15:09:30', 'ABSENT'),
-(20, 44, NULL, NULL, '2020-02-25 15:09:30', 'ABSENT');
+(20, 44, NULL, NULL, '2020-02-25 15:09:30', 'ABSENT'),
+(21, 20, NULL, NULL, '2020-02-25 11:02:43', 'ABSENT'),
+(22, 21, NULL, NULL, '2020-02-25 11:02:43', 'ABSENT'),
+(23, 22, NULL, NULL, '2020-02-25 11:02:43', 'ABSENT'),
+(24, 23, NULL, NULL, '2020-02-25 11:02:43', 'ABSENT'),
+(25, 24, NULL, NULL, '2020-02-25 11:02:43', 'ABSENT');
 
 -- --------------------------------------------------------
 
@@ -708,7 +713,7 @@ ALTER TABLE `subjectsscheduling`
 -- AUTO_INCREMENT for table `attendances`
 --
 ALTER TABLE `attendances`
-  MODIFY `attendanceid` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `attendanceid` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `buildings`

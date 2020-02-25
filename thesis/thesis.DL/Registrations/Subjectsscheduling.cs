@@ -6,6 +6,7 @@ namespace thesis.DL.Registrations
 {
     public class Subjectsscheduling
     {
+
         public DataTable List(String keyword)
         {
 

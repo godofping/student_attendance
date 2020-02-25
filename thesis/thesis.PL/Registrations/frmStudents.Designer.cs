@@ -104,7 +104,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(141)))), ((int)(((byte)(152)))));
             this.panel1.Controls.Add(this.label9);
-            this.panel1.Location = new System.Drawing.Point(434, 9);
+            this.panel1.Location = new System.Drawing.Point(427, 12);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(216, 37);
             this.panel1.TabIndex = 15;
@@ -379,7 +379,6 @@
             this.txtRFID.ReadOnly = true;
             this.txtRFID.Size = new System.Drawing.Size(274, 27);
             this.txtRFID.TabIndex = 17;
-         
             // 
             // label6
             // 
@@ -463,8 +462,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1038, 720);
-            this.Controls.Add(this.pnlForm);
             this.Controls.Add(this.pnlMain);
+            this.Controls.Add(this.pnlForm);
             this.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

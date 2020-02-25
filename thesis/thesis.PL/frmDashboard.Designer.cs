@@ -39,7 +39,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lblAttendances = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -62,6 +62,11 @@
             this.lblComputers = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.panel16 = new System.Windows.Forms.Panel();
+            this.panel17 = new System.Windows.Forms.Panel();
+            this.lblSchedules = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.panel18 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -70,6 +75,7 @@
             this.panel11.SuspendLayout();
             this.panel13.SuspendLayout();
             this.panel15.SuspendLayout();
+            this.panel17.SuspendLayout();
             this.SuspendLayout();
             // 
             // timer1
@@ -82,7 +88,7 @@
             this.panel1.Controls.Add(this.lblStudents);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.panel2);
-            this.panel1.Location = new System.Drawing.Point(7, 38);
+            this.panel1.Location = new System.Drawing.Point(7, 165);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(337, 121);
             this.panel1.TabIndex = 0;
@@ -126,7 +132,7 @@
             this.panel3.Controls.Add(this.lblSubjects);
             this.panel3.Controls.Add(this.label4);
             this.panel3.Controls.Add(this.panel4);
-            this.panel3.Location = new System.Drawing.Point(350, 38);
+            this.panel3.Location = new System.Drawing.Point(350, 165);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(337, 121);
             this.panel3.TabIndex = 1;
@@ -167,25 +173,25 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.panel5.Controls.Add(this.label5);
+            this.panel5.Controls.Add(this.lblAttendances);
             this.panel5.Controls.Add(this.label6);
             this.panel5.Controls.Add(this.panel6);
-            this.panel5.Location = new System.Drawing.Point(693, 38);
+            this.panel5.Location = new System.Drawing.Point(693, 165);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(337, 121);
             this.panel5.TabIndex = 3;
             // 
-            // label5
+            // lblAttendances
             // 
-            this.label5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(0, 50);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(337, 71);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "10000";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblAttendances.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblAttendances.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAttendances.ForeColor = System.Drawing.Color.White;
+            this.lblAttendances.Location = new System.Drawing.Point(0, 50);
+            this.lblAttendances.Name = "lblAttendances";
+            this.lblAttendances.Size = new System.Drawing.Size(337, 71);
+            this.lblAttendances.TabIndex = 2;
+            this.lblAttendances.Text = "10000";
+            this.lblAttendances.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label6
             // 
@@ -214,7 +220,7 @@
             this.panel7.Controls.Add(this.lblEmployees);
             this.panel7.Controls.Add(this.label8);
             this.panel7.Controls.Add(this.panel8);
-            this.panel7.Location = new System.Drawing.Point(7, 203);
+            this.panel7.Location = new System.Drawing.Point(7, 330);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(337, 121);
             this.panel7.TabIndex = 4;
@@ -258,7 +264,7 @@
             this.panel9.Controls.Add(this.lblRooms);
             this.panel9.Controls.Add(this.label10);
             this.panel9.Controls.Add(this.panel10);
-            this.panel9.Location = new System.Drawing.Point(350, 203);
+            this.panel9.Location = new System.Drawing.Point(350, 330);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(337, 121);
             this.panel9.TabIndex = 5;
@@ -302,7 +308,7 @@
             this.panel11.Controls.Add(this.lblBuildings);
             this.panel11.Controls.Add(this.label12);
             this.panel11.Controls.Add(this.panel12);
-            this.panel11.Location = new System.Drawing.Point(693, 203);
+            this.panel11.Location = new System.Drawing.Point(693, 330);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(337, 121);
             this.panel11.TabIndex = 6;
@@ -346,7 +352,7 @@
             this.panel13.Controls.Add(this.lblSeats);
             this.panel13.Controls.Add(this.label14);
             this.panel13.Controls.Add(this.panel14);
-            this.panel13.Location = new System.Drawing.Point(7, 363);
+            this.panel13.Location = new System.Drawing.Point(7, 490);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(337, 121);
             this.panel13.TabIndex = 7;
@@ -390,7 +396,7 @@
             this.panel15.Controls.Add(this.lblComputers);
             this.panel15.Controls.Add(this.label16);
             this.panel15.Controls.Add(this.panel16);
-            this.panel15.Location = new System.Drawing.Point(350, 363);
+            this.panel15.Location = new System.Drawing.Point(350, 490);
             this.panel15.Name = "panel15";
             this.panel15.Size = new System.Drawing.Size(337, 121);
             this.panel15.TabIndex = 8;
@@ -428,12 +434,68 @@
             this.panel16.Size = new System.Drawing.Size(337, 11);
             this.panel16.TabIndex = 0;
             // 
+            // panel17
+            // 
+            this.panel17.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.panel17.Controls.Add(this.lblSchedules);
+            this.panel17.Controls.Add(this.label3);
+            this.panel17.Controls.Add(this.panel18);
+            this.panel17.Location = new System.Drawing.Point(693, 490);
+            this.panel17.Name = "panel17";
+            this.panel17.Size = new System.Drawing.Size(337, 121);
+            this.panel17.TabIndex = 9;
+            // 
+            // lblSchedules
+            // 
+            this.lblSchedules.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblSchedules.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSchedules.ForeColor = System.Drawing.Color.White;
+            this.lblSchedules.Location = new System.Drawing.Point(0, 50);
+            this.lblSchedules.Name = "lblSchedules";
+            this.lblSchedules.Size = new System.Drawing.Size(337, 71);
+            this.lblSchedules.TabIndex = 2;
+            this.lblSchedules.Text = "10000";
+            this.lblSchedules.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // label3
+            // 
+            this.label3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(0, 11);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(337, 39);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "No. of Schedules";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // panel18
+            // 
+            this.panel18.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.panel18.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel18.Location = new System.Drawing.Point(0, 0);
+            this.panel18.Name = "panel18";
+            this.panel18.Size = new System.Drawing.Size(337, 11);
+            this.panel18.TabIndex = 0;
+            // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(244, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(574, 122);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Seating Arrangement Checker with Attendance Monitoring System";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // frmDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1038, 720);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.panel17);
             this.Controls.Add(this.panel15);
             this.Controls.Add(this.panel13);
             this.Controls.Add(this.panel11);
@@ -458,6 +520,7 @@
             this.panel11.ResumeLayout(false);
             this.panel13.ResumeLayout(false);
             this.panel15.ResumeLayout(false);
+            this.panel17.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -474,7 +537,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblAttendances;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panel7;
@@ -497,5 +560,10 @@
         private System.Windows.Forms.Label lblComputers;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Panel panel16;
+        private System.Windows.Forms.Panel panel17;
+        private System.Windows.Forms.Label lblSchedules;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Panel panel18;
+        private System.Windows.Forms.Label label2;
     }
 }

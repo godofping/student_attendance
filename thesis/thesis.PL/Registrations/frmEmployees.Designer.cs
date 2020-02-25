@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.pnlMain = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
@@ -49,13 +51,11 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.txtLastName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label8 = new System.Windows.Forms.Label();
             this.pnlMain.SuspendLayout();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.pnlForm.SuspendLayout();
             this.gb.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlMain
@@ -69,6 +69,27 @@
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(1038, 720);
             this.pnlMain.TabIndex = 11;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(141)))), ((int)(((byte)(152)))));
+            this.panel1.Controls.Add(this.label8);
+            this.panel1.Location = new System.Drawing.Point(424, 12);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(216, 37);
+            this.panel1.TabIndex = 12;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(28, 9);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(165, 21);
+            this.label8.TabIndex = 9;
+            this.label8.Text = "Manage Employees";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnAdd
             // 
@@ -292,35 +313,14 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Last Name *";
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(141)))), ((int)(((byte)(152)))));
-            this.panel1.Controls.Add(this.label8);
-            this.panel1.Location = new System.Drawing.Point(434, 9);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(216, 37);
-            this.panel1.TabIndex = 12;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(28, 9);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(165, 21);
-            this.label8.TabIndex = 9;
-            this.label8.Text = "Manage Employees";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // frmEmployees
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1038, 720);
-            this.Controls.Add(this.pnlForm);
             this.Controls.Add(this.pnlMain);
+            this.Controls.Add(this.pnlForm);
             this.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -331,12 +331,12 @@
             this.Load += new System.EventHandler(this.frmEmployees_Load);
             this.pnlMain.ResumeLayout(false);
             this.pnlMain.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             this.pnlForm.ResumeLayout(false);
             this.gb.ResumeLayout(false);
             this.gb.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }

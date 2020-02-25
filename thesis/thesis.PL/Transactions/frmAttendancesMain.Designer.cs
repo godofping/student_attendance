@@ -33,7 +33,6 @@
             this.lblSubject = new System.Windows.Forms.Label();
             this.lblTime = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.timerForAttendance = new System.Windows.Forms.Timer(this.components);
             this.lblMessage = new System.Windows.Forms.Label();
             this.timerForClearing = new System.Windows.Forms.Timer(this.components);
@@ -81,16 +80,6 @@
             this.lblDate.Text = "JANUARY 29 2020";
             this.lblDate.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // label4
-            // 
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(694, 580);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(574, 122);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Seating Arrangement Checker with Attendance Monitoring System";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // timerForAttendance
             // 
             this.timerForAttendance.Interval = 1000;
@@ -131,7 +120,6 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1280, 720);
             this.Controls.Add(this.lblMessage);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.lblDate);
             this.Controls.Add(this.lblTime);
             this.Controls.Add(this.lblSubject);
@@ -159,7 +147,6 @@
         private System.Windows.Forms.Label lblSubject;
         private System.Windows.Forms.Label lblTime;
         private System.Windows.Forms.Label lblDate;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Timer timerForAttendance;
         private System.Windows.Forms.Label lblMessage;
         private System.Windows.Forms.Timer timerForClearing;

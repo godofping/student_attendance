@@ -1,0 +1,13 @@
+send warning for 3 absents
+
+play sound if 5 minutes before out.
+
+
+teacher.
+
+attendances
+>>>can update the status
+
+teacher module
+
+
