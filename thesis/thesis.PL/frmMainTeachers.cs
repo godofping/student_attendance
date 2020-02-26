@@ -47,7 +47,7 @@ namespace thesis.PL
 
             methods.ChangePanelDisplay(frm, pnlMain);
 
-            var buttons = new Button[] { btnDashboard, btnAttendances, btnReports};
+            var buttons = new Button[] { btnAttendances, btnManageStudentsSubjectsEnrolled, btnReports};
 
             foreach (Button button in buttons)
             {
@@ -65,27 +65,48 @@ namespace thesis.PL
 
         }
 
+
+
         private void btnLogout_Click(object sender, EventArgs e)
         {
             frmLogin.Show();
             this.Close();
         }
 
-        private void btnDashboard_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnAttendances_Click(object sender, EventArgs e)
         {
+            var pleaseWait = new frmLoading();
+            pleaseWait.Show();
+            Application.DoEvents();
 
+            var frm = new Transactions.frmAttendancesTeacher(employeeEL);
+            ActiveButton(frm, btnAttendances);
+
+            pleaseWait.Close();
         }
 
         private void btnReports_Click(object sender, EventArgs e)
         {
+            var pleaseWait = new frmLoading();
+            pleaseWait.Show();
+            Application.DoEvents();
 
+            var frm = new frmReportsTeacher(employeeEL);
+            ActiveButton(frm, btnReports);
+
+            pleaseWait.Close();
         }
 
-   
+        private void btnManageStudentsSubjectsEnrolled_Click(object sender, EventArgs e)
+        {
+            var pleaseWait = new frmLoading();
+            pleaseWait.Show();
+            Application.DoEvents();
+
+            var frm = new Registrations.frmStudentsSubjectEnrollmentTeacher(employeeEL);
+            ActiveButton(frm, btnManageStudentsSubjectsEnrolled);
+
+            pleaseWait.Close();
+        }
     }
 }

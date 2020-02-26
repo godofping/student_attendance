@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 25, 2020 at 07:33 AM
--- Server version: 10.4.6-MariaDB
--- PHP Version: 7.3.9
+-- Generation Time: Feb 26, 2020 at 04:41 AM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -361,7 +361,13 @@ INSERT INTO `studentssubjectenrollment` (`studentsubjectenrollmentid`, `studenti
 (42, 1135, 11, 5, 0),
 (43, 1136, 11, 6, 0),
 (44, 1137, 11, 7, 0),
-(45, 1138, 11, 8, 0);
+(45, 1138, 11, 8, 0),
+(46, 1133, 12, 3, 0),
+(47, 1134, 12, 4, 0),
+(48, 1135, 12, 5, 0),
+(49, 1136, 12, 6, 0),
+(50, 1137, 12, 7, 0),
+(51, 1138, 12, 8, 0);
 
 -- --------------------------------------------------------
 
@@ -449,7 +455,8 @@ INSERT INTO `subjects` (`subjectid`, `subjectcode`, `subjectdescription`) VALUES
 (8, 'subject 2', 'a'),
 (9, 'subject 3', 'a'),
 (10, 'subject 4', 'a'),
-(11, 'subject 5', 'a');
+(11, 'subject 5', 'a'),
+(12, 'asd', 'aadasda');
 
 -- --------------------------------------------------------
 
@@ -511,7 +518,8 @@ INSERT INTO `subjectsscheduling` (`subjectscheduleid`, `subjectid`, `roomid`, `e
 (8, 8, 4, 2, '12:00 PM', '01:00 PM', 0, 1, 0, 1, 0, 0, 0),
 (9, 9, 4, 2, '01:00 PM', '02:00 PM', 0, 1, 0, 1, 0, 0, 0),
 (10, 10, 4, 2, '02:00 PM', '03:00 PM', 0, 1, 0, 1, 0, 0, 0),
-(11, 11, 4, 2, '03:00 PM', '04:00 PM', 0, 1, 0, 1, 0, 0, 0);
+(11, 11, 4, 2, '03:00 PM', '04:00 PM', 0, 1, 0, 1, 0, 0, 0),
+(12, 12, 4, 3, '12:00 PM', '01:00 PM', 1, 0, 1, 0, 1, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -532,6 +540,7 @@ CREATE TABLE `subjectsscheduling_view` (
 ,`friday` tinyint(1)
 ,`saturday` tinyint(1)
 ,`sunday` tinyint(1)
+,`employeeid` int(6)
 );
 
 -- --------------------------------------------------------
@@ -622,7 +631,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `subjectsscheduling_view`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `subjectsscheduling_view`  AS  select `subjectsscheduling`.`subjectscheduleid` AS `subjectscheduleid`,concat(`subjects`.`subjectcode`,' - ',`subjects`.`subjectdescription`) AS `subject`,concat(`employees`.`employeelastname`,', ',`employees`.`employeefirstname`,' ',`employees`.`employeemiddlename`) AS `employeefullname`,concat(`rooms`.`room`,' - ',`buildings`.`building`) AS `roombuilding`,concat(`subjectsscheduling`.`start`,' - ',`subjectsscheduling`.`end`) AS `time`,`subjectsscheduling`.`monday` AS `monday`,`subjectsscheduling`.`tuesday` AS `tuesday`,`subjectsscheduling`.`wednesday` AS `wednesday`,`subjectsscheduling`.`thursday` AS `thursday`,`subjectsscheduling`.`friday` AS `friday`,`subjectsscheduling`.`saturday` AS `saturday`,`subjectsscheduling`.`sunday` AS `sunday` from ((((`subjectsscheduling` join `subjects` on(`subjectsscheduling`.`subjectid` = `subjects`.`subjectid`)) join `rooms` on(`subjectsscheduling`.`roomid` = `rooms`.`roomid`)) join `buildings` on(`rooms`.`buildingid` = `buildings`.`buildingid`)) join `employees` on(`subjectsscheduling`.`employeeid` = `employees`.`employeeid`)) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `subjectsscheduling_view`  AS  select `subjectsscheduling`.`subjectscheduleid` AS `subjectscheduleid`,concat(`subjects`.`subjectcode`,' - ',`subjects`.`subjectdescription`) AS `subject`,concat(`employees`.`employeelastname`,', ',`employees`.`employeefirstname`,' ',`employees`.`employeemiddlename`) AS `employeefullname`,concat(`rooms`.`room`,' - ',`buildings`.`building`) AS `roombuilding`,concat(`subjectsscheduling`.`start`,' - ',`subjectsscheduling`.`end`) AS `time`,`subjectsscheduling`.`monday` AS `monday`,`subjectsscheduling`.`tuesday` AS `tuesday`,`subjectsscheduling`.`wednesday` AS `wednesday`,`subjectsscheduling`.`thursday` AS `thursday`,`subjectsscheduling`.`friday` AS `friday`,`subjectsscheduling`.`saturday` AS `saturday`,`subjectsscheduling`.`sunday` AS `sunday`,`employees`.`employeeid` AS `employeeid` from ((((`subjectsscheduling` join `subjects` on(`subjectsscheduling`.`subjectid` = `subjects`.`subjectid`)) join `rooms` on(`subjectsscheduling`.`roomid` = `rooms`.`roomid`)) join `buildings` on(`rooms`.`buildingid` = `buildings`.`buildingid`)) join `employees` on(`subjectsscheduling`.`employeeid` = `employees`.`employeeid`)) ;
 
 --
 -- Indexes for dumped tables
@@ -761,19 +770,19 @@ ALTER TABLE `students`
 -- AUTO_INCREMENT for table `studentssubjectenrollment`
 --
 ALTER TABLE `studentssubjectenrollment`
-  MODIFY `studentsubjectenrollmentid` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `studentsubjectenrollmentid` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT for table `subjects`
 --
 ALTER TABLE `subjects`
-  MODIFY `subjectid` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `subjectid` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `subjectsscheduling`
 --
 ALTER TABLE `subjectsscheduling`
-  MODIFY `subjectscheduleid` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `subjectscheduleid` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Constraints for dumped tables

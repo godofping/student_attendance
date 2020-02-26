@@ -84,7 +84,7 @@ namespace thesis.PL.Registrations
             PopulateDGV();
             methods.DGVTheme(dgv);
             methods.DGVRenameColumns(dgv, "subjectscheduleid", "Subject", "Employee Name", "Room - Building", "Time", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun");
-            methods.DGVHiddenColumns(dgv, "subjectscheduleid");
+            methods.DGVHiddenColumns(dgv, "subjectscheduleid", "employeeid");
             methods.DGVFillWeights(dgv, new object[]{1,2,3,4,5,6,7,8,9,10,11}, new int[]{ 20,20,20,15,4,4,4,4,3,3,3 });
             methods.DGVBUTTONEditDelete(dgv);
             

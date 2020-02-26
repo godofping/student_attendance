@@ -133,6 +133,12 @@
     <Compile Include="frmReports.Designer.cs">
       <DependentUpon>frmReports.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmReportsTeacher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReportsTeacher.Designer.cs">
+      <DependentUpon>frmReportsTeacher.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmSettings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -184,6 +190,12 @@
     <Compile Include="Registrations\frmStudentsSubjectEnrollment.Designer.cs">
       <DependentUpon>frmStudentsSubjectEnrollment.cs</DependentUpon>
     </Compile>
+    <Compile Include="Registrations\frmStudentsSubjectEnrollmentTeacher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registrations\frmStudentsSubjectEnrollmentTeacher.Designer.cs">
+      <DependentUpon>frmStudentsSubjectEnrollmentTeacher.cs</DependentUpon>
+    </Compile>
     <Compile Include="Registrations\frmSubjects.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -220,6 +232,12 @@
     <Compile Include="Reports\frmReportStudentProfileInformation.Designer.cs">
       <DependentUpon>frmReportStudentProfileInformation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\frmReportViewAttendanceTeacher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmReportViewAttendanceTeacher.Designer.cs">
+      <DependentUpon>frmReportViewAttendanceTeacher.cs</DependentUpon>
+    </Compile>
     <Compile Include="SMS.cs" />
     <Compile Include="Transactions\frmAttendances.cs">
       <SubType>Form</SubType>
@@ -232,6 +250,12 @@
     </Compile>
     <Compile Include="Transactions\frmAttendancesMain.Designer.cs">
       <DependentUpon>frmAttendancesMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transactions\frmAttendancesTeacher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transactions\frmAttendancesTeacher.Designer.cs">
+      <DependentUpon>frmAttendancesTeacher.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="frmCaptureImage.resx">
       <DependentUpon>frmCaptureImage.cs</DependentUpon>
@@ -262,6 +286,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmReports.resx">
       <DependentUpon>frmReports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReportsTeacher.resx">
+      <DependentUpon>frmReportsTeacher.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSettings.resx">
       <DependentUpon>frmSettings.cs</DependentUpon>
@@ -297,6 +324,9 @@
     <EmbeddedResource Include="Registrations\frmStudentsSubjectEnrollment.resx">
       <DependentUpon>frmStudentsSubjectEnrollment.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Registrations\frmStudentsSubjectEnrollmentTeacher.resx">
+      <DependentUpon>frmStudentsSubjectEnrollmentTeacher.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Registrations\frmSubjects.resx">
       <DependentUpon>frmSubjects.cs</DependentUpon>
     </EmbeddedResource>
@@ -317,11 +347,17 @@
     <EmbeddedResource Include="Reports\frmReportStudentProfileInformation.resx">
       <DependentUpon>frmReportStudentProfileInformation.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmReportViewAttendanceTeacher.resx">
+      <DependentUpon>frmReportViewAttendanceTeacher.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Transactions\frmAttendances.resx">
       <DependentUpon>frmAttendances.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Transactions\frmAttendancesMain.resx">
       <DependentUpon>frmAttendancesMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transactions\frmAttendancesTeacher.resx">
+      <DependentUpon>frmAttendancesTeacher.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Data\systemDataset.xsc">
       <DependentUpon>systemDataset.xsd</DependentUpon>

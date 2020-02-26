@@ -20,6 +20,23 @@ namespace thesis.DL.Registrations
 
         }
 
+
+        public DataTable List(String keyword, int id)
+        {
+
+            using (var cmd = new MySqlCommand())
+            {
+                cmd.CommandText = "select * from subjectsscheduling_view where (subject like @keyword or employeefullname like @keyword or roombuilding like @keyword or time like @keyword ) and employeeid = @id";
+
+                cmd.Parameters.AddWithValue("@keyword", keyword + "%");
+                cmd.Parameters.AddWithValue("@id", id);
+                return methods.executeQuery(cmd);
+            }
+
+        }
+
+
+
         public DataTable List(EL.Registrations.Subjectsscheduling subjectschedulingEL)
         {
 

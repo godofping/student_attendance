@@ -29,14 +29,13 @@
         private void InitializeComponent()
         {
             this.pnlMenu = new System.Windows.Forms.Panel();
+            this.lblWelcome = new System.Windows.Forms.Label();
+            this.btnLogout = new System.Windows.Forms.Button();
+            this.pnlMain = new System.Windows.Forms.Panel();
             this.btnManageStudentsSubjectsEnrolled = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnReports = new System.Windows.Forms.Button();
             this.btnAttendances = new System.Windows.Forms.Button();
-            this.lblWelcome = new System.Windows.Forms.Label();
-            this.btnDashboard = new System.Windows.Forms.Button();
-            this.btnLogout = new System.Windows.Forms.Button();
-            this.pnlMain = new System.Windows.Forms.Panel();
             this.pnlMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -49,13 +48,46 @@
             this.pnlMenu.Controls.Add(this.btnReports);
             this.pnlMenu.Controls.Add(this.btnAttendances);
             this.pnlMenu.Controls.Add(this.lblWelcome);
-            this.pnlMenu.Controls.Add(this.btnDashboard);
             this.pnlMenu.Controls.Add(this.btnLogout);
             this.pnlMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlMenu.Location = new System.Drawing.Point(0, 0);
             this.pnlMenu.Name = "pnlMenu";
             this.pnlMenu.Size = new System.Drawing.Size(242, 720);
             this.pnlMenu.TabIndex = 3;
+            // 
+            // lblWelcome
+            // 
+            this.lblWelcome.Font = new System.Drawing.Font("Century Gothic", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWelcome.ForeColor = System.Drawing.Color.White;
+            this.lblWelcome.Location = new System.Drawing.Point(3, 123);
+            this.lblWelcome.Name = "lblWelcome";
+            this.lblWelcome.Size = new System.Drawing.Size(233, 63);
+            this.lblWelcome.TabIndex = 9;
+            this.lblWelcome.Text = "Welcome.";
+            this.lblWelcome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnLogout
+            // 
+            this.btnLogout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
+            this.btnLogout.FlatAppearance.BorderSize = 0;
+            this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogout.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogout.ForeColor = System.Drawing.Color.White;
+            this.btnLogout.Location = new System.Drawing.Point(3, 651);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(236, 57);
+            this.btnLogout.TabIndex = 7;
+            this.btnLogout.Text = "Logout";
+            this.btnLogout.UseVisualStyleBackColor = false;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            // 
+            // pnlMain
+            // 
+            this.pnlMain.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pnlMain.Location = new System.Drawing.Point(242, 0);
+            this.pnlMain.Name = "pnlMain";
+            this.pnlMain.Size = new System.Drawing.Size(1038, 720);
+            this.pnlMain.TabIndex = 4;
             // 
             // btnManageStudentsSubjectsEnrolled
             // 
@@ -66,13 +98,14 @@
             this.btnManageStudentsSubjectsEnrolled.ForeColor = System.Drawing.Color.White;
             this.btnManageStudentsSubjectsEnrolled.Image = global::thesis.PL.Properties.Resources.calendar__2_;
             this.btnManageStudentsSubjectsEnrolled.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnManageStudentsSubjectsEnrolled.Location = new System.Drawing.Point(3, 281);
+            this.btnManageStudentsSubjectsEnrolled.Location = new System.Drawing.Point(0, 235);
             this.btnManageStudentsSubjectsEnrolled.Name = "btnManageStudentsSubjectsEnrolled";
             this.btnManageStudentsSubjectsEnrolled.Size = new System.Drawing.Size(236, 55);
             this.btnManageStudentsSubjectsEnrolled.TabIndex = 18;
             this.btnManageStudentsSubjectsEnrolled.Text = "Manage Student Subjects Enrolled";
             this.btnManageStudentsSubjectsEnrolled.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnManageStudentsSubjectsEnrolled.UseVisualStyleBackColor = false;
+            this.btnManageStudentsSubjectsEnrolled.Click += new System.EventHandler(this.btnManageStudentsSubjectsEnrolled_Click);
             // 
             // pictureBox1
             // 
@@ -93,13 +126,14 @@
             this.btnReports.ForeColor = System.Drawing.Color.White;
             this.btnReports.Image = global::thesis.PL.Properties.Resources.report;
             this.btnReports.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReports.Location = new System.Drawing.Point(3, 342);
+            this.btnReports.Location = new System.Drawing.Point(0, 296);
             this.btnReports.Name = "btnReports";
             this.btnReports.Size = new System.Drawing.Size(236, 40);
             this.btnReports.TabIndex = 14;
             this.btnReports.Text = "Reports";
             this.btnReports.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnReports.UseVisualStyleBackColor = false;
+            this.btnReports.Click += new System.EventHandler(this.btnReports_Click);
             // 
             // btnAttendances
             // 
@@ -110,64 +144,14 @@
             this.btnAttendances.ForeColor = System.Drawing.Color.White;
             this.btnAttendances.Image = global::thesis.PL.Properties.Resources.list;
             this.btnAttendances.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAttendances.Location = new System.Drawing.Point(3, 235);
+            this.btnAttendances.Location = new System.Drawing.Point(0, 189);
             this.btnAttendances.Name = "btnAttendances";
             this.btnAttendances.Size = new System.Drawing.Size(236, 40);
             this.btnAttendances.TabIndex = 10;
             this.btnAttendances.Text = "Manage Attendances";
             this.btnAttendances.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAttendances.UseVisualStyleBackColor = false;
-            // 
-            // lblWelcome
-            // 
-            this.lblWelcome.Font = new System.Drawing.Font("Century Gothic", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWelcome.ForeColor = System.Drawing.Color.White;
-            this.lblWelcome.Location = new System.Drawing.Point(3, 123);
-            this.lblWelcome.Name = "lblWelcome";
-            this.lblWelcome.Size = new System.Drawing.Size(233, 63);
-            this.lblWelcome.TabIndex = 9;
-            this.lblWelcome.Text = "Welcome.";
-            this.lblWelcome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btnDashboard
-            // 
-            this.btnDashboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
-            this.btnDashboard.FlatAppearance.BorderSize = 0;
-            this.btnDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDashboard.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDashboard.ForeColor = System.Drawing.Color.White;
-            this.btnDashboard.Image = global::thesis.PL.Properties.Resources.dashboard__1_;
-            this.btnDashboard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDashboard.Location = new System.Drawing.Point(3, 189);
-            this.btnDashboard.Name = "btnDashboard";
-            this.btnDashboard.Size = new System.Drawing.Size(236, 40);
-            this.btnDashboard.TabIndex = 8;
-            this.btnDashboard.Text = "Dashboard";
-            this.btnDashboard.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnDashboard.UseVisualStyleBackColor = false;
-            // 
-            // btnLogout
-            // 
-            this.btnLogout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
-            this.btnLogout.FlatAppearance.BorderSize = 0;
-            this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogout.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogout.ForeColor = System.Drawing.Color.White;
-            this.btnLogout.Location = new System.Drawing.Point(3, 651);
-            this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(236, 57);
-            this.btnLogout.TabIndex = 7;
-            this.btnLogout.Text = "Logout";
-            this.btnLogout.UseVisualStyleBackColor = false;
-            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
-            // 
-            // pnlMain
-            // 
-            this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlMain.Location = new System.Drawing.Point(0, 0);
-            this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(1280, 720);
-            this.pnlMain.TabIndex = 4;
+            this.btnAttendances.Click += new System.EventHandler(this.btnAttendances_Click);
             // 
             // frmMainTeachers
             // 
@@ -197,7 +181,6 @@
         private System.Windows.Forms.Button btnReports;
         private System.Windows.Forms.Button btnAttendances;
         private System.Windows.Forms.Label lblWelcome;
-        private System.Windows.Forms.Button btnDashboard;
         private System.Windows.Forms.Button btnLogout;
         public System.Windows.Forms.Panel pnlMain;
     }

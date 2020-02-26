@@ -15,10 +15,18 @@ namespace thesis.BL.Registrations
             return subjectschedulingDL.List(keyword);
         }
 
+        public DataTable List(String keyword, int id)
+        {
+
+            return subjectschedulingDL.List(keyword, id);
+
+        }
+
         public DataTable List(EL.Registrations.Subjectsscheduling subjectschedulingEL)
         {
             return subjectschedulingDL.List(subjectschedulingEL);
         }
+
 
         public DataTable ListTeacherSchedule(string val)
         {

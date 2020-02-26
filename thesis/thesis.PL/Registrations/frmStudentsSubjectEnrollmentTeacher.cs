@@ -11,12 +11,13 @@ using System.Windows.Forms;
 
 namespace thesis.PL.Registrations
 {
-    public partial class frmStudentsSubjectEnrollment : Form
+    public partial class frmStudentsSubjectEnrollmentTeacher : Form
     {
-
+        
         Thread delayedCalculationThreadDGV;
         int delay = 0;
 
+        EL.Registrations.Employees employeeEL;
         EL.Registrations.Studentssubjectenrollment studentsubjectenrollmentEL = new EL.Registrations.Studentssubjectenrollment();
         EL.Registrations.Subjectsscheduling subjectschedulingEL = new EL.Registrations.Subjectsscheduling();
         EL.Registrations.Students studentEL = new EL.Registrations.Students();
@@ -31,11 +32,10 @@ namespace thesis.PL.Registrations
         BL.Registrations.Rooms roomBL = new BL.Registrations.Rooms();
         BL.Registrations.Buildings buildingBL = new BL.Registrations.Buildings();
 
-
-        public frmStudentsSubjectEnrollment()
+        public frmStudentsSubjectEnrollmentTeacher(EL.Registrations.Employees _employeeEL)
         {
             InitializeComponent();
-    
+            employeeEL = _employeeEL;
         }
 
         protected override CreateParams CreateParams
@@ -55,6 +55,7 @@ namespace thesis.PL.Registrations
                 DoubleBuffered = true;
             }
         }
+
 
         private void CalculateAfterStopTypingDGV()
         {
@@ -93,9 +94,9 @@ namespace thesis.PL.Registrations
 
             PopulateDGVStudentsSubjectEnrolled();
             methods.DGVTheme(dgvStudentsSubjectEnrolled);
-            methods.DGVRenameColumns(dgvStudentsSubjectEnrolled, "studentsubjectenrollmentid", "subjectscheduleid", "Student Name", "Seat", "Is Drop?","studentid", "seatid");
+            methods.DGVRenameColumns(dgvStudentsSubjectEnrolled, "studentsubjectenrollmentid", "subjectscheduleid", "Student Name", "Seat", "Is Drop?", "studentid", "seatid");
             methods.DGVHiddenColumns(dgvStudentsSubjectEnrolled, "studentsubjectenrollmentid", "subjectscheduleid", "studentid", "seatid");
-            methods.DGVFillWeights(dgvStudentsSubjectEnrolled, new object[] { 2,3,4 }, new int[] { 50,30,20 });
+            methods.DGVFillWeights(dgvStudentsSubjectEnrolled, new object[] { 2, 3, 4 }, new int[] { 50, 30, 20 });
             methods.DGVBUTTONRemove(dgvStudentsSubjectEnrolled);
 
         }
@@ -108,7 +109,7 @@ namespace thesis.PL.Registrations
 
         private void PopulateDGV()
         {
-            methods.LoadDGV(dgv, subjectschedulingBL.List(txtSearch.Text));
+            methods.LoadDGV(dgv, subjectschedulingBL.List(txtSearch.Text, employeeEL.Employeeid));
         }
 
         private void PopulateDGVStudentsSubjectEnrolled()
@@ -119,7 +120,7 @@ namespace thesis.PL.Registrations
 
         private void ResetForm()
         {
-            methods.ClearCB(cbStudents,cbSeat);
+            methods.ClearCB(cbStudents, cbSeat);
         }
 
         private void ShowForm(bool bol)
@@ -144,7 +145,7 @@ namespace thesis.PL.Registrations
             }
         }
 
-        private void frmStudentsSubjectEnrollment_Load(object sender, EventArgs e)
+        private void frmStudentsSubjectEnrollmentTeacher_Load(object sender, EventArgs e)
         {
             ShowForm(false);
             ManageDGV();
@@ -155,12 +156,11 @@ namespace thesis.PL.Registrations
             ShowForm(false);
         }
 
+      
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             CalculateAfterStopTypingDGV();
         }
-
-
 
         private void dgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -171,9 +171,9 @@ namespace thesis.PL.Registrations
             if (e.ColumnIndex == 0)
             {
 
-                subjectschedulingEL.Subjectscheduleid =  studentsubjectenrollmentEL.Subjectscheduleid;
+                subjectschedulingEL.Subjectscheduleid = studentsubjectenrollmentEL.Subjectscheduleid;
                 subjectschedulingEL = subjectschedulingBL.Select(subjectschedulingEL);
-               
+
                 var timesched = "";
                 var dayssched = "";
 
@@ -209,12 +209,9 @@ namespace thesis.PL.Registrations
                 ShowForm(true);
                 gb.Text = "Manage students enrolled in " + dgv.Rows[e.RowIndex].Cells["subject"].Value.ToString();
 
-        
+
             }
-
         }
-
-       
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
@@ -250,9 +247,9 @@ namespace thesis.PL.Registrations
 
         private void dgvStudentsSubjectEnrolled_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 0)
+            if(e.ColumnIndex == 0)
                 studentsubjectenrollmentEL.Studentsubjectenrollmentid = Convert.ToInt32(dgvStudentsSubjectEnrolled.Rows[e.RowIndex].Cells["studentsubjectenrollmentid"].Value);
-       
+
             if (e.ColumnIndex == 0)
             {
                 DialogResult dialogResult = MessageBox.Show("Are you sure to remove this selected student from this schedule?", "Removing", MessageBoxButtons.YesNo);
@@ -262,7 +259,5 @@ namespace thesis.PL.Registrations
                 }
             }
         }
-
-   
     }
 }
