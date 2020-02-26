@@ -67,7 +67,7 @@ namespace thesis.DL.Transactions
 
             using (var cmd = new MySqlCommand())
             {
-                cmd.CommandText = "select attendanceid, studentsubjectenrollmentid, createdat, subjectscheduleid, studentfullname, attendanceintime, attendanceouttime,status from students_attendance_view where subjectscheduleid = @subjectscheduleid and createdat between @attendanceintime and @attendanceouttime and (studentfullname like @status or status like @status) order by studentfullname";
+                cmd.CommandText = "select attendanceid, studentsubjectenrollmentid, createdat, subjectscheduleid, studentfullname, seat, attendanceintime, attendanceouttime,status from students_attendance_view where subjectscheduleid = @subjectscheduleid and createdat between @attendanceintime and @attendanceouttime and (studentfullname like @status or status like @status) order by studentfullname";
 
                 cmd.Parameters.AddWithValue("@subjectscheduleid", attendanceEL.Studentsubjectenrollmentid);
                 cmd.Parameters.AddWithValue("@attendanceintime", attendanceEL.Attendanceintime);
