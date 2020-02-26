@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 26, 2020 at 04:41 AM
+-- Generation Time: Feb 26, 2020 at 04:55 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.2
 
@@ -400,6 +400,7 @@ CREATE TABLE `students_attendance_view` (
 ,`createdat` datetime
 ,`status` varchar(60)
 ,`subjectscheduleid` int(6)
+,`seat` varchar(60)
 ,`studentfullname` varchar(183)
 );
 
@@ -595,7 +596,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `students_attendance_view`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `students_attendance_view`  AS  select `attendances`.`attendanceid` AS `attendanceid`,`attendances`.`studentsubjectenrollmentid` AS `studentsubjectenrollmentid`,`attendances`.`attendanceintime` AS `attendanceintime`,`attendances`.`attendanceouttime` AS `attendanceouttime`,`attendances`.`createdat` AS `createdat`,`attendances`.`status` AS `status`,`studentssubjectenrollment`.`subjectscheduleid` AS `subjectscheduleid`,concat(`students`.`studentlastname`,', ',`students`.`studentfirstname`,' ',`students`.`studentmiddlename`) AS `studentfullname` from ((`attendances` join `studentssubjectenrollment` on(`attendances`.`studentsubjectenrollmentid` = `studentssubjectenrollment`.`studentsubjectenrollmentid`)) join `students` on(`studentssubjectenrollment`.`studentid` = `students`.`studentid`)) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `students_attendance_view`  AS  select `attendances`.`attendanceid` AS `attendanceid`,`attendances`.`studentsubjectenrollmentid` AS `studentsubjectenrollmentid`,`attendances`.`attendanceintime` AS `attendanceintime`,`attendances`.`attendanceouttime` AS `attendanceouttime`,`attendances`.`createdat` AS `createdat`,`attendances`.`status` AS `status`,`studentssubjectenrollment`.`subjectscheduleid` AS `subjectscheduleid`,`seats`.`seat` AS `seat`,concat(`students`.`studentlastname`,', ',`students`.`studentfirstname`,' ',`students`.`studentmiddlename`) AS `studentfullname` from (((`attendances` join `studentssubjectenrollment` on(`attendances`.`studentsubjectenrollmentid` = `studentssubjectenrollment`.`studentsubjectenrollmentid`)) join `seats` on(`studentssubjectenrollment`.`seatid` = `seats`.`seatid`)) join `students` on(`studentssubjectenrollment`.`studentid` = `students`.`studentid`)) ;
 
 -- --------------------------------------------------------
 

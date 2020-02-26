@@ -59,17 +59,9 @@ namespace thesis.PL.Transactions
                 methods.LoadDGV(dgv, attendanceBL.ListAttendanceAdmin(attendanceEL));
                 methods.DGVRenameColumns(dgv, "attendanceid", "studentsubjectenrollmentid", "createdat", "subjectscheduleid", "Name", "Seat", "Time In", "Time Out", "Status");
                 methods.DGVHiddenColumns(dgv, "attendanceid", "studentsubjectenrollmentid", "createdat", "subjectscheduleid");
-
-
             }
-
-
-
-
-
         }
 
-  
 
         private void PopulateCBSubjectSchedule()
         {
