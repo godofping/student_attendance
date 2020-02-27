@@ -52,7 +52,6 @@
             this.cbComputers.Name = "cbComputers";
             this.cbComputers.Size = new System.Drawing.Size(215, 29);
             this.cbComputers.TabIndex = 26;
-   
             // 
             // btnSet
             // 
@@ -73,7 +72,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(409, 115);
             this.Controls.Add(this.btnSet);
             this.Controls.Add(this.label8);

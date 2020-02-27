@@ -23,17 +23,23 @@ namespace thesis.BL.Transactions
             return attendanceDL.CheckIfHasAttendance(attendanceEL);
         }
 
+        public DataTable ListAttendanceByDate(EL.Transactions.Attendances attendanceEL)
+        {
+
+            return attendanceDL.ListAttendanceByDate(attendanceEL);
+        }
+
         public long Insert(EL.Transactions.Attendances attendanceEL)
         {
             return attendanceDL.Insert(attendanceEL);
         }
 
-        public Boolean AttendanceIn(EL.Transactions.Attendances attendanceEL)
+        public long AttendanceIn(EL.Transactions.Attendances attendanceEL)
         {
             return attendanceDL.AttendanceIn(attendanceEL);
         }
 
-        public Boolean AttendanceOut(EL.Transactions.Attendances attendanceEL)
+        public long AttendanceOut(EL.Transactions.Attendances attendanceEL)
         {
             return attendanceDL.AttendanceOut(attendanceEL);
         }

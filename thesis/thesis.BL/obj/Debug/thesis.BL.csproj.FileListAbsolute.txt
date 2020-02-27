@@ -5,8 +5,8 @@ C:\xampp\htdocs\student_attendance\thesis\thesis.BL\bin\Debug\thesis.EL.dll
 C:\xampp\htdocs\student_attendance\thesis\thesis.BL\bin\Debug\MySql.Data.dll
 C:\xampp\htdocs\student_attendance\thesis\thesis.BL\bin\Debug\thesis.DL.pdb
 C:\xampp\htdocs\student_attendance\thesis\thesis.BL\bin\Debug\thesis.EL.pdb
+C:\xampp\htdocs\student_attendance\thesis\thesis.BL\bin\Debug\MySql.Data.xml
 C:\xampp\htdocs\student_attendance\thesis\thesis.BL\obj\Debug\thesis.BL.csprojAssemblyReference.cache
 C:\xampp\htdocs\student_attendance\thesis\thesis.BL\obj\Debug\thesis.BL.csproj.CopyComplete
 C:\xampp\htdocs\student_attendance\thesis\thesis.BL\obj\Debug\thesis.BL.dll
 C:\xampp\htdocs\student_attendance\thesis\thesis.BL\obj\Debug\thesis.BL.pdb
-C:\xampp\htdocs\student_attendance\thesis\thesis.BL\bin\Debug\MySql.Data.xml

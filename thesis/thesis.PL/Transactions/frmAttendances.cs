@@ -12,9 +12,73 @@ namespace thesis.PL.Transactions
 {
     public partial class frmAttendances : Form
     {
+
+        EL.Registrations.Employees employeeEL = new EL.Registrations.Employees();
+        EL.Registrations.Subjectsscheduling subjectschedulingEL = new EL.Registrations.Subjectsscheduling();
+
+        BL.Registrations.Employees employeeBL = new BL.Registrations.Employees();
+        BL.Registrations.Subjectsscheduling subjectschedulingBL = new BL.Registrations.Subjectsscheduling();
+
         public frmAttendances()
         {
             InitializeComponent();
+        }
+
+        private void ResetForm()
+        {
+            methods.ClearCB(cbTeacher, cbSubjectSchedule);
+            methods.ClearDTPTimeOnly(dtpDate);
+
+        }
+
+        private void PopulateCBTeachers()
+        {
+            methods.LoadCB(cbTeacher, employeeBL.ListTeachers(""), "employeefullname", "employeeid");
+            employeeEL.Employeeid = Convert.ToInt32(cbTeacher.SelectedValue);
+        }
+
+        private void PopulateCBSubjectSchedule()
+        {
+            subjectschedulingEL.Employeeid = employeeEL.Employeeid;
+
+            var dt = subjectschedulingBL.ListTeacherSchedule(subjectschedulingEL);
+
+            if (dt.Rows.Count > 0)
+            {
+                methods.LoadCB(cbSubjectSchedule, dt, "subjectschedule", "subjectscheduleid");
+            }
+            else
+            {
+                cbSubjectSchedule.DataSource = null;
+                cbSubjectSchedule.Items.Clear();
+            }
+
+        }
+
+        private void btnGenerate_Click(object sender, EventArgs e)
+        {
+
+            if (methods.CheckRequiredCB(cbTeacher, cbSubjectSchedule) & methods.CheckRequiredDTP(dtpDate))
+            {
+                var frm = new Reports.frmReportViewer(Convert.ToInt32(cbSubjectSchedule.SelectedValue), dtpDate.Text);
+                frm.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Please complete all the fields with asterisk.");
+            }
+        }
+
+        private void frmAttendances_Load(object sender, EventArgs e)
+        {
+            
+            PopulateCBTeachers();
+            ResetForm();
+        }
+
+        private void cbTeacher_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            PopulateCBSubjectSchedule();
         }
     }
 }

@@ -83,7 +83,7 @@ namespace thesis.PL
 
             port.Encoding = Encoding.GetEncoding("windows-1251");
 
-            port.PortName = "COM9";
+            port.PortName = EL.Transactions.Initialization.port;
 
 
             if (port.IsOpen)

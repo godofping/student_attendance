@@ -12,6 +12,7 @@ using System.Globalization;
 using System.IO.Ports;
 using System.Threading;
 
+
 namespace thesis.PL.Transactions
 {
     public partial class frmAttendancesMain : Form
@@ -23,6 +24,7 @@ namespace thesis.PL.Transactions
         EL.Registrations.Seats seatEL = new EL.Registrations.Seats();
         EL.Registrations.Subjects subjectEL = new EL.Registrations.Subjects();
         EL.Transactions.Attendances attendanceEL = new EL.Transactions.Attendances();
+        EL.Transactions.Sms smsEL = new EL.Transactions.Sms();
   
 
         BL.Registrations.Computers computerBL = new BL.Registrations.Computers();
@@ -32,6 +34,7 @@ namespace thesis.PL.Transactions
         BL.Registrations.Seats seatBL = new BL.Registrations.Seats();
         BL.Registrations.Subjects subjectBL = new BL.Registrations.Subjects();
         BL.Transactions.Attendances attendanceBL = new BL.Transactions.Attendances();
+        BL.Transactions.Sms smsBL = new BL.Transactions.Sms();
 
         string s = "";
         int timer = 0;
@@ -89,13 +92,6 @@ namespace thesis.PL.Transactions
         }
 
 
-        private void RunSMS()
-        {
-            
-           
-
-        }
-
 
         
 
@@ -109,9 +105,13 @@ namespace thesis.PL.Transactions
             ShowDateTime();
             timerForAttendance.Start();
             timerForGenerationOfAttendance.Start();
+            timerForSendingSMS.Start();
 
             string text = System.IO.File.ReadAllText(@"C:\xampp\htdocs\student_attendance\thesis\thesis.PL\bin\Debug\temp.txt");
             EL.Transactions.Initialization.computerid = Convert.ToInt32(text);
+
+             text = System.IO.File.ReadAllText(@"C:\xampp\htdocs\student_attendance\thesis\thesis.PL\bin\Debug\port.txt");
+            EL.Transactions.Initialization.port = text;
 
             computerEL.Computerid = EL.Transactions.Initialization.computerid;
 
@@ -140,11 +140,18 @@ namespace thesis.PL.Transactions
                 var frmChangeComputer = new frmChangeComputer();
                 frmChangeComputer.ShowDialog();
             }
+
+
+            if (e.Control && e.Alt && e.KeyCode == Keys.P)
+            {
+                var frmChangePort = new frmChangePort();
+                frmChangePort.ShowDialog();
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            ShowDateTime();
+            
             GetCurrentSchedule();
         }
 
@@ -218,15 +225,35 @@ namespace thesis.PL.Transactions
                                     attendanceEL.Status = "ABSENT";
                                     bol = false;
                                 }
+
+
+                                Console.WriteLine(attendanceEL.Attendanceid);
+
+                                attendanceEL.Attendanceid = Convert.ToInt32(attendanceBL.AttendanceIn(attendanceEL));
+
+
                                 
 
-                                if (bol & attendanceBL.AttendanceIn(attendanceEL))
+                                if (bol & attendanceEL.Attendanceid > 0)
                                 {
                                     string timein = DateTime.Now.ToString("hh:mm:ss tt");
-                                    lblMessage.Text = "Your time in is " + timein  + ". Your seat is " + seatEL.Seat;
-                                    var sms = new SMS();
-                                    sms.SendSMS(studentEL.Studentfirstname + " attendance time in is " + timein + " in the subject " + subjectEL.Subjectcode, studentEL.Studentcontactpersonphonenumber);
-                                    
+                                    lblMessage.Text = "Your time in is " + timein + ". Your seat is " + seatEL.Seat;
+
+
+                                    smsEL.Attendanceid = attendanceEL.Attendanceid;
+                                    smsEL.Message = studentEL.Studentfirstname + " attendance time in is " + timein + " in the subject " + subjectEL.Subjectcode;
+                                    smsEL.Studentcontactperson = studentEL.Studentcontactperson;
+                                    smsEL.Studentcontactpersonphonenumber = studentEL.Studentcontactpersonphonenumber;
+                                    smsEL.Smsstatus = "PENDING";
+
+                                    smsBL.Insert(smsEL);
+
+
+                                }
+                                else
+                                {
+                                    lblMessage.Text = "Sorry you can not time in. You are very late.";
+
                                 }
 
 
@@ -245,14 +272,22 @@ namespace thesis.PL.Transactions
 
                                     attendanceEL.Status = "PRESENT";
 
-                                    if (attendanceBL.AttendanceOut(attendanceEL))
+                                    attendanceEL.Attendanceid = Convert.ToInt32(attendanceBL.AttendanceOut(attendanceEL));
+
+
+                                    if (attendanceEL.Attendanceid > 0)
                                     {
                                         //time out user
                                         string timeout = DateTime.Now.ToString("hh:mm:ss tt");
                                         lblMessage.Text = "Your time out is " + timeout;
-                                        var sms = new SMS();
-                                        sms.SendSMS(studentEL.Studentfirstname + " attendance time out is " + timeout + " in the subject " + subjectEL.Subjectcode, studentEL.Studentcontactpersonphonenumber);
 
+                                        smsEL.Attendanceid = attendanceEL.Attendanceid;
+                                        smsEL.Message = studentEL.Studentfirstname + " attendance time out is " + timeout + " in the subject " + subjectEL.Subjectcode;
+                                        smsEL.Studentcontactperson = studentEL.Studentcontactperson;
+                                        smsEL.Studentcontactpersonphonenumber = studentEL.Studentcontactpersonphonenumber;
+                                        smsEL.Smsstatus = "PENDING";
+
+                                        smsBL.Insert(smsEL);
                                     }
                                 }
                                 else
@@ -360,6 +395,32 @@ namespace thesis.PL.Transactions
             }
         }
 
-        
+        private void timerForTime_Tick(object sender, EventArgs e)
+        {
+
+            Thread newThread = new Thread(delegate () { ShowDateTime(); });
+            newThread.Start();
+        }
+
+        private void timerForSendingSMS_Tick(object sender, EventArgs e)
+        {
+            //var dt = smsBL.List();
+
+            //if (dt.Rows.Count > 0)
+            //{
+
+            //    smsEL.Studentcontactpersonphonenumber  = dt.Rows[0]["studentcontactpersonphonenumber"].ToString();
+            //    smsEL.Message = dt.Rows[0]["message"].ToString();
+
+            //    SMS sms = new SMS();
+     
+
+            //    var thread = new Thread(() => sms.SendSMS(smsEL.Message, smsEL.Studentcontactpersonphonenumber));
+            //    thread.Start();
+
+            //    Console.WriteLine(thread);
+
+            //}
+        }
     }
 }

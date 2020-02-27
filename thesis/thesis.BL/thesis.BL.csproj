@@ -54,6 +54,7 @@
     <Compile Include="Registrations\Subjects.cs" />
     <Compile Include="Registrations\Subjectsscheduling.cs" />
     <Compile Include="Transactions\Attendances.cs" />
+    <Compile Include="Transactions\Sms.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

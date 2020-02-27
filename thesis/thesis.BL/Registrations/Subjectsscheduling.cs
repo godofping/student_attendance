@@ -20,9 +20,19 @@ namespace thesis.BL.Registrations
             return subjectschedulingDL.List(subjectschedulingEL);
         }
 
+        public DataTable ListTeacherSchedule(EL.Registrations.Subjectsscheduling subjectschedulingEL)
+        {
+
+            return subjectschedulingDL.ListTeacherSchedule(subjectschedulingEL);
+        }
         public DataTable List()
         {
             return subjectschedulingDL.List();
+        }
+
+        public DataTable GetInformation(EL.Registrations.Subjectsscheduling subjectschedulingEL)
+        {
+            return subjectschedulingDL.GetInformation(subjectschedulingEL);
         }
 
         public DataTable CheckCurrentSchedule()

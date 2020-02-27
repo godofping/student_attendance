@@ -38,6 +38,8 @@
             this.lblMessage = new System.Windows.Forms.Label();
             this.timerForClearing = new System.Windows.Forms.Timer(this.components);
             this.timerForGenerationOfAttendance = new System.Windows.Forms.Timer(this.components);
+            this.timerForTime = new System.Windows.Forms.Timer(this.components);
+            this.timerForSendingSMS = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pbStudentImage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -91,6 +93,7 @@
             // 
             // timerForAttendance
             // 
+            this.timerForAttendance.Interval = 500;
             this.timerForAttendance.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // lblMessage
@@ -111,6 +114,15 @@
             // 
             this.timerForGenerationOfAttendance.Interval = 300;
             this.timerForGenerationOfAttendance.Tick += new System.EventHandler(this.timerForGenerationOfAttendance_Tick);
+            // 
+            // timerForTime
+            // 
+            this.timerForTime.Tick += new System.EventHandler(this.timerForTime_Tick);
+            // 
+            // timerForSendingSMS
+            // 
+            this.timerForSendingSMS.Interval = 2000;
+            this.timerForSendingSMS.Tick += new System.EventHandler(this.timerForSendingSMS_Tick);
             // 
             // frmAttendancesMain
             // 
@@ -152,5 +164,7 @@
         private System.Windows.Forms.Label lblMessage;
         private System.Windows.Forms.Timer timerForClearing;
         private System.Windows.Forms.Timer timerForGenerationOfAttendance;
+        private System.Windows.Forms.Timer timerForTime;
+        private System.Windows.Forms.Timer timerForSendingSMS;
     }
 }

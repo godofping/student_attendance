@@ -62,6 +62,19 @@ namespace thesis.DL.Transactions
         }
 
 
+        public DataTable ListAttendanceByDate(EL.Transactions.Attendances attendanceEL)
+        {
+
+            using (var cmd = new MySqlCommand())
+            {
+                cmd.CommandText = "select * from students_attendance_view where subjectscheduleid = @subjectscheduleid and createdat like @createdat";
+
+                cmd.Parameters.AddWithValue("@subjectscheduleid", attendanceEL.Studentsubjectenrollmentid);
+                cmd.Parameters.AddWithValue("@createdat", "%" + attendanceEL.Createdat + "%");
+                return methods.executeQuery(cmd);
+            }
+        }
+
         public long Insert(EL.Transactions.Attendances attendanceEL)
         {
             using (var cmd = new MySqlCommand())
@@ -78,7 +91,7 @@ namespace thesis.DL.Transactions
         }
 
 
-        public Boolean AttendanceIn(EL.Transactions.Attendances attendanceEL)
+        public long AttendanceIn(EL.Transactions.Attendances attendanceEL)
         {
             using (var cmd = new MySqlCommand())
             {
@@ -87,11 +100,11 @@ namespace thesis.DL.Transactions
                 cmd.Parameters.AddWithValue("@attendanceid", attendanceEL.Attendanceid);
                 cmd.Parameters.AddWithValue("@attendanceintime", attendanceEL.Attendanceintime);
                 cmd.Parameters.AddWithValue("@status", attendanceEL.Status);
-                return methods.executeNonQueryBool(cmd);
+                return methods.executeNonQueryLong(cmd);
             }
         }
 
-        public Boolean AttendanceOut(EL.Transactions.Attendances attendanceEL)
+        public long AttendanceOut(EL.Transactions.Attendances attendanceEL)
         {
             using (var cmd = new MySqlCommand())
             {
@@ -100,7 +113,7 @@ namespace thesis.DL.Transactions
                 cmd.Parameters.AddWithValue("@attendanceid", attendanceEL.Attendanceid);
                 cmd.Parameters.AddWithValue("@attendanceouttime", attendanceEL.Attendanceouttime);
                 cmd.Parameters.AddWithValue("@status", attendanceEL.Status);
-                return methods.executeNonQueryBool(cmd);
+                return methods.executeNonQueryLong(cmd);
             }
         }
     }

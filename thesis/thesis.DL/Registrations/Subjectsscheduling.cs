@@ -43,12 +43,41 @@ namespace thesis.DL.Registrations
             }
         }
 
+        public DataTable ListTeacherSchedule(EL.Registrations.Subjectsscheduling subjectschedulingEL)
+        {
+
+            using (var cmd = new MySqlCommand())
+            {
+                cmd.CommandText = "select subjectscheduleid, concat(subject, ' ', time, ' ', scheddays) as subjectschedule from subjectsschedule_converted_view where employeeid = @employeeid";
+
+                cmd.Parameters.AddWithValue("@employeeid", subjectschedulingEL.Employeeid);
+
+                return methods.executeQuery(cmd);
+            }
+        }
+
         public DataTable List()
         {
 
             using (var cmd = new MySqlCommand())
             {
                 cmd.CommandText = "SELECT * FROM subjects WHERE subjectid IN (SELECT subjectid FROM subjectsscheduling)";
+
+                return methods.executeQuery(cmd);
+            }
+
+        }
+
+
+        public DataTable GetInformation(EL.Registrations.Subjectsscheduling subjectschedulingEL)
+        {
+
+            using (var cmd = new MySqlCommand())
+            {
+
+                cmd.CommandText = "SELECT * FROM subjectsschedule_converted_view where subjectscheduleid = @subjectscheduleid";
+                cmd.Parameters.AddWithValue("@subjectscheduleid", subjectschedulingEL.Subjectscheduleid);
+
 
                 return methods.executeQuery(cmd);
             }

@@ -34,6 +34,18 @@ namespace thesis.DL.Registrations
             }
         }
 
+
+        public DataTable ListTeachers(String keyword)
+        {
+            using (var cmd = new MySqlCommand())
+            {
+                cmd.CommandText = "select * from employees_view where accounttype = 'TEACHER' order by employeefullname asc";
+
+                cmd.Parameters.AddWithValue("@keyword", keyword + "%");
+                return methods.executeQuery(cmd);
+            }
+        }
+
         public DataTable List(EL.Registrations.Employees employeeEL)
         {
             using (var cmd = new MySqlCommand())

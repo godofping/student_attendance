@@ -21,6 +21,11 @@ namespace thesis.BL.Registrations
             return employeeDL.List(keyword);
         }
 
+        public DataTable ListTeachers(String keyword)
+        {
+            return employeeDL.ListTeachers(keyword);
+        }
+        
         public DataTable List(EL.Registrations.Employees employeeEL)
         {
             return employeeDL.List(employeeEL);

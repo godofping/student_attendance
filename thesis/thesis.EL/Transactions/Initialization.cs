@@ -10,5 +10,6 @@ namespace thesis.EL.Transactions
     {
         public static int computerid;
         public static int issmsserver;
+        public static string port;
     }
 }

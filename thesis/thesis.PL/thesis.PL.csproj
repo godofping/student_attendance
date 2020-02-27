@@ -42,11 +42,18 @@
     <Reference Include="AForge.Video.DirectShow">
       <HintPath>..\..\database\Camera Application DLL\AForge.Video.DirectShow.dll</HintPath>
     </Reference>
+    <Reference Include="AxShockwaveFlashObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="DarrenLee.Media">
       <HintPath>..\..\database\Camera Application DLL\DarrenLee.Media.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -58,6 +65,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\systemDataset.cs">
+      <DependentUpon>systemDataset.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Data\systemDataset.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>systemDataset.xsd</DependentUpon>
+    </Compile>
     <Compile Include="frmCaptureImage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,6 +90,12 @@
     </Compile>
     <Compile Include="frmChangeComputer.Designer.cs">
       <DependentUpon>frmChangeComputer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmChangePort.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmChangePort.Designer.cs">
+      <DependentUpon>frmChangePort.cs</DependentUpon>
     </Compile>
     <Compile Include="frmDashboard.cs">
       <SubType>Form</SubType>
@@ -175,6 +196,24 @@
     <Compile Include="Registrations\frmSubjectScheduling.Designer.cs">
       <DependentUpon>frmSubjectScheduling.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\crAttendanceDaily.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crAttendanceDaily.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\crProfileInformation.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crProfileInformation.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\frmReportViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmReportViewer.Designer.cs">
+      <DependentUpon>frmReportViewer.cs</DependentUpon>
+    </Compile>
     <Compile Include="SMS.cs" />
     <Compile Include="Transactions\frmAttendances.cs">
       <SubType>Form</SubType>
@@ -196,6 +235,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmChangeComputer.resx">
       <DependentUpon>frmChangeComputer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmChangePort.resx">
+      <DependentUpon>frmChangePort.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDashboard.resx">
       <DependentUpon>frmDashboard.cs</DependentUpon>
@@ -254,12 +296,34 @@
     <EmbeddedResource Include="Registrations\frmSubjectScheduling.resx">
       <DependentUpon>frmSubjectScheduling.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\crAttendanceDaily.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crAttendanceDaily.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\crProfileInformation.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crProfileInformation.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmReportViewer.resx">
+      <DependentUpon>frmReportViewer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Transactions\frmAttendances.resx">
       <DependentUpon>frmAttendances.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Transactions\frmAttendancesMain.resx">
       <DependentUpon>frmAttendancesMain.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Data\systemDataset.xsc">
+      <DependentUpon>systemDataset.xsd</DependentUpon>
+    </None>
+    <None Include="Data\systemDataset.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>systemDataset.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Data\systemDataset.xss">
+      <DependentUpon>systemDataset.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -282,6 +346,10 @@
       <Project>{b03f4597-5dbd-455d-97de-cc46eeb1e3d6}</Project>
       <Name>thesis.EL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
