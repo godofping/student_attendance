@@ -24,12 +24,6 @@ namespace thesis.PL.Transactions
             InitializeComponent();
         }
 
-        private void ResetForm()
-        {
-            methods.ClearCB(cbTeacher, cbSubjectSchedule);
-            methods.ClearDTPTimeOnly(dtpDate);
-
-        }
 
         private void PopulateCBTeachers()
         {
@@ -39,18 +33,21 @@ namespace thesis.PL.Transactions
 
         private void PopulateCBSubjectSchedule()
         {
-            subjectschedulingEL.Employeeid = employeeEL.Employeeid;
 
-            var dt = subjectschedulingBL.ListTeacherSchedule(subjectschedulingEL);
+            if (cbTeacher.SelectedIndex != -1)
+            {
+                var dt = subjectschedulingBL.ListTeacherSchedule(cbTeacher.SelectedValue.ToString());
 
-            if (dt.Rows.Count > 0)
-            {
-                methods.LoadCB(cbSubjectSchedule, dt, "subjectschedule", "subjectscheduleid");
-            }
-            else
-            {
-                cbSubjectSchedule.DataSource = null;
-                cbSubjectSchedule.Items.Clear();
+ 
+                if (dt.Rows.Count > 0)
+                {
+                    methods.LoadCB(cbSubjectSchedule, dt, "subjectschedule", "subjectscheduleid");
+                }
+                else
+                {
+                    cbSubjectSchedule.DataSource = null;
+                    cbSubjectSchedule.Items.Clear();
+                }
             }
 
         }
@@ -73,12 +70,14 @@ namespace thesis.PL.Transactions
         {
             
             PopulateCBTeachers();
-            ResetForm();
+            cbTeacher.SelectedIndex = -1;
         }
 
         private void cbTeacher_SelectedIndexChanged(object sender, EventArgs e)
         {
             PopulateCBSubjectSchedule();
         }
+
+   
     }
 }

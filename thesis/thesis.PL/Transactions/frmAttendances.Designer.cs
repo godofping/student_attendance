@@ -63,6 +63,7 @@
             this.cbTeacher.Size = new System.Drawing.Size(925, 29);
             this.cbTeacher.TabIndex = 8;
             this.cbTeacher.SelectedIndexChanged += new System.EventHandler(this.cbTeacher_SelectedIndexChanged);
+
             // 
             // panel1
             // 
@@ -70,7 +71,7 @@
             this.panel1.Controls.Add(this.label9);
             this.panel1.Location = new System.Drawing.Point(409, 9);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(256, 37);
+            this.panel1.Size = new System.Drawing.Size(228, 37);
             this.panel1.TabIndex = 17;
             // 
             // label9
@@ -80,9 +81,9 @@
             this.label9.ForeColor = System.Drawing.Color.White;
             this.label9.Location = new System.Drawing.Point(41, 9);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(111, 21);
+            this.label9.Size = new System.Drawing.Size(153, 21);
             this.label9.TabIndex = 9;
-            this.label9.Text = "Attendances";
+            this.label9.Text = "View Attendances";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label1

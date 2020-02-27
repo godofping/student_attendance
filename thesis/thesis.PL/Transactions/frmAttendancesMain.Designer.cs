@@ -121,7 +121,7 @@
             // 
             // timerForSendingSMS
             // 
-            this.timerForSendingSMS.Interval = 2000;
+            this.timerForSendingSMS.Interval = 5000;
             this.timerForSendingSMS.Tick += new System.EventHandler(this.timerForSendingSMS_Tick);
             // 
             // frmAttendancesMain

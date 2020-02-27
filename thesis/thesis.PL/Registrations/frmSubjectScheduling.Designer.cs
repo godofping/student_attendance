@@ -367,6 +367,7 @@
             this.cbSubject.Name = "cbSubject";
             this.cbSubject.Size = new System.Drawing.Size(953, 29);
             this.cbSubject.TabIndex = 1;
+
             // 
             // btnSave
             // 

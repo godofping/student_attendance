@@ -32,7 +32,6 @@
             this.btnRooms = new System.Windows.Forms.Button();
             this.btnSeats = new System.Windows.Forms.Button();
             this.btnStudentsSubjectsEnrolled = new System.Windows.Forms.Button();
-            this.btnSubjects = new System.Windows.Forms.Button();
             this.btnSubjectScheduling = new System.Windows.Forms.Button();
             this.btnBuildings = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -97,21 +96,6 @@
             this.btnStudentsSubjectsEnrolled.UseVisualStyleBackColor = false;
             this.btnStudentsSubjectsEnrolled.Click += new System.EventHandler(this.btnStudentsSubjectsEnrolled_Click);
             // 
-            // btnSubjects
-            // 
-            this.btnSubjects.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
-            this.btnSubjects.FlatAppearance.BorderSize = 0;
-            this.btnSubjects.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSubjects.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSubjects.ForeColor = System.Drawing.Color.White;
-            this.btnSubjects.Location = new System.Drawing.Point(678, 183);
-            this.btnSubjects.Name = "btnSubjects";
-            this.btnSubjects.Size = new System.Drawing.Size(236, 57);
-            this.btnSubjects.TabIndex = 8;
-            this.btnSubjects.Text = "Subjects";
-            this.btnSubjects.UseVisualStyleBackColor = false;
-            this.btnSubjects.Click += new System.EventHandler(this.btnSubjects_Click);
-            // 
             // btnSubjectScheduling
             // 
             this.btnSubjectScheduling.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(50)))), ((int)(((byte)(56)))));
@@ -150,7 +134,6 @@
             this.ClientSize = new System.Drawing.Size(1038, 720);
             this.Controls.Add(this.btnBuildings);
             this.Controls.Add(this.btnSubjectScheduling);
-            this.Controls.Add(this.btnSubjects);
             this.Controls.Add(this.btnStudentsSubjectsEnrolled);
             this.Controls.Add(this.btnSeats);
             this.Controls.Add(this.btnRooms);
@@ -172,7 +155,6 @@
         private System.Windows.Forms.Button btnRooms;
         private System.Windows.Forms.Button btnSeats;
         private System.Windows.Forms.Button btnStudentsSubjectsEnrolled;
-        private System.Windows.Forms.Button btnSubjects;
         private System.Windows.Forms.Button btnSubjectScheduling;
         private System.Windows.Forms.Button btnBuildings;
     }

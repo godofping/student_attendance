@@ -43,14 +43,14 @@ namespace thesis.DL.Registrations
             }
         }
 
-        public DataTable ListTeacherSchedule(EL.Registrations.Subjectsscheduling subjectschedulingEL)
+        public DataTable ListTeacherSchedule(string val)
         {
 
             using (var cmd = new MySqlCommand())
             {
-                cmd.CommandText = "select subjectscheduleid, concat(subject, ' ', time, ' ', scheddays) as subjectschedule from subjectsschedule_converted_view where employeeid = @employeeid";
+                cmd.CommandText = "select subjectscheduleid, concat(subject, ' ', time, ' ', scheddays) as subjectschedule from subjectsschedule_converted_view where employeeid = @val";
 
-                cmd.Parameters.AddWithValue("@employeeid", subjectschedulingEL.Employeeid);
+                cmd.Parameters.AddWithValue("@val",val);
 
                 return methods.executeQuery(cmd);
             }

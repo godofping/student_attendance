@@ -13,11 +13,25 @@ namespace thesis.PL
         static SerialPort port;
 
 
-        public bool SendSMS(string textsms, string telnumber)
+        public static Boolean PassSMS(EL.Transactions.Sms smsEL)
         {
             port = new SerialPort();
-            OpenPort();
 
+
+            OpenPort();
+            bool result;
+            result = sendSMS(smsEL.Message, smsEL.Studentcontactpersonphonenumber);
+
+         
+
+            port.Close();
+
+            return result;
+
+        }
+
+        private static bool sendSMS(string textsms, string telnumber)
+        {
             if (!port.IsOpen) return false;
 
             try
@@ -60,12 +74,7 @@ namespace thesis.PL
             }
             catch { }
 
-            port.Close();
-
             return true;
-
-
-            
         }
 
         private static void OpenPort()

@@ -34,12 +34,12 @@ namespace thesis.BL.Transactions
             return attendanceDL.Insert(attendanceEL);
         }
 
-        public long AttendanceIn(EL.Transactions.Attendances attendanceEL)
+        public Boolean AttendanceIn(EL.Transactions.Attendances attendanceEL)
         {
             return attendanceDL.AttendanceIn(attendanceEL);
         }
 
-        public long AttendanceOut(EL.Transactions.Attendances attendanceEL)
+        public Boolean AttendanceOut(EL.Transactions.Attendances attendanceEL)
         {
             return attendanceDL.AttendanceOut(attendanceEL);
         }

@@ -67,7 +67,7 @@ namespace thesis.DL.Transactions
 
             using (var cmd = new MySqlCommand())
             {
-                cmd.CommandText = "select * from students_attendance_view where subjectscheduleid = @subjectscheduleid and createdat like @createdat";
+                cmd.CommandText = "select * from students_attendance_view where subjectscheduleid = @subjectscheduleid and createdat like @createdat order by studentfullname";
 
                 cmd.Parameters.AddWithValue("@subjectscheduleid", attendanceEL.Studentsubjectenrollmentid);
                 cmd.Parameters.AddWithValue("@createdat", "%" + attendanceEL.Createdat + "%");
@@ -91,7 +91,7 @@ namespace thesis.DL.Transactions
         }
 
 
-        public long AttendanceIn(EL.Transactions.Attendances attendanceEL)
+        public Boolean AttendanceIn(EL.Transactions.Attendances attendanceEL)
         {
             using (var cmd = new MySqlCommand())
             {
@@ -100,11 +100,11 @@ namespace thesis.DL.Transactions
                 cmd.Parameters.AddWithValue("@attendanceid", attendanceEL.Attendanceid);
                 cmd.Parameters.AddWithValue("@attendanceintime", attendanceEL.Attendanceintime);
                 cmd.Parameters.AddWithValue("@status", attendanceEL.Status);
-                return methods.executeNonQueryLong(cmd);
+                return methods.executeNonQueryBool(cmd);
             }
         }
 
-        public long AttendanceOut(EL.Transactions.Attendances attendanceEL)
+        public Boolean AttendanceOut(EL.Transactions.Attendances attendanceEL)
         {
             using (var cmd = new MySqlCommand())
             {
@@ -113,7 +113,7 @@ namespace thesis.DL.Transactions
                 cmd.Parameters.AddWithValue("@attendanceid", attendanceEL.Attendanceid);
                 cmd.Parameters.AddWithValue("@attendanceouttime", attendanceEL.Attendanceouttime);
                 cmd.Parameters.AddWithValue("@status", attendanceEL.Status);
-                return methods.executeNonQueryLong(cmd);
+                return methods.executeNonQueryBool(cmd);
             }
         }
     }

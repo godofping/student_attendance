@@ -20,10 +20,10 @@ namespace thesis.BL.Registrations
             return subjectschedulingDL.List(subjectschedulingEL);
         }
 
-        public DataTable ListTeacherSchedule(EL.Registrations.Subjectsscheduling subjectschedulingEL)
+        public DataTable ListTeacherSchedule(string val)
         {
 
-            return subjectschedulingDL.ListTeacherSchedule(subjectschedulingEL);
+            return subjectschedulingDL.ListTeacherSchedule(val);
         }
         public DataTable List()
         {

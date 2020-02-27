@@ -24,10 +24,10 @@ namespace thesis.PL.Registrations
 
         frmMainAdministrator frmMain;
 
-        public frmSubjects(frmMainAdministrator _frmMain)
+        public frmSubjects()
         {
             InitializeComponent();
-            frmMain = _frmMain;
+
         }
 
         protected override CreateParams CreateParams
@@ -201,12 +201,7 @@ namespace thesis.PL.Registrations
             }
         }
 
-        private void btnBack_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            var frm = new frmSettings(frmMain);
-            methods.ChangePanelDisplay(frm, frmMain.pnlMain);
-        }
+
 
     }
 }

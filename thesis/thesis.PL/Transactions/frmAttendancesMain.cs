@@ -103,6 +103,7 @@ namespace thesis.PL.Transactions
         private void frmAttendancesMain_Load(object sender, EventArgs e)
         {
             ShowDateTime();
+            timerForTime.Start();
             timerForAttendance.Start();
             timerForGenerationOfAttendance.Start();
             timerForSendingSMS.Start();
@@ -111,7 +112,7 @@ namespace thesis.PL.Transactions
             EL.Transactions.Initialization.computerid = Convert.ToInt32(text);
 
              text = System.IO.File.ReadAllText(@"C:\xampp\htdocs\student_attendance\thesis\thesis.PL\bin\Debug\port.txt");
-            EL.Transactions.Initialization.port = text;
+            EL.Transactions.Initialization.port = text.Trim();
 
             computerEL.Computerid = EL.Transactions.Initialization.computerid;
 
@@ -227,14 +228,9 @@ namespace thesis.PL.Transactions
                                 }
 
 
-                                Console.WriteLine(attendanceEL.Attendanceid);
+                         
 
-                                attendanceEL.Attendanceid = Convert.ToInt32(attendanceBL.AttendanceIn(attendanceEL));
-
-
-                                
-
-                                if (bol & attendanceEL.Attendanceid > 0)
+                                if (bol & attendanceBL.AttendanceIn(attendanceEL))
                                 {
                                     string timein = DateTime.Now.ToString("hh:mm:ss tt");
                                     lblMessage.Text = "Your time in is " + timein + ". Your seat is " + seatEL.Seat;
@@ -272,10 +268,8 @@ namespace thesis.PL.Transactions
 
                                     attendanceEL.Status = "PRESENT";
 
-                                    attendanceEL.Attendanceid = Convert.ToInt32(attendanceBL.AttendanceOut(attendanceEL));
 
-
-                                    if (attendanceEL.Attendanceid > 0)
+                                    if (attendanceBL.AttendanceOut(attendanceEL))
                                     {
                                         //time out user
                                         string timeout = DateTime.Now.ToString("hh:mm:ss tt");
@@ -397,30 +391,36 @@ namespace thesis.PL.Transactions
 
         private void timerForTime_Tick(object sender, EventArgs e)
         {
-
-            Thread newThread = new Thread(delegate () { ShowDateTime(); });
-            newThread.Start();
+            ShowDateTime();
         }
 
         private void timerForSendingSMS_Tick(object sender, EventArgs e)
         {
-            //var dt = smsBL.List();
 
-            //if (dt.Rows.Count > 0)
-            //{
+            var dt = smsBL.List();
+            
+            if (dt.Rows.Count > 0)
+            {
 
-            //    smsEL.Studentcontactpersonphonenumber  = dt.Rows[0]["studentcontactpersonphonenumber"].ToString();
-            //    smsEL.Message = dt.Rows[0]["message"].ToString();
+                smsEL.Studentcontactpersonphonenumber = dt.Rows[0]["studentcontactpersonphonenumber"].ToString();
+                smsEL.Message = dt.Rows[0]["message"].ToString();
 
-            //    SMS sms = new SMS();
-     
+                
 
-            //    var thread = new Thread(() => sms.SendSMS(smsEL.Message, smsEL.Studentcontactpersonphonenumber));
-            //    thread.Start();
+                bool res = SMS.PassSMS(smsEL);
 
-            //    Console.WriteLine(thread);
+                if (res)
+                {
+                    smsEL.Smsstatus = "SENT";
+                    smsEL.Smsid = Convert.ToInt32(dt.Rows[0]["smsid"]);
+                    Console.WriteLine(smsBL.Update(smsEL));
+                }
 
-            //}
+
+
+            }
         }
+
+       
     }
 }

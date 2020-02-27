@@ -375,5 +375,6 @@ namespace thesis.PL.Registrations
             var frm = new frmSettings(frmMain);
             methods.ChangePanelDisplay(frm, frmMain.pnlMain);
         }
+
     }
 }
