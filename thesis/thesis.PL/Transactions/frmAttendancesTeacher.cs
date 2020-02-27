@@ -56,7 +56,7 @@ namespace thesis.PL.Transactions
 
                 attendanceEL.Status = txtSearch.Text;
 
-                methods.LoadDGV(dgv, attendanceBL.ListAttendanceAdmin(attendanceEL));
+                methods.LoadDGV(dgv, attendanceBL.ListAttendance(attendanceEL));
                 methods.DGVRenameColumns(dgv, "attendanceid", "studentsubjectenrollmentid", "createdat", "subjectscheduleid", "Name", "Seat", "Time In", "Time Out", "Status");
                 methods.DGVHiddenColumns(dgv, "attendanceid", "studentsubjectenrollmentid", "createdat", "subjectscheduleid");
             }
