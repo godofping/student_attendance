@@ -26,6 +26,7 @@ C:\xampp\htdocs\student_attendance\thesis\thesis.PL\bin\Debug\CrystalDecisions.R
 C:\xampp\htdocs\student_attendance\thesis\thesis.PL\bin\Debug\thesis.BL.pdb
 C:\xampp\htdocs\student_attendance\thesis\thesis.PL\bin\Debug\thesis.EL.pdb
 C:\xampp\htdocs\student_attendance\thesis\thesis.PL\bin\Debug\thesis.DL.pdb
+C:\xampp\htdocs\student_attendance\thesis\thesis.PL\bin\Debug\MySql.Data.xml
 C:\xampp\htdocs\student_attendance\thesis\thesis.PL\obj\Debug\thesis.PL.csprojAssemblyReference.cache
 C:\xampp\htdocs\student_attendance\thesis\thesis.PL\obj\Debug\thesis.PL.frmCaptureImage.resources
 C:\xampp\htdocs\student_attendance\thesis\thesis.PL\obj\Debug\thesis.PL.frmCaptureRFID.resources
@@ -60,8 +61,3 @@ C:\xampp\htdocs\student_attendance\thesis\thesis.PL\obj\Debug\thesis.PL.Transact
 C:\xampp\htdocs\student_attendance\thesis\thesis.PL\obj\Debug\thesis.PL.frmReportsTeacher.resources
 C:\xampp\htdocs\student_attendance\thesis\thesis.PL\obj\Debug\thesis.PL.Reports.frmReportViewAttendanceTeacher.resources
 C:\xampp\htdocs\student_attendance\thesis\thesis.PL\obj\Debug\thesis.PL.Registrations.frmStudentsSubjectEnrollmentTeacher.resources
-C:\xampp\htdocs\student_attendance\thesis\thesis.PL\bin\Debug\AxShockwaveFlashObjects.dll
-C:\xampp\htdocs\student_attendance\thesis\thesis.PL\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
-C:\xampp\htdocs\student_attendance\thesis\thesis.PL\bin\Debug\CrystalDecisions.ReportSource.dll
-C:\xampp\htdocs\student_attendance\thesis\thesis.PL\bin\Debug\CrystalDecisions.Shared.dll
-C:\xampp\htdocs\student_attendance\thesis\thesis.PL\bin\Debug\CrystalDecisions.Windows.Forms.dll
