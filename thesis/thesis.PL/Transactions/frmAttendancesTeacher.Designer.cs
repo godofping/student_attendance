@@ -33,7 +33,6 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -115,16 +114,6 @@
             this.label5.Size = new System.Drawing.Size(56, 21);
             this.label5.TabIndex = 9;
             this.label5.Text = "Seat *";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Century Gothic", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(409, 159);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(90, 13);
-            this.label9.TabIndex = 38;
-            this.label9.Text = "(Name and Status)";
             // 
             // label6
             // 
@@ -276,7 +265,6 @@
             // 
             // pnlMain
             // 
-            this.pnlMain.Controls.Add(this.label9);
             this.pnlMain.Controls.Add(this.label6);
             this.pnlMain.Controls.Add(this.txtSearch);
             this.pnlMain.Controls.Add(this.label2);
@@ -328,7 +316,6 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Label label2;
