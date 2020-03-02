@@ -405,9 +405,9 @@ namespace thesis.PL.Transactions
                 smsEL.Studentcontactpersonphonenumber = dt.Rows[0]["studentcontactpersonphonenumber"].ToString();
                 smsEL.Message = dt.Rows[0]["message"].ToString();
 
-                
-
                 bool res = SMS.PassSMS(smsEL);
+
+                Console.WriteLine(res);
 
                 if (res)
                 {

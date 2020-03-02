@@ -62,12 +62,12 @@ namespace thesis.DL.Transactions
         }
 
 
-        public DataTable ListAttendanceAdmin(EL.Transactions.Attendances attendanceEL)
+        public DataTable ListAttendance(EL.Transactions.Attendances attendanceEL)
         {
 
             using (var cmd = new MySqlCommand())
             {
-                cmd.CommandText = "select attendanceid, studentsubjectenrollmentid, createdat, subjectscheduleid, studentfullname, seat, attendanceintime, attendanceouttime,status from students_attendance_view where subjectscheduleid = @subjectscheduleid and createdat between @attendanceintime and @attendanceouttime and (studentfullname like @status or status like @status) order by studentfullname";
+                cmd.CommandText = "select attendanceid, studentsubjectenrollmentid, createdat, subjectscheduleid, studentfullname, seat, attendanceintime, attendanceouttime,status from students_attendance_view where subjectscheduleid = @subjectscheduleid and createdat between @attendanceintime and @attendanceouttime and (studentfullname like @status or status like @status or seat like @status) order by studentfullname";
 
                 cmd.Parameters.AddWithValue("@subjectscheduleid", attendanceEL.Studentsubjectenrollmentid);
                 cmd.Parameters.AddWithValue("@attendanceintime", attendanceEL.Attendanceintime);
