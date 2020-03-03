@@ -114,5 +114,34 @@ namespace thesis.DL.Registrations
                 return methods.executeNonQueryBool(cmd);
             }
         }
+
+        public EL.Registrations.Computers GetSMSServer()
+        {
+
+
+            DataTable dt = null;
+
+            using (var cmd = new MySqlCommand())
+            {
+                cmd.CommandText = "SELECT * FROM computers WHERE issmsserver = 1";
+
+                dt = methods.executeQuery(cmd);
+            }
+
+            if (dt.Rows.Count > 0)
+            {
+                EL.Registrations.Computers computerEL = new EL.Registrations.Computers();
+
+                computerEL.Computerid = Convert.ToInt32(dt.Rows[0]["computerid"]);
+                computerEL.Computer = dt.Rows[0]["computer"].ToString();
+                computerEL.Issmsserver = Convert.ToInt32(dt.Rows[0]["issmsserver"]);
+
+                return computerEL;
+            }
+            else
+            {
+                return null;
+            }
+        }
     }
 }

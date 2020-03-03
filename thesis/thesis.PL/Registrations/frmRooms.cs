@@ -88,6 +88,7 @@ namespace thesis.PL.Registrations
         private void PopulateCB()
         {
             methods.LoadCB(cbBuilding, buildingBL.List(""), "building", "buildingid");
+          
             if (s.Equals("ADD"))
             {
                 computerEL.Computerid = 0;
@@ -114,8 +115,9 @@ namespace thesis.PL.Registrations
         {
             pnlForm.Visible = bol;
             pnlMain.Visible = !bol;
-            ResetForm();
+          
             PopulateCB();
+            ResetForm();
         }
 
         private void ShowResult(bool bol)
@@ -235,6 +237,6 @@ namespace thesis.PL.Registrations
             methods.ChangePanelDisplay(frm, frmMain.pnlMain);
         }
 
-        
+
     }
 }

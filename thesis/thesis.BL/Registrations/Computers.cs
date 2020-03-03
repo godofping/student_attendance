@@ -50,5 +50,10 @@ namespace thesis.BL.Registrations
         {
             return computerDL.Set(computerEL);
         }
+
+        public EL.Registrations.Computers GetSMSServer()
+        {
+            return computerDL.GetSMSServer();
+        }
     }
 }
