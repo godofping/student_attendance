@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 17, 2020 at 05:25 AM
+-- Generation Time: Mar 05, 2020 at 03:36 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -36,58 +36,6 @@ CREATE TABLE `attendances` (
   `createdat` datetime DEFAULT NULL,
   `status` varchar(60) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `attendances`
---
-
-INSERT INTO `attendances` (`attendanceid`, `studentsubjectenrollmentid`, `attendanceintime`, `attendanceouttime`, `createdat`, `status`) VALUES
-(1, 20, NULL, NULL, '2020-03-03 11:00:47', 'ABSENT'),
-(2, 21, NULL, NULL, '2020-03-03 11:00:47', 'ABSENT'),
-(3, 22, '2020-03-03 11:01:42', NULL, '2020-03-03 11:00:47', 'ABSENT'),
-(4, 23, '2020-03-05 11:00:25', NULL, '2020-03-03 11:00:48', 'ABSENT'),
-(5, 24, '2020-03-05 11:03:56', NULL, '2020-03-03 11:00:48', 'ABSENT'),
-(6, 25, NULL, NULL, '2020-03-03 12:00:56', 'ABSENT'),
-(7, 26, NULL, NULL, '2020-03-03 12:00:56', 'ABSENT'),
-(8, 27, NULL, NULL, '2020-03-03 12:00:56', 'ABSENT'),
-(9, 28, NULL, NULL, '2020-03-03 12:00:56', 'ABSENT'),
-(10, 29, NULL, NULL, '2020-03-03 12:00:56', 'ABSENT'),
-(11, 30, NULL, NULL, '2020-03-03 13:01:04', 'ABSENT'),
-(12, 31, '2020-03-03 13:02:13', '2020-03-03 13:56:36', '2020-03-03 13:01:04', 'PRESENT'),
-(13, 32, NULL, NULL, '2020-03-03 13:01:04', 'ABSENT'),
-(14, 33, NULL, NULL, '2020-03-03 13:01:04', 'ABSENT'),
-(15, 34, NULL, NULL, '2020-03-03 13:01:04', 'ABSENT'),
-(16, 35, '2020-03-03 14:01:59', '2020-03-03 14:56:56', '2020-03-03 14:01:18', 'PRESENT'),
-(17, 36, '2020-03-03 14:56:53', NULL, '2020-03-03 14:01:18', 'ABSENT'),
-(18, 37, '2020-03-03 14:57:17', NULL, '2020-03-03 14:01:18', 'ABSENT'),
-(19, 38, '2020-03-03 14:01:50', '2020-03-03 14:57:05', '2020-03-03 14:01:18', 'PRESENT'),
-(20, 39, '2020-03-03 14:57:14', NULL, '2020-03-03 14:01:18', 'ABSENT'),
-(21, 40, '2020-03-03 15:01:37', NULL, '2020-03-03 15:01:26', 'ABSENT'),
-(22, 41, NULL, NULL, '2020-03-03 15:01:26', 'ABSENT'),
-(23, 42, NULL, NULL, '2020-03-03 15:01:26', 'ABSENT'),
-(24, 43, NULL, NULL, '2020-03-03 15:01:26', 'ABSENT'),
-(25, 44, NULL, NULL, '2020-03-03 15:01:26', 'ABSENT'),
-(26, 45, NULL, NULL, '2020-03-03 15:01:26', 'ABSENT'),
-(27, 25, NULL, NULL, '2020-03-05 12:27:55', 'ABSENT'),
-(28, 26, NULL, NULL, '2020-03-05 12:27:55', 'ABSENT'),
-(29, 27, NULL, NULL, '2020-03-05 12:27:55', 'ABSENT'),
-(30, 28, NULL, NULL, '2020-03-05 12:27:55', 'ABSENT'),
-(31, 29, NULL, NULL, '2020-03-05 12:27:55', 'ABSENT'),
-(32, 20, NULL, NULL, '2020-03-05 11:00:10', 'ABSENT'),
-(33, 21, NULL, NULL, '2020-03-05 11:00:10', 'ABSENT'),
-(34, 22, '2020-03-05 11:04:21', NULL, '2020-03-05 11:00:10', 'ABSENT'),
-(35, 23, NULL, NULL, '2020-03-05 11:00:10', 'ABSENT'),
-(36, 24, NULL, NULL, '2020-03-05 11:00:10', 'ABSENT'),
-(37, 20, NULL, NULL, '2020-03-10 11:01:18', 'ABSENT'),
-(38, 21, NULL, NULL, '2020-03-10 11:01:18', 'ABSENT'),
-(39, 22, '2020-03-10 11:01:24', NULL, '2020-03-10 11:01:18', 'ABSENT'),
-(40, 23, NULL, NULL, '2020-03-10 11:01:18', 'ABSENT'),
-(41, 24, NULL, NULL, '2020-03-10 11:01:18', 'ABSENT'),
-(42, 20, NULL, NULL, '2020-03-12 11:02:48', 'ABSENT'),
-(43, 21, NULL, NULL, '2020-03-12 11:02:48', 'ABSENT'),
-(44, 22, '2020-03-12 11:02:57', NULL, '2020-03-12 11:02:48', 'ABSENT'),
-(45, 23, NULL, NULL, '2020-03-12 11:02:48', 'ABSENT'),
-(46, 24, NULL, NULL, '2020-03-12 11:02:48', 'ABSENT');
 
 -- --------------------------------------------------------
 
@@ -203,9 +151,8 @@ CREATE TABLE `rooms` (
 --
 
 INSERT INTO `rooms` (`roomid`, `buildingid`, `computerid`, `room`) VALUES
-(4, 1, 16, 'room 1'),
-(5, 1, 1, 'room 2'),
-(6, 1, 14, '501');
+(4, 1, 16, '523'),
+(6, 1, 14, '526');
 
 -- --------------------------------------------------------
 
@@ -240,23 +187,18 @@ CREATE TABLE `seats` (
 --
 
 INSERT INTO `seats` (`seatid`, `roomid`, `seat`) VALUES
-(3, 4, 'Seat 1'),
-(4, 4, 'Seat 2'),
-(5, 4, 'Seat 3'),
-(6, 4, 'Seat 4'),
-(7, 4, 'seat 5'),
-(8, 4, 'seat 6'),
-(9, 5, 'seat 1'),
-(10, 5, 'seat 2'),
-(11, 5, 'seat 3'),
-(12, 5, 'seat 4'),
-(13, 5, 'seat 5'),
-(14, 5, 'seat 6'),
-(15, 6, 'Seat 1'),
-(16, 6, 'Seat 2'),
-(17, 6, 'Seat 3'),
-(18, 6, 'Seat 4'),
-(19, 6, 'Seat 5');
+(20, 4, 'ROW 1 COL 1'),
+(21, 4, 'ROW 1 COL 2'),
+(22, 4, 'ROW 1 COL 3'),
+(23, 4, 'ROW 2 COL 1'),
+(24, 4, 'ROW 2 COL 2'),
+(25, 4, 'ROW 2 COL 3'),
+(26, 6, 'ROW 1 COL 1'),
+(27, 6, 'ROW 1 COL 2'),
+(28, 6, 'ROW 1 COL 3'),
+(29, 6, 'ROW 2 COL 1'),
+(30, 6, 'ROW 2 COL 2'),
+(31, 6, 'ROW 2 COL 3');
 
 -- --------------------------------------------------------
 
@@ -285,72 +227,6 @@ CREATE TABLE `sms` (
   `studentcontactpersonphonenumber` varchar(60) DEFAULT NULL,
   `smsstatus` varchar(60) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `sms`
---
-
-INSERT INTO `sms` (`smsid`, `attendanceid`, `message`, `studentcontactperson`, `studentcontactpersonphonenumber`, `smsstatus`) VALUES
-(1, 2, 'Joy attendance time in is 03:11:51 PM in the subject CPE 522', 'bode', '09754363944', 'SENT'),
-(2, 23, 'Kevin attendance time in is 01:25:06 PM in the subject subject 3', 'Mrs Bode', '09754363944', 'SENT'),
-(3, 23, 'Kevin attendance time out is 01:47:07 PM in the subject subject 3', 'Mrs Bode', '09754363944', 'SENT'),
-(4, 4, 'Rasol attendance time in is 03:25:15 PM in the subject subject 5', 'ac', '09754363944', 'SENT'),
-(5, 4, 'Rasol attendance time out is 03:42:46 PM in the subject subject 5', 'ac', '09754363944', 'SENT'),
-(6, 3, 'Ivy attendance time in is 03:00:49 PM in the subject subject 5', 'a', '09754363944', 'SENT'),
-(7, 5, 'Kevin attendance time in is 03:00:51 PM in the subject subject 5', 'Mrs Bode', '09754363944', 'SENT'),
-(8, 2, 'Rasol attendance time in is 03:00:53 PM in the subject subject 5', 'ac', '09754363944', 'SENT'),
-(9, 1, 'Rex Louis attendance time in is 03:00:56 PM in the subject subject 5', 'b', '09754363944', 'SENT'),
-(10, 3, 'Ivy attendance time in is 03:01:08 PM in the subject subject 5', 'a', '09754363944', 'SENT'),
-(11, 4, 'Vince attendance time out is 03:57:13 PM in the subject subject 5', '2', '09754363944', 'SENT'),
-(12, 3, 'Ivy attendance time in is 03:00:46 PM in the subject subject 5', 'a', '09754363944', 'SENT'),
-(13, 3, 'Ivy attendance time in is 03:02:24 PM in the subject subject 5', 'a', '09754363944', 'SENT'),
-(14, 3, 'Ivy attendance time in is 03:03:05 PM in the subject subject 5', 'a', '09754363944', 'SENT'),
-(15, 1, 'Rex Louis attendance time in is 03:08:06 PM in the subject subject 5', 'b', '09754363944', 'SENT'),
-(16, 1, 'Rex Louis attendance time in is 03:08:07 PM in the subject subject 5', 'b', '09754363944', 'SENT'),
-(17, 3, 'Ivy attendance time in is 03:09:08 PM in the subject subject 5', 'a', '09754363944', 'SENT'),
-(18, 3, 'Ivy attendance time in is 03:09:09 PM in the subject subject 5', 'a', '09754363944', 'SENT'),
-(19, 3, 'Ivy attendance time in is 03:09:10 PM in the subject subject 5', 'a', '09754363944', 'SENT'),
-(20, 3, 'Ivy attendance time in is 03:09:11 PM in the subject subject 5', 'a', '09754363944', 'SENT'),
-(21, 3, 'Ivy attendance time in is 03:09:14 PM in the subject subject 5', 'a', '09754363944', 'SENT'),
-(22, 3, 'Ivy attendance time in is 03:09:15 PM in the subject subject 5', 'a', '09754363944', 'SENT'),
-(23, 3, 'Ivy attendance time in is 03:09:47 PM in the subject subject 5', 'a', '09754363944', 'SENT'),
-(24, 3, 'Ivy attendance time in is 03:09:49 PM in the subject subject 5', 'a', '09754363944', 'SENT'),
-(25, 1, 'Rex Louis attendance time in is 03:10:29 PM in the subject subject 5', 'b', '09754363944', 'SENT'),
-(26, 1, 'Rex Louis attendance time in is 03:10:34 PM in the subject subject 5', 'b', '09754363944', 'SENT'),
-(27, 1, 'Rex Louis attendance time in is 03:10:59 PM in the subject subject 5', 'b', '09754363944', 'SENT'),
-(28, 3, 'Ivy attendance time in is 03:11:23 PM in the subject subject 5', 'a', '09754363944', 'SENT'),
-(29, 1, 'Rex Louis attendance time in is 03:11:40 PM in the subject subject 5', 'b', '09754363944', 'SENT'),
-(30, 2, 'Rasol attendance time in is 03:12:39 PM in the subject subject 5', 'ac', '09754363944', 'SENT'),
-(31, 5, 'Kevin attendance time in is 03:12:44 PM in the subject subject 5', 'Mrs Bode', '09754363944', 'SENT'),
-(32, 1, 'Rex Louis attendance time out is 03:58:09 PM in the subject subject 5', 'b', '09754363944', 'SENT'),
-(33, 3, 'Ivy attendance time out is 03:59 PM in the subject subject 5', 'a', '09754363944', 'SENT'),
-(34, 2, 'Rasol attendance time out is 03:59:39 PM in the subject subject 5', 'ac', '09754363944', 'SENT'),
-(35, 5, 'Kevin attendance time out is 03:59:46 PM in the subject subject 5', 'Mrs Bode', '09754363944', 'SENT'),
-(36, 3, 'Ivy attendance time in is 11:00:54 AM in the subject subject 1', 'a', '09754363944', 'SENT'),
-(37, 5, 'Kevin attendance time in is 11:01:03 AM in the subject subject 1', 'Mrs Bode', '09754363944', 'SENT'),
-(38, 2, 'Rasol attendance time in is 11:01:06 AM in the subject subject 1', 'ac', '09754363944', 'SENT'),
-(39, 4, 'Vince attendance time in is 11:01:12 AM in the subject subject 1', '2', '09754363944', 'SENT'),
-(40, 1, 'Rex Louis attendance time in is 11:01:23 AM in the subject subject 1', 'b', '09754363944', 'SENT'),
-(41, 1, 'Rex Louis attendance time out is 11:59:01 AM in the subject subject 1', 'b', '09754363944', 'SENT'),
-(42, 4, 'Vince attendance time out is 11:59:04 AM in the subject subject 1', '2', '09754363944', 'SENT'),
-(43, 2, 'Rasol attendance time out is 11:59:11 AM in the subject subject 1', 'ac', '09754363944', 'SENT'),
-(44, 5, 'Kevin attendance time out is 11:59:17 AM in the subject subject 1', 'Mrs Bode', '09754363944', 'SENT'),
-(45, 3, 'Ivy attendance time out is 11:59:22 AM in the subject subject 1', 'a', '09754363944', 'SENT'),
-(46, 21, 'Rex Louis attendance time in is 03:01:37 PM in the subject subject 5', 'b', '09754363944', 'SENT'),
-(47, 19, 'Vince attendance time in is 02:01:50 PM in the subject subject 4', '2', '09754363944', 'SENT'),
-(48, 16, 'Rex Louis attendance time in is 02:01:59 PM in the subject subject 4', 'b', '09754363944', 'SENT'),
-(49, 12, 'Rasol attendance time in is 01:02:13 PM in the subject subject 3', 'ac', '09754363944', 'SENT'),
-(50, 12, 'Rasol attendance time out is 01:56:36 PM in the subject subject 3', 'ac', '09754363944', 'SENT'),
-(51, 16, 'Rex Louis attendance time out is 02:56:56 PM in the subject subject 4', 'b', '09754363944', 'SENT'),
-(52, 19, 'Vince attendance time out is 02:57:05 PM in the subject subject 4', '2', '09754363944', 'SENT'),
-(53, 5, 'Kevin attendance time in is 11:13:13 AM in the subject subject 1', 'Mrs Bode', '09754363944', 'SENT'),
-(54, 4, 'Vince attendance time in is 11:00:25 AM in the subject subject 1', '2', '09754363944', 'SENT'),
-(55, 5, 'Kevin attendance time in is 11:03:56 AM in the subject subject 1', 'Mrs Bode', '09754363944', 'SENT'),
-(56, 34, 'Ivy attendance time in is 11:04:21 AM in the subject subject 1', 'a', '09754363944', 'SENT'),
-(57, 39, 'Ivy attendance time in is 11:01:24 AM in the subject subject 1', 'a', '09754363944', 'SENT'),
-(58, 3, 'Ivy attendance time in is 11:01:42 AM in the subject subject 1', 'a', '09754363944', 'SENT'),
-(59, 44, 'Ivy attendance time in is 11:02:57 AM in the subject subject 1', 'a', '09754363944', 'SENT'),
-(60, 583, 'Rasol attendance time in is 11:14:00 AM in the subject subject 1', 'ac', '09754363944', 'SENT');
 
 -- --------------------------------------------------------
 
@@ -412,40 +288,12 @@ CREATE TABLE `studentssubjectenrollment` (
 --
 
 INSERT INTO `studentssubjectenrollment` (`studentsubjectenrollmentid`, `studentid`, `subjectscheduleid`, `seatid`, `isdrop`) VALUES
-(20, 1133, 7, 3, 0),
-(21, 1134, 7, 4, 0),
-(22, 1135, 7, 5, 0),
-(23, 1136, 7, 6, 0),
-(24, 1137, 7, 7, 0),
-(25, 1133, 8, 3, 0),
-(26, 1134, 8, 4, 0),
-(27, 1135, 8, 5, 0),
-(28, 1136, 8, 6, 0),
-(29, 1137, 8, 7, 0),
-(30, 1133, 9, 3, 0),
-(31, 1134, 9, 4, 0),
-(32, 1135, 9, 5, 0),
-(33, 1136, 9, 6, 0),
-(34, 1137, 9, 7, 0),
-(35, 1133, 10, 3, 0),
-(36, 1134, 10, 4, 0),
-(37, 1135, 10, 5, 0),
-(38, 1136, 10, 6, 0),
-(39, 1137, 10, 7, 0),
-(40, 1133, 11, 3, 0),
-(41, 1134, 11, 4, 0),
-(42, 1135, 11, 5, 0),
-(43, 1136, 11, 6, 0),
-(44, 1137, 11, 7, 0),
-(45, 1138, 11, 8, 0),
-(46, 1133, 12, 3, 0),
-(47, 1134, 12, 4, 0),
-(48, 1135, 12, 5, 0),
-(49, 1136, 12, 6, 0),
-(50, 1137, 12, 7, 0),
-(51, 1138, 12, 8, 0),
-(52, 1139, 13, 15, 0),
-(53, 1140, 13, 16, 0);
+(54, 1133, 14, 20, 0),
+(55, 1134, 14, 21, 0),
+(56, 1135, 14, 22, 0),
+(57, 1136, 14, 23, 0),
+(58, 1137, 14, 24, 0),
+(59, 1138, 14, 25, 0);
 
 -- --------------------------------------------------------
 
@@ -551,13 +399,11 @@ CREATE TABLE `subjects` (
 --
 
 INSERT INTO `subjects` (`subjectid`, `subjectcode`, `subjectdescription`) VALUES
-(7, 'subject 1', 'this is the description for subject 1'),
-(8, 'subject 2', 'a'),
-(9, 'subject 3', 'a'),
-(10, 'subject 4', 'a'),
-(11, 'subject 5', 'a'),
-(12, 'asd', 'aadasda'),
-(13, 'CPE 522', 'System Analysis and Design');
+(7, 'CpE 524', 'Elective 3'),
+(8, 'CpE 525', 'Elective 4'),
+(9, 'ES 521', 'Entrepreneurship'),
+(12, 'CpE 523', 'Seminars and Field Trips'),
+(13, 'CpE 522', 'System Analysis and Design');
 
 -- --------------------------------------------------------
 
@@ -586,6 +432,7 @@ CREATE TABLE `subjectsschedule_converted_view` (
 ,`startc` time
 ,`endc` time
 ,`scheddays` varchar(56)
+,`computerid` int(6)
 );
 
 -- --------------------------------------------------------
@@ -615,13 +462,9 @@ CREATE TABLE `subjectsscheduling` (
 --
 
 INSERT INTO `subjectsscheduling` (`subjectscheduleid`, `subjectid`, `roomid`, `employeeid`, `start`, `end`, `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`, `sunday`) VALUES
-(7, 7, 4, 2, '11:00 AM', '12:00 PM', 0, 1, 0, 1, 0, 0, 0),
-(8, 8, 4, 2, '12:00 PM', '01:00 PM', 0, 1, 0, 1, 0, 0, 0),
-(9, 9, 4, 2, '01:00 PM', '02:00 PM', 0, 1, 0, 1, 0, 0, 0),
-(10, 10, 4, 2, '02:00 PM', '03:00 PM', 0, 1, 0, 1, 0, 0, 0),
-(11, 11, 4, 2, '03:00 PM', '04:00 PM', 0, 1, 0, 1, 0, 0, 0),
-(12, 12, 4, 3, '12:00 PM', '01:00 PM', 1, 0, 1, 0, 1, 0, 0),
-(13, 13, 6, 4, '03:00 PM', '04:00 PM', 1, 0, 1, 0, 1, 0, 0);
+(14, 12, 4, 2, '03:00 PM', '04:30 PM', 1, 0, 0, 0, 1, 0, 0),
+(15, 13, 4, 4, '02:30 PM', '04:00 PM', 0, 0, 0, 1, 0, 0, 0),
+(16, 7, 6, 1, '09:00 AM', '10:00 AM', 1, 0, 1, 0, 1, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -733,7 +576,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `subjectsschedule_converted_view`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `subjectsschedule_converted_view`  AS  select `subjectsscheduling`.`subjectscheduleid` AS `subjectscheduleid`,`subjectsscheduling`.`subjectid` AS `subjectid`,`subjectsscheduling`.`roomid` AS `roomid`,`subjectsscheduling`.`employeeid` AS `employeeid`,`subjectsscheduling`.`start` AS `start`,`subjectsscheduling`.`end` AS `end`,`subjectsscheduling`.`monday` AS `monday`,`subjectsscheduling`.`tuesday` AS `tuesday`,`subjectsscheduling`.`wednesday` AS `wednesday`,`subjectsscheduling`.`thursday` AS `thursday`,`subjectsscheduling`.`friday` AS `friday`,`subjectsscheduling`.`saturday` AS `saturday`,`subjectsscheduling`.`sunday` AS `sunday`,concat(`subjects`.`subjectcode`,' - ',`subjects`.`subjectdescription`) AS `subject`,concat(`employees`.`employeelastname`,', ',`employees`.`employeefirstname`,' ',`employees`.`employeemiddlename`) AS `employeefullname`,concat(`rooms`.`room`,' - ',`buildings`.`building`) AS `roombuilding`,concat(`subjectsscheduling`.`start`,' - ',`subjectsscheduling`.`end`) AS `time`,str_to_date(`subjectsscheduling`.`start`,'%h:%i %p') AS `startc`,str_to_date(`subjectsscheduling`.`end`,'%h:%i %p') AS `endc`,concat(if(`subjectsscheduling`.`monday` = 1,'Monday',''),if(`subjectsscheduling`.`tuesday` = 1,' Tuesday',''),if(`subjectsscheduling`.`wednesday` = 1,' Wednesday',''),if(`subjectsscheduling`.`thursday` = 1,' Thursday',''),if(`subjectsscheduling`.`friday` = 1,' Friday',''),if(`subjectsscheduling`.`saturday` = 1,' Saturday',''),if(`subjectsscheduling`.`sunday` = 1,' Sunday','')) AS `scheddays` from ((((`subjectsscheduling` join `subjects` on(`subjectsscheduling`.`subjectid` = `subjects`.`subjectid`)) join `rooms` on(`subjectsscheduling`.`roomid` = `rooms`.`roomid`)) join `buildings` on(`rooms`.`buildingid` = `buildings`.`buildingid`)) join `employees` on(`subjectsscheduling`.`employeeid` = `employees`.`employeeid`)) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `subjectsschedule_converted_view`  AS  select `subjectsscheduling`.`subjectscheduleid` AS `subjectscheduleid`,`subjectsscheduling`.`subjectid` AS `subjectid`,`subjectsscheduling`.`roomid` AS `roomid`,`subjectsscheduling`.`employeeid` AS `employeeid`,`subjectsscheduling`.`start` AS `start`,`subjectsscheduling`.`end` AS `end`,`subjectsscheduling`.`monday` AS `monday`,`subjectsscheduling`.`tuesday` AS `tuesday`,`subjectsscheduling`.`wednesday` AS `wednesday`,`subjectsscheduling`.`thursday` AS `thursday`,`subjectsscheduling`.`friday` AS `friday`,`subjectsscheduling`.`saturday` AS `saturday`,`subjectsscheduling`.`sunday` AS `sunday`,concat(`subjects`.`subjectcode`,' - ',`subjects`.`subjectdescription`) AS `subject`,concat(`employees`.`employeelastname`,', ',`employees`.`employeefirstname`,' ',`employees`.`employeemiddlename`) AS `employeefullname`,concat(`rooms`.`room`,' - ',`buildings`.`building`) AS `roombuilding`,concat(`subjectsscheduling`.`start`,' - ',`subjectsscheduling`.`end`) AS `time`,str_to_date(`subjectsscheduling`.`start`,'%h:%i %p') AS `startc`,str_to_date(`subjectsscheduling`.`end`,'%h:%i %p') AS `endc`,concat(if(`subjectsscheduling`.`monday` = 1,'Monday',''),if(`subjectsscheduling`.`tuesday` = 1,' Tuesday',''),if(`subjectsscheduling`.`wednesday` = 1,' Wednesday',''),if(`subjectsscheduling`.`thursday` = 1,' Thursday',''),if(`subjectsscheduling`.`friday` = 1,' Friday',''),if(`subjectsscheduling`.`saturday` = 1,' Saturday',''),if(`subjectsscheduling`.`sunday` = 1,' Sunday','')) AS `scheddays`,`computers`.`computerid` AS `computerid` from (((((`subjectsscheduling` join `employees` on(`subjectsscheduling`.`employeeid` = `employees`.`employeeid`)) join `rooms` on(`subjectsscheduling`.`roomid` = `rooms`.`roomid`)) join `subjects` on(`subjectsscheduling`.`subjectid` = `subjects`.`subjectid`)) join `computers` on(`rooms`.`computerid` = `computers`.`computerid`)) join `buildings` on(`rooms`.`buildingid` = `buildings`.`buildingid`)) ;
 
 -- --------------------------------------------------------
 
@@ -863,7 +706,7 @@ ALTER TABLE `rooms`
 -- AUTO_INCREMENT for table `seats`
 --
 ALTER TABLE `seats`
-  MODIFY `seatid` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `seatid` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `sms`
@@ -881,7 +724,7 @@ ALTER TABLE `students`
 -- AUTO_INCREMENT for table `studentssubjectenrollment`
 --
 ALTER TABLE `studentssubjectenrollment`
-  MODIFY `studentsubjectenrollmentid` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `studentsubjectenrollmentid` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT for table `subjects`
@@ -893,7 +736,7 @@ ALTER TABLE `subjects`
 -- AUTO_INCREMENT for table `subjectsscheduling`
 --
 ALTER TABLE `subjectsscheduling`
-  MODIFY `subjectscheduleid` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `subjectscheduleid` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- Constraints for dumped tables
