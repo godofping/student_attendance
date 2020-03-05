@@ -63,6 +63,8 @@ namespace thesis.PL.Transactions
             lblDate.Text = DateTime.Now.ToString("MMMM dd, yyyy");
         }
 
+
+
         private void GetCurrentSchedule()
         {
             var dt = subjectschedulingBL.CheckCurrentSchedule();
@@ -188,7 +190,11 @@ namespace thesis.PL.Transactions
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-
+            var comEL = new EL.Registrations.Computers();
+            var comBL = new BL.Registrations.Computers();
+            comEL.Computerid = EL.Transactions.Initialization.computerid;
+            comEL = comBL.Select(comEL);
+            lblComputer.Text = comEL.Computer;
             GetCurrentSchedule();
         }
 

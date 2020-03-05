@@ -110,10 +110,10 @@ namespace thesis.DL.Registrations
 
             using (var cmd = new MySqlCommand())
             {
-                cmd.CommandText = "SELECT * FROM subjectsschedule_converted_view WHERE scheddays like @day and @time between startc AND endc";
+                cmd.CommandText = "SELECT * FROM subjectsschedule_converted_view WHERE computerid = @computerid and scheddays like @day and @time between startc AND endc";
                 cmd.Parameters.AddWithValue("@day", "%" + day + "%");
                 cmd.Parameters.AddWithValue("@time", time);
-
+                cmd.Parameters.AddWithValue("@computerid", EL.Transactions.Initialization.computerid);
                 return methods.executeQuery(cmd);
             }
 

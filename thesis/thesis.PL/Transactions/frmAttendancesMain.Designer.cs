@@ -60,6 +60,7 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.lblComputer = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbStudentImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -362,12 +363,22 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Seat Assignments";
             // 
+            // lblComputer
+            // 
+            this.lblComputer.AutoSize = true;
+            this.lblComputer.Location = new System.Drawing.Point(1111, 91);
+            this.lblComputer.Name = "lblComputer";
+            this.lblComputer.Size = new System.Drawing.Size(80, 16);
+            this.lblComputer.TabIndex = 15;
+            this.lblComputer.Text = "COMPUTER 1";
+            // 
             // frmAttendancesMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1280, 720);
+            this.Controls.Add(this.lblComputer);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -434,5 +445,6 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label lblComputer;
     }
 }
