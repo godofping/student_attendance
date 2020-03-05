@@ -365,9 +365,9 @@
             // 
             // lblComputer
             // 
-            this.lblComputer.Location = new System.Drawing.Point(1034, 94);
+            this.lblComputer.Location = new System.Drawing.Point(865, 94);
             this.lblComputer.Name = "lblComputer";
-            this.lblComputer.Size = new System.Drawing.Size(224, 16);
+            this.lblComputer.Size = new System.Drawing.Size(393, 16);
             this.lblComputer.TabIndex = 15;
             this.lblComputer.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
