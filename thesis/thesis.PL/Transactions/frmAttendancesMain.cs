@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Threading;
 using System.Windows.Forms;
 
 
@@ -155,6 +156,8 @@ namespace thesis.PL.Transactions
             computerEL = computerBL.Select(computerEL);
 
 
+           
+
         }
 
 
@@ -192,8 +195,8 @@ namespace thesis.PL.Transactions
         {
             var comEL = new EL.Registrations.Computers();
             var comBL = new BL.Registrations.Computers();
-            comEL.Computerid = EL.Transactions.Initialization.computerid;
-            comEL = comBL.Select(comEL);
+
+            comEL = comBL.Select(EL.Transactions.Initialization.computerid);
             lblComputer.Text = comEL.Computer;
             GetCurrentSchedule();
         }
@@ -409,12 +412,24 @@ namespace thesis.PL.Transactions
                         if (attendanceBL.CheckIfHasAttendance(attendanceEL).Rows.Count == 0)
                         {
 
+                            
+
+
+                            attendanceEL = new EL.Transactions.Attendances();
+                            attendanceEL.Studentsubjectenrollmentid = Convert.ToInt32(row["studentsubjectenrollmentid"]);
+                            attendanceEL.Attendanceintime = null;
+                            attendanceEL.Attendanceouttime = null;
+                            attendanceEL.Createdat = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                            attendanceEL.Status = "ABSENT";
+                            attendanceBL.Insert(attendanceEL);
+
+
                             //check if the student is absent 3 times; if yes send message;
                             var res = attendanceBL.CountAbsents(attendanceEL);
 
 
 
-                            if (Convert.ToInt32(res.Rows[0]["total"]) == 3)
+                            if (Convert.ToInt32(res.Rows[0]["total"]) == 4)
                             {
 
                                 //to student
@@ -433,22 +448,13 @@ namespace thesis.PL.Transactions
                                 smsEL = new EL.Transactions.Sms();
 
                                 smsEL.Attendanceid = Convert.ToInt32(res.Rows[0]["attendanceid"]);
-                                smsEL.Message = res.Rows[0]["studentfullname"].ToString() + " has " + Convert.ToInt32(res.Rows[0]["total"]) +  " absents in the subject " + subjectEL.Subjectcode;
+                                smsEL.Message = res.Rows[0]["studentfullname"].ToString() + " has " + Convert.ToInt32(res.Rows[0]["total"]) + " absents in the subject " + subjectEL.Subjectcode;
                                 smsEL.Studentcontactperson = res.Rows[0]["studentcontactperson"].ToString();
                                 smsEL.Studentcontactpersonphonenumber = res.Rows[0]["studentcontactpersonphonenumber"].ToString();
                                 smsEL.Smsstatus = "PENDING";
 
                                 smsBL.Insert(smsEL);
                             }
-
-
-                            attendanceEL = new EL.Transactions.Attendances();
-                            attendanceEL.Studentsubjectenrollmentid = Convert.ToInt32(row["studentsubjectenrollmentid"]);
-                            attendanceEL.Attendanceintime = null;
-                            attendanceEL.Attendanceouttime = null;
-                            attendanceEL.Createdat = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-                            attendanceEL.Status = "ABSENT";
-                            attendanceBL.Insert(attendanceEL);
 
                         }
 
@@ -466,36 +472,50 @@ namespace thesis.PL.Transactions
         private void timerForSendingSMS_Tick(object sender, EventArgs e)
         {
 
-            computerEL = computerBL.GetSMSServer();
 
-            if (computerEL.Computerid == EL.Transactions.Initialization.computerid)
+            new Thread(() =>
             {
-                var dt = smsBL.List();
 
-                if (dt.Rows.Count > 0)
+
+                computerEL = computerBL.GetSMSServer();
+
+                if (computerEL.Computerid == EL.Transactions.Initialization.computerid)
                 {
+                    var dt = smsBL.List();
 
-                    smsEL.Studentcontactpersonphonenumber = dt.Rows[0]["studentcontactpersonphonenumber"].ToString();
-                    smsEL.Message = dt.Rows[0]["message"].ToString();
-
-                    bool res = SMS.PassSMS(smsEL);
-
-
-
-                    if (res)
+                    if (dt.Rows.Count > 0)
                     {
-                        smsEL.Smsstatus = "SENT";
-                        smsEL.Smsid = Convert.ToInt32(dt.Rows[0]["smsid"]);
-                        smsBL.Update(smsEL);
 
-                        Console.WriteLine("SENT");
-                    }
-                    else
-                    {
-                        Console.WriteLine("FAILED");
+                        smsEL.Studentcontactpersonphonenumber = dt.Rows[0]["studentcontactpersonphonenumber"].ToString();
+                        smsEL.Message = dt.Rows[0]["message"].ToString();
+
+                        bool res = SMS.PassSMS(smsEL);
+
+
+
+                        if (res)
+                        {
+                            smsEL.Smsstatus = "SENT";
+                            smsEL.Smsid = Convert.ToInt32(dt.Rows[0]["smsid"]);
+                            smsBL.Update(smsEL);
+
+                            Console.WriteLine("SENT");
+                        }
+                        else
+                        {
+                            Console.WriteLine("FAILED");
+                        }
                     }
                 }
-            }
+
+
+
+            }).Start();
+
+
+
+
+            
         }
 
 

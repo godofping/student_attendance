@@ -70,6 +70,33 @@ namespace thesis.DL.Registrations
             }
         }
 
+        public EL.Registrations.Computers Select(int id)
+        {
+            DataTable dt = null;
+            EL.Registrations.Computers computerEL = new EL.Registrations.Computers();
+
+            using (var cmd = new MySqlCommand())
+            {
+                cmd.CommandText = "select * from computers_view where computerid = @computerid";
+
+                cmd.Parameters.AddWithValue("@computerid", id);
+                dt = methods.executeQuery(cmd);
+            }
+
+            if (dt.Rows.Count > 0)
+            {
+                computerEL.Computerid = Convert.ToInt32(dt.Rows[0]["computerid"]);
+                computerEL.Computer = dt.Rows[0]["computer"].ToString();
+                computerEL.Issmsserver = Convert.ToInt32(dt.Rows[0]["issmsserver"]);
+
+                return computerEL;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
         public long Insert(EL.Registrations.Computers computerEL)
         {
             using (var cmd = new MySqlCommand())

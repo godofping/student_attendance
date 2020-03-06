@@ -45,6 +45,7 @@ namespace thesis.PL
         private void frmChangePort_Load(object sender, EventArgs e)
         {
             PopulateCB();
+
         }
 
         private void btnSet_Click(object sender, EventArgs e)

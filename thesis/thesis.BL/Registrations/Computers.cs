@@ -31,6 +31,11 @@ namespace thesis.BL.Registrations
             return computerDL.Select(computerEL);
         }
 
+        public EL.Registrations.Computers Select(int id)
+        {
+            return computerDL.Select(id);
+        }
+
         public long Insert(EL.Registrations.Computers computerEL)
         {
             return computerDL.Insert(computerEL);

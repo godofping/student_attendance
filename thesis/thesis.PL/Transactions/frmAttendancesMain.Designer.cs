@@ -365,12 +365,11 @@
             // 
             // lblComputer
             // 
-            this.lblComputer.AutoSize = true;
-            this.lblComputer.Location = new System.Drawing.Point(1111, 91);
+            this.lblComputer.Location = new System.Drawing.Point(1034, 94);
             this.lblComputer.Name = "lblComputer";
-            this.lblComputer.Size = new System.Drawing.Size(80, 16);
+            this.lblComputer.Size = new System.Drawing.Size(224, 16);
             this.lblComputer.TabIndex = 15;
-            this.lblComputer.Text = "COMPUTER 1";
+            this.lblComputer.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // frmAttendancesMain
             // 
