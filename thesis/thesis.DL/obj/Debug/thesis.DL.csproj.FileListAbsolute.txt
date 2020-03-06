@@ -1,5 +1,7 @@
 C:\xampp\htdocs\student_attendance\thesis\thesis.DL\bin\Debug\thesis.DL.dll
 C:\xampp\htdocs\student_attendance\thesis\thesis.DL\bin\Debug\thesis.DL.pdb
+C:\xampp\htdocs\student_attendance\thesis\thesis.DL\bin\Debug\thesis.DL.dll.CodeAnalysisLog.xml
+C:\xampp\htdocs\student_attendance\thesis\thesis.DL\bin\Debug\thesis.DL.dll.lastcodeanalysissucceeded
 C:\xampp\htdocs\student_attendance\thesis\thesis.DL\bin\Debug\mysql.data.dll
 C:\xampp\htdocs\student_attendance\thesis\thesis.DL\bin\Debug\thesis.EL.dll
 C:\xampp\htdocs\student_attendance\thesis\thesis.DL\bin\Debug\thesis.EL.pdb
