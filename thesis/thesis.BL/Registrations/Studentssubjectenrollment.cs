@@ -25,6 +25,13 @@ namespace thesis.BL.Registrations
             return studentsubjectenrollmentDL.ListOfStudents(studentsubjectenrollmentEL);
         }
 
+        public DataTable ListOfStudentsSeatAssignment(int id)
+        {
+            return studentsubjectenrollmentDL.ListOfStudentsSeatAssignment(id);
+        }
+
+        
+
         public EL.Registrations.Studentssubjectenrollment Select(EL.Registrations.Studentssubjectenrollment studentsubjectsenrolledEL)
         {
             return studentsubjectenrollmentDL.Select(studentsubjectsenrolledEL);

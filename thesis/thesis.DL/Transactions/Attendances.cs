@@ -1,10 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Data;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace thesis.DL.Transactions
 {
@@ -72,6 +68,8 @@ namespace thesis.DL.Transactions
                 return methods.executeQuery(cmd);
             }
         }
+
+
 
 
         public DataTable ListAttendance(EL.Transactions.Attendances attendanceEL)

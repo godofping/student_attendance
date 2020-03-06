@@ -427,6 +427,7 @@ namespace thesis.PL
             dgv.ReadOnly = true;
             dgv.BackgroundColor = Color.White;
 
+
             foreach (DataGridViewColumn column in dgv.Columns)
             {
                 column.SortMode = DataGridViewColumnSortMode.NotSortable;
@@ -483,6 +484,8 @@ namespace thesis.PL
                 dgv.Columns["btnDelete"].DisplayIndex = dgv.ColumnCount - 1;
             }
 
+            dgv.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dgv.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
 
         }
 

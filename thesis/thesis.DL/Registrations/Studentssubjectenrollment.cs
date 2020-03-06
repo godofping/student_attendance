@@ -52,6 +52,18 @@ namespace thesis.DL.Registrations
             }
         }
 
+        public DataTable ListOfStudentsSeatAssignment(int id)
+        {
+            using (var cmd = new MySqlCommand())
+            {
+                cmd.CommandText = "select studentfullname, seat,studentimage from studentssubjectenrollment_view where subjectscheduleid = @subjectscheduleid order by studentfullname asc";
+
+                cmd.Parameters.AddWithValue("@subjectscheduleid", id);
+
+                return methods.executeQuery(cmd);
+            }
+        }
+
         public EL.Registrations.Studentssubjectenrollment Select(EL.Registrations.Studentssubjectenrollment studentsubjectenrollmentEL)
         {
             DataTable dt = null;

@@ -33,6 +33,9 @@ namespace thesis.PL.Transactions
         string s = "";
         int timer = 0;
 
+        int now = 0;
+        int previous = 0;
+ 
 
         public frmAttendancesMain()
         {
@@ -100,12 +103,43 @@ namespace thesis.PL.Transactions
                     lblINorOUT.Text = "ATTENDANCE OUT";
                 }
 
+                now = subjectschedulingEL.Subjectscheduleid;
+
+
+               
+
             }
             else
             {
                 ClearSubject();
                 lblINorOUT.Text = "ATTENDANCE DISABLED";
+                now = 0;
             }
+
+            
+
+            if (now != previous)
+            {
+                Console.WriteLine("PREVIOUS: " + previous + " NOW: " + now + " subj: " + subjectschedulingEL.Subjectscheduleid);
+                PopulateDGV();
+
+                previous = now;
+
+            }
+        }
+
+
+        private void ManageDGV()
+        {
+            PopulateDGV();
+            methods.DGVTheme(dgv);
+            methods.DGVRenameColumns(dgv, "Student", "Seat", "");
+        }
+
+        private void PopulateDGV()
+        {
+            Console.WriteLine("called");
+           methods.LoadDGV(dgv, studentsubjectenrollmentBL.ListOfStudentsSeatAssignment(now));
         }
 
 
@@ -156,7 +190,7 @@ namespace thesis.PL.Transactions
             computerEL = computerBL.Select(computerEL);
 
 
-           
+            ManageDGV();
 
         }
 
@@ -199,6 +233,9 @@ namespace thesis.PL.Transactions
             comEL = comBL.Select(EL.Transactions.Initialization.computerid);
             lblComputer.Text = comEL.Computer;
             GetCurrentSchedule();
+
+            
+
         }
 
         private void frmAttendancesMain_KeyPress(object sender, KeyPressEventArgs e)
