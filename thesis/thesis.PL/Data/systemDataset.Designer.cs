@@ -24,8 +24,6 @@ namespace thesis.PL.Data {
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
     public partial class systemDataset : global::System.Data.DataSet {
         
-        private attendances_viewDataTable tableattendances_view;
-        
         private subjectsschedule_converted_viewDataTable tablesubjectsschedule_converted_view;
         
         private students_attendance_viewDataTable tablestudents_attendance_view;
@@ -62,9 +60,6 @@ namespace thesis.PL.Data {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["attendances_view"] != null)) {
-                    base.Tables.Add(new attendances_viewDataTable(ds.Tables["attendances_view"]));
-                }
                 if ((ds.Tables["subjectsschedule_converted_view"] != null)) {
                     base.Tables.Add(new subjectsschedule_converted_viewDataTable(ds.Tables["subjectsschedule_converted_view"]));
                 }
@@ -93,16 +88,6 @@ namespace thesis.PL.Data {
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
             base.Tables.CollectionChanged += schemaChangedHandler;
             this.Relations.CollectionChanged += schemaChangedHandler;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Browsable(false)]
-        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public attendances_viewDataTable attendances_view {
-            get {
-                return this.tableattendances_view;
-            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -212,9 +197,6 @@ namespace thesis.PL.Data {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["attendances_view"] != null)) {
-                    base.Tables.Add(new attendances_viewDataTable(ds.Tables["attendances_view"]));
-                }
                 if ((ds.Tables["subjectsschedule_converted_view"] != null)) {
                     base.Tables.Add(new subjectsschedule_converted_viewDataTable(ds.Tables["subjectsschedule_converted_view"]));
                 }
@@ -260,12 +242,6 @@ namespace thesis.PL.Data {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableattendances_view = ((attendances_viewDataTable)(base.Tables["attendances_view"]));
-            if ((initTable == true)) {
-                if ((this.tableattendances_view != null)) {
-                    this.tableattendances_view.InitVars();
-                }
-            }
             this.tablesubjectsschedule_converted_view = ((subjectsschedule_converted_viewDataTable)(base.Tables["subjectsschedule_converted_view"]));
             if ((initTable == true)) {
                 if ((this.tablesubjectsschedule_converted_view != null)) {
@@ -300,8 +276,6 @@ namespace thesis.PL.Data {
             this.Namespace = "http://tempuri.org/systemDataset.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableattendances_view = new attendances_viewDataTable();
-            base.Tables.Add(this.tableattendances_view);
             this.tablesubjectsschedule_converted_view = new subjectsschedule_converted_viewDataTable();
             base.Tables.Add(this.tablesubjectsschedule_converted_view);
             this.tablestudents_attendance_view = new students_attendance_viewDataTable();
@@ -310,12 +284,6 @@ namespace thesis.PL.Data {
             base.Tables.Add(this.tablestudents_view);
             this.tablestudents_complete_view = new students_complete_viewDataTable();
             base.Tables.Add(this.tablestudents_complete_view);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerializeattendances_view() {
-            return false;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -398,9 +366,6 @@ namespace thesis.PL.Data {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void attendances_viewRowChangeEventHandler(object sender, attendances_viewRowChangeEvent e);
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public delegate void subjectsschedule_converted_viewRowChangeEventHandler(object sender, subjectsschedule_converted_viewRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -411,351 +376,6 @@ namespace thesis.PL.Data {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public delegate void students_complete_viewRowChangeEventHandler(object sender, students_complete_viewRowChangeEvent e);
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class attendances_viewDataTable : global::System.Data.TypedTableBase<attendances_viewRow> {
-            
-            private global::System.Data.DataColumn columnattendanceid;
-            
-            private global::System.Data.DataColumn columnstudentsubjectenrollmentid;
-            
-            private global::System.Data.DataColumn columnattendanceintime;
-            
-            private global::System.Data.DataColumn columnattendanceouttime;
-            
-            private global::System.Data.DataColumn columncreatedat;
-            
-            private global::System.Data.DataColumn columnstatus;
-            
-            private global::System.Data.DataColumn columnseat;
-            
-            private global::System.Data.DataColumn columnstudentfullname;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public attendances_viewDataTable() {
-                this.TableName = "attendances_view";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal attendances_viewDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected attendances_viewDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn attendanceidColumn {
-                get {
-                    return this.columnattendanceid;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn studentsubjectenrollmentidColumn {
-                get {
-                    return this.columnstudentsubjectenrollmentid;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn attendanceintimeColumn {
-                get {
-                    return this.columnattendanceintime;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn attendanceouttimeColumn {
-                get {
-                    return this.columnattendanceouttime;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn createdatColumn {
-                get {
-                    return this.columncreatedat;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn statusColumn {
-                get {
-                    return this.columnstatus;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn seatColumn {
-                get {
-                    return this.columnseat;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn studentfullnameColumn {
-                get {
-                    return this.columnstudentfullname;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public attendances_viewRow this[int index] {
-                get {
-                    return ((attendances_viewRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event attendances_viewRowChangeEventHandler attendances_viewRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event attendances_viewRowChangeEventHandler attendances_viewRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event attendances_viewRowChangeEventHandler attendances_viewRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event attendances_viewRowChangeEventHandler attendances_viewRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Addattendances_viewRow(attendances_viewRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public attendances_viewRow Addattendances_viewRow(int attendanceid, int studentsubjectenrollmentid, System.DateTime attendanceintime, System.DateTime attendanceouttime, System.DateTime createdat, string status, string seat, string studentfullname) {
-                attendances_viewRow rowattendances_viewRow = ((attendances_viewRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        attendanceid,
-                        studentsubjectenrollmentid,
-                        attendanceintime,
-                        attendanceouttime,
-                        createdat,
-                        status,
-                        seat,
-                        studentfullname};
-                rowattendances_viewRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowattendances_viewRow);
-                return rowattendances_viewRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                attendances_viewDataTable cln = ((attendances_viewDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new attendances_viewDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal void InitVars() {
-                this.columnattendanceid = base.Columns["attendanceid"];
-                this.columnstudentsubjectenrollmentid = base.Columns["studentsubjectenrollmentid"];
-                this.columnattendanceintime = base.Columns["attendanceintime"];
-                this.columnattendanceouttime = base.Columns["attendanceouttime"];
-                this.columncreatedat = base.Columns["createdat"];
-                this.columnstatus = base.Columns["status"];
-                this.columnseat = base.Columns["seat"];
-                this.columnstudentfullname = base.Columns["studentfullname"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            private void InitClass() {
-                this.columnattendanceid = new global::System.Data.DataColumn("attendanceid", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnattendanceid);
-                this.columnstudentsubjectenrollmentid = new global::System.Data.DataColumn("studentsubjectenrollmentid", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnstudentsubjectenrollmentid);
-                this.columnattendanceintime = new global::System.Data.DataColumn("attendanceintime", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnattendanceintime);
-                this.columnattendanceouttime = new global::System.Data.DataColumn("attendanceouttime", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnattendanceouttime);
-                this.columncreatedat = new global::System.Data.DataColumn("createdat", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncreatedat);
-                this.columnstatus = new global::System.Data.DataColumn("status", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnstatus);
-                this.columnseat = new global::System.Data.DataColumn("seat", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnseat);
-                this.columnstudentfullname = new global::System.Data.DataColumn("studentfullname", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnstudentfullname);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public attendances_viewRow Newattendances_viewRow() {
-                return ((attendances_viewRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new attendances_viewRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(attendances_viewRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.attendances_viewRowChanged != null)) {
-                    this.attendances_viewRowChanged(this, new attendances_viewRowChangeEvent(((attendances_viewRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.attendances_viewRowChanging != null)) {
-                    this.attendances_viewRowChanging(this, new attendances_viewRowChangeEvent(((attendances_viewRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.attendances_viewRowDeleted != null)) {
-                    this.attendances_viewRowDeleted(this, new attendances_viewRowChangeEvent(((attendances_viewRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.attendances_viewRowDeleting != null)) {
-                    this.attendances_viewRowDeleting(this, new attendances_viewRowChangeEvent(((attendances_viewRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void Removeattendances_viewRow(attendances_viewRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                systemDataset ds = new systemDataset();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "attendances_viewDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -1311,6 +931,8 @@ namespace thesis.PL.Data {
             
             private global::System.Data.DataColumn columnsubjectscheduleid;
             
+            private global::System.Data.DataColumn columnseat;
+            
             private global::System.Data.DataColumn columnstudentfullname;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1404,6 +1026,14 @@ namespace thesis.PL.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn seatColumn {
+                get {
+                    return this.columnseat;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn studentfullnameColumn {
                 get {
                     return this.columnstudentfullname;
@@ -1447,7 +1077,7 @@ namespace thesis.PL.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public students_attendance_viewRow Addstudents_attendance_viewRow(int attendanceid, int studentsubjectenrollmentid, System.DateTime attendanceintime, System.DateTime attendanceouttime, System.DateTime createdat, string status, int subjectscheduleid, string studentfullname) {
+            public students_attendance_viewRow Addstudents_attendance_viewRow(int attendanceid, int studentsubjectenrollmentid, System.DateTime attendanceintime, System.DateTime attendanceouttime, System.DateTime createdat, string status, int subjectscheduleid, string seat, string studentfullname) {
                 students_attendance_viewRow rowstudents_attendance_viewRow = ((students_attendance_viewRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         attendanceid,
@@ -1457,6 +1087,7 @@ namespace thesis.PL.Data {
                         createdat,
                         status,
                         subjectscheduleid,
+                        seat,
                         studentfullname};
                 rowstudents_attendance_viewRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowstudents_attendance_viewRow);
@@ -1487,6 +1118,7 @@ namespace thesis.PL.Data {
                 this.columncreatedat = base.Columns["createdat"];
                 this.columnstatus = base.Columns["status"];
                 this.columnsubjectscheduleid = base.Columns["subjectscheduleid"];
+                this.columnseat = base.Columns["seat"];
                 this.columnstudentfullname = base.Columns["studentfullname"];
             }
             
@@ -1507,6 +1139,8 @@ namespace thesis.PL.Data {
                 base.Columns.Add(this.columnstatus);
                 this.columnsubjectscheduleid = new global::System.Data.DataColumn("subjectscheduleid", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnsubjectscheduleid);
+                this.columnseat = new global::System.Data.DataColumn("seat", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnseat);
                 this.columnstudentfullname = new global::System.Data.DataColumn("studentfullname", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnstudentfullname);
             }
@@ -2244,246 +1878,6 @@ namespace thesis.PL.Data {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class attendances_viewRow : global::System.Data.DataRow {
-            
-            private attendances_viewDataTable tableattendances_view;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal attendances_viewRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tableattendances_view = ((attendances_viewDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int attendanceid {
-                get {
-                    try {
-                        return ((int)(this[this.tableattendances_view.attendanceidColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'attendanceid\' in table \'attendances_view\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableattendances_view.attendanceidColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int studentsubjectenrollmentid {
-                get {
-                    try {
-                        return ((int)(this[this.tableattendances_view.studentsubjectenrollmentidColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'studentsubjectenrollmentid\' in table \'attendances_view\' is " +
-                                "DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableattendances_view.studentsubjectenrollmentidColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime attendanceintime {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableattendances_view.attendanceintimeColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'attendanceintime\' in table \'attendances_view\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableattendances_view.attendanceintimeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime attendanceouttime {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableattendances_view.attendanceouttimeColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'attendanceouttime\' in table \'attendances_view\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableattendances_view.attendanceouttimeColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime createdat {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableattendances_view.createdatColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'createdat\' in table \'attendances_view\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableattendances_view.createdatColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string status {
-                get {
-                    try {
-                        return ((string)(this[this.tableattendances_view.statusColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'status\' in table \'attendances_view\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableattendances_view.statusColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string seat {
-                get {
-                    try {
-                        return ((string)(this[this.tableattendances_view.seatColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'seat\' in table \'attendances_view\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableattendances_view.seatColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string studentfullname {
-                get {
-                    try {
-                        return ((string)(this[this.tableattendances_view.studentfullnameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'studentfullname\' in table \'attendances_view\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableattendances_view.studentfullnameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsattendanceidNull() {
-                return this.IsNull(this.tableattendances_view.attendanceidColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetattendanceidNull() {
-                this[this.tableattendances_view.attendanceidColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsstudentsubjectenrollmentidNull() {
-                return this.IsNull(this.tableattendances_view.studentsubjectenrollmentidColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetstudentsubjectenrollmentidNull() {
-                this[this.tableattendances_view.studentsubjectenrollmentidColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsattendanceintimeNull() {
-                return this.IsNull(this.tableattendances_view.attendanceintimeColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetattendanceintimeNull() {
-                this[this.tableattendances_view.attendanceintimeColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsattendanceouttimeNull() {
-                return this.IsNull(this.tableattendances_view.attendanceouttimeColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetattendanceouttimeNull() {
-                this[this.tableattendances_view.attendanceouttimeColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IscreatedatNull() {
-                return this.IsNull(this.tableattendances_view.createdatColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetcreatedatNull() {
-                this[this.tableattendances_view.createdatColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsstatusNull() {
-                return this.IsNull(this.tableattendances_view.statusColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetstatusNull() {
-                this[this.tableattendances_view.statusColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsseatNull() {
-                return this.IsNull(this.tableattendances_view.seatColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetseatNull() {
-                this[this.tableattendances_view.seatColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsstudentfullnameNull() {
-                return this.IsNull(this.tableattendances_view.studentfullnameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetstudentfullnameNull() {
-                this[this.tableattendances_view.studentfullnameColumn] = global::System.Convert.DBNull;
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
         public partial class subjectsschedule_converted_viewRow : global::System.Data.DataRow {
             
             private subjectsschedule_converted_viewDataTable tablesubjectsschedule_converted_view;
@@ -3208,6 +2602,22 @@ namespace thesis.PL.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string seat {
+                get {
+                    try {
+                        return ((string)(this[this.tablestudents_attendance_view.seatColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'seat\' in table \'students_attendance_view\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablestudents_attendance_view.seatColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string studentfullname {
                 get {
                     try {
@@ -3305,6 +2715,18 @@ namespace thesis.PL.Data {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetsubjectscheduleidNull() {
                 this[this.tablestudents_attendance_view.subjectscheduleidColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsseatNull() {
+                return this.IsNull(this.tablestudents_attendance_view.seatColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetseatNull() {
+                this[this.tablestudents_attendance_view.seatColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3632,40 +3054,6 @@ namespace thesis.PL.Data {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetstudentcontactpersonphonenumberNull() {
                 this[this.tablestudents_complete_view.studentcontactpersonphonenumberColumn] = global::System.Convert.DBNull;
-            }
-        }
-        
-        /// <summary>
-        ///Row event argument class
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class attendances_viewRowChangeEvent : global::System.EventArgs {
-            
-            private attendances_viewRow eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public attendances_viewRowChangeEvent(attendances_viewRow row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public attendances_viewRow Row {
-                get {
-                    return this.eventRow;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataRowAction Action {
-                get {
-                    return this.eventAction;
-                }
             }
         }
         

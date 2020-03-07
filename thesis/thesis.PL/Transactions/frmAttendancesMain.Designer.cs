@@ -373,6 +373,7 @@
             this.dgv.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv.Location = new System.Drawing.Point(3, 17);
             this.dgv.Name = "dgv";
+            this.dgv.ReadOnly = true;
             this.dgv.Size = new System.Drawing.Size(408, 505);
             this.dgv.TabIndex = 0;
             // 

@@ -77,14 +77,15 @@ namespace thesis.PL.Reports
                 if (PL.methods.IsContainsCB(cbTeacher, cbSubjectSchedule))
                 {
 
-                    attendanceEL.Createdat = DateTime.Now.ToString("yyyy-MM-dd");
+                    attendanceEL.Createdat = dtpDate.Text;
                     attendanceEL.Studentsubjectenrollmentid = Convert.ToInt32(cbSubjectSchedule.SelectedValue);
                     subjectschedulingEL.Subjectscheduleid = attendanceEL.Studentsubjectenrollmentid;
 
                     Reports.crAttendanceDaily cr = new Reports.crAttendanceDaily();
 
-                    cr.Database.Tables["students_attendance_view"].SetDataSource(attendanceBL.ListAttendanceByDate(attendanceEL));
                     cr.Database.Tables["subjectsschedule_converted_view"].SetDataSource(subjectschedulingBL.GetInformation(subjectschedulingEL));
+
+                    cr.Database.Tables["students_attendance_view"].SetDataSource(attendanceBL.ListAttendanceByDate(attendanceEL));
                     cr.SetParameterValue("dateofreport", attendanceEL.Createdat);
 
                     crv.ReportSource = null;

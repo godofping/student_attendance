@@ -140,6 +140,8 @@ namespace thesis.PL.Transactions
         {
             Console.WriteLine("called");
            methods.LoadDGV(dgv, studentsubjectenrollmentBL.ListOfStudentsSeatAssignment(now));
+            dgv.ClearSelection();
+            dgv.CurrentCell = null;
         }
 
 
@@ -248,7 +250,8 @@ namespace thesis.PL.Transactions
 
         private void frmAttendancesMain_KeyUp(object sender, KeyEventArgs e)
         {
-       
+            dgv.CurrentCell = null;
+            dgv.ClearSelection();
             //captures the enter when there is a class. this is for rfid reading
             if (e.KeyCode == Keys.Enter & subjectschedulingEL.Subjectscheduleid > 0)
             {
@@ -390,6 +393,9 @@ namespace thesis.PL.Transactions
                 {
                     s = "";
                 }
+
+                dgv.ClearSelection();
+                dgv.CurrentCell = null;
             }
 
             //if there is no active class
@@ -466,14 +472,14 @@ namespace thesis.PL.Transactions
 
 
 
-                            if (Convert.ToInt32(res.Rows[0]["total"]) == 4)
+                            if (Convert.ToInt32(res.Rows[0]["total"]) >= 4)
                             {
 
                                 //to student
                                 smsEL = new EL.Transactions.Sms();
 
                                 smsEL.Attendanceid = Convert.ToInt32(res.Rows[0]["attendanceid"]);
-                                smsEL.Message = "This is a warning. You have " + Convert.ToInt32(res.Rows[0]["total"]) + " absents in the subject " + subjectEL.Subjectcode;
+                                smsEL.Message = "This is a warning. You have " + (Convert.ToInt32(res.Rows[0]["total"]) - 1) + " absents in the subject " + subjectEL.Subjectcode;
                                 smsEL.Studentcontactperson = res.Rows[0]["studentfullname"].ToString();
                                 smsEL.Studentcontactpersonphonenumber = res.Rows[0]["studentphonenumber"].ToString();
                                 smsEL.Smsstatus = "PENDING";
@@ -485,7 +491,7 @@ namespace thesis.PL.Transactions
                                 smsEL = new EL.Transactions.Sms();
 
                                 smsEL.Attendanceid = Convert.ToInt32(res.Rows[0]["attendanceid"]);
-                                smsEL.Message = res.Rows[0]["studentfullname"].ToString() + " has " + Convert.ToInt32(res.Rows[0]["total"]) + " absents in the subject " + subjectEL.Subjectcode;
+                                smsEL.Message = res.Rows[0]["studentfullname"].ToString() + " has " + (Convert.ToInt32(res.Rows[0]["total"]) - 1) + " absents in the subject " + subjectEL.Subjectcode;
                                 smsEL.Studentcontactperson = res.Rows[0]["studentcontactperson"].ToString();
                                 smsEL.Studentcontactpersonphonenumber = res.Rows[0]["studentcontactpersonphonenumber"].ToString();
                                 smsEL.Smsstatus = "PENDING";
