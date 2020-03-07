@@ -1,6 +1,6 @@
 ﻿namespace thesis.PL.Reports
 {
-    partial class frmReportViewAttendanceTeacher
+    partial class frmReportStudentsAbsentsTeacher
     {
         /// <summary>
         /// Required designer variable.
@@ -33,8 +33,6 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.crv = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.btnGenerate = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.dtpDate = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.cbSubjectSchedule = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
@@ -45,10 +43,10 @@
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(141)))), ((int)(((byte)(152)))));
             this.panel1.Controls.Add(this.label9);
-            this.panel1.Location = new System.Drawing.Point(308, 12);
+            this.panel1.Location = new System.Drawing.Point(354, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(372, 37);
-            this.panel1.TabIndex = 35;
+            this.panel1.Size = new System.Drawing.Size(314, 37);
+            this.panel1.TabIndex = 45;
             // 
             // label9
             // 
@@ -57,9 +55,9 @@
             this.label9.ForeColor = System.Drawing.Color.White;
             this.label9.Location = new System.Drawing.Point(35, 9);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(312, 21);
+            this.label9.Size = new System.Drawing.Size(257, 21);
             this.label9.TabIndex = 9;
-            this.label9.Text = "Summary of Students Attendance Daily";
+            this.label9.Text = "Summary of Students Absent List";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnClose
@@ -73,7 +71,7 @@
             this.btnClose.Location = new System.Drawing.Point(882, 699);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(130, 57);
-            this.btnClose.TabIndex = 34;
+            this.btnClose.TabIndex = 44;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -89,7 +87,7 @@
             this.crv.Location = new System.Drawing.Point(0, 114);
             this.crv.Name = "crv";
             this.crv.Size = new System.Drawing.Size(1024, 579);
-            this.crv.TabIndex = 33;
+            this.crv.TabIndex = 43;
             // 
             // btnGenerate
             // 
@@ -101,30 +99,10 @@
             this.btnGenerate.Location = new System.Drawing.Point(933, 71);
             this.btnGenerate.Name = "btnGenerate";
             this.btnGenerate.Size = new System.Drawing.Size(82, 37);
-            this.btnGenerate.TabIndex = 42;
+            this.btnGenerate.TabIndex = 50;
             this.btnGenerate.Text = "Generate";
             this.btnGenerate.UseVisualStyleBackColor = false;
             this.btnGenerate.Click += new System.EventHandler(this.btnGenerate_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(828, 68);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 16);
-            this.label2.TabIndex = 41;
-            this.label2.Text = "Date *";
-            // 
-            // dtpDate
-            // 
-            this.dtpDate.CustomFormat = "yyyy-MM-dd";
-            this.dtpDate.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDate.Location = new System.Drawing.Point(831, 87);
-            this.dtpDate.Name = "dtpDate";
-            this.dtpDate.Size = new System.Drawing.Size(96, 21);
-            this.dtpDate.TabIndex = 40;
             // 
             // label1
             // 
@@ -133,7 +111,7 @@
             this.label1.Location = new System.Drawing.Point(12, 65);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(112, 16);
-            this.label1.TabIndex = 38;
+            this.label1.TabIndex = 48;
             this.label1.Text = "Subject Schedule *";
             // 
             // cbSubjectSchedule
@@ -146,10 +124,10 @@
             this.cbSubjectSchedule.ItemHeight = 16;
             this.cbSubjectSchedule.Location = new System.Drawing.Point(12, 84);
             this.cbSubjectSchedule.Name = "cbSubjectSchedule";
-            this.cbSubjectSchedule.Size = new System.Drawing.Size(813, 24);
-            this.cbSubjectSchedule.TabIndex = 39;
+            this.cbSubjectSchedule.Size = new System.Drawing.Size(915, 24);
+            this.cbSubjectSchedule.TabIndex = 49;
             // 
-            // frmReportViewAttendanceTeacher
+            // frmReportStudentsAbsentsTeacher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -159,19 +137,17 @@
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.crv);
             this.Controls.Add(this.btnGenerate);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.dtpDate);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbSubjectSchedule);
             this.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "frmReportViewAttendanceTeacher";
+            this.Name = "frmReportStudentsAbsentsTeacher";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmReportViewAttendanceTeacher";
+            this.Text = "frmReportStudentsAbsentsTeacher";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.frmReportViewAttendanceTeacher_Load);
+            this.Load += new System.EventHandler(this.frmReportStudentsAbsentsTeacher_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -186,8 +162,6 @@
         private System.Windows.Forms.Button btnClose;
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crv;
         private System.Windows.Forms.Button btnGenerate;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DateTimePicker dtpDate;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbSubjectSchedule;
     }

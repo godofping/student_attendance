@@ -262,17 +262,35 @@
     <Compile Include="Reports\frmReportStudentsAbsents.Designer.cs">
       <DependentUpon>frmReportStudentsAbsents.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\frmReportStudentsAbsentsTeacher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmReportStudentsAbsentsTeacher.Designer.cs">
+      <DependentUpon>frmReportStudentsAbsentsTeacher.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\frmReportStudentsPresent.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Reports\frmReportStudentsPresent.Designer.cs">
       <DependentUpon>frmReportStudentsPresent.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\frmReportStudentsPresentTeacher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmReportStudentsPresentTeacher.Designer.cs">
+      <DependentUpon>frmReportStudentsPresentTeacher.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\frmReportSummaryOfStudentsAttendances.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Reports\frmReportSummaryOfStudentsAttendances.Designer.cs">
       <DependentUpon>frmReportSummaryOfStudentsAttendances.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\frmReportSummaryOfStudentsAttendancesTeacher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmReportSummaryOfStudentsAttendancesTeacher.Designer.cs">
+      <DependentUpon>frmReportSummaryOfStudentsAttendancesTeacher.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\frmReportViewAttendance.cs">
       <SubType>Form</SubType>
@@ -422,11 +440,20 @@
     <EmbeddedResource Include="Reports\frmReportStudentsAbsents.resx">
       <DependentUpon>frmReportStudentsAbsents.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmReportStudentsAbsentsTeacher.resx">
+      <DependentUpon>frmReportStudentsAbsentsTeacher.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\frmReportStudentsPresent.resx">
       <DependentUpon>frmReportStudentsPresent.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmReportStudentsPresentTeacher.resx">
+      <DependentUpon>frmReportStudentsPresentTeacher.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\frmReportSummaryOfStudentsAttendances.resx">
       <DependentUpon>frmReportSummaryOfStudentsAttendances.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmReportSummaryOfStudentsAttendancesTeacher.resx">
+      <DependentUpon>frmReportSummaryOfStudentsAttendancesTeacher.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\frmReportViewAttendance.resx">
       <DependentUpon>frmReportViewAttendance.cs</DependentUpon>

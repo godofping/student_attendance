@@ -27,5 +27,26 @@ namespace thesis.PL
             frm.ShowDialog();
             
         }
+
+        private void frmSummaryOfStudentsAttendances_Click(object sender, EventArgs e)
+        {
+            Reports.frmReportSummaryOfStudentsAttendancesTeacher frm = new Reports.frmReportSummaryOfStudentsAttendancesTeacher(employeeEL);
+            frm.ShowDialog();
+            
+        }
+
+        private void btnSummaryOfStudentsAbsentList_Click(object sender, EventArgs e)
+        {
+            Reports.frmReportStudentsAbsentsTeacher frm = new Reports.frmReportStudentsAbsentsTeacher(employeeEL);
+            frm.ShowDialog();
+            
+        }
+
+        private void btnSummaryOfStudentsPresentList_Click(object sender, EventArgs e)
+        {
+            Reports.frmReportStudentsPresentTeacher frm = new Reports.frmReportStudentsPresentTeacher(employeeEL);
+            frm.ShowDialog();
+            
+        }
     }
 }

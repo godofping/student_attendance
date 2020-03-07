@@ -62,6 +62,7 @@
             this.frmSummaryOfStudentsAttendances.TabIndex = 23;
             this.frmSummaryOfStudentsAttendances.Text = "Summary of Students Attendances";
             this.frmSummaryOfStudentsAttendances.UseVisualStyleBackColor = false;
+            this.frmSummaryOfStudentsAttendances.Click += new System.EventHandler(this.frmSummaryOfStudentsAttendances_Click);
             // 
             // btnSummaryOfStudentsPresentList
             // 
@@ -76,6 +77,7 @@
             this.btnSummaryOfStudentsPresentList.TabIndex = 22;
             this.btnSummaryOfStudentsPresentList.Text = "Summary of Students Present List";
             this.btnSummaryOfStudentsPresentList.UseVisualStyleBackColor = false;
+            this.btnSummaryOfStudentsPresentList.Click += new System.EventHandler(this.btnSummaryOfStudentsPresentList_Click);
             // 
             // btnSummaryOfStudentsAbsentList
             // 
@@ -90,6 +92,7 @@
             this.btnSummaryOfStudentsAbsentList.TabIndex = 21;
             this.btnSummaryOfStudentsAbsentList.Text = "Summary of Students Absent List";
             this.btnSummaryOfStudentsAbsentList.UseVisualStyleBackColor = false;
+            this.btnSummaryOfStudentsAbsentList.Click += new System.EventHandler(this.btnSummaryOfStudentsAbsentList_Click);
             // 
             // frmReportsTeacher
             // 

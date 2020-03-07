@@ -10,25 +10,28 @@ using System.Windows.Forms;
 
 namespace thesis.PL.Reports
 {
-    public partial class frmReportViewAttendanceTeacher : Form
+    public partial class frmReportSummaryOfStudentsAttendancesTeacher : Form
     {
         EL.Registrations.Employees employeeEL;
         EL.Transactions.Attendances attendanceEL = new EL.Transactions.Attendances();
         EL.Registrations.Subjectsscheduling subjectschedulingEL = new EL.Registrations.Subjectsscheduling();
+        EL.Registrations.Studentssubjectenrollment studentsubjectenrollmentEL = new EL.Registrations.Studentssubjectenrollment();
 
         BL.Registrations.Employees employeeBL = new BL.Registrations.Employees();
         BL.Transactions.Attendances attendanceBL = new BL.Transactions.Attendances();
         BL.Registrations.Subjectsscheduling subjectschedulingBL = new BL.Registrations.Subjectsscheduling();
+        BL.Registrations.Studentssubjectenrollment studentsubjectenrollmentBL = new BL.Registrations.Studentssubjectenrollment();
 
-        public frmReportViewAttendanceTeacher(EL.Registrations.Employees _employeeEL)
+
+        public frmReportSummaryOfStudentsAttendancesTeacher(EL.Registrations.Employees _employeeEL)
         {
             InitializeComponent();
             employeeEL = _employeeEL;
         }
 
-    
         private void PopulateCBSubjectSchedule()
         {
+
             var dt = subjectschedulingBL.ListTeacherSchedule(employeeEL.Employeeid.ToString());
 
 
@@ -41,36 +44,27 @@ namespace thesis.PL.Reports
                 cbSubjectSchedule.DataSource = null;
                 cbSubjectSchedule.Items.Clear();
             }
-        }
 
-        private void frmReportViewAttendanceTeacher_Load(object sender, EventArgs e)
-        {
-            PopulateCBSubjectSchedule();
-        }
-
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
 
         private void btnGenerate_Click(object sender, EventArgs e)
         {
-            if (methods.CheckRequiredCB( cbSubjectSchedule) & methods.CheckRequiredDTP(dtpDate))
+            if (methods.CheckRequiredCB( cbSubjectSchedule))
             {
 
                 if (PL.methods.IsContainsCB( cbSubjectSchedule))
                 {
 
-                    attendanceEL.Createdat = dtpDate.Text;
-                    attendanceEL.Studentsubjectenrollmentid = Convert.ToInt32(cbSubjectSchedule.SelectedValue);
-                    subjectschedulingEL.Subjectscheduleid = attendanceEL.Studentsubjectenrollmentid;
+                    Reports.crStudentsAttendances cr = new Reports.crStudentsAttendances();
 
-                    Reports.crAttendanceDaily cr = new Reports.crAttendanceDaily();
+                    subjectschedulingEL.Subjectscheduleid = Convert.ToInt32(cbSubjectSchedule.SelectedValue);
 
                     cr.Database.Tables["subjectsschedule_converted_view"].SetDataSource(subjectschedulingBL.GetInformation(subjectschedulingEL));
+                    cr.Database.Tables["a_view"].SetDataSource(studentsubjectenrollmentBL.A(subjectschedulingEL.Subjectscheduleid));
 
-                    cr.Database.Tables["students_attendance_view"].SetDataSource(attendanceBL.ListAttendanceByDate(attendanceEL));
-                    cr.SetParameterValue("dateofreport", attendanceEL.Createdat);
+
+                    cr.Subreports[0].Database.Tables["students_attendance_view"].SetDataSource(attendanceBL.List());
+
 
                     crv.ReportSource = null;
                     crv.ReportSource = cr;
@@ -88,11 +82,14 @@ namespace thesis.PL.Reports
             }
         }
 
-        private void cbTeacher_SelectedIndexChanged(object sender, EventArgs e)
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void frmReportSummaryOfStudentsAttendancesTeacher_Load(object sender, EventArgs e)
         {
             PopulateCBSubjectSchedule();
         }
-
-     
     }
 }
