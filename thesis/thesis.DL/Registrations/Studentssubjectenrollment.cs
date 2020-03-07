@@ -44,6 +44,17 @@ namespace thesis.DL.Registrations
             }
         }
 
+        public DataTable A(int id)
+        {
+            using (var cmd = new MySqlCommand())
+            {
+                cmd.CommandText = "select * from a_view where subjectscheduleid = @id order by studentfullname";
+
+                cmd.Parameters.AddWithValue("@id", id);
+                return methods.executeQuery(cmd);
+            }
+        }
+
         public DataTable List(EL.Registrations.Studentssubjectenrollment studentsubjectenrollmentEL)
         {
             using (var cmd = new MySqlCommand())

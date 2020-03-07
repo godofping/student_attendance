@@ -72,7 +72,7 @@
             this.btnSummaryOfStudentsAbsentList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSummaryOfStudentsAbsentList.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSummaryOfStudentsAbsentList.ForeColor = System.Drawing.Color.White;
-            this.btnSummaryOfStudentsAbsentList.Location = new System.Drawing.Point(719, 58);
+            this.btnSummaryOfStudentsAbsentList.Location = new System.Drawing.Point(391, 154);
             this.btnSummaryOfStudentsAbsentList.Name = "btnSummaryOfStudentsAbsentList";
             this.btnSummaryOfStudentsAbsentList.Size = new System.Drawing.Size(236, 57);
             this.btnSummaryOfStudentsAbsentList.TabIndex = 18;
@@ -102,12 +102,13 @@
             this.frmSummaryOfStudentsAttendances.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.frmSummaryOfStudentsAttendances.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.frmSummaryOfStudentsAttendances.ForeColor = System.Drawing.Color.White;
-            this.frmSummaryOfStudentsAttendances.Location = new System.Drawing.Point(391, 154);
+            this.frmSummaryOfStudentsAttendances.Location = new System.Drawing.Point(744, 58);
             this.frmSummaryOfStudentsAttendances.Name = "frmSummaryOfStudentsAttendances";
             this.frmSummaryOfStudentsAttendances.Size = new System.Drawing.Size(236, 57);
             this.frmSummaryOfStudentsAttendances.TabIndex = 20;
             this.frmSummaryOfStudentsAttendances.Text = "Summary of Students Attendances";
             this.frmSummaryOfStudentsAttendances.UseVisualStyleBackColor = false;
+            this.frmSummaryOfStudentsAttendances.Click += new System.EventHandler(this.frmSummaryOfStudentsAttendances_Click);
             // 
             // frmReports
             // 

@@ -41,6 +41,10 @@ namespace thesis.PL
             frm.ShowDialog();
         }
 
-      
+        private void frmSummaryOfStudentsAttendances_Click(object sender, EventArgs e)
+        {
+            Reports.frmReportSummaryOfStudentsAttendances frm = new Reports.frmReportSummaryOfStudentsAttendances();
+            frm.ShowDialog();
+        }
     }
 }

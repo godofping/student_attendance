@@ -25,6 +25,11 @@ namespace thesis.BL.Registrations
             return studentsubjectenrollmentDL.Presents(id);
         }
 
+        public DataTable A(int id)
+        {
+            return studentsubjectenrollmentDL.A(id);
+        }
+
         public DataTable List(EL.Registrations.Studentssubjectenrollment studentsubjectsenrolledEL)
         {
             return studentsubjectenrollmentDL.List(studentsubjectsenrolledEL);

@@ -99,6 +99,16 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="a_view" msprop:Generator_TableClassName="a_viewDataTable" msprop:Generator_TableVarName="tablea_view" msprop:Generator_RowChangedName="a_viewRowChanged" msprop:Generator_TablePropName="a_view" msprop:Generator_RowDeletingName="a_viewRowDeleting" msprop:Generator_RowChangingName="a_viewRowChanging" msprop:Generator_RowEvHandlerName="a_viewRowChangeEventHandler" msprop:Generator_RowDeletedName="a_viewRowDeleted" msprop:Generator_RowClassName="a_viewRow" msprop:Generator_UserTableName="a_view" msprop:Generator_RowEvArgName="a_viewRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="studentsubjectenrollmentid" msprop:Generator_ColumnVarNameInTable="columnstudentsubjectenrollmentid" msprop:Generator_ColumnPropNameInRow="studentsubjectenrollmentid" msprop:Generator_ColumnPropNameInTable="studentsubjectenrollmentidColumn" msprop:Generator_UserColumnName="studentsubjectenrollmentid" type="xs:int" minOccurs="0" />
+              <xs:element name="studentfullname" msprop:Generator_ColumnVarNameInTable="columnstudentfullname" msprop:Generator_ColumnPropNameInRow="studentfullname" msprop:Generator_ColumnPropNameInTable="studentfullnameColumn" msprop:Generator_UserColumnName="studentfullname" type="xs:string" minOccurs="0" />
+              <xs:element name="seat" msprop:Generator_ColumnVarNameInTable="columnseat" msprop:Generator_ColumnPropNameInRow="seat" msprop:Generator_ColumnPropNameInTable="seatColumn" msprop:Generator_UserColumnName="seat" type="xs:string" minOccurs="0" />
+              <xs:element name="subjectscheduleid" msprop:Generator_ColumnVarNameInTable="columnsubjectscheduleid" msprop:Generator_ColumnPropNameInRow="subjectscheduleid" msprop:Generator_ColumnPropNameInTable="subjectscheduleidColumn" msprop:Generator_UserColumnName="subjectscheduleid" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
   </xs:element>
