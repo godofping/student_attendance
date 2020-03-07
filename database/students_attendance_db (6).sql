@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 06, 2020 at 08:49 AM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 7.3.3
+-- Generation Time: Mar 07, 2020 at 05:21 AM
+-- Server version: 10.4.6-MariaDB
+-- PHP Version: 7.3.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,6 +21,21 @@ SET time_zone = "+00:00";
 --
 -- Database: `students_attendance_db`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `absents_view`
+-- (See below for the actual view)
+--
+CREATE TABLE `absents_view` (
+`studentsubjectenrollmentid` int(6)
+,`subjectscheduleid` int(6)
+,`studentfullname` varchar(183)
+,`absents` bigint(21)
+,`attendances` bigint(21)
+,`seat` varchar(60)
+);
 
 -- --------------------------------------------------------
 
@@ -47,7 +62,25 @@ INSERT INTO `attendances` (`attendanceid`, `studentsubjectenrollmentid`, `attend
 (635, 56, '2020-03-06 15:11:09', NULL, '2020-03-06 15:10:56', 'ABSENT'),
 (636, 57, '2020-03-06 15:11:12', NULL, '2020-03-06 15:10:56', 'ABSENT'),
 (637, 58, '2020-03-06 15:11:06', NULL, '2020-03-06 15:10:56', 'ABSENT'),
-(638, 59, NULL, NULL, '2020-03-06 15:10:56', 'ABSENT');
+(638, 59, NULL, NULL, '2020-03-06 15:10:56', 'ABSENT'),
+(639, 54, NULL, NULL, '2020-03-09 15:22:33', 'ABSENT'),
+(640, 55, NULL, NULL, '2020-03-09 15:22:33', 'ABSENT'),
+(641, 56, NULL, NULL, '2020-03-09 15:22:33', 'ABSENT'),
+(642, 57, NULL, NULL, '2020-03-09 15:22:33', 'ABSENT'),
+(643, 58, NULL, NULL, '2020-03-09 15:22:33', 'ABSENT'),
+(644, 59, NULL, NULL, '2020-03-09 15:22:33', 'ABSENT'),
+(645, 54, NULL, NULL, '2020-03-13 15:22:43', 'ABSENT'),
+(646, 55, NULL, NULL, '2020-03-13 15:22:43', 'ABSENT'),
+(647, 56, NULL, NULL, '2020-03-13 15:22:43', 'ABSENT'),
+(648, 57, NULL, NULL, '2020-03-13 15:22:43', 'ABSENT'),
+(649, 58, NULL, NULL, '2020-03-13 15:22:43', 'ABSENT'),
+(650, 59, NULL, NULL, '2020-03-13 15:22:43', 'ABSENT'),
+(651, 54, NULL, NULL, '2020-03-16 15:22:57', 'ABSENT'),
+(652, 55, NULL, NULL, '2020-03-16 15:22:57', 'ABSENT'),
+(653, 56, NULL, NULL, '2020-03-16 15:22:57', 'ABSENT'),
+(654, 57, NULL, NULL, '2020-03-16 15:22:57', 'ABSENT'),
+(655, 58, NULL, NULL, '2020-03-16 15:22:57', 'ABSENT'),
+(656, 59, NULL, NULL, '2020-03-16 15:22:57', 'ABSENT');
 
 -- --------------------------------------------------------
 
@@ -93,7 +126,7 @@ INSERT INTO `buildings` (`buildingid`, `building`) VALUES
 CREATE TABLE `computers` (
   `computerid` int(6) NOT NULL,
   `computer` varchar(60) DEFAULT NULL,
-  `issmsserver` tinyint(1) DEFAULT '0'
+  `issmsserver` tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -246,7 +279,7 @@ CREATE TABLE `seats_view` (
 CREATE TABLE `sms` (
   `smsid` int(6) NOT NULL,
   `attendanceid` int(6) DEFAULT NULL,
-  `message` text,
+  `message` text DEFAULT NULL,
   `studentcontactperson` varchar(60) DEFAULT NULL,
   `studentcontactpersonphonenumber` varchar(60) DEFAULT NULL,
   `smsstatus` varchar(60) DEFAULT NULL
@@ -261,7 +294,19 @@ INSERT INTO `sms` (`smsid`, `attendanceid`, `message`, `studentcontactperson`, `
 (123, 634, 'Rasol attendance time in is 03:11:04 PM in the subject CpE 523', 'ac', '09754363944', 'SENT'),
 (124, 637, 'Kevin attendance time in is 03:11:06 PM in the subject CpE 523', 'Mrs Bode', '09754363944', 'SENT'),
 (125, 635, 'Ivy attendance time in is 03:11:09 PM in the subject CpE 523', 'a', '09754363944', 'SENT'),
-(126, 636, 'Vince attendance time in is 03:11:12 PM in the subject CpE 523', '2', '09754363944', 'SENT');
+(126, 636, 'Vince attendance time in is 03:11:12 PM in the subject CpE 523', '2', '09754363944', 'SENT'),
+(127, 633, 'This is a warning. You have 3 absents in the subject CpE 523', 'Roncesvalles 915, Rex Louis Paradero', '+639754363944', 'SENT'),
+(128, 633, 'Roncesvalles 915, Rex Louis Paradero has 3 absents in the subject CpE 523', '09754363944', '09754363944', 'SENT'),
+(129, 634, 'This is a warning. You have 3 absents in the subject CpE 523', 'Masukat 540, Rasol Napi', '09754363944', 'SENT'),
+(130, 634, 'Masukat 540, Rasol Napi has 3 absents in the subject CpE 523', '09754363944', '09754363944', 'SENT'),
+(131, 635, 'This is a warning. You have 3 absents in the subject CpE 523', 'Morales 153, Ivy Alte', '09754363944', 'SENT'),
+(132, 635, 'Morales 153, Ivy Alte has 3 absents in the subject CpE 523', '09754363944', '09754363944', 'SENT'),
+(133, 636, 'This is a warning. You have 3 absents in the subject CpE 523', 'Ancheta 414, Vince Libre', '09754363944', 'SENT'),
+(134, 636, 'Ancheta 414, Vince Libre has 3 absents in the subject CpE 523', '09754363944', '09754363944', 'SENT'),
+(135, 637, 'This is a warning. You have 3 absents in the subject CpE 523', 'Bode 801, Kevin Donato', '09754363944', 'SENT'),
+(136, 637, 'Bode 801, Kevin Donato has 3 absents in the subject CpE 523', '09754363944', '09754363944', 'SENT'),
+(137, 638, 'This is a warning. You have 3 absents in the subject CpE 523', 'Bustamante, Ces Roncesvalles', '09754363944', 'SENT'),
+(138, 638, 'Bustamante, Ces Roncesvalles has 3 absents in the subject CpE 523', '09754363944', '09754363944', 'SENT');
 
 -- --------------------------------------------------------
 
@@ -276,8 +321,8 @@ CREATE TABLE `students` (
   `studentfirstname` varchar(60) DEFAULT NULL,
   `studentmiddlename` varchar(60) DEFAULT NULL,
   `yearlevel` varchar(60) DEFAULT NULL,
-  `studentrfid` text,
-  `studentimage` longblob,
+  `studentrfid` text DEFAULT NULL,
+  `studentimage` longblob DEFAULT NULL,
   `studentphonenumber` varchar(60) DEFAULT NULL,
   `studentcontactperson` varchar(60) DEFAULT NULL,
   `studentcontactpersonphonenumber` varchar(60) DEFAULT NULL
@@ -315,7 +360,7 @@ CREATE TABLE `studentssubjectenrollment` (
   `studentid` int(6) DEFAULT NULL,
   `subjectscheduleid` int(6) DEFAULT NULL,
   `seatid` int(6) DEFAULT NULL,
-  `isdrop` tinyint(1) DEFAULT '0'
+  `isdrop` tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -357,6 +402,7 @@ CREATE TABLE `studentssubjectenrollment_view` (
 ,`studentid` int(6)
 ,`seatid` int(6)
 ,`studentrfid` text
+,`studentimage` longblob
 );
 
 -- --------------------------------------------------------
@@ -538,11 +584,20 @@ CREATE TABLE `subjectsscheduling_view` (
 -- --------------------------------------------------------
 
 --
+-- Structure for view `absents_view`
+--
+DROP TABLE IF EXISTS `absents_view`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `absents_view`  AS  select `studentssubjectenrollment_view`.`studentsubjectenrollmentid` AS `studentsubjectenrollmentid`,`studentssubjectenrollment_view`.`subjectscheduleid` AS `subjectscheduleid`,`studentssubjectenrollment_view`.`studentfullname` AS `studentfullname`,(select count(0) from `attendances` where `attendances`.`status` = 'ABSENT' and `attendances`.`studentsubjectenrollmentid` = `studentssubjectenrollment_view`.`studentsubjectenrollmentid`) AS `absents`,(select count(0) from `attendances` where `attendances`.`studentsubjectenrollmentid` = `studentssubjectenrollment_view`.`studentsubjectenrollmentid`) AS `attendances`,`studentssubjectenrollment_view`.`seat` AS `seat` from `studentssubjectenrollment_view` ;
+
+-- --------------------------------------------------------
+
+--
 -- Structure for view `attendances_view`
 --
 DROP TABLE IF EXISTS `attendances_view`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `attendances_view`  AS  select `attendances`.`attendanceid` AS `attendanceid`,`attendances`.`studentsubjectenrollmentid` AS `studentsubjectenrollmentid`,`attendances`.`attendanceintime` AS `attendanceintime`,`attendances`.`attendanceouttime` AS `attendanceouttime`,`attendances`.`createdat` AS `createdat`,`attendances`.`status` AS `status`,concat(`students`.`studentlastname`,', ',`students`.`studentfirstname`,' ',`students`.`studentmiddlename`) AS `studentfullname` from ((`attendances` join `studentssubjectenrollment` on((`attendances`.`studentsubjectenrollmentid` = `studentssubjectenrollment`.`studentsubjectenrollmentid`))) join `students` on((`studentssubjectenrollment`.`studentid` = `students`.`studentid`))) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `attendances_view`  AS  select `attendances`.`attendanceid` AS `attendanceid`,`attendances`.`studentsubjectenrollmentid` AS `studentsubjectenrollmentid`,`attendances`.`attendanceintime` AS `attendanceintime`,`attendances`.`attendanceouttime` AS `attendanceouttime`,`attendances`.`createdat` AS `createdat`,`attendances`.`status` AS `status`,concat(`students`.`studentlastname`,', ',`students`.`studentfirstname`,' ',`students`.`studentmiddlename`) AS `studentfullname` from ((`attendances` join `studentssubjectenrollment` on(`attendances`.`studentsubjectenrollmentid` = `studentssubjectenrollment`.`studentsubjectenrollmentid`)) join `students` on(`studentssubjectenrollment`.`studentid` = `students`.`studentid`)) ;
 
 -- --------------------------------------------------------
 
@@ -551,7 +606,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `computers_view`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `computers_view`  AS  select concat(`computers`.`computer`,' : ',`rooms`.`room`,' - ',`buildings`.`building`) AS `computer`,`computers`.`computerid` AS `computerid`,`computers`.`issmsserver` AS `issmsserver` from ((`rooms` left join `computers` on((`rooms`.`computerid` = `computers`.`computerid`))) join `buildings` on((`rooms`.`buildingid` = `buildings`.`buildingid`))) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `computers_view`  AS  select concat(`computers`.`computer`,' : ',`rooms`.`room`,' - ',`buildings`.`building`) AS `computer`,`computers`.`computerid` AS `computerid`,`computers`.`issmsserver` AS `issmsserver` from ((`rooms` left join `computers` on(`rooms`.`computerid` = `computers`.`computerid`)) join `buildings` on(`rooms`.`buildingid` = `buildings`.`buildingid`)) ;
 
 -- --------------------------------------------------------
 
@@ -569,7 +624,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `rooms_view`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `rooms_view`  AS  select `rooms`.`roomid` AS `roomid`,`rooms`.`buildingid` AS `buildingid`,`rooms`.`computerid` AS `computerid`,`rooms`.`room` AS `room`,`buildings`.`building` AS `building`,`computers`.`computer` AS `computer`,`computers`.`issmsserver` AS `issmsserver` from ((`rooms` join `buildings` on((`rooms`.`buildingid` = `buildings`.`buildingid`))) join `computers` on((`rooms`.`computerid` = `computers`.`computerid`))) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `rooms_view`  AS  select `rooms`.`roomid` AS `roomid`,`rooms`.`buildingid` AS `buildingid`,`rooms`.`computerid` AS `computerid`,`rooms`.`room` AS `room`,`buildings`.`building` AS `building`,`computers`.`computer` AS `computer`,`computers`.`issmsserver` AS `issmsserver` from ((`rooms` join `buildings` on(`rooms`.`buildingid` = `buildings`.`buildingid`)) join `computers` on(`rooms`.`computerid` = `computers`.`computerid`)) ;
 
 -- --------------------------------------------------------
 
@@ -578,7 +633,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `seats_view`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `seats_view`  AS  select `seats`.`seatid` AS `seatid`,`seats`.`roomid` AS `roomid`,`seats`.`seat` AS `seat`,`rooms`.`room` AS `room` from (`seats` join `rooms` on((`seats`.`roomid` = `rooms`.`roomid`))) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `seats_view`  AS  select `seats`.`seatid` AS `seatid`,`seats`.`roomid` AS `roomid`,`seats`.`seat` AS `seat`,`rooms`.`room` AS `room` from (`seats` join `rooms` on(`seats`.`roomid` = `rooms`.`roomid`)) ;
 
 -- --------------------------------------------------------
 
@@ -587,7 +642,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `studentssubjectenrollment_view`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `studentssubjectenrollment_view`  AS  select `studentssubjectenrollment`.`studentsubjectenrollmentid` AS `studentsubjectenrollmentid`,`studentssubjectenrollment`.`subjectscheduleid` AS `subjectscheduleid`,concat(`students`.`studentlastname`,', ',`students`.`studentfirstname`,' ',`students`.`studentmiddlename`) AS `studentfullname`,`seats`.`seat` AS `seat`,`studentssubjectenrollment`.`isdrop` AS `isdrop`,`students`.`studentid` AS `studentid`,`seats`.`seatid` AS `seatid`,`students`.`studentrfid` AS `studentrfid` from ((`studentssubjectenrollment` join `students` on((`studentssubjectenrollment`.`studentid` = `students`.`studentid`))) join `seats` on((`studentssubjectenrollment`.`seatid` = `seats`.`seatid`))) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `studentssubjectenrollment_view`  AS  select `studentssubjectenrollment`.`studentsubjectenrollmentid` AS `studentsubjectenrollmentid`,`studentssubjectenrollment`.`subjectscheduleid` AS `subjectscheduleid`,concat(`students`.`studentlastname`,', ',`students`.`studentfirstname`,' ',`students`.`studentmiddlename`) AS `studentfullname`,`seats`.`seat` AS `seat`,`studentssubjectenrollment`.`isdrop` AS `isdrop`,`students`.`studentid` AS `studentid`,`seats`.`seatid` AS `seatid`,`students`.`studentrfid` AS `studentrfid`,`students`.`studentimage` AS `studentimage` from ((`studentssubjectenrollment` join `students` on(`studentssubjectenrollment`.`studentid` = `students`.`studentid`)) join `seats` on(`studentssubjectenrollment`.`seatid` = `seats`.`seatid`)) ;
 
 -- --------------------------------------------------------
 
@@ -596,7 +651,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `students_attendance_rev_view`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `students_attendance_rev_view`  AS  select `attendances`.`attendanceid` AS `attendanceid`,`attendances`.`studentsubjectenrollmentid` AS `studentsubjectenrollmentid`,`attendances`.`attendanceintime` AS `attendanceintime`,`attendances`.`attendanceouttime` AS `attendanceouttime`,`attendances`.`createdat` AS `createdat`,`attendances`.`status` AS `status`,`studentssubjectenrollment`.`subjectscheduleid` AS `subjectscheduleid`,`seats`.`seat` AS `seat`,`students`.`studentphonenumber` AS `studentphonenumber`,`students`.`studentcontactpersonphonenumber` AS `studentcontactperson`,`students`.`studentcontactpersonphonenumber` AS `studentcontactpersonphonenumber`,concat(`students`.`studentlastname`,', ',`students`.`studentfirstname`,' ',`students`.`studentmiddlename`) AS `studentfullname` from (((`attendances` join `studentssubjectenrollment` on((`attendances`.`studentsubjectenrollmentid` = `studentssubjectenrollment`.`studentsubjectenrollmentid`))) join `seats` on((`studentssubjectenrollment`.`seatid` = `seats`.`seatid`))) join `students` on((`studentssubjectenrollment`.`studentid` = `students`.`studentid`))) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `students_attendance_rev_view`  AS  select `attendances`.`attendanceid` AS `attendanceid`,`attendances`.`studentsubjectenrollmentid` AS `studentsubjectenrollmentid`,`attendances`.`attendanceintime` AS `attendanceintime`,`attendances`.`attendanceouttime` AS `attendanceouttime`,`attendances`.`createdat` AS `createdat`,`attendances`.`status` AS `status`,`studentssubjectenrollment`.`subjectscheduleid` AS `subjectscheduleid`,`seats`.`seat` AS `seat`,`students`.`studentphonenumber` AS `studentphonenumber`,`students`.`studentcontactpersonphonenumber` AS `studentcontactperson`,`students`.`studentcontactpersonphonenumber` AS `studentcontactpersonphonenumber`,concat(`students`.`studentlastname`,', ',`students`.`studentfirstname`,' ',`students`.`studentmiddlename`) AS `studentfullname` from (((`attendances` join `studentssubjectenrollment` on(`attendances`.`studentsubjectenrollmentid` = `studentssubjectenrollment`.`studentsubjectenrollmentid`)) join `seats` on(`studentssubjectenrollment`.`seatid` = `seats`.`seatid`)) join `students` on(`studentssubjectenrollment`.`studentid` = `students`.`studentid`)) ;
 
 -- --------------------------------------------------------
 
@@ -605,7 +660,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `students_attendance_view`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `students_attendance_view`  AS  select `attendances`.`attendanceid` AS `attendanceid`,`attendances`.`studentsubjectenrollmentid` AS `studentsubjectenrollmentid`,`attendances`.`attendanceintime` AS `attendanceintime`,`attendances`.`attendanceouttime` AS `attendanceouttime`,`attendances`.`createdat` AS `createdat`,`attendances`.`status` AS `status`,`studentssubjectenrollment`.`subjectscheduleid` AS `subjectscheduleid`,`seats`.`seat` AS `seat`,concat(`students`.`studentlastname`,', ',`students`.`studentfirstname`,' ',`students`.`studentmiddlename`) AS `studentfullname` from (((`attendances` join `studentssubjectenrollment` on((`attendances`.`studentsubjectenrollmentid` = `studentssubjectenrollment`.`studentsubjectenrollmentid`))) join `seats` on((`studentssubjectenrollment`.`seatid` = `seats`.`seatid`))) join `students` on((`studentssubjectenrollment`.`studentid` = `students`.`studentid`))) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `students_attendance_view`  AS  select `attendances`.`attendanceid` AS `attendanceid`,`attendances`.`studentsubjectenrollmentid` AS `studentsubjectenrollmentid`,`attendances`.`attendanceintime` AS `attendanceintime`,`attendances`.`attendanceouttime` AS `attendanceouttime`,`attendances`.`createdat` AS `createdat`,`attendances`.`status` AS `status`,`studentssubjectenrollment`.`subjectscheduleid` AS `subjectscheduleid`,`seats`.`seat` AS `seat`,concat(`students`.`studentlastname`,', ',`students`.`studentfirstname`,' ',`students`.`studentmiddlename`) AS `studentfullname` from (((`attendances` join `studentssubjectenrollment` on(`attendances`.`studentsubjectenrollmentid` = `studentssubjectenrollment`.`studentsubjectenrollmentid`)) join `seats` on(`studentssubjectenrollment`.`seatid` = `seats`.`seatid`)) join `students` on(`studentssubjectenrollment`.`studentid` = `students`.`studentid`)) ;
 
 -- --------------------------------------------------------
 
@@ -632,7 +687,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `subjectsschedule_converted_view`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `subjectsschedule_converted_view`  AS  select `subjectsscheduling`.`subjectscheduleid` AS `subjectscheduleid`,`subjectsscheduling`.`subjectid` AS `subjectid`,`subjectsscheduling`.`roomid` AS `roomid`,`subjectsscheduling`.`employeeid` AS `employeeid`,`subjectsscheduling`.`start` AS `start`,`subjectsscheduling`.`end` AS `end`,`subjectsscheduling`.`monday` AS `monday`,`subjectsscheduling`.`tuesday` AS `tuesday`,`subjectsscheduling`.`wednesday` AS `wednesday`,`subjectsscheduling`.`thursday` AS `thursday`,`subjectsscheduling`.`friday` AS `friday`,`subjectsscheduling`.`saturday` AS `saturday`,`subjectsscheduling`.`sunday` AS `sunday`,concat(`subjects`.`subjectcode`,' - ',`subjects`.`subjectdescription`) AS `subject`,concat(`employees`.`employeelastname`,', ',`employees`.`employeefirstname`,' ',`employees`.`employeemiddlename`) AS `employeefullname`,concat(`rooms`.`room`,' - ',`buildings`.`building`) AS `roombuilding`,concat(`subjectsscheduling`.`start`,' - ',`subjectsscheduling`.`end`) AS `time`,str_to_date(`subjectsscheduling`.`start`,'%h:%i %p') AS `startc`,str_to_date(`subjectsscheduling`.`end`,'%h:%i %p') AS `endc`,concat(if((`subjectsscheduling`.`monday` = 1),'Monday',''),if((`subjectsscheduling`.`tuesday` = 1),' Tuesday',''),if((`subjectsscheduling`.`wednesday` = 1),' Wednesday',''),if((`subjectsscheduling`.`thursday` = 1),' Thursday',''),if((`subjectsscheduling`.`friday` = 1),' Friday',''),if((`subjectsscheduling`.`saturday` = 1),' Saturday',''),if((`subjectsscheduling`.`sunday` = 1),' Sunday','')) AS `scheddays`,`computers`.`computerid` AS `computerid` from (((((`subjectsscheduling` join `employees` on((`subjectsscheduling`.`employeeid` = `employees`.`employeeid`))) join `rooms` on((`subjectsscheduling`.`roomid` = `rooms`.`roomid`))) join `subjects` on((`subjectsscheduling`.`subjectid` = `subjects`.`subjectid`))) join `computers` on((`rooms`.`computerid` = `computers`.`computerid`))) join `buildings` on((`rooms`.`buildingid` = `buildings`.`buildingid`))) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `subjectsschedule_converted_view`  AS  select `subjectsscheduling`.`subjectscheduleid` AS `subjectscheduleid`,`subjectsscheduling`.`subjectid` AS `subjectid`,`subjectsscheduling`.`roomid` AS `roomid`,`subjectsscheduling`.`employeeid` AS `employeeid`,`subjectsscheduling`.`start` AS `start`,`subjectsscheduling`.`end` AS `end`,`subjectsscheduling`.`monday` AS `monday`,`subjectsscheduling`.`tuesday` AS `tuesday`,`subjectsscheduling`.`wednesday` AS `wednesday`,`subjectsscheduling`.`thursday` AS `thursday`,`subjectsscheduling`.`friday` AS `friday`,`subjectsscheduling`.`saturday` AS `saturday`,`subjectsscheduling`.`sunday` AS `sunday`,concat(`subjects`.`subjectcode`,' - ',`subjects`.`subjectdescription`) AS `subject`,concat(`employees`.`employeelastname`,', ',`employees`.`employeefirstname`,' ',`employees`.`employeemiddlename`) AS `employeefullname`,concat(`rooms`.`room`,' - ',`buildings`.`building`) AS `roombuilding`,concat(`subjectsscheduling`.`start`,' - ',`subjectsscheduling`.`end`) AS `time`,str_to_date(`subjectsscheduling`.`start`,'%h:%i %p') AS `startc`,str_to_date(`subjectsscheduling`.`end`,'%h:%i %p') AS `endc`,concat(if(`subjectsscheduling`.`monday` = 1,'Monday',''),if(`subjectsscheduling`.`tuesday` = 1,' Tuesday',''),if(`subjectsscheduling`.`wednesday` = 1,' Wednesday',''),if(`subjectsscheduling`.`thursday` = 1,' Thursday',''),if(`subjectsscheduling`.`friday` = 1,' Friday',''),if(`subjectsscheduling`.`saturday` = 1,' Saturday',''),if(`subjectsscheduling`.`sunday` = 1,' Sunday','')) AS `scheddays`,`computers`.`computerid` AS `computerid` from (((((`subjectsscheduling` join `employees` on(`subjectsscheduling`.`employeeid` = `employees`.`employeeid`)) join `rooms` on(`subjectsscheduling`.`roomid` = `rooms`.`roomid`)) join `subjects` on(`subjectsscheduling`.`subjectid` = `subjects`.`subjectid`)) join `computers` on(`rooms`.`computerid` = `computers`.`computerid`)) join `buildings` on(`rooms`.`buildingid` = `buildings`.`buildingid`)) ;
 
 -- --------------------------------------------------------
 
@@ -641,7 +696,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `subjectsscheduling_view`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `subjectsscheduling_view`  AS  select `subjectsscheduling`.`subjectscheduleid` AS `subjectscheduleid`,concat(`subjects`.`subjectcode`,' - ',`subjects`.`subjectdescription`) AS `subject`,concat(`employees`.`employeelastname`,', ',`employees`.`employeefirstname`,' ',`employees`.`employeemiddlename`) AS `employeefullname`,concat(`rooms`.`room`,' - ',`buildings`.`building`) AS `roombuilding`,concat(`subjectsscheduling`.`start`,' - ',`subjectsscheduling`.`end`) AS `time`,`subjectsscheduling`.`monday` AS `monday`,`subjectsscheduling`.`tuesday` AS `tuesday`,`subjectsscheduling`.`wednesday` AS `wednesday`,`subjectsscheduling`.`thursday` AS `thursday`,`subjectsscheduling`.`friday` AS `friday`,`subjectsscheduling`.`saturday` AS `saturday`,`subjectsscheduling`.`sunday` AS `sunday`,`employees`.`employeeid` AS `employeeid` from ((((`subjectsscheduling` join `subjects` on((`subjectsscheduling`.`subjectid` = `subjects`.`subjectid`))) join `rooms` on((`subjectsscheduling`.`roomid` = `rooms`.`roomid`))) join `buildings` on((`rooms`.`buildingid` = `buildings`.`buildingid`))) join `employees` on((`subjectsscheduling`.`employeeid` = `employees`.`employeeid`))) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `subjectsscheduling_view`  AS  select `subjectsscheduling`.`subjectscheduleid` AS `subjectscheduleid`,concat(`subjects`.`subjectcode`,' - ',`subjects`.`subjectdescription`) AS `subject`,concat(`employees`.`employeelastname`,', ',`employees`.`employeefirstname`,' ',`employees`.`employeemiddlename`) AS `employeefullname`,concat(`rooms`.`room`,' - ',`buildings`.`building`) AS `roombuilding`,concat(`subjectsscheduling`.`start`,' - ',`subjectsscheduling`.`end`) AS `time`,`subjectsscheduling`.`monday` AS `monday`,`subjectsscheduling`.`tuesday` AS `tuesday`,`subjectsscheduling`.`wednesday` AS `wednesday`,`subjectsscheduling`.`thursday` AS `thursday`,`subjectsscheduling`.`friday` AS `friday`,`subjectsscheduling`.`saturday` AS `saturday`,`subjectsscheduling`.`sunday` AS `sunday`,`employees`.`employeeid` AS `employeeid` from ((((`subjectsscheduling` join `subjects` on(`subjectsscheduling`.`subjectid` = `subjects`.`subjectid`)) join `rooms` on(`subjectsscheduling`.`roomid` = `rooms`.`roomid`)) join `buildings` on(`rooms`.`buildingid` = `buildings`.`buildingid`)) join `employees` on(`subjectsscheduling`.`employeeid` = `employees`.`employeeid`)) ;
 
 --
 -- Indexes for dumped tables
@@ -732,7 +787,7 @@ ALTER TABLE `subjectsscheduling`
 -- AUTO_INCREMENT for table `attendances`
 --
 ALTER TABLE `attendances`
-  MODIFY `attendanceid` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=639;
+  MODIFY `attendanceid` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=657;
 
 --
 -- AUTO_INCREMENT for table `buildings`
@@ -768,7 +823,7 @@ ALTER TABLE `seats`
 -- AUTO_INCREMENT for table `sms`
 --
 ALTER TABLE `sms`
-  MODIFY `smsid` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=127;
+  MODIFY `smsid` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=139;
 
 --
 -- AUTO_INCREMENT for table `students`

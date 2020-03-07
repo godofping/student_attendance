@@ -76,9 +76,9 @@
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(141)))), ((int)(((byte)(152)))));
             this.panel1.Controls.Add(this.label9);
-            this.panel1.Location = new System.Drawing.Point(371, 12);
+            this.panel1.Location = new System.Drawing.Point(308, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(215, 37);
+            this.panel1.Size = new System.Drawing.Size(372, 37);
             this.panel1.TabIndex = 25;
             // 
             // label9
@@ -88,9 +88,9 @@
             this.label9.ForeColor = System.Drawing.Color.White;
             this.label9.Location = new System.Drawing.Point(35, 9);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(153, 21);
+            this.label9.Size = new System.Drawing.Size(312, 21);
             this.label9.TabIndex = 9;
-            this.label9.Text = "View Attendances";
+            this.label9.Text = "Summary of Students Attendance Daily";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label7

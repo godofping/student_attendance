@@ -23,7 +23,7 @@ namespace thesis.PL
 
         private void btnSummarayOfStudentsAttendanceDaily_Click(object sender, EventArgs e)
         {
-            Reports.frmReportViewAttendanceTeacher frm = new Reports.frmReportViewAttendanceTeacher();
+            Reports.frmReportViewAttendanceTeacher frm = new Reports.frmReportViewAttendanceTeacher(employeeEL);
             frm.ShowDialog();
             
         }

@@ -28,5 +28,11 @@ namespace thesis.PL
             Reports.frmReportViewAttendance frm = new Reports.frmReportViewAttendance();
             frm.ShowDialog();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Reports.frmReportStudentsAbsents frm = new Reports.frmReportStudentsAbsents();
+            frm.ShowDialog();
+        }
     }
 }

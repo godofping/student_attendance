@@ -220,6 +220,24 @@
       <DependentUpon>crProfileInformation.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reports\crAbsents.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crAbsents.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\crStudentsAbsents.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crStudentsAbsents.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\frmReportStudentsAbsents.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmReportStudentsAbsents.Designer.cs">
+      <DependentUpon>frmReportStudentsAbsents.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\frmReportViewAttendance.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -340,6 +358,17 @@
     <EmbeddedResource Include="Reports\crProfileInformation.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crProfileInformation.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\crAbsents.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crAbsents.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\crStudentsAbsents.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crStudentsAbsents.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmReportStudentsAbsents.resx">
+      <DependentUpon>frmReportStudentsAbsents.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\frmReportViewAttendance.resx">
       <DependentUpon>frmReportViewAttendance.cs</DependentUpon>

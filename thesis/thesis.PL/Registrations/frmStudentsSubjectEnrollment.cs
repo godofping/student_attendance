@@ -93,9 +93,9 @@ namespace thesis.PL.Registrations
 
             PopulateDGVStudentsSubjectEnrolled();
             methods.DGVTheme(dgvStudentsSubjectEnrolled);
-            methods.DGVRenameColumns(dgvStudentsSubjectEnrolled, "studentsubjectenrollmentid", "subjectscheduleid", "Student Name", "Seat", "Is Drop?","studentid", "seatid");
-            methods.DGVHiddenColumns(dgvStudentsSubjectEnrolled, "studentsubjectenrollmentid", "subjectscheduleid", "studentid", "seatid");
-            methods.DGVFillWeights(dgvStudentsSubjectEnrolled, new object[] { 2,3,4 }, new int[] { 50,30,20 });
+            methods.DGVRenameColumns(dgvStudentsSubjectEnrolled, "studentsubjectenrollmentid", "subjectscheduleid", "Student Name", "Seat", "Is Drop?","studentid", "seatid","RFID", "");
+            methods.DGVHiddenColumns(dgvStudentsSubjectEnrolled, "studentsubjectenrollmentid", "subjectscheduleid", "studentid", "seatid","isdrop");
+            methods.DGVFillWeights(dgvStudentsSubjectEnrolled, new object[] { 2,3,7,8 }, new int[] {45,20,15,20 });
             methods.DGVBUTTONRemove(dgvStudentsSubjectEnrolled);
 
         }
