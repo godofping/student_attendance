@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 07, 2020 at 05:21 AM
+-- Generation Time: Mar 07, 2020 at 07:01 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -57,7 +57,7 @@ CREATE TABLE `attendances` (
 --
 
 INSERT INTO `attendances` (`attendanceid`, `studentsubjectenrollmentid`, `attendanceintime`, `attendanceouttime`, `createdat`, `status`) VALUES
-(633, 54, '2020-03-06 15:11:01', NULL, '2020-03-06 15:10:56', 'ABSENT'),
+(633, 54, '2020-03-06 15:11:01', '2020-03-06 15:11:01', '2020-03-06 15:10:56', 'PRESENT'),
 (634, 55, '2020-03-06 15:11:04', NULL, '2020-03-06 15:10:56', 'ABSENT'),
 (635, 56, '2020-03-06 15:11:09', NULL, '2020-03-06 15:10:56', 'ABSENT'),
 (636, 57, '2020-03-06 15:11:12', NULL, '2020-03-06 15:10:56', 'ABSENT'),
@@ -96,6 +96,19 @@ CREATE TABLE `attendances_view` (
 ,`createdat` datetime
 ,`status` varchar(60)
 ,`studentfullname` varchar(183)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `a_view`
+-- (See below for the actual view)
+--
+CREATE TABLE `a_view` (
+`studentsubjectenrollmentid` int(6)
+,`studentfullname` varchar(183)
+,`seat` varchar(60)
+,`subjectscheduleid` int(6)
 );
 
 -- --------------------------------------------------------
@@ -188,6 +201,21 @@ CREATE TABLE `employees_view` (
 ,`accounttype` varchar(60)
 ,`username` varchar(60)
 ,`password` varchar(60)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `presents_view`
+-- (See below for the actual view)
+--
+CREATE TABLE `presents_view` (
+`studentsubjectenrollmentid` int(6)
+,`subjectscheduleid` int(6)
+,`studentfullname` varchar(183)
+,`presents` bigint(21)
+,`attendances` bigint(21)
+,`seat` varchar(60)
 );
 
 -- --------------------------------------------------------
@@ -602,6 +630,15 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
+-- Structure for view `a_view`
+--
+DROP TABLE IF EXISTS `a_view`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `a_view`  AS  select `studentssubjectenrollment_view`.`studentsubjectenrollmentid` AS `studentsubjectenrollmentid`,`studentssubjectenrollment_view`.`studentfullname` AS `studentfullname`,`studentssubjectenrollment_view`.`seat` AS `seat`,`studentssubjectenrollment_view`.`subjectscheduleid` AS `subjectscheduleid` from `studentssubjectenrollment_view` ;
+
+-- --------------------------------------------------------
+
+--
 -- Structure for view `computers_view`
 --
 DROP TABLE IF EXISTS `computers_view`;
@@ -616,6 +653,15 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 DROP TABLE IF EXISTS `employees_view`;
 
 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `employees_view`  AS  select `employees`.`employeeid` AS `employeeid`,concat(`employees`.`employeelastname`,', ',`employees`.`employeefirstname`,' ',`employees`.`employeemiddlename`) AS `employeefullname`,`employees`.`accounttype` AS `accounttype`,`employees`.`username` AS `username`,`employees`.`password` AS `password` from `employees` ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `presents_view`
+--
+DROP TABLE IF EXISTS `presents_view`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `presents_view`  AS  select `studentssubjectenrollment_view`.`studentsubjectenrollmentid` AS `studentsubjectenrollmentid`,`studentssubjectenrollment_view`.`subjectscheduleid` AS `subjectscheduleid`,`studentssubjectenrollment_view`.`studentfullname` AS `studentfullname`,(select count(0) from `attendances` where `attendances`.`status` = 'PRESENT' and `attendances`.`studentsubjectenrollmentid` = `studentssubjectenrollment_view`.`studentsubjectenrollmentid`) AS `presents`,(select count(0) from `attendances` where `attendances`.`studentsubjectenrollmentid` = `studentssubjectenrollment_view`.`studentsubjectenrollmentid`) AS `attendances`,`studentssubjectenrollment_view`.`seat` AS `seat` from `studentssubjectenrollment_view` ;
 
 -- --------------------------------------------------------
 
