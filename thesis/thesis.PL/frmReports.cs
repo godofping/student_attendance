@@ -29,10 +29,18 @@ namespace thesis.PL
             frm.ShowDialog();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnSummaryOfStudentsAbsentList_Click(object sender, EventArgs e)
         {
             Reports.frmReportStudentsAbsents frm = new Reports.frmReportStudentsAbsents();
             frm.ShowDialog();
         }
+
+        private void btnSummaryOfStudentsPresentList_Click(object sender, EventArgs e)
+        {
+            Reports.frmReportStudentsPresent frm = new Reports.frmReportStudentsPresent();
+            frm.ShowDialog();
+        }
+
+      
     }
 }

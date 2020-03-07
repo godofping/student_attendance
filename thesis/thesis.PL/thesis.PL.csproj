@@ -208,6 +208,12 @@
     <Compile Include="Registrations\frmSubjectScheduling.Designer.cs">
       <DependentUpon>frmSubjectScheduling.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\crAbsents1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crAbsents.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reports\crAttendanceDaily.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -220,10 +226,10 @@
       <DependentUpon>crProfileInformation.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Reports\crAbsents.cs">
+    <Compile Include="Reports\crPresent.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>crAbsents.rpt</DependentUpon>
+      <DependentUpon>crPresent.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reports\crStudentsAbsents.cs">
@@ -232,11 +238,23 @@
       <DependentUpon>crStudentsAbsents.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reports\crStudentsPresent.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crStudentsPresent.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reports\frmReportStudentsAbsents.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Reports\frmReportStudentsAbsents.Designer.cs">
       <DependentUpon>frmReportStudentsAbsents.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\frmReportStudentsPresent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmReportStudentsPresent.Designer.cs">
+      <DependentUpon>frmReportStudentsPresent.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\frmReportViewAttendance.cs">
       <SubType>Form</SubType>
@@ -351,6 +369,10 @@
     <EmbeddedResource Include="Registrations\frmSubjectScheduling.resx">
       <DependentUpon>frmSubjectScheduling.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\crAbsents.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crAbsents1.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\crAttendanceDaily.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crAttendanceDaily.cs</LastGenOutput>
@@ -359,16 +381,23 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crProfileInformation.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\crAbsents.rpt">
+    <EmbeddedResource Include="Reports\crPresent.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>crAbsents.cs</LastGenOutput>
+      <LastGenOutput>crPresent.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\crStudentsAbsents.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crStudentsAbsents.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\crStudentsPresent.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crStudentsPresent.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\frmReportStudentsAbsents.resx">
       <DependentUpon>frmReportStudentsAbsents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmReportStudentsPresent.resx">
+      <DependentUpon>frmReportStudentsPresent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\frmReportViewAttendance.resx">
       <DependentUpon>frmReportViewAttendance.cs</DependentUpon>

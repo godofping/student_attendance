@@ -20,6 +20,11 @@ namespace thesis.BL.Registrations
             return studentsubjectenrollmentDL.Absents(id);
         }
 
+        public DataTable Presents(int id)
+        {
+            return studentsubjectenrollmentDL.Presents(id);
+        }
+
         public DataTable List(EL.Registrations.Studentssubjectenrollment studentsubjectsenrolledEL)
         {
             return studentsubjectenrollmentDL.List(studentsubjectsenrolledEL);

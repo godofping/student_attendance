@@ -1,6 +1,6 @@
 ﻿namespace thesis.PL.Reports
 {
-    partial class frmReportStudentsAbsents
+    partial class frmReportStudentsPresent
     {
         /// <summary>
         /// Required designer variable.
@@ -45,9 +45,9 @@
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(141)))), ((int)(((byte)(152)))));
             this.panel1.Controls.Add(this.label9);
-            this.panel1.Location = new System.Drawing.Point(354, 12);
+            this.panel1.Location = new System.Drawing.Point(350, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(314, 37);
+            this.panel1.Size = new System.Drawing.Size(317, 37);
             this.panel1.TabIndex = 35;
             // 
             // label9
@@ -57,9 +57,9 @@
             this.label9.ForeColor = System.Drawing.Color.White;
             this.label9.Location = new System.Drawing.Point(35, 9);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(257, 21);
+            this.label9.Size = new System.Drawing.Size(258, 21);
             this.label9.TabIndex = 9;
-            this.label9.Text = "Summary of Students Absent List";
+            this.label9.Text = "Summary of Students Present List";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnClose
@@ -153,7 +153,7 @@
             this.cbTeacher.TabIndex = 37;
             this.cbTeacher.SelectedIndexChanged += new System.EventHandler(this.cbTeacher_SelectedIndexChanged);
             // 
-            // frmReportStudentsAbsents
+            // frmReportStudentsPresent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -171,7 +171,7 @@
             this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "frmReportStudentsAbsents";
+            this.Name = "frmReportStudentsPresent";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmReportStudentsAbsents";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
