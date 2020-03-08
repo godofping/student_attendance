@@ -35,7 +35,7 @@ namespace thesis.PL.Transactions
 
         int now = 0;
         int previous = 0;
- 
+
 
         public frmAttendancesMain()
         {
@@ -68,6 +68,15 @@ namespace thesis.PL.Transactions
         }
 
 
+        private void GetComputer()
+        {
+            var comEL = new EL.Registrations.Computers();
+            var comBL = new BL.Registrations.Computers();
+
+
+            comEL = comBL.Select(EL.Transactions.Initialization.computerid);
+            lblComputer.Text = comEL.Computer;
+        }
 
         private void GetCurrentSchedule()
         {
@@ -106,7 +115,7 @@ namespace thesis.PL.Transactions
                 now = subjectschedulingEL.Subjectscheduleid;
 
 
-               
+
 
             }
             else
@@ -116,11 +125,10 @@ namespace thesis.PL.Transactions
                 now = 0;
             }
 
-            
+
 
             if (now != previous)
             {
-                Console.WriteLine("PREVIOUS: " + previous + " NOW: " + now + " subj: " + subjectschedulingEL.Subjectscheduleid);
                 PopulateDGV();
 
                 previous = now;
@@ -138,8 +146,8 @@ namespace thesis.PL.Transactions
 
         private void PopulateDGV()
         {
-            Console.WriteLine("called");
-           methods.LoadDGV(dgv, studentsubjectenrollmentBL.ListOfStudentsSeatAssignment(now));
+
+            methods.LoadDGV(dgv, studentsubjectenrollmentBL.ListOfStudentsSeatAssignment(now));
             dgv.ClearSelection();
             dgv.CurrentCell = null;
         }
@@ -229,14 +237,12 @@ namespace thesis.PL.Transactions
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            var comEL = new EL.Registrations.Computers();
-            var comBL = new BL.Registrations.Computers();
 
-            comEL = comBL.Select(EL.Transactions.Initialization.computerid);
-            lblComputer.Text = comEL.Computer;
+            GetComputer();
+
             GetCurrentSchedule();
 
-            
+
 
         }
 
@@ -288,7 +294,7 @@ namespace thesis.PL.Transactions
 
                             attendanceEL = attendanceBL.Select(attendanceEL);
 
-              
+
                             //for time in
                             if (attendanceEL.Attendanceintime.Equals("") & attendanceEL.Attendanceouttime.Equals(""))
                             {
@@ -328,7 +334,7 @@ namespace thesis.PL.Transactions
 
                             }
                             //for time out
-                            else if (!attendanceEL.Attendanceintime.Equals("") & attendanceEL.Attendanceouttime.Equals("") )
+                            else if (!attendanceEL.Attendanceintime.Equals("") & attendanceEL.Attendanceouttime.Equals(""))
                             {
 
 
@@ -441,7 +447,7 @@ namespace thesis.PL.Transactions
                     foreach (DataRow row in dt.Rows)
                     {
 
-                      
+
                         //check if there is already a generated attendance for this student on this subject
                         attendanceEL = new EL.Transactions.Attendances();
                         attendanceEL.Studentsubjectenrollmentid = Convert.ToInt32(row["studentsubjectenrollmentid"]);
@@ -455,7 +461,7 @@ namespace thesis.PL.Transactions
                         if (attendanceBL.CheckIfHasAttendance(attendanceEL).Rows.Count == 0)
                         {
 
-                            
+
 
 
                             attendanceEL = new EL.Transactions.Attendances();
@@ -558,7 +564,7 @@ namespace thesis.PL.Transactions
 
 
 
-            
+
         }
 
 

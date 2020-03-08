@@ -43,7 +43,7 @@ namespace thesis.PL
 
         private void PopulateCB()
         {
-            methods.LoadCB(cbComputers, computerBL.List(""), "computer", "computerid");
+            methods.LoadCB(cbComputers, computerBL.List(), "computer", "computerid");
         }
 
         private void frmChangeComputer_Load(object sender, EventArgs e)

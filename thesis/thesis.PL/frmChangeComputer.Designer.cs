@@ -50,7 +50,7 @@
             this.cbComputers.FormattingEnabled = true;
             this.cbComputers.Location = new System.Drawing.Point(26, 60);
             this.cbComputers.Name = "cbComputers";
-            this.cbComputers.Size = new System.Drawing.Size(215, 29);
+            this.cbComputers.Size = new System.Drawing.Size(458, 29);
             this.cbComputers.TabIndex = 26;
             // 
             // btnSet
@@ -60,7 +60,7 @@
             this.btnSet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSet.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSet.ForeColor = System.Drawing.Color.White;
-            this.btnSet.Location = new System.Drawing.Point(267, 31);
+            this.btnSet.Location = new System.Drawing.Point(490, 32);
             this.btnSet.Name = "btnSet";
             this.btnSet.Size = new System.Drawing.Size(130, 57);
             this.btnSet.TabIndex = 28;
@@ -73,7 +73,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(409, 115);
+            this.ClientSize = new System.Drawing.Size(632, 115);
             this.Controls.Add(this.btnSet);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.cbComputers);

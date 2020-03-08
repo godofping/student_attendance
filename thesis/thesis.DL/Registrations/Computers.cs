@@ -33,6 +33,23 @@ namespace thesis.DL.Registrations
             }
         }
 
+        public DataTable List()
+        {
+           EL.Registrations.Computers  computerEL = new EL.Registrations.Computers();
+
+            using (var cmd = new MySqlCommand())
+            {
+                cmd.CommandText = "select * from computers_view";
+
+                cmd.Parameters.AddWithValue("@computerid", computerEL.Computerid);
+                cmd.Parameters.AddWithValue("@computer", computerEL.Computer);
+                return methods.executeQuery(cmd);
+            }
+        }
+
+
+        
+
         public DataTable Availables(EL.Registrations.Computers computerEL)
         {
             using (var cmd = new MySqlCommand())
