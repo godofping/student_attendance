@@ -57,9 +57,9 @@ namespace thesis.BL.Registrations
             return studentsubjectenrollmentDL.ReturnDetails(studentid, subjectscheduleid);
         }
 
-        public bool IfStudentEnrolled(int id)
+        public bool IfStudentEnrolled(int id, int subjectscheduleid)
         {
-            return studentsubjectenrollmentDL.IfStudentEnrolled(id);
+            return studentsubjectenrollmentDL.IfStudentEnrolled(id, subjectscheduleid);
         }
 
 

@@ -273,7 +273,7 @@ namespace thesis.PL.Transactions
                     if (studentEL != null)
                     {
                         // if this student is enrolled in this subject then
-                        if (studentsubjectenrollmentBL.IfStudentEnrolled(studentEL.Studentid))
+                        if (studentsubjectenrollmentBL.IfStudentEnrolled(studentEL.Studentid, subjectschedulingEL.Subjectscheduleid))
                         {
                             //gets the seat information of this student and loads the image to the picturebox
                             studentsubjectenrollmentEL = studentsubjectenrollmentBL.ReturnDetails(studentEL.Studentid, subjectschedulingEL.Subjectscheduleid);
