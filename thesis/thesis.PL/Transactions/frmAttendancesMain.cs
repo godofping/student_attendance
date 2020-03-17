@@ -202,7 +202,7 @@ namespace thesis.PL.Transactions
 
         private void frmAttendancesMain_KeyUp(object sender, KeyEventArgs e)
         {
-
+       
             //captures the enter when there is a class. this is for rfid reading
             if (e.KeyCode == Keys.Enter & subjectschedulingEL.Subjectscheduleid > 0)
             {
@@ -236,14 +236,10 @@ namespace thesis.PL.Transactions
                             attendanceEL.Studentsubjectenrollmentid = studentsubjectenrollmentEL.Studentsubjectenrollmentid;
                             attendanceEL.Attendanceintime = DateTime.Parse(subjectschedulingEL.Start).ToString("yyyy-MM-dd HH:mm:ss");
                             attendanceEL.Attendanceouttime = DateTime.Parse(subjectschedulingEL.End).ToString("yyyy-MM-dd HH:mm:ss");
-                            attendanceEL.Createdat = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-
 
                             attendanceEL = attendanceBL.Select(attendanceEL);
 
-
-
-
+              
                             //for time in
                             if (attendanceEL.Attendanceintime.Equals("") & attendanceEL.Attendanceouttime.Equals(""))
                             {
@@ -251,24 +247,27 @@ namespace thesis.PL.Transactions
                                 attendanceEL.Attendanceintime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
 
 
-                                if (DateTime.Now < goodtime & attendanceBL.AttendanceIn(attendanceEL))
+                                if (DateTime.Now < goodtime)
                                 {
 
-
                                     attendanceEL.Status = "ABSENT";
-                                    lblMessage.Text = "SUCCESSFULLY TIMED IN.";
 
-                                    string timein = DateTime.Now.ToString("hh:mm:ss tt");
+                                    if (attendanceBL.AttendanceIn(attendanceEL))
+                                    {
+                                        lblMessage.Text = "SUCCESSFULLY TIMED IN.";
 
-                                    lblLogTime.Text = timein;
+                                        string timein = DateTime.Now.ToString("hh:mm:ss tt");
 
-                                    smsEL.Attendanceid = attendanceEL.Attendanceid;
-                                    smsEL.Message = studentEL.Studentfirstname + " attendance time in is " + timein + " in the subject " + subjectEL.Subjectcode;
-                                    smsEL.Studentcontactperson = studentEL.Studentcontactperson;
-                                    smsEL.Studentcontactpersonphonenumber = studentEL.Studentcontactpersonphonenumber;
-                                    smsEL.Smsstatus = "PENDING";
+                                        lblLogTime.Text = timein;
 
-                                    smsBL.Insert(smsEL);
+                                        smsEL.Attendanceid = attendanceEL.Attendanceid;
+                                        smsEL.Message = studentEL.Studentfirstname + " attendance time in is " + timein + " in the subject " + subjectEL.Subjectcode;
+                                        smsEL.Studentcontactperson = studentEL.Studentcontactperson;
+                                        smsEL.Studentcontactpersonphonenumber = studentEL.Studentcontactpersonphonenumber;
+                                        smsEL.Smsstatus = "PENDING";
+
+                                        smsBL.Insert(smsEL);
+                                    }
                                 }
                                 else
                                 {
@@ -302,7 +301,7 @@ namespace thesis.PL.Transactions
                                         lblMessage.Text = "SUCCESSFULLY TIMED OUT.";
 
                                         smsEL.Attendanceid = attendanceEL.Attendanceid;
-                                        smsEL.Message = studentEL.Studentfirstname + " attendance time out is " + timeout + " in the subject " + subjectEL.Subjectcode;
+                                        smsEL.Message = studentEL.Studentlastname + ", " + studentEL.Studentfirstname + " " + studentEL.Studentmiddlename + " attendance time out is " + timeout + " in the subject " + subjectEL.Subjectcode;
                                         smsEL.Studentcontactperson = studentEL.Studentcontactperson;
                                         smsEL.Studentcontactpersonphonenumber = studentEL.Studentcontactpersonphonenumber;
                                         smsEL.Smsstatus = "PENDING";
@@ -380,24 +379,63 @@ namespace thesis.PL.Transactions
             {
                 //list all the students
                 studentsubjectenrollmentEL.Subjectscheduleid = subjectschedulingEL.Subjectscheduleid;
+
                 var dt = studentsubjectenrollmentBL.ListOfStudents(studentsubjectenrollmentEL);
 
                 //if there is a student(s) then
                 if (dt.Rows.Count > 0)
                 {
-                    //one every student 
+                    //on every student 
                     foreach (DataRow row in dt.Rows)
                     {
+
+                      
                         //check if there is already a generated attendance for this student on this subject
                         attendanceEL = new EL.Transactions.Attendances();
                         attendanceEL.Studentsubjectenrollmentid = Convert.ToInt32(row["studentsubjectenrollmentid"]);
                         attendanceEL.Attendanceintime = DateTime.Parse(subjectschedulingEL.Start).ToString("yyyy-MM-dd HH:mm:ss");
                         attendanceEL.Attendanceouttime = DateTime.Parse(subjectschedulingEL.End).ToString("yyyy-MM-dd HH:mm:ss");
-                        attendanceEL.Createdat = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+
+
+
 
                         // if there is non then generate one
                         if (attendanceBL.CheckIfHasAttendance(attendanceEL).Rows.Count == 0)
                         {
+
+                            //check if the student is absent 3 times; if yes send message;
+                            var res = attendanceBL.CountAbsents(attendanceEL);
+
+
+
+                            if (Convert.ToInt32(res.Rows[0]["total"]) == 3)
+                            {
+
+                                //to student
+                                smsEL = new EL.Transactions.Sms();
+
+                                smsEL.Attendanceid = Convert.ToInt32(res.Rows[0]["attendanceid"]);
+                                smsEL.Message = "This is a warning. You have " + Convert.ToInt32(res.Rows[0]["total"]) + " absents in the subject " + subjectEL.Subjectcode;
+                                smsEL.Studentcontactperson = res.Rows[0]["studentfullname"].ToString();
+                                smsEL.Studentcontactpersonphonenumber = res.Rows[0]["studentphonenumber"].ToString();
+                                smsEL.Smsstatus = "PENDING";
+
+                                smsBL.Insert(smsEL);
+
+
+                                //to guardian
+                                smsEL = new EL.Transactions.Sms();
+
+                                smsEL.Attendanceid = Convert.ToInt32(res.Rows[0]["attendanceid"]);
+                                smsEL.Message = res.Rows[0]["studentfullname"].ToString() + " has " + Convert.ToInt32(res.Rows[0]["total"]) +  " absents in the subject " + subjectEL.Subjectcode;
+                                smsEL.Studentcontactperson = res.Rows[0]["studentcontactperson"].ToString();
+                                smsEL.Studentcontactpersonphonenumber = res.Rows[0]["studentcontactpersonphonenumber"].ToString();
+                                smsEL.Smsstatus = "PENDING";
+
+                                smsBL.Insert(smsEL);
+                            }
+
+
                             attendanceEL = new EL.Transactions.Attendances();
                             attendanceEL.Studentsubjectenrollmentid = Convert.ToInt32(row["studentsubjectenrollmentid"]);
                             attendanceEL.Attendanceintime = null;
@@ -436,13 +474,19 @@ namespace thesis.PL.Transactions
 
                     bool res = SMS.PassSMS(smsEL);
 
-                    Console.WriteLine(res);
+
 
                     if (res)
                     {
                         smsEL.Smsstatus = "SENT";
                         smsEL.Smsid = Convert.ToInt32(dt.Rows[0]["smsid"]);
                         smsBL.Update(smsEL);
+
+                        Console.WriteLine("SENT");
+                    }
+                    else
+                    {
+                        Console.WriteLine("FAILED");
                     }
                 }
             }

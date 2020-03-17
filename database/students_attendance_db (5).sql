@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 27, 2020 at 03:55 PM
+-- Generation Time: Mar 17, 2020 at 05:25 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -42,14 +42,52 @@ CREATE TABLE `attendances` (
 --
 
 INSERT INTO `attendances` (`attendanceid`, `studentsubjectenrollmentid`, `attendanceintime`, `attendanceouttime`, `createdat`, `status`) VALUES
-(1, 52, NULL, NULL, '2020-02-26 15:11:30', 'ABSENT'),
-(2, 53, '2020-02-26 15:11:51', NULL, '2020-02-26 15:11:30', 'ABSENT'),
-(3, 40, NULL, NULL, '2020-02-27 15:51:56', 'ABSENT'),
-(4, 41, NULL, NULL, '2020-02-27 15:51:56', 'ABSENT'),
-(5, 42, NULL, NULL, '2020-02-27 15:51:56', 'ABSENT'),
-(6, 43, NULL, NULL, '2020-02-27 15:51:56', 'ABSENT'),
-(7, 44, NULL, NULL, '2020-02-27 15:51:56', 'ABSENT'),
-(8, 45, NULL, NULL, '2020-02-27 15:51:56', 'ABSENT');
+(1, 20, NULL, NULL, '2020-03-03 11:00:47', 'ABSENT'),
+(2, 21, NULL, NULL, '2020-03-03 11:00:47', 'ABSENT'),
+(3, 22, '2020-03-03 11:01:42', NULL, '2020-03-03 11:00:47', 'ABSENT'),
+(4, 23, '2020-03-05 11:00:25', NULL, '2020-03-03 11:00:48', 'ABSENT'),
+(5, 24, '2020-03-05 11:03:56', NULL, '2020-03-03 11:00:48', 'ABSENT'),
+(6, 25, NULL, NULL, '2020-03-03 12:00:56', 'ABSENT'),
+(7, 26, NULL, NULL, '2020-03-03 12:00:56', 'ABSENT'),
+(8, 27, NULL, NULL, '2020-03-03 12:00:56', 'ABSENT'),
+(9, 28, NULL, NULL, '2020-03-03 12:00:56', 'ABSENT'),
+(10, 29, NULL, NULL, '2020-03-03 12:00:56', 'ABSENT'),
+(11, 30, NULL, NULL, '2020-03-03 13:01:04', 'ABSENT'),
+(12, 31, '2020-03-03 13:02:13', '2020-03-03 13:56:36', '2020-03-03 13:01:04', 'PRESENT'),
+(13, 32, NULL, NULL, '2020-03-03 13:01:04', 'ABSENT'),
+(14, 33, NULL, NULL, '2020-03-03 13:01:04', 'ABSENT'),
+(15, 34, NULL, NULL, '2020-03-03 13:01:04', 'ABSENT'),
+(16, 35, '2020-03-03 14:01:59', '2020-03-03 14:56:56', '2020-03-03 14:01:18', 'PRESENT'),
+(17, 36, '2020-03-03 14:56:53', NULL, '2020-03-03 14:01:18', 'ABSENT'),
+(18, 37, '2020-03-03 14:57:17', NULL, '2020-03-03 14:01:18', 'ABSENT'),
+(19, 38, '2020-03-03 14:01:50', '2020-03-03 14:57:05', '2020-03-03 14:01:18', 'PRESENT'),
+(20, 39, '2020-03-03 14:57:14', NULL, '2020-03-03 14:01:18', 'ABSENT'),
+(21, 40, '2020-03-03 15:01:37', NULL, '2020-03-03 15:01:26', 'ABSENT'),
+(22, 41, NULL, NULL, '2020-03-03 15:01:26', 'ABSENT'),
+(23, 42, NULL, NULL, '2020-03-03 15:01:26', 'ABSENT'),
+(24, 43, NULL, NULL, '2020-03-03 15:01:26', 'ABSENT'),
+(25, 44, NULL, NULL, '2020-03-03 15:01:26', 'ABSENT'),
+(26, 45, NULL, NULL, '2020-03-03 15:01:26', 'ABSENT'),
+(27, 25, NULL, NULL, '2020-03-05 12:27:55', 'ABSENT'),
+(28, 26, NULL, NULL, '2020-03-05 12:27:55', 'ABSENT'),
+(29, 27, NULL, NULL, '2020-03-05 12:27:55', 'ABSENT'),
+(30, 28, NULL, NULL, '2020-03-05 12:27:55', 'ABSENT'),
+(31, 29, NULL, NULL, '2020-03-05 12:27:55', 'ABSENT'),
+(32, 20, NULL, NULL, '2020-03-05 11:00:10', 'ABSENT'),
+(33, 21, NULL, NULL, '2020-03-05 11:00:10', 'ABSENT'),
+(34, 22, '2020-03-05 11:04:21', NULL, '2020-03-05 11:00:10', 'ABSENT'),
+(35, 23, NULL, NULL, '2020-03-05 11:00:10', 'ABSENT'),
+(36, 24, NULL, NULL, '2020-03-05 11:00:10', 'ABSENT'),
+(37, 20, NULL, NULL, '2020-03-10 11:01:18', 'ABSENT'),
+(38, 21, NULL, NULL, '2020-03-10 11:01:18', 'ABSENT'),
+(39, 22, '2020-03-10 11:01:24', NULL, '2020-03-10 11:01:18', 'ABSENT'),
+(40, 23, NULL, NULL, '2020-03-10 11:01:18', 'ABSENT'),
+(41, 24, NULL, NULL, '2020-03-10 11:01:18', 'ABSENT'),
+(42, 20, NULL, NULL, '2020-03-12 11:02:48', 'ABSENT'),
+(43, 21, NULL, NULL, '2020-03-12 11:02:48', 'ABSENT'),
+(44, 22, '2020-03-12 11:02:57', NULL, '2020-03-12 11:02:48', 'ABSENT'),
+(45, 23, NULL, NULL, '2020-03-12 11:02:48', 'ABSENT'),
+(46, 24, NULL, NULL, '2020-03-12 11:02:48', 'ABSENT');
 
 -- --------------------------------------------------------
 
@@ -253,7 +291,66 @@ CREATE TABLE `sms` (
 --
 
 INSERT INTO `sms` (`smsid`, `attendanceid`, `message`, `studentcontactperson`, `studentcontactpersonphonenumber`, `smsstatus`) VALUES
-(1, 2, 'Joy attendance time in is 03:11:51 PM in the subject CPE 522', 'bode', '09754363944', 'SENT');
+(1, 2, 'Joy attendance time in is 03:11:51 PM in the subject CPE 522', 'bode', '09754363944', 'SENT'),
+(2, 23, 'Kevin attendance time in is 01:25:06 PM in the subject subject 3', 'Mrs Bode', '09754363944', 'SENT'),
+(3, 23, 'Kevin attendance time out is 01:47:07 PM in the subject subject 3', 'Mrs Bode', '09754363944', 'SENT'),
+(4, 4, 'Rasol attendance time in is 03:25:15 PM in the subject subject 5', 'ac', '09754363944', 'SENT'),
+(5, 4, 'Rasol attendance time out is 03:42:46 PM in the subject subject 5', 'ac', '09754363944', 'SENT'),
+(6, 3, 'Ivy attendance time in is 03:00:49 PM in the subject subject 5', 'a', '09754363944', 'SENT'),
+(7, 5, 'Kevin attendance time in is 03:00:51 PM in the subject subject 5', 'Mrs Bode', '09754363944', 'SENT'),
+(8, 2, 'Rasol attendance time in is 03:00:53 PM in the subject subject 5', 'ac', '09754363944', 'SENT'),
+(9, 1, 'Rex Louis attendance time in is 03:00:56 PM in the subject subject 5', 'b', '09754363944', 'SENT'),
+(10, 3, 'Ivy attendance time in is 03:01:08 PM in the subject subject 5', 'a', '09754363944', 'SENT'),
+(11, 4, 'Vince attendance time out is 03:57:13 PM in the subject subject 5', '2', '09754363944', 'SENT'),
+(12, 3, 'Ivy attendance time in is 03:00:46 PM in the subject subject 5', 'a', '09754363944', 'SENT'),
+(13, 3, 'Ivy attendance time in is 03:02:24 PM in the subject subject 5', 'a', '09754363944', 'SENT'),
+(14, 3, 'Ivy attendance time in is 03:03:05 PM in the subject subject 5', 'a', '09754363944', 'SENT'),
+(15, 1, 'Rex Louis attendance time in is 03:08:06 PM in the subject subject 5', 'b', '09754363944', 'SENT'),
+(16, 1, 'Rex Louis attendance time in is 03:08:07 PM in the subject subject 5', 'b', '09754363944', 'SENT'),
+(17, 3, 'Ivy attendance time in is 03:09:08 PM in the subject subject 5', 'a', '09754363944', 'SENT'),
+(18, 3, 'Ivy attendance time in is 03:09:09 PM in the subject subject 5', 'a', '09754363944', 'SENT'),
+(19, 3, 'Ivy attendance time in is 03:09:10 PM in the subject subject 5', 'a', '09754363944', 'SENT'),
+(20, 3, 'Ivy attendance time in is 03:09:11 PM in the subject subject 5', 'a', '09754363944', 'SENT'),
+(21, 3, 'Ivy attendance time in is 03:09:14 PM in the subject subject 5', 'a', '09754363944', 'SENT'),
+(22, 3, 'Ivy attendance time in is 03:09:15 PM in the subject subject 5', 'a', '09754363944', 'SENT'),
+(23, 3, 'Ivy attendance time in is 03:09:47 PM in the subject subject 5', 'a', '09754363944', 'SENT'),
+(24, 3, 'Ivy attendance time in is 03:09:49 PM in the subject subject 5', 'a', '09754363944', 'SENT'),
+(25, 1, 'Rex Louis attendance time in is 03:10:29 PM in the subject subject 5', 'b', '09754363944', 'SENT'),
+(26, 1, 'Rex Louis attendance time in is 03:10:34 PM in the subject subject 5', 'b', '09754363944', 'SENT'),
+(27, 1, 'Rex Louis attendance time in is 03:10:59 PM in the subject subject 5', 'b', '09754363944', 'SENT'),
+(28, 3, 'Ivy attendance time in is 03:11:23 PM in the subject subject 5', 'a', '09754363944', 'SENT'),
+(29, 1, 'Rex Louis attendance time in is 03:11:40 PM in the subject subject 5', 'b', '09754363944', 'SENT'),
+(30, 2, 'Rasol attendance time in is 03:12:39 PM in the subject subject 5', 'ac', '09754363944', 'SENT'),
+(31, 5, 'Kevin attendance time in is 03:12:44 PM in the subject subject 5', 'Mrs Bode', '09754363944', 'SENT'),
+(32, 1, 'Rex Louis attendance time out is 03:58:09 PM in the subject subject 5', 'b', '09754363944', 'SENT'),
+(33, 3, 'Ivy attendance time out is 03:59 PM in the subject subject 5', 'a', '09754363944', 'SENT'),
+(34, 2, 'Rasol attendance time out is 03:59:39 PM in the subject subject 5', 'ac', '09754363944', 'SENT'),
+(35, 5, 'Kevin attendance time out is 03:59:46 PM in the subject subject 5', 'Mrs Bode', '09754363944', 'SENT'),
+(36, 3, 'Ivy attendance time in is 11:00:54 AM in the subject subject 1', 'a', '09754363944', 'SENT'),
+(37, 5, 'Kevin attendance time in is 11:01:03 AM in the subject subject 1', 'Mrs Bode', '09754363944', 'SENT'),
+(38, 2, 'Rasol attendance time in is 11:01:06 AM in the subject subject 1', 'ac', '09754363944', 'SENT'),
+(39, 4, 'Vince attendance time in is 11:01:12 AM in the subject subject 1', '2', '09754363944', 'SENT'),
+(40, 1, 'Rex Louis attendance time in is 11:01:23 AM in the subject subject 1', 'b', '09754363944', 'SENT'),
+(41, 1, 'Rex Louis attendance time out is 11:59:01 AM in the subject subject 1', 'b', '09754363944', 'SENT'),
+(42, 4, 'Vince attendance time out is 11:59:04 AM in the subject subject 1', '2', '09754363944', 'SENT'),
+(43, 2, 'Rasol attendance time out is 11:59:11 AM in the subject subject 1', 'ac', '09754363944', 'SENT'),
+(44, 5, 'Kevin attendance time out is 11:59:17 AM in the subject subject 1', 'Mrs Bode', '09754363944', 'SENT'),
+(45, 3, 'Ivy attendance time out is 11:59:22 AM in the subject subject 1', 'a', '09754363944', 'SENT'),
+(46, 21, 'Rex Louis attendance time in is 03:01:37 PM in the subject subject 5', 'b', '09754363944', 'SENT'),
+(47, 19, 'Vince attendance time in is 02:01:50 PM in the subject subject 4', '2', '09754363944', 'SENT'),
+(48, 16, 'Rex Louis attendance time in is 02:01:59 PM in the subject subject 4', 'b', '09754363944', 'SENT'),
+(49, 12, 'Rasol attendance time in is 01:02:13 PM in the subject subject 3', 'ac', '09754363944', 'SENT'),
+(50, 12, 'Rasol attendance time out is 01:56:36 PM in the subject subject 3', 'ac', '09754363944', 'SENT'),
+(51, 16, 'Rex Louis attendance time out is 02:56:56 PM in the subject subject 4', 'b', '09754363944', 'SENT'),
+(52, 19, 'Vince attendance time out is 02:57:05 PM in the subject subject 4', '2', '09754363944', 'SENT'),
+(53, 5, 'Kevin attendance time in is 11:13:13 AM in the subject subject 1', 'Mrs Bode', '09754363944', 'SENT'),
+(54, 4, 'Vince attendance time in is 11:00:25 AM in the subject subject 1', '2', '09754363944', 'SENT'),
+(55, 5, 'Kevin attendance time in is 11:03:56 AM in the subject subject 1', 'Mrs Bode', '09754363944', 'SENT'),
+(56, 34, 'Ivy attendance time in is 11:04:21 AM in the subject subject 1', 'a', '09754363944', 'SENT'),
+(57, 39, 'Ivy attendance time in is 11:01:24 AM in the subject subject 1', 'a', '09754363944', 'SENT'),
+(58, 3, 'Ivy attendance time in is 11:01:42 AM in the subject subject 1', 'a', '09754363944', 'SENT'),
+(59, 44, 'Ivy attendance time in is 11:02:57 AM in the subject subject 1', 'a', '09754363944', 'SENT'),
+(60, 583, 'Rasol attendance time in is 11:14:00 AM in the subject subject 1', 'ac', '09754363944', 'SENT');
 
 -- --------------------------------------------------------
 
@@ -365,6 +462,27 @@ CREATE TABLE `studentssubjectenrollment_view` (
 ,`studentid` int(6)
 ,`seatid` int(6)
 ,`studentrfid` text
+);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `students_attendance_rev_view`
+-- (See below for the actual view)
+--
+CREATE TABLE `students_attendance_rev_view` (
+`attendanceid` int(6)
+,`studentsubjectenrollmentid` int(6)
+,`attendanceintime` datetime
+,`attendanceouttime` datetime
+,`createdat` datetime
+,`status` varchar(60)
+,`subjectscheduleid` int(6)
+,`seat` varchar(60)
+,`studentphonenumber` varchar(60)
+,`studentcontactperson` varchar(60)
+,`studentcontactpersonphonenumber` varchar(60)
+,`studentfullname` varchar(183)
 );
 
 -- --------------------------------------------------------
@@ -575,6 +693,15 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
+-- Structure for view `students_attendance_rev_view`
+--
+DROP TABLE IF EXISTS `students_attendance_rev_view`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `students_attendance_rev_view`  AS  select `attendances`.`attendanceid` AS `attendanceid`,`attendances`.`studentsubjectenrollmentid` AS `studentsubjectenrollmentid`,`attendances`.`attendanceintime` AS `attendanceintime`,`attendances`.`attendanceouttime` AS `attendanceouttime`,`attendances`.`createdat` AS `createdat`,`attendances`.`status` AS `status`,`studentssubjectenrollment`.`subjectscheduleid` AS `subjectscheduleid`,`seats`.`seat` AS `seat`,`students`.`studentphonenumber` AS `studentphonenumber`,`students`.`studentcontactpersonphonenumber` AS `studentcontactperson`,`students`.`studentcontactpersonphonenumber` AS `studentcontactpersonphonenumber`,concat(`students`.`studentlastname`,', ',`students`.`studentfirstname`,' ',`students`.`studentmiddlename`) AS `studentfullname` from (((`attendances` join `studentssubjectenrollment` on(`attendances`.`studentsubjectenrollmentid` = `studentssubjectenrollment`.`studentsubjectenrollmentid`)) join `seats` on(`studentssubjectenrollment`.`seatid` = `seats`.`seatid`)) join `students` on(`studentssubjectenrollment`.`studentid` = `students`.`studentid`)) ;
+
+-- --------------------------------------------------------
+
+--
 -- Structure for view `students_attendance_view`
 --
 DROP TABLE IF EXISTS `students_attendance_view`;
@@ -706,7 +833,7 @@ ALTER TABLE `subjectsscheduling`
 -- AUTO_INCREMENT for table `attendances`
 --
 ALTER TABLE `attendances`
-  MODIFY `attendanceid` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `attendanceid` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=627;
 
 --
 -- AUTO_INCREMENT for table `buildings`
@@ -742,7 +869,7 @@ ALTER TABLE `seats`
 -- AUTO_INCREMENT for table `sms`
 --
 ALTER TABLE `sms`
-  MODIFY `smsid` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `smsid` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=117;
 
 --
 -- AUTO_INCREMENT for table `students`

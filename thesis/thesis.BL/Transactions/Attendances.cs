@@ -23,6 +23,11 @@ namespace thesis.BL.Transactions
             return attendanceDL.CheckIfHasAttendance(attendanceEL);
         }
 
+        public DataTable CountAbsents(EL.Transactions.Attendances attendanceEL)
+        {
+            return attendanceDL.CountAbsents(attendanceEL);
+        }
+
         public DataTable ListAttendance(EL.Transactions.Attendances attendanceEL)
         {
             return attendanceDL.ListAttendance(attendanceEL);

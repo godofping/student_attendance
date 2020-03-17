@@ -17,12 +17,11 @@ namespace thesis.DL.Transactions
 
             using (var cmd = new MySqlCommand())
             {
-                cmd.CommandText = "select * from attendances where studentsubjectenrollmentid = @studentsubjectenrollmentid and @createdat between @attendanceintime and @attendanceouttime";
+                cmd.CommandText = "select * from attendances where studentsubjectenrollmentid = @studentsubjectenrollmentid and createdat between @attendanceintime and @attendanceouttime";
 
                 cmd.Parameters.AddWithValue("@studentsubjectenrollmentid", attendanceEL.Studentsubjectenrollmentid);
                 cmd.Parameters.AddWithValue("@attendanceintime", attendanceEL.Attendanceintime);
                 cmd.Parameters.AddWithValue("@attendanceouttime", attendanceEL.Attendanceouttime);
-                cmd.Parameters.AddWithValue("@createdat", attendanceEL.Createdat);
 
                 dt = methods.executeQuery(cmd);
             }
@@ -51,12 +50,25 @@ namespace thesis.DL.Transactions
 
             using (var cmd = new MySqlCommand())
             {
-                cmd.CommandText = "select * from attendances where studentsubjectenrollmentid = @studentsubjectenrollmentid and @createdat between @attendanceintime and @attendanceouttime";
+                cmd.CommandText = "select * from attendances where studentsubjectenrollmentid = @studentsubjectenrollmentid and createdat between @attendanceintime and @attendanceouttime";
 
                 cmd.Parameters.AddWithValue("@studentsubjectenrollmentid", attendanceEL.Studentsubjectenrollmentid);
                 cmd.Parameters.AddWithValue("@attendanceintime", attendanceEL.Attendanceintime);
                 cmd.Parameters.AddWithValue("@attendanceouttime", attendanceEL.Attendanceouttime);
-                cmd.Parameters.AddWithValue("@createdat", attendanceEL.Createdat);
+                return methods.executeQuery(cmd);
+            }
+        }
+
+
+        public DataTable CountAbsents(EL.Transactions.Attendances attendanceEL)
+        {
+
+            using (var cmd = new MySqlCommand())
+            {
+                cmd.CommandText = "select *,count(*) as total from students_attendance_rev_view where studentsubjectenrollmentid = @studentsubjectenrollmentid and status = 'ABSENT' order by attendanceid desc";
+
+                cmd.Parameters.AddWithValue("@studentsubjectenrollmentid", attendanceEL.Studentsubjectenrollmentid);
+
                 return methods.executeQuery(cmd);
             }
         }
