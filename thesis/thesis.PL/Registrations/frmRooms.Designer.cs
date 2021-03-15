@@ -92,7 +92,7 @@
             this.cbBuilding.Name = "cbBuilding";
             this.cbBuilding.Size = new System.Drawing.Size(324, 29);
             this.cbBuilding.TabIndex = 2;
-
+    
             // 
             // label3
             // 
