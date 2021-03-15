@@ -9,4 +9,4 @@ C:\xampp\htdocs\student_attendance\thesis\thesis.BL\obj\Debug\thesis.BL.csprojAs
 C:\xampp\htdocs\student_attendance\thesis\thesis.BL\obj\Debug\thesis.BL.csproj.CopyComplete
 C:\xampp\htdocs\student_attendance\thesis\thesis.BL\obj\Debug\thesis.BL.dll
 C:\xampp\htdocs\student_attendance\thesis\thesis.BL\obj\Debug\thesis.BL.pdb
-C:\xampp\htdocs\student_attendance\thesis\thesis.BL\obj\Debug\thesis.BL.csproj.CoreCompileInputs.cache
+C:\xampp\htdocs\student_attendance\thesis\thesis.BL\bin\Debug\MySql.Data.xml
