@@ -157,7 +157,7 @@ namespace thesis.DL.Registrations
             }
         }
 
-        public bool IfStudentEnrolled(int id, int subjectscheduleid)
+        public bool IfStudentEnrolled(int id)
         {
             
 
@@ -165,10 +165,9 @@ namespace thesis.DL.Registrations
 
             using (var cmd = new MySqlCommand())
             {
-                cmd.CommandText = "select * from studentssubjectenrollment where studentid = @id and subjectscheduleid = @subjectscheduleid";
+                cmd.CommandText = "select * from studentssubjectenrollment where studentid = @id";
 
                 cmd.Parameters.AddWithValue("@id", id);
-                cmd.Parameters.AddWithValue("@subjectscheduleid", subjectscheduleid);
                 dt = methods.executeQuery(cmd);
             }
 
