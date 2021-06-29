@@ -2,5 +2,3 @@ C:\xampp\htdocs\student_attendance\thesis\thesis.EL\bin\Debug\thesis.EL.dll
 C:\xampp\htdocs\student_attendance\thesis\thesis.EL\bin\Debug\thesis.EL.pdb
 C:\xampp\htdocs\student_attendance\thesis\thesis.EL\obj\Debug\thesis.EL.dll
 C:\xampp\htdocs\student_attendance\thesis\thesis.EL\obj\Debug\thesis.EL.pdb
-C:\xampp\htdocs\student_attendance\thesis\thesis.EL\obj\Debug\thesis.EL.csprojAssemblyReference.cache
-C:\xampp\htdocs\student_attendance\thesis\thesis.EL\obj\Debug\thesis.EL.csproj.CoreCompileInputs.cache

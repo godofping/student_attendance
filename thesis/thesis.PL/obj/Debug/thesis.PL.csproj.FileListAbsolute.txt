@@ -62,6 +62,7 @@ C:\xampp\htdocs\student_attendance\thesis\thesis.PL\bin\Debug\CrystalDecisions.R
 C:\xampp\htdocs\student_attendance\thesis\thesis.PL\bin\Debug\thesis.BL.pdb
 C:\xampp\htdocs\student_attendance\thesis\thesis.PL\bin\Debug\thesis.EL.pdb
 C:\xampp\htdocs\student_attendance\thesis\thesis.PL\bin\Debug\thesis.DL.pdb
+C:\xampp\htdocs\student_attendance\thesis\thesis.PL\bin\Debug\MySql.Data.xml
 C:\xampp\htdocs\student_attendance\thesis\thesis.PL\obj\Debug\thesis.PL.csproj.CopyComplete
 C:\xampp\htdocs\student_attendance\thesis\thesis.PL\obj\Debug\thesis.PL.exe
 C:\xampp\htdocs\student_attendance\thesis\thesis.PL\obj\Debug\thesis.PL.pdb
@@ -71,4 +72,3 @@ C:\xampp\htdocs\student_attendance\thesis\thesis.PL\obj\Debug\thesis.PL.Reports.
 C:\xampp\htdocs\student_attendance\thesis\thesis.PL\obj\Debug\thesis.PL.Reports.frmReportSummaryOfStudentsAttendancesTeacher.resources
 C:\xampp\htdocs\student_attendance\thesis\thesis.PL\obj\Debug\thesis.PL.Reports.frmReportStudentsAbsentsTeacher.resources
 C:\xampp\htdocs\student_attendance\thesis\thesis.PL\obj\Debug\thesis.PL.Reports.frmReportStudentsPresentTeacher.resources
-C:\xampp\htdocs\student_attendance\thesis\thesis.PL\obj\Debug\thesis.PL.csproj.CoreCompileInputs.cache
